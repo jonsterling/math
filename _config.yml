@@ -1,4 +1,4 @@
-title: Topos
+title: The Nursury
 email: jon@jonmsterling.com
 description: >-
   A mathematical web page.
@@ -60,3 +60,10 @@ antex:
 
 plugins:
   - jekyll-feed
+
+collections:
+  lectures:
+    output: true
+    order:
+      - topos.md
+      - categorical-foundations.md

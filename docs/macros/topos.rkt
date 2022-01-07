@@ -2,8 +2,10 @@
 
 (require "macro-kit.rkt")
 
-(define-local (Sub x)
+(define-global (Sub x)
   "_{" x "}")
+(define-global (Sup x)
+  "^{" x "}")
 
 (define-local ShSymbol
   @tex{\boldsymbol{\mathcal{S}}})
@@ -38,7 +40,7 @@
   (Sub x))
 
 (define-global (Cod C)
-  (Con C)
+  (Con "cod")
   (Sub C))
 
 (define-local (bold kwd)
@@ -47,5 +49,20 @@
 (define-global (TOP E)
   (bold "Top")
   (Sub E))
+
+(define-global (Idn x)
+  "1" (Sub x))
+
+(define-global (TotCat E)
+  @tex{\widetilde{@E}})
+
+(define-global (SelfIx B)
+  @tex{\underline{@B}})
+
+(define-global (Sl E e)
+  E (Sub @tex{/@e}))
+
+(define-global (InvImg f)
+  f (Sup @tex{*}))
 
 (publish-macro-library 'topos)
