@@ -2,7 +2,7 @@
 
 #=[ Scheme ]====================================================================
 # selected_scheme scheme-infraonly
-selected_scheme scheme-small
+selected_scheme scheme-full
 
 #=[ Collections ]===============================================================
 # No collections.
