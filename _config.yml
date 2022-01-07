@@ -14,6 +14,7 @@ destination : ./_site
 exclude:
   - compiled
   - _site
+  - _bibliography
 
 
 markdown: kramdown
@@ -52,22 +53,16 @@ antex:
         append: $
         classes: [antex, display]
     inline_math: false
-      #  inline_math:
-      #    priority: 10
-      #    regexp: !ruby/regexp |
-      #      /\$(?<code>.*?)\$/x
-      #    options:
-      #      prepend: $
-      #      append: $
-      #      classes: [antex, inline]
     inline_macro: false
 
 plugins:
   - jekyll-feed
+  - jekyll-scholar
+
+scholar:
+  style: elsevier-harvard
+  bibliography: refs-bibtex.bib
 
 collections:
   lectures:
     output: true
-    order:
-      - topos.md
-      - categorical-foundations.md

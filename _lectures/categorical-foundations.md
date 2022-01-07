@@ -17,8 +17,9 @@ notion of a category *over* another category.
 
 We will draw on the following materials:
 
-> - *Ahrens and Lumsdaine.* [Displayed Categories](https://arxiv.org/abs/1705.04296).
-> - *Jacobs.* [Categorical Logic and Type Theory](https://people.mpi-sws.org/~dreyer/courses/catlogic/jacobs.pdf).
+> - Ahrens and Lumsdaine {%cite ahrens-lumsdaine:2019 -A%}. [Displayed Categories](https://arxiv.org/abs/1705.04296).
+> - Jacobs {%cite jacobs:1999 -A%}.  [Categorical Logic and Type Theory](https://people.mpi-sws.org/~dreyer/courses/catlogic/jacobs.pdf) .
+> - Streicher {%cite streicher:2021:fib -A%}. [Fibered Categories à la Jean Bénabou](https://www2.mathematik.tu-darmstadt.de/~streicher/FIBR/FiBo.pdf).
 
 {% include toc.html %}
 
@@ -307,3 +308,6 @@ obtain a displayed category $U\Sub{!}E$ over $C$ as follows:
 ### Generating families [todo]
 
 ### Definable classes [todo]
+
+## Bibliography
+{%bibliography --cited%}
