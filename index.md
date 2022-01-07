@@ -100,4 +100,4 @@ in the sense that the following pasting diagrams are equal:
   \end{tikzpicture}
 »
 
-We will write $\TOP{E}$ for the (very large) bicategory of $E$-topoi.
+We will write $\TOP{E}$ for the (very large) bicategory of $E$-topoi
