@@ -1,5 +1,4 @@
 \RequirePackage{xparse}
-\RequirePackage{jmsdelim}
 \RequirePackage{tikz}
 \usetikzlibrary{matrix,arrows}
 \usetikzlibrary{fit,positioning,calc}
@@ -143,82 +142,7 @@
   }
 }
 
-\cs_new:Npn \jms_tikz_sized_morphism:nnnn #1 #2 #3 #4 {
-  \tikz[inline~diagram, baseline = (Y.base)]{%
-    \settowidth{\dontworryaboutit}{\scriptsize$#2$}
-    \pgfmathsetmacro\len{max(width("$xxx$"),7pt+\dontworryaboutit)}
-
-    \node (X) {$#3$};
-    \node (Y) [right = \len~pt~of~X] {$#4$};
-    \path[#1] (X) edge node [above,yshift=.3ex] {\scriptsize$#2$} (Y);
-  }
-}
-
-\cs_new:Npn \jms_tikz_auto_morphism:nnnn #1 #2 #3 #4 {
-  \DelimMin{1}
-  \IfValueTF{#2}{
-    #2 : \jms_tikz_morphism:nnn {#1} {#3} {#4}
-  }{
-    \jms_tikz_morphism:nnn {#1} {#3} {#4}
-  }
-}
-
-
-\NewDocumentCommand\PrimMor{mmmm}{
-  \IfValueTF{#2}{
-    \DelimMin{1}
-    \jms_tikz_sized_morphism:nnnn {#1} {#2} {#3} {#4}
-  }{
-    \jms_tikz_morphism:nnn {#1} {#3} {#4}
-  }
-}
-
-% Draw a morphism inline, with dynamically sized arrow
-\NewDocumentCommand\Mor{D||{->} o m m}{%
-  \jms_tikz_auto_morphism:nnnn {#1} {#2} {#3} {#4}
-}
-
-\NewDocumentCommand\FibMor{D||{} o m m}{%
-  \jms_tikz_auto_morphism:nnnn {fibration,#1} {#2} {#3} {#4}
-}
-\NewDocumentCommand\DispMor{D||{} o m m}{%
-  \jms_tikz_auto_morphism:nnnn {fibration,#1} {#2} {#3} {#4}
-}
-
-\NewDocumentCommand\EmbMor{D||{} o m m}{%
-  \jms_tikz_auto_morphism:nnnn {embedding,#1} {#2} {#3} {#4}
-}
-\NewDocumentCommand\OpnEmbMor{D||{} o m m}{%
-  \jms_tikz_auto_morphism:nnnn {open~immersion,#1} {#2} {#3} {#4}
-}
-\NewDocumentCommand\ClEmbMor{D||{} o m m}{%
-  \jms_tikz_auto_morphism:nnnn {closed~immersion,#1} {#2} {#3} {#4}
-}
-
 \ExplSyntaxOff
-
-
-%% TODO: rectify these
-\NewDocumentCommand\Span{m m m}{%
-  \tikz[inline diagram, baseline = (Y.base)]{%
-    \node (X) {$#2$\hspace*{.5ex}};
-    \node (Y) [right = 3ex of X] {\hspace*{.5ex}$#1$\hspace*{.5ex}};
-    \node (Z) [right = 3ex of Y] {\hspace*{.5ex}$#3$};
-    \path[<-] (X) edge (Y);
-    \path[->] (Y) edge (Z);
-  }%
-}
-
-\NewDocumentCommand\CoSpan{m m m}{%
-  \tikz[inline diagram, baseline = (Y.base)]{%
-    \node (X) {$#2$\hspace*{.5ex}};
-    \node (Y) [right = 3ex of X] {\hspace*{.5ex}$#1$\hspace*{.5ex}};
-    \node (Z) [right = 3ex of Y] {\hspace*{.5ex}$#3$};
-    \path[->] (X) edge (Y);
-    \path[<-] (Y) edge (Z);
-  }%
-}
-
 
 \tikzset{
   square/nw/.style = {},
