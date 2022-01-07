@@ -17,7 +17,7 @@
   (make-hash
    (for/list ([repr reprs])
      (cons
-      (string->symbol (macro-repr-name repr))
+      (string->symbol (string-append "\\" (macro-repr-name repr)))
       (macro-repr-inst repr)))))
 
 (define (write-macro-repr-latex repr port)

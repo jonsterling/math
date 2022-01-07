@@ -18,39 +18,33 @@
 <script type="application/ld+json">
 {"@type":"WebSite","headline":"Notes on relative topos theory","description":"A mathematical web page.","url":"http://localhost:4000/math/","name":"Topos","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/math/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/math/feed.xml" title="Topos" /><script defer>
-  const mathjax_config = (macros) =>
-    ({
-      tex: {
-        inlineMath: [
-          ['$', '$'],
-          ['\\(', '\\)']
-        ],
-        packages: {
-          '[+]': ['xypic', 'newcommand']
-        },
-        macros: macros
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    });
+<link rel="stylesheet" href="/math/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/math/feed.xml" title="Topos" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
+<script>
   const macros_promise =
-      
-      fetch("assets/macros/topos.mathjax.json").then(response => response.json());
-      ;
+    
+    fetch("assets/macros/topos.katex.json").then(response => response.json());
+    ;
 
-  macros_promise.then(mathjax_config).then(function (mathjax) {
-    window.MathJax = mathjax;
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-    script.async = true;
-    document.head.appendChild(script);
+  document.addEventListener("DOMContentLoaded", function () {
+    macros_promise.then(
+      function (macros) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          macros: macros,
+          throwOnError: false
+        });
+      });
   });
 
 </script>
-
 
 <style>
   .katex { line-height: 1 !important; }
