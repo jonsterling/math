@@ -2,49 +2,50 @@
 
 (require "macro-kit.rkt")
 
-@define[(Sub x)]{
- @(string-append "_{" x "}")
-}
+(define-local (Sub x)
+  "_{" x "}")
 
-@define[ShSymbol]{
- \boldsymbol{\mathcal{S}}
-}
+(define-local ShSymbol
+  @tex{\boldsymbol{\mathcal{S}}})
 
-@define[GlSymbol]{
- \boldsymbol{\mathcal{G}}
-}
+(define-local GlSymbol
+  @tex{\boldsymbol{\mathcal{G}}})
 
-@emit[(Con x)]{
- \mathsf{@x}
-}
+(define-global (Con x)
+  @tex{\mathsf{@x}})
 
-@emit[(Sh X)]{
- @ShSymbol @Sub[@X]
-}
+(define-global (Sh X)
+  ShSymbol
+  (Sub X))
 
-@emit[(GL X)]{
- @GlSymbol @Sub[@X]
-}
+(define-global (GL X)
+  GlSymbol
+  (Sub X))
 
-@emit[(Gl x)]{
- @Con{gl}@Sub[@x]
-}
+(define-global (Gl x)
+  (Con "gl")
+  (Sub x))
 
-@emit[(OpGL X)]{
- \overline{@GlSymbol}@Sub[@X]
-}
+(define-local (overline x)
+  @tex{\overline{@x}})
 
-@emit[(OpGl x)]{
- \overline{\mathsf{gl}}@Sub[@x]
-}
+(define-global (OpGL x)
+  (overline GlSymbol)
+  (Sub x))
 
-@emit[(Cod C)]{
- @Con{cod}@Sub[C]
-}
+(define-global (OpGl x)
+  (overline (Con "gl"))
+  (Sub x))
 
-@emit[(TOP E)]{
- \mathbf{Top}@Sub{E}
-}
+(define-global (Cod C)
+  (Con C)
+  (Sub C))
 
-(render-macros-to-tex "../assets/macros/topos.sty")
-(render-macros-to-mathjax "../assets/macros/topos.json")
+(define-local (bold kwd)
+  @tex{\mathbf{@kwd}})
+
+(define-global (TOP E)
+  (bold "Top")
+  (Sub E))
+
+(publish-macro-library 'topos)
