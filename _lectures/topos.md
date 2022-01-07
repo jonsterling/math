@@ -11,8 +11,10 @@ antex:
     \usepackage{topos}
 ---
 
+{% include toc.html %}
 
-## Geometric universes and topoi
+
+## Geometric universes
 
 A *geometric universe* $E$ is defined to be a cartesian closed category
 equipped with a subobject classifier. A morphism $f : E \to F$ of geometric
@@ -38,7 +40,7 @@ a morphism are profitably accessed through its *gluing fibration* $\GL{f}$ over 
 
 There is another fibration that will also be of use in some cases, such as
 the theory of realizability. This is the *relative scone* or *inverted
-gluing* fibration $\OpGL{\Delta} : E \to F$:
+gluing* fibration $\OpGL{f}$ over $F$:
 «
   \DiagramSquare{
     ne = \SelfIx{E},
@@ -54,8 +56,9 @@ gluing* fibration $\OpGL{\Delta} : E \to F$:
 »
 
 
+## Topoi in a geometric universe
 
-Let $E$ be a geometric universe. A $E$-*topos* $X$ or a *topos over
+Let $E$ be a geometric universe. A $E$-*topos* $X$ or a *topos in
 $E$* is defined to be a geometric universe $\Sh{X}$ equipped with a structure
 map $X:E\to\Sh{X}$ whose gluing fibration $\GL{X}$ has a
 generating family. A morphism of $E$-topoi $f:{X}\to{Y}$ is defined by a

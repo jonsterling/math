@@ -18,6 +18,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   math_engine: null
+  parse_block_html: true
 
 antex:
   url_path_prefix: *baseurl

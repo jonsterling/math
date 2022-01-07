@@ -19,6 +19,9 @@ We will draw on the following materials:
 
 > *Ahrens and Lumsdaine.* [Displayed Categories](https://arxiv.org/abs/1705.04296).
 
+{% include toc.html %}
+
+
 ## Displayed categories and fibrations
 
 Let $B$ be a category. A *displayed category* $E$ over $B$ is defined by the
@@ -137,7 +140,7 @@ structure of a category; in particular, we set $E_b(u,v)$ to be the collection
 of vertical maps $u\to\Sub{\Idn{b}}v$.
 
 
-## Displayed and fibered functors
+### Displayed and fibered functors
 
 Let $E$ be displayed over $B$ and let $F$ be displayed over $C$. If $U:B \to C$
 is an ordinary functor, than a *displayed functor* from $E$ to $F$ over $U$ is
@@ -155,7 +158,7 @@ issues, we could speak of the displayed *bicategory* of displayed categories.
 by displayed functors that preserve cartesian maps. We will call these *fibered
 functors*.
 
-## Change of base
+### Change of base
 
 Suppose that $E$ is displayed over $B$ and $F : X\to B$ is a
 functor; then we may define a displayed category $\InvImg{X}E$ as over $X$ follows:
@@ -180,3 +183,15 @@ We visualize the change of base scenario as follows:
 }
 »
 
+
+## Properties of fibrations
+
+### Locally small fibrations [todo]
+
+### Generic objects [todo]
+
+### Internal categories [todo]
+
+### Generating families [todo]
+
+### Definable classes [todo]
