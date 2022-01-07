@@ -201,7 +201,17 @@ it stands there is a more subtle version that will coincide up to categorical
 equivalence with the naïve one in all cases that the latter is meaningful.
 
 1. We define an object of $P_x$ to be be a pair $(u,\phi_u)$ where $i\in E$ and
-   $\phi_u : Pu\cong x$.
+   $\phi_u : Pu\cong x$. It is good to visualize such a pair as a "crooked
+   leg" like so:
+«
+\begin{tikzpicture}[diagram]
+\node (u) {$u$};
+\node (Pu) [below = 1cm of u] {$Pu$};
+\node (x) [right = 1.5cm of Pu] {$x$};
+\draw[lies over] (u) to (Pu);
+\draw[->] (Pu) to node [below] {$\phi_u$} (x);
+\end{tikzpicture}
+»
 
 2. A morphism $(u,\phi_u)\to\Sub{f} (v,\phi_v)$ over $f : x \to y$ is given by
    a morphism $h : u\to v$ that lies over $f$ modulo the isomorphisms
@@ -210,17 +220,17 @@ equivalence with the naïve one in all cases that the latter is meaningful.
 \begin{tikzpicture}[diagram]
 \node (pu) {$Pu$};
 \node (pv) [right = of pu] {$Pv$};
-\node (x) [below = 1.5cm of pu] {$x$};
-\node (y) [below = 1.5cm of pv] {$y$};
+\node (x) [below left = 1.5cm of pu] {$x$};
+\node (y) [below right = 1.5cm of pv] {$y$};
 \node (u) [above = 1.5cm of pu] {$u$};
 \node (v) [above = 1.5cm of pv] {$v$};
 \draw[lies over] (u) to (pu);
 \draw[lies over] (v) to (pv);
 \draw[->] (u) to node [above] {$h$} (v);
-\draw[->] (x) to node [left] {$\phi_u\Sup{-1}$} (pu);
+\draw[->] (x) to node [sloped,above] {$\phi_u\Sup{-1}$} (pu);
 \draw[->] (pu) to node [upright desc] {$Ph$} (pv);
-\draw[->] (pv) to node [right] {$\phi_v$} (y);`
-\draw[->] (x) to node [below] {$f$} (y);
+\draw[->] (pv) to node [sloped,above] {$\phi_v$} (y);`
+\draw[->,bend right=30] (x) to node [below] {$f$} (y);
 \end{tikzpicture}
 »
 
@@ -236,6 +246,24 @@ $u$.
 **Exercise.** Explicitly construct the functorial action of $\TotCat{P_\bullet}\to E$.
 
 **Exercise.** Verify that $\TotCat{P_\bullet}\to E$ is a categorical equivalence.
+
+#### Relation to Street's fibrations
+
+In classical category theory, fibrations are defined by
+Grothendieck to be certain functors $E\to B$ such that any morphism $f:x\to Pv$
+in $B$ lies strictly underneath a cartesian morphism in $E$. As we have
+discussed, this condition cannot be formulated unless equality is meaningful
+for the collection of objects of $B$.
+
+There is an alternative definition of fibration due to Street that avoids
+equality of objects; here we require for each $f:x\to Pv$ a cartesian morphism
+$h:\InvImg{f}v \to v$ together with an isomorphism $\phi : \InvImg{f}v\cong x$
+such that $P(\phi^{-1};h) = f$.
+
+By unrolling definitions, it is not difficult to see that the displayed category
+$P_\bullet$ is a fibration in our sense if and only if the functor $P:E\to B$
+was a fibration in Street's sense.
+
 
 ### Iteration and pushforward
 
