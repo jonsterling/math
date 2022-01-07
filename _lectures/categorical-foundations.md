@@ -47,16 +47,6 @@ following data:
 Note that these are well-defined because of the corresponding
 laws for the base category $B$.
 
-### The total category and its projection
-
-Note that any displayed category $E$ over $B$ can be viewed as an undisplayed
-category $\TotCat{E}$ equipped with a projection functor $p_E: \TotCat{E}\to
-B$; in this case $\TotCat{E}$ is called the *total category* of $E$.
-
-1. An object of $\TotCat{E}$ is given by a pair $(x,\bar{x})$ where $x\in B$ and
-   $\bar{x}\in E_x$.
-2. A morphism $(x,\bar{x})\to (y,\bar{y})$ in $\TotCat{E}$ is given by a pair $(f,\bar{f})$ where
-   $f:x\to y$ and $\bar{f}:\bar{x}\to_f\bar{y}$.
 
 
 ### Cartesian morphisms
@@ -127,8 +117,6 @@ $\SelfIx{B}$ over $B$ given fiberwise by the *slices* of $B$.
   }
 »
 
-**Exercise.** Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing is the arrow category $B^{\to}$.
-
 **Exercise.** Prove that $\SelfIx{B}$ is a Cartesian fibration if and only if $B$ has pullbacks.
 
 
@@ -159,7 +147,7 @@ issues, we could speak of the displayed *bicategory* of displayed categories.
 by displayed functors that preserve cartesian maps. We will call these *fibered
 functors*.
 
-### Change of base
+### Change of base {#base-change}
 
 Suppose that $E$ is displayed over $B$ and $F : X\to B$ is a
 functor; then we may define a displayed category $\InvImg{X}E$ as over $X$ follows:
@@ -183,6 +171,97 @@ We visualize the change of base scenario as follows:
   south = F,
 }
 »
+
+
+## The Grothendieck construction
+
+### The total category and its projection
+
+Note that any displayed category $E$ over $B$ can be viewed as an undisplayed
+category $\TotCat{E}$ equipped with a projection functor $p_E: \TotCat{E}\to
+B$; in this case $\TotCat{E}$ is called the *total category* of $E$.
+
+1. An object of $\TotCat{E}$ is given by a pair $(x,\bar{x})$ where $x\in B$ and
+   $\bar{x}\in E_x$.
+2. A morphism $(x,\bar{x})\to (y,\bar{y})$ in $\TotCat{E}$ is given by a pair $(f,\bar{f})$ where
+   $f:x\to y$ and $\bar{f}:\bar{x}\to_f\bar{y}$.
+
+The construction of the total category of displayed category is called the *Grothendieck construction.*
+
+**Exercise.** Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing is the arrow category $B^{\to}$.
+
+
+### Displayed categories from functors {#displayed-cats-from-functors}
+
+In many cases, one starts with a functor $P:E\to B$; if it were meaningful to
+speak of *equality* of objects in an arbitrary category then there would be an
+obvious construction of a displayed category $P_\bullet$ from $P$; we would
+simply set $P_x$ to be the collection of objects $u\in E$ such that $Pu=x$. As
+it stands there is a more subtle version that will coincide up to categorical
+equivalence with the naïve one in all cases that the latter is meaningful.
+
+1. We define an object of $P_x$ to be be a pair $(u,\phi_u)$ where $i\in E$ and
+   $\phi_u : Pu\cong x$.
+
+2. A morphism $(u,\phi_u)\to\Sub{f} (v,\phi_v)$ over $f : x \to y$ is given by
+   a morphism $h : u\to v$ that lies over $f$ modulo the isomorphisms
+   $\phi_u,\phi_v$ in sense depicted below:
+«
+\begin{tikzpicture}[diagram]
+\node (pu) {$Pu$};
+\node (pv) [right = of pu] {$Pv$};
+\node (x) [below = 1.5cm of pu] {$x$};
+\node (y) [below = 1.5cm of pv] {$y$};
+\node (u) [above = 1.5cm of pu] {$u$};
+\node (v) [above = 1.5cm of pv] {$v$};
+\draw[lies over] (u) to (pu);
+\draw[lies over] (v) to (pv);
+\draw[->] (u) to node [above] {$h$} (v);
+\draw[->] (x) to node [left] {$\phi_u\Sup{-1}$} (pu);
+\draw[->] (pu) to node [upright desc] {$Ph$} (pv);
+\draw[->] (pv) to node [right] {$\phi_v$} (y);`
+\draw[->] (x) to node [below] {$f$} (y);
+\end{tikzpicture}
+»
+
+**Exercise.** Suppose that $B$ is an internal category in $\mathbf{Set}$, i.e.
+it has a set of objects. Exhibit an equivalence of displayed categories between
+$P_\bullet$ as described above, and the naïve definition which $E_x$ is the
+collection of objects $u\in E$ such that $Pu = x$.
+
+
+We have a functor $\TotCat{P_\bullet}\to E$ taking a pair $(x,(u,\phi_u))$ to
+$u$.
+
+**Exercise.** Explicitly construct the functorial action of $\TotCat{P_\bullet}\to E$.
+
+**Exercise.** Verify that $\TotCat{P_\bullet}\to E$ is a categorical equivalence.
+
+### Iteration and pushforward
+
+It also makes sense to speak of a categories displayed over other displayed
+categories; one way to formalize this notion is as follows. Let $E$ be
+displayed over $B$; we define a category displayed over $E$ to be simply a
+category displayed over the total category $\TotCat{E}$.
+
+Now let $F$ be displayed over $E$ over $B$. Then we may regard $F$ as a
+displayed category $B\Sub{!}F$ over $B$ as follows:
+
+1. An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\bar{x},{\ddot{x}})$ with $\bar{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\bar{x}}$.
+2. A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.
+
+By virtue of the [above](#displayed-cats-from-functors), we may define the
+*pushforward* of a displayed category along a functor. In particular, let $E$
+be displayed over $B$ and let $U:B\to C$ be an ordinary functor; then we may
+obtain a displayed category $U\Sub{!}E$ over $C$ as follows:
+
+1. First we construct the displayed category $U_\bullet$ corresponding to the
+   functor $U:B \to C$.
+2. We recall that there is a canonical equivalence of categories
+   $\TotCat{U_\bullet}\to B$.
+3. Because $E$ is displayed over $B$, we may regard it as displayed over the
+   equivalent total category $\TotCat{U_\bullet}$ by [change of base](#base-change).
+4. Hence we may define the pushforward $U\Sub{!}E$ to be the displayed category $(U_\bullet)\Sub{!}E$ as defined above.
 
 
 ## Properties of fibrations
