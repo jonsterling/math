@@ -260,9 +260,13 @@ equality of objects; here we require for each $f:x\to Pv$ a cartesian morphism
 $h:\InvImg{f}v \to v$ together with an isomorphism $\phi : \InvImg{f}v\cong x$
 such that $P(\phi^{-1};h) = f$.
 
-By unrolling definitions, it is not difficult to see that the displayed category
-$P_\bullet$ is a fibration in our sense if and only if the functor $P:E\to B$
-was a fibration in Street's sense.
+By unrolling definitions, it is not difficult to see that the displayed
+category $P_\bullet$ is a fibration in our sense if and only if the functor
+$P:E\to B$ was a fibration in Street's sense. Moreover, it can be seen that the
+Grothendieck construction yields a *Grothendieck* fibration
+$\TotCat{P_\bullet}\to B$; hence we have introduced by accident a convenient
+destription of the *strictification* of Street fibrations into equivalent
+Grothendieck fibrations.
 
 
 ### Iteration and pushforward
