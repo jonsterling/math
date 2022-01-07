@@ -107,7 +107,10 @@ notion of a category <em>over</em> another category.</p>
   </li>
   <li><a href="#the-grothendieck-construction" id="markdown-toc-the-grothendieck-construction">The Grothendieck construction</a>    <ul>
       <li><a href="#the-total-category-and-its-projection" id="markdown-toc-the-total-category-and-its-projection">The total category and its projection</a></li>
-      <li><a href="#displayed-cats-from-functors" id="markdown-toc-displayed-cats-from-functors">Displayed categories from functors</a></li>
+      <li><a href="#displayed-cats-from-functors" id="markdown-toc-displayed-cats-from-functors">Displayed categories from functors</a>        <ul>
+          <li><a href="#relation-to-streets-fibrations" id="markdown-toc-relation-to-streets-fibrations">Relation to Street’s fibrations</a></li>
+        </ul>
+      </li>
       <li><a href="#iteration-and-pushforward" id="markdown-toc-iteration-and-pushforward">Iteration and pushforward</a></li>
     </ul>
   </li>
@@ -261,13 +264,15 @@ equivalence with the naïve one in all cases that the latter is meaningful.</p>
 <ol>
   <li>
     <p>We define an object of $P_x$ to be be a pair $(u,\phi_u)$ where $i\in E$ and
-$\phi_u : Pu\cong x$.</p>
+$\phi_u : Pu\cong x$. It is good to visualize such a pair as a “crooked
+leg” like so:
+<span class="antex display"><img style='margin: -0.056ex 0.097ex -10.484ex 0.0ex; height: 11.809ex; width: 14.117ex;' src="/math/antex/68cc72e07a10ce612f3ed50217fec229.svg" /></span></p>
   </li>
   <li>
     <p>A morphism $(u,\phi_u)\to\Sub{f} (v,\phi_v)$ over $f : x \to y$ is given by
 a morphism $h : u\to v$ that lies over $f$ modulo the isomorphisms
 $\phi_u,\phi_v$ in sense depicted below:
-<span class="antex display"><img style='margin: -0.021ex 0.112ex -13.784ex 0.0ex; height: 27.088ex; width: 22.919ex;' src="/math/antex/6f95a29587ed35966baf4d5ab9a58f4e.svg" /></span></p>
+<span class="antex display"><img style='margin: -0.021ex 0.067ex -15.345ex 0.0ex; height: 28.65ex; width: 30.246ex;' src="/math/antex/60f5196772d6e691631c7b13af3bc031.svg" /></span></p>
   </li>
 </ol>
 
@@ -282,6 +287,23 @@ $u$.</p>
 <p><strong>Exercise.</strong> Explicitly construct the functorial action of $\TotCat{P_\bullet}\to E$.</p>
 
 <p><strong>Exercise.</strong> Verify that $\TotCat{P_\bullet}\to E$ is a categorical equivalence.</p>
+
+<h4 id="relation-to-streets-fibrations">Relation to Street’s fibrations</h4>
+
+<p>In classical category theory, fibrations are defined by
+Grothendieck to be certain functors $E\to B$ such that any morphism $f:x\to Pv$
+in $B$ lies strictly underneath a cartesian morphism in $E$. As we have
+discussed, this condition cannot be formulated unless equality is meaningful
+for the collection of objects of $B$.</p>
+
+<p>There is an alternative definition of fibration due to Street that avoids
+equality of objects; here we require for each $f:x\to Pv$ a cartesian morphism
+$h:\InvImg{f}v \to v$ together with an isomorphism $\phi : \InvImg{f}v\cong x$
+such that $P(\phi^{-1};h) = f$.</p>
+
+<p>By unrolling definitions, it is not difficult to see that the displayed category
+$P_\bullet$ is a fibration in our sense if and only if the functor $P:E\to B$
+was a fibration in Street’s sense.</p>
 
 <h3 id="iteration-and-pushforward">Iteration and pushforward</h3>
 
