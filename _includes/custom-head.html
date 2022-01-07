@@ -5,7 +5,7 @@
 <script>
   const macros_promise =
     {% if page.macrolib %}
-    fetch("assets/macros/{{page.macrolib}}.katex.json").then(response => response.json());
+    fetch("{{site.baseurl}}/assets/macros/{{page.macrolib}}.katex.json").then(response => response.json());
     {% else %}
     Promise.resolve({})
     {% endif %};
@@ -17,7 +17,6 @@
           delimiters: [
             { left: '$$', right: '$$', display: true },
             { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
             { left: '\\[', right: '\\]', display: true }
           ],
           macros: macros,
