@@ -1,0 +1,35 @@
+title: Krater
+email: paolo.brasolin+krater@gmail.com
+description: >-
+  Krater is a template for math-intensive Jekyll websites.
+baseurl: &baseurl "/krater"
+url: "https://paolobrasolin.github.io/"
+twitter_username: paolobrasolin
+github_username: paolobrasolin
+
+theme: minima
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: null # disable math engine and let the client side use KaTeX for simple LaTeX
+
+katex:
+  macros:
+    "\\MyGlobalMacro": "\\LaTeX"
+  delimiters:
+    - { left: "$", right: "$", display: false }
+    - { left: "$$", right: "$$", display: true }
+    - { left: "\\(", right: "\\)", display: false }
+    - { left: "\\[", right: "\\]", display: true }
+
+antex:
+  url_path_prefix: *baseurl
+  aliases: # disable most aliases and use server side AnTeX only for complex LaTeX
+    display_math: false
+    inline_math: false
+    inline_macro: false
+
+plugins:
+  - jekyll-feed
