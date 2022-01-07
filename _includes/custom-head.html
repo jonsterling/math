@@ -1,11 +1,44 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" onload='
-  const siteOpt = JSON.parse({{ site.katex | jsonify | inspect }});
-  const pageOpt = JSON.parse({{ page.katex | jsonify | inspect }});
-  const joinOpt = { ...siteOpt, ...pageOpt, macros: { ...siteOpt.macros, ...pageOpt.macros }};
-  renderMathInElement(document.body, joinOpt);
-'></script>
+<script defer>
+  const mathjax_config = (macros) =>
+    ({
+      loader: {
+        load: ['[custom]/xypic.js', '[tex]/newcommand'],
+        paths: {
+          custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'
+        }
+      },
+      tex: {
+        inlineMath: [
+          ['$', '$'],
+          ['\\(', '\\)']
+        ],
+        packages: {
+          '[+]': ['xypic', 'newcommand']
+        },
+        macros: macros
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    });
+
+  const macros_promise =
+      {% if page.macrolib %}
+      fetch("assets/macros/{{page.macrolib}}.json").then(response => response.json());
+      {% else %}
+      Promise.resolve({})
+      {% endif %};
+
+  macros_promise.then(mathjax_config).then(function (mathjax) {
+    window.MathJax = mathjax;
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    script.async = true;
+    document.head.appendChild(script);
+  });
+
+</script>
+
 
 <style>
   .katex { line-height: 1 !important; }

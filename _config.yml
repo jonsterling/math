@@ -1,11 +1,11 @@
-title: Krater
-email: paolo.brasolin+krater@gmail.com
+title: Topos
+email: jon@jonmsterling.com
 description: >-
-  Krater is a template for math-intensive Jekyll websites.
-baseurl: &baseurl "/krater"
-url: "https://paolobrasolin.github.io/"
-twitter_username: paolobrasolin
-github_username: paolobrasolin
+  A mathematical web page
+baseurl: &baseurl "/math"
+url: "https://www.jonsmsterling.com/"
+twitter_username: jonmsterling
+github_username: jonsterling
 
 theme: minima
 
@@ -13,22 +13,45 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  math_engine: null # disable math engine and let the client side use KaTeX for simple LaTeX
-
-katex:
-  macros:
-    "\\MyGlobalMacro": "\\LaTeX"
-  delimiters:
-    - { left: "$", right: "$", display: false }
-    - { left: "$$", right: "$$", display: true }
-    - { left: "\\(", right: "\\)", display: false }
-    - { left: "\\[", right: "\\]", display: true }
+  math_engine: null
 
 antex:
   url_path_prefix: *baseurl
+
+  commands:
+    latexmk:
+      command:
+        - "TEXINPUTS=.:./assets/macros/:${TEXINPUTS}"
+        - "latexmk"
+        - "-output-directory={{ dir.work }}"
+        - "{{ file.tex }}"
+      sources:
+        - "{{ file.tex }}"
+      targets:
+        - "{{ file.dvi }}"
+        - "{{ file.yml }}"
+
+
   aliases: # disable most aliases and use server side AnTeX only for complex LaTeX
-    display_math: false
+    display_math:
+      priority: 20
+      regexp: !ruby/regexp |
+        /«
+        (?<code>.*?)
+        »/mx
+      options:
+        prepend: '$\displaystyle '
+        append: $
+        classes: [antex, display]
     inline_math: false
+      #  inline_math:
+      #    priority: 10
+      #    regexp: !ruby/regexp |
+      #      /\$(?<code>.*?)\$/x
+      #    options:
+      #      prepend: $
+      #      append: $
+      #      classes: [antex, inline]
     inline_macro: false
 
 plugins:
