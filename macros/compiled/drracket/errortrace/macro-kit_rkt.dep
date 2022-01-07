@@ -1,0 +1,1 @@
+("8.2" tarm64osx ("ea7e1931ee4fa51fc93d21481512d8a9ed540779" . "a2b3d4cd0f0c13a0a4c2b560a99f848742a44567") (collects #"at-exp" #"lang" #"reader.rkt") (collects #"errortrace" #"errortrace-key.rkt") (collects #"json" #"main.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))
