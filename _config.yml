@@ -9,6 +9,10 @@ github_username: jonsterling
 
 theme: minima
 
+source : .
+destination : ./docs
+
+
 markdown: kramdown
 kramdown:
   input: GFM
