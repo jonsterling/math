@@ -13,6 +13,7 @@ source : .
 destination : ./_site
 exclude:
   - compiled
+  - _site
 
 
 markdown: kramdown
