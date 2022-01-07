@@ -13,6 +13,13 @@
       (string->symbol (macro-repr-name repr))
       (list (macro-repr-inst repr) (macro-repr-arity repr))))))
 
+(define (macro-reprs->katex-jsexpr reprs)
+  (make-hash
+   (for/list ([repr reprs])
+     (cons
+      (string->symbol (macro-repr-name repr))
+      (macro-repr-inst repr)))))
+
 (define (write-macro-repr-latex repr port)
   (display "\\newcommand\\" port)
   (display (macro-repr-name repr) port)
@@ -40,16 +47,22 @@
 
 (define (render-macros-to-mathjax filename)
   (define macros (macro-list))
-  (define n (length macros))
   (call-with-output-file filename #:exists 'replace
     (λ (port)
       (write-json (macro-reprs->mathjax-jsexpr macros) port))))
+
+(define (render-macros-to-katex filename)
+  (define macros (macro-list))
+  (call-with-output-file filename #:exists 'replace
+    (λ (port)
+      (write-json (macro-reprs->katex-jsexpr macros) port))))
 
 (define (publish-macro-library sym)
   (define (filename ext)
     (string-append "../assets/macros/" (symbol->string sym) "." ext))
   (render-macros-to-tex (filename "sty"))
-  (render-macros-to-mathjax (filename "mathjax.json")))
+  (render-macros-to-mathjax (filename "mathjax.json"))
+  (render-macros-to-katex (filename "katex.json")))
 
 (define (index a b)
   (let [(tail (member a (reverse b)))]
