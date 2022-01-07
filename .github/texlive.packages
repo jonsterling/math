@@ -1,5 +1,9 @@
 latexmk
 dvisvgm
-commutative-diagrams
+scalerel
 standalone
 xypic
+expl3
+l3keys2e
+xparse
+ifluatex
