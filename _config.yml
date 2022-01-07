@@ -10,7 +10,7 @@ github_username: jonsterling
 theme: minima
 
 source : .
-destination : ./docs
+destination : ./_site
 
 
 markdown: kramdown
