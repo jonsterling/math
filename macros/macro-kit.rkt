@@ -6,7 +6,7 @@
 
 (struct macro-repr (name arity inst) #:transparent)
 
-(define (macro-reprs->jsexpr reprs)
+(define (macro-reprs->mathjax-jsexpr reprs)
   (make-hash
    (for/list ([repr reprs])
      (cons
@@ -43,13 +43,13 @@
   (define n (length macros))
   (call-with-output-file filename #:exists 'replace
     (λ (port)
-      (write-json (macro-reprs->jsexpr macros) port))))
+      (write-json (macro-reprs->mathjax-jsexpr macros) port))))
 
 (define (publish-macro-library sym)
   (define (filename ext)
     (string-append "../assets/macros/" (symbol->string sym) "." ext))
   (render-macros-to-tex (filename "sty"))
-  (render-macros-to-mathjax (filename "json")))
+  (render-macros-to-mathjax (filename "mathjax.json")))
 
 (define (index a b)
   (let [(tail (member a (reverse b)))]

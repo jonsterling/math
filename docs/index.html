@@ -4,29 +4,23 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Geometric universes and topoi | Topos</title>
+<title>Notes on relative topos theory | Topos</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Geometric universes and topoi" />
+<meta property="og:title" content="Notes on relative topos theory" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A mathematical web page." />
 <meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/" />
+<link rel="canonical" href="http://localhost:4000/math/" />
+<meta property="og:url" content="http://localhost:4000/math/" />
 <meta property="og:site_name" content="Topos" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Geometric universes and topoi" />
+<meta property="twitter:title" content="Notes on relative topos theory" />
 <script type="application/ld+json">
-{"@type":"WebSite","headline":"Geometric universes and topoi","description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/","name":"Topos","@context":"https://schema.org"}</script>
+{"@type":"WebSite","headline":"Notes on relative topos theory","description":"A mathematical web page.","url":"http://localhost:4000/math/","name":"Topos","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/math/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="Topos" /><script defer>
+<link rel="stylesheet" href="/math/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/math/feed.xml" title="Topos" /><script defer>
   const mathjax_config = (macros) =>
     ({
-      loader: {
-        load: ['[custom]/xypic.js', '[tex]/newcommand'],
-        paths: {
-          custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'
-        }
-      },
       tex: {
         inlineMath: [
           ['$', '$'],
@@ -44,7 +38,7 @@
 
   const macros_promise =
       
-      fetch("assets/macros/topos.json").then(response => response.json());
+      fetch("assets/macros/topos.mathjax.json").then(response => response.json());
       ;
 
   macros_promise.then(mathjax_config).then(function (mathjax) {
@@ -76,21 +70,26 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/math/">Geometric universes and topoi</a></div>
+        <div class="trigger"><a class="page-link" href="/math/">Notes on relative topos theory</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h1 class="page-heading">Geometric universes and topoi</h1><p>A <em>geometric universe</em> $E$ is defined to be a cartesian closed
-category equipped with a subobject classifier. A morphism
-$f : E \to F$ of geometric universes is given by a functor
-$f^*:F\to E$ preserving finite limits equipped with a right adjoint
-$f_*: E\to F$.  A 2-morphism $f\to g$ is given by a natural
-transformation $f^*\to g^*$.</p>
+        <div class="home"><h1 class="page-heading">Notes on relative topos theory</h1><h2 id="displayed-categories-and-fibrations">Displayed categories and fibrations</h2>
 
-<p>Let $f : E \to F$ be a morphism of geometric universes; the
-properties of such a morphism are profitably accessed through its <em>gluing
-fibration</em> $\GL{f}\to E$:
+<p>Let $B$ be a category.</p>
+
+<h2 id="geometric-universes-and-topoi">Geometric universes and topoi</h2>
+
+<p>A <em>geometric universe</em> $E$ is defined to be a cartesian closed category
+equipped with a subobject classifier. A morphism $f : E \to F$ of geometric
+universes is given by a functor $f^*:F\to E$ preserving finite limits equipped
+with a right adjoint $f_*: E\to F$.  A 2-morphism $f\to g$ is given by a
+natural transformation $f^*\to g^*$.</p>
+
+<p>Let $f : E \to F$ be a morphism of geometric universes; the properties of such
+a morphism are profitably accessed through its <em>gluing fibration</em> $\GL{f}\to
+E$:
 <span class="antex display"><img style='margin: -0.109ex 0.077ex -3.292ex 0.0ex; height: 19.062ex; width: 25.349ex;' src="/math/antex/4b63424b6073d5b46837a5f1a08089dd.svg" /></span></p>
 
 <p>There is another fibration that will also be of use in some cases, such as

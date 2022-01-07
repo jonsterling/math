@@ -1,12 +1,6 @@
 <script defer>
   const mathjax_config = (macros) =>
     ({
-      loader: {
-        load: ['[custom]/xypic.js', '[tex]/newcommand'],
-        paths: {
-          custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'
-        }
-      },
       tex: {
         inlineMath: [
           ['$', '$'],
@@ -24,7 +18,7 @@
 
   const macros_promise =
       {% if page.macrolib %}
-      fetch("assets/macros/{{page.macrolib}}.json").then(response => response.json());
+      fetch("assets/macros/{{page.macrolib}}.mathjax.json").then(response => response.json());
       {% else %}
       Promise.resolve({})
       {% endif %};

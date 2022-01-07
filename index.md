@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Geometric universes and topoi
+title: Notes on relative topos theory
 macrolib: topos
 usemathjax: true
 antex:
@@ -10,16 +10,21 @@ antex:
     \usepackage{topos}
 ---
 
-A *geometric universe* $E$ is defined to be a cartesian closed
-category equipped with a subobject classifier. A morphism
-$f : E \to F$ of geometric universes is given by a functor
-$f^\*:F\to E$ preserving finite limits equipped with a right adjoint
-$f_\*: E\to F$.  A 2-morphism $f\to g$ is given by a natural
-transformation $f^\*\to g^\*$.
+## Displayed categories and fibrations
 
-Let $f : E \to F$ be a morphism of geometric universes; the
-properties of such a morphism are profitably accessed through its *gluing
-fibration* $\GL{f}\to E$:
+Let $B$ be a category.
+
+## Geometric universes and topoi
+
+A *geometric universe* $E$ is defined to be a cartesian closed category
+equipped with a subobject classifier. A morphism $f : E \to F$ of geometric
+universes is given by a functor $f^\*:F\to E$ preserving finite limits equipped
+with a right adjoint $f_\*: E\to F$.  A 2-morphism $f\to g$ is given by a
+natural transformation $f^\*\to g^\*$.
+
+Let $f : E \to F$ be a morphism of geometric universes; the properties of such
+a morphism are profitably accessed through its *gluing fibration* $\GL{f}\to
+E$:
 «
   \DiagramSquare{
     ne = F^\to,
