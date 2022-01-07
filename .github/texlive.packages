@@ -1,7 +1,0 @@
-latexmk
-dvisvgm
-commutative-diagrams
-standalone
-xypic
-tikz-cd
-mlmodern
