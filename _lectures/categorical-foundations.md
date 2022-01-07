@@ -17,7 +17,8 @@ notion of a category *over* another category.
 
 We will draw on the following materials:
 
-> *Ahrens and Lumsdaine.* [Displayed Categories](https://arxiv.org/abs/1705.04296).
+> - *Ahrens and Lumsdaine.* [Displayed Categories](https://arxiv.org/abs/1705.04296).
+> - *Jacobs.* [Categorical Logic and Type Theory](https://people.mpi-sws.org/~dreyer/courses/catlogic/jacobs.pdf).
 
 {% include toc.html %}
 

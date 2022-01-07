@@ -11,6 +11,8 @@ theme: minima
 
 source : .
 destination : ./_site
+exclude:
+  - compiled
 
 
 markdown: kramdown
