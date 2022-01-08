@@ -89,7 +89,7 @@ $u$.
 ### Relation to Street's fibrations
 
 In classical category theory, fibrations are defined by
-Grothendieck to be certain functors $E\to B$ such that any morphism $f:x\to Pv$
+Grothendieck {%cite sga:1 -A%} to be certain functors $E\to B$ such that any morphism $f:x\to Pv$
 in $B$ lies strictly underneath a cartesian morphism in $E$. As we have
 discussed, this condition cannot be formulated unless equality is meaningful
 for the collection of objects of $B$.

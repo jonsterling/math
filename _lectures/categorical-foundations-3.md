@@ -67,7 +67,7 @@ sense for an arbitrary fibration, though for now we stick with $\FAM{C}$.
        }
        »
        Explicitly the family $\InvImg{[u,v]}u$ is indexed in a pair of an element $i\in I$ and a morphism $u\Sub{i}\to v\Sub{i}$.
-       Informally we can think of $\InvImg{[u,v]}u$ as the object of elements of $u\Sub{i}$ indexed in pairs $(i,u\Sub{i}\to v\Sub{i})$.
+       We can think of $\InvImg{[u,v]}u$ as the object of elements of $u\Sub{i}$ indexed in pairs $(i,u\Sub{i}\to v\Sub{i})$.
 
     + There is a canonical map
       $\epsilon\Sub{[u,v]}:\InvImg{[u,v]}u\to\Sub{p\Sub{[u,v]}} v$ that
