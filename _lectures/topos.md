@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Geometric universes and topoi (draft)
-date: 2022-01-02
+date: 2022-01-10
 macrolib: topos
 usemathjax: true
 antex:
