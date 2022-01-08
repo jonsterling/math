@@ -2,6 +2,7 @@
 layout: page
 title: Foundations of Relative Category Theory I
 subtitle: Displayed categories and fibrations
+label: rct1
 macrolib: topos
 usemathjax: true
 date: 2022-01-01
@@ -11,6 +12,8 @@ antex:
     \usepackage{mlmodern,amsfonts,amssymb,amsmath}
     \usepackage{topos}
 ---
+
+{{page.jon}}
 
 We assume knowledge of basic categorical concepts such as categories, functors,
 and natural transformations. The purpose of this lecture is to develop the

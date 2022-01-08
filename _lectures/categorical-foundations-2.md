@@ -2,6 +2,7 @@
 layout: page
 title: Foundations of Relative Category Theory II
 subtitle: The Grothendieck construction
+label: rct2
 macrolib: topos
 usemathjax: true
 date: 2022-01-02
@@ -121,7 +122,7 @@ displayed category $B\Sub{!}F$ over $B$ as follows:
 1. An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\bar{x},{\ddot{x}})$ with $\bar{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\bar{x}}$.
 2. A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.
 
-By virtue of the [above](#displayed-cats-from-functors), we may define the
+By virtue of the [above]({{page.refs.rct2.displayed-cats-from-functors | url}}), we may define the
 *pushforward* of a displayed category along a functor. In particular, let $E$
 be displayed over $B$ and let $U:B\to C$ be an ordinary functor; then we may
 obtain a displayed category $U\Sub{!}E$ over $C$ as follows:
@@ -132,7 +133,7 @@ obtain a displayed category $U\Sub{!}E$ over $C$ as follows:
    $\TotCat{U\Sub{\bullet}}\to B$.
 3. Because $E$ is displayed over $B$, we may regard it as displayed over the
    equivalent total category $\TotCat{U\Sub{\bullet}}$ by
-   [change of base]({{site.baseurl}}{%link _lectures/categorical-foundations-1.md%}#base-change).
+   [change of base]({{page.refs.rct1.base-change | url}}).
 4. Hence we may define the pushforward $U\Sub{!}E$ to be the displayed category $(U\Sub{\bullet})\Sub{!}E$ as defined above.
 
 

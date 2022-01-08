@@ -9,6 +9,7 @@ github_username: jonsterling
 
 theme: minima
 
+safe: false
 source : .
 destination : ./_site
 exclude:
@@ -58,6 +59,7 @@ antex:
 plugins:
   - jekyll-feed
   - jekyll-scholar
+
 
 scholar:
   style: elsevier-harvard
