@@ -10,17 +10,17 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="We assume knowledge of basic categorical concepts such as categories, functors, and natural transformations. The purpose of this lecture is to develop the notion of a category over another category." />
 <meta property="og:description" content="We assume knowledge of basic categorical concepts such as categories, functors, and natural transformations. The purpose of this lecture is to develop the notion of a category over another category." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/lectures/categorical-foundations.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/lectures/categorical-foundations.html" />
+<link rel="canonical" href="http://localhost:4000/math/lectures/categorical-foundations.html" />
+<meta property="og:url" content="http://localhost:4000/math/lectures/categorical-foundations.html" />
 <meta property="og:site_name" content="The Nursury" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-01T00:00:00+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Categorical foundations (draft)" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Categorical foundations (draft)","dateModified":"2022-01-01T00:00:00+01:00","datePublished":"2022-01-01T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/lectures/categorical-foundations.html"},"description":"We assume knowledge of basic categorical concepts such as categories, functors, and natural transformations. The purpose of this lecture is to develop the notion of a category over another category.","url":"https://www.jonsmsterling.com//math/lectures/categorical-foundations.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Categorical foundations (draft)","dateModified":"2022-01-01T00:00:00+01:00","datePublished":"2022-01-01T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/math/lectures/categorical-foundations.html"},"description":"We assume knowledge of basic categorical concepts such as categories, functors, and natural transformations. The purpose of this lecture is to develop the notion of a category over another category.","url":"http://localhost:4000/math/lectures/categorical-foundations.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursury" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/math/feed.xml" title="The Nursury" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
@@ -89,6 +89,7 @@ notion of a category <em>over</em> another category.</p>
 <blockquote>
   <ul>
     <li>Ahrens and Lumsdaine <a class="citation" href="#ahrens-lumsdaine:2019">(2019)</a>. <a href="https://arxiv.org/abs/1705.04296">Displayed Categories</a>.</li>
+    <li>Borceux <a class="citation" href="#borceux:1994:vol2">(1994)</a>. Handbook of Categorical Algebra 2: Categories and Structures.</li>
     <li>Jacobs <a class="citation" href="#jacobs:1999">(1999)</a>.  <a href="https://people.mpi-sws.org/~dreyer/courses/catlogic/jacobs.pdf">Categorical Logic and Type Theory</a> .</li>
     <li>Streicher <a class="citation" href="#streicher:2021:fib">(2021)</a>. <a href="https://www2.mathematik.tu-darmstadt.de/~streicher/FIBR/FiBo.pdf">Fibered Categories à la Jean Bénabou</a>.</li>
   </ul>
@@ -100,7 +101,8 @@ notion of a category <em>over</em> another category.</p>
   <li><a href="#displayed-categories-and-fibrations" id="markdown-toc-displayed-categories-and-fibrations">Displayed categories and fibrations</a>    <ul>
       <li><a href="#cartesian-morphisms" id="markdown-toc-cartesian-morphisms">Cartesian morphisms</a></li>
       <li><a href="#cartesian-fibrations" id="markdown-toc-cartesian-fibrations">Cartesian fibrations</a></li>
-      <li><a href="#the-canonical-self-indexing" id="markdown-toc-the-canonical-self-indexing">The canonical self-indexing</a></li>
+      <li><a href="#example-the-canonical-self-indexing" id="markdown-toc-example-the-canonical-self-indexing">Example: the canonical self-indexing</a></li>
+      <li><a href="#ex:family-fibration" id="markdown-toc-ex:family-fibration">Example: the family fibration as a basis for relative category theory</a></li>
       <li><a href="#fiber-categories-and-vertical-maps" id="markdown-toc-fiber-categories-and-vertical-maps">Fiber categories and vertical maps</a></li>
       <li><a href="#displayed-and-fibered-functors" id="markdown-toc-displayed-and-fibered-functors">Displayed and fibered functors</a></li>
       <li><a href="#base-change" id="markdown-toc-base-change">Change of base</a></li>
@@ -116,7 +118,12 @@ notion of a category <em>over</em> another category.</p>
     </ul>
   </li>
   <li><a href="#properties-of-fibrations" id="markdown-toc-properties-of-fibrations">Properties of fibrations</a>    <ul>
-      <li><a href="#locally-small-fibrations-todo" id="markdown-toc-locally-small-fibrations-todo">Locally small fibrations [todo]</a></li>
+      <li><a href="#locally-small-fibrations" id="markdown-toc-locally-small-fibrations">Locally small fibrations</a>        <ul>
+          <li><a href="#warmup-locally-small-family-fibrations" id="markdown-toc-warmup-locally-small-family-fibrations">Warmup: locally small family fibrations</a></li>
+          <li><a href="#a-more-abstract-formulation" id="markdown-toc-a-more-abstract-formulation">A more abstract formulation</a></li>
+          <li><a href="#the-definition-of-local-smallness" id="markdown-toc-the-definition-of-local-smallness">The definition of local smallness</a></li>
+        </ul>
+      </li>
       <li><a href="#generic-objects-todo" id="markdown-toc-generic-objects-todo">Generic objects [todo]</a></li>
       <li><a href="#internal-categories-todo" id="markdown-toc-internal-categories-todo">Internal categories [todo]</a></li>
       <li><a href="#generating-families-todo" id="markdown-toc-generating-families-todo">Generating families [todo]</a></li>
@@ -134,60 +141,87 @@ notion of a category <em>over</em> another category.</p>
 following data:</p>
 <ol>
   <li>for each object $x\in B$, a collection of <em>displayed objects</em> $E_x$,</li>
-  <li>for each morphism $f : x \to y\in B$ and displayed objects $\bar{x}\in E_x$ and
-$\bar{y}\in E_y$, a family of collections of <em>displayed morphisms</em> $E_f(\bar{x},\bar{y})$,</li>
-  <li>for each $x\in B$ and $\bar{x}\in E_x$, a morphism $\Idn{\bar{x}} \in
-E\Sub{\Idn{x}}(\bar{x},\bar{x})$ which we may also write $\bar{f}:\bar{x}\to_f \bar{y}$,</li>
-  <li>for each $f : x \to y$ and $g:y \to z$ in $B$ and objects $\bar{x}\in E_x, \bar{y}\in
-E_y, \bar{z}\in E_z$, a function
+  <li>for each morphism $f : x \to y\in B$ and displayed objects $\dot{x}\in E_x$ and
+$\dot{y}\in E_y$, a family of collections of <em>displayed morphisms</em> $E_f(\dot{x},\dot{y})$,</li>
+  <li>for each $x\in B$ and $\dot{x}\in E_x$, a morphism $\Idn{\dot{x}} \in
+E\Sub{\Idn{x}}(\dot{x},\dot{x})$ which we may also write $\dot{f}:\dot{x}\to_f \dot{y}$,</li>
+  <li>for each $f : x \to y$ and $g:y \to z$ in $B$ and objects $\dot{x}\in E_x, \dot{y}\in
+E_y, \dot{z}\in E_z$, a function
  \[
-   E_f(\bar{x},\bar{y}) \times E_g(\bar{y},\bar{z}) \to E_{f;g}(\bar{x},\bar{z})
+   E_f(\dot{x},\dot{y}) \times E_g(\dot{y},\dot{z}) \to E_{f;g}(\dot{x},\dot{z})
  \]
 that we will denote like ordinary (digrammatic) function composition,</li>
   <li>such that the following equations hold:
   \[
-   \Idn{\bar{x}};\bar{h} = \bar{h}\qquad
-   \bar{h};\Idn{\bar{y}} = \bar{h}\qquad
-   \bar{f};(\bar{g};\bar{h}) = (\bar{f};\bar{g});\bar{h}
+   \Idn{\dot{x}};\dot{h} = \dot{h}\qquad
+   \dot{h};\Idn{\dot{y}} = \dot{h}\qquad
+   \dot{f};(\dot{g};\dot{h}) = (\dot{f};\dot{g});\dot{h}
   \]
 Note that these are well-defined because of the corresponding
 laws for the base category $B$.</li>
 </ol>
 
+<p><strong>Notation</strong>. When we have too many subscripts, $E[x]$ instead of $E_x$.</p>
+
 <h3 id="cartesian-morphisms">Cartesian morphisms</h3>
 
 <p>Let $E$ be displayed over $B$, and let $f:x\to y \in B$; a morphism
-$\bar{f}:\bar{x}\to_f \bar{y}$ in $E$ is called <em>cartesian</em> over $f$ when for
-any $m:u\to x$ and $\bar{h}:\bar{u}\to_{u;f} \bar{y}$ there exists a unique
-$\bar{m} : \bar{u}\to_m \bar{x}$ with $\bar{m};\bar{f} = \bar{h}$. We visualize
-this unique factorization of $\bar{h}$ through $\bar{f}$ over $m$ as follows:
-<span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.466ex; width: 26.892ex;' src="/math/antex/5fd54e32693e4fed9789d5eab19906bc.svg" /></span></p>
+$\dot{f}:\dot{x}\to_f \dot{y}$ in $E$ is called <em>cartesian</em> over $f$ when for
+any $m:u\to x$ and $\dot{h}:\dot{u}\to_{u;f} \dot{y}$ there exists a unique
+$\dot{m} : \dot{u}\to_m \dot{x}$ with $\dot{m};\dot{f} = \dot{h}$. We visualize
+this unique factorization of $\dot{h}$ through $\dot{f}$ over $m$ as follows:
+<span class="antex display"><img style='margin: -0.088ex 0.0ex -13.785ex 0.0ex; height: 25.556ex; width: 26.972ex;' src="/math/antex/55bb4c3d8a3b5014f535751c1f68fe58.svg" /></span></p>
 
 <h3 id="cartesian-fibrations">Cartesian fibrations</h3>
 
-<p>A displayed category $E$ over $B$ is said to be a <em>Cartesian fibration</em>, when
-for each morphism $f : x \to y$ and displayed object $\bar{y}\in E_y$, there
-exists a displayed object $\bar{x}\in E_x$ and a <em>cartesian</em> morphism
-$\bar{f} : \bar{x}\to\Sub{f} \bar{y}$. Note that the pair $(\bar{x},\bar{f})$ is unique up to
+<p>A displayed category $E$ over $B$ is said to be a <em>cartesian fibration</em>, when
+for each morphism $f : x \to y$ and displayed object $\dot{y}\in E_y$, there
+exists a displayed object $\dot{x}\in E_x$ and a <em>cartesian</em> morphism
+$\dot{f} : \dot{x}\to\Sub{f} \dot{y}$. Note that the pair $(\dot{x},\dot{f})$ is unique up to
 unique isomorphism, so being fibered is a <em>property</em> of a displayed category.</p>
 
 <p>There are other variations of fibration. For instance, $E$ is said to be an
 <em>isofibration</em> when the condition above holds just for isomorphisms $f : x
 \cong y$ in the base.</p>
 
-<h3 id="the-canonical-self-indexing">The canonical self-indexing</h3>
+<h3 id="example-the-canonical-self-indexing">Example: the canonical self-indexing</h3>
 
 <p>Let $B$ be an ordinary category; there is a canonical displayed category
 $\SelfIx{B}$ over $B$ given fiberwise by the <em>slices</em> of $B$.</p>
 <ol>
   <li>For $x\in B$, we define $\SelfIx{B}\Sub{x}$ to be the collection $\Sl{B}{x}$
-of pairs $(\bar{x}\in B,p_x:\bar{x}\to x)$.</li>
+of pairs $(\dot{x}\in B,p_x:\dot{x}\to x)$.</li>
   <li>For $f : x\to y\in B$, we define $\SelfIx{B}\Sub{f}$ to be the collection of
 commuting squares in the following configuration:
-<span class="antex display"><img style='margin: 0.002ex 0.082ex -3.292ex -0.104ex; height: 19.39ex; width: 21.774ex;' src="/math/antex/9f57eeb6d4a98136af52475578c70198.svg" /></span></li>
+<span class="antex display"><img style='margin: -0.092ex 0.082ex -3.292ex -0.104ex; height: 19.484ex; width: 21.774ex;' src="/math/antex/e9cb3842a3675c87c2764ebebe232878.svg" /></span></li>
 </ol>
 
-<p><strong>Exercise.</strong> Prove that $\SelfIx{B}$ is a Cartesian fibration if and only if $B$ has pullbacks.</p>
+<p><strong>Exercise.</strong> Prove that $\SelfIx{B}$ is a cartesian fibration if and only if $B$ has pullbacks.</p>
+
+<h3 id="ex:family-fibration">Example: the family fibration as a basis for relative category theory</h3>
+
+<p>Any ordinary category $C$ can be viewed as a displayed category $\FAM{C}$ over $\SET$:</p>
+
+<ol>
+  <li>For $S\in \SET$, object in $\FAM{C}[S]$ is specified by a functor $C^S$
+where $S$ is regarded as a discrete category.</li>
+  <li>Given $f : S \to T$ in $\SET$ and $x\in C^S$ and $y\in C^T$, a morphism
+$x \to\Sub{f} y$ is given by a morphism $\InvImg{f}x\to y$ in $C^S$ where
+$\InvImg{f} : C^T \to C^S$ is precomposiiton with $f$.</li>
+</ol>
+
+<p>The displayed category $\FAM{C}$ is in fact a cartesian fibration. This family
+fibration is the starting point for developing a <em>relative</em> form of category
+theory, the purpose of this lecture. By analogy with viewing an ordinary
+category $C$ as a fibration $\FAM{C}$ over $\SET$, we may reasonably define a
+“relative category” over another base $B$ to be a fibration over $B$.</p>
+
+<p>This story for relative category theory reflects the way that ordinary
+categories are “based on” $\SET$ in some sense in spite of the fact that they
+do not necessarily have sets of objects or even sets of morphisms between
+objects. Being small and locally small respectively will later be seen to be
+properties of a family fibration over an arbitrary base $B$, strictly
+generalizing the classical notions.</p>
 
 <h3 id="fiber-categories-and-vertical-maps">Fiber categories and vertical maps</h3>
 
@@ -204,36 +238,36 @@ is an ordinary functor, than a <em>displayed functor</em> from $E$ to $F$ over $
 given by the following data:</p>
 
 <ol>
-  <li>for each displayed object $\bar{x}\in E\Sub{x}$, a displayed object $\bar{U}\bar{x}\in E\Sub{Ux}$,</li>
-  <li>for each displayed morphism $\bar{f} : \bar{x}\to\Sub{f}\bar{y}$, a displayed morphism $\bar{U}\bar{f} : \bar{U}\bar{x}\to\Sub{Uf}\bar{U}\bar{y}$,</li>
-  <li>such that the assignment $\bar{U}f$ preserves displayed identities and displayed composition.</li>
+  <li>for each displayed object $\dot{x}\in E\Sub{x}$, a displayed object $\dot{U}\dot{x}\in E\Sub{Ux}$,</li>
+  <li>for each displayed morphism $\dot{f} : \dot{x}\to\Sub{f}\dot{y}$, a displayed morphism $\dot{U}\dot{f} : \dot{U}\dot{x}\to\Sub{Uf}\dot{U}\dot{y}$,</li>
+  <li>such that the assignment $\dot{U}f$ preserves displayed identities and displayed composition.</li>
 </ol>
 
 <p>From this notion, we can see the varition of displayed categories over their
 base categories itself has a “displayed categorical” structure; up to size
 issues, we could speak of the displayed <em>bicategory</em> of displayed categories.</p>
 
-<p><strong>Note.</strong> The correct notion of morphism between Cartesian fibrations is given
+<p><strong>Note.</strong> The correct notion of morphism between cartesian fibrations is given
 by displayed functors that preserve cartesian maps. We will call these <em>fibered
 functors</em>.</p>
 
 <h3 id="base-change">Change of base</h3>
 
 <p>Suppose that $E$ is displayed over $B$ and $F : X\to B$ is a
-functor; then we may define a displayed category $\InvImg{X}E$ as over $X$ follows:</p>
+functor; then we may define a displayed category $\InvImg{F}E$ as over $X$ follows:</p>
 
 <ol>
   <li>
-    <p>An object of $(\InvImg{X}E)\Sub{x}$ is an object of $E\Sub{Fx}$.</p>
+    <p>An object of $(\InvImg{F}E)\Sub{x}$ is an object of $E\Sub{Fx}$.</p>
   </li>
   <li>
-    <p>Given $\bar{x}\in (\InvImg{X}E)\Sub{x}$, $\bar{y}\in (\InvImg{X}E)\Sub{y}$ and $f : x
-\to y$, a morphism $\bar{x}\to\Sub{f}\bar{y}$ in $\InvImg{X}E$ is given by a morphism $\bar{x}\to\Sub{Ff}\bar{y}$ in $E$.</p>
+    <p>Given $\dot{x}\in (\InvImg{F}E)\Sub{x}$, $\dot{y}\in (\InvImg{F}E)\Sub{y}$ and $f : x
+\to y$, a morphism $\dot{x}\to\Sub{f}\dot{y}$ in $\InvImg{F}E$ is given by a morphism $\dot{x}\to\Sub{Ff}\dot{y}$ in $E$.</p>
   </li>
 </ol>
 
 <p>We visualize the change of base scenario as follows:
-<span class="antex display"><img style='margin: -0.016ex 0.077ex -2.788ex 0.0ex; height: 15.166ex; width: 18.701ex;' src="/math/antex/e5720ea52610fd703208c55d7f257baf.svg" /></span></p>
+<span class="antex display"><img style='margin: -0.016ex 0.077ex -2.788ex 0.0ex; height: 15.166ex; width: 18.537ex;' src="/math/antex/f1ea9f6cb2f6ed264a583fa012ca80f4.svg" /></span></p>
 
 <h2 id="the-grothendieck-construction">The Grothendieck construction</h2>
 
@@ -244,10 +278,10 @@ category $\TotCat{E}$ equipped with a projection functor $p_E: \TotCat{E}\to
 B$; in this case $\TotCat{E}$ is called the <em>total category</em> of $E$.</p>
 
 <ol>
-  <li>An object of $\TotCat{E}$ is given by a pair $(x,\bar{x})$ where $x\in B$ and
-$\bar{x}\in E_x$.</li>
-  <li>A morphism $(x,\bar{x})\to (y,\bar{y})$ in $\TotCat{E}$ is given by a pair $(f,\bar{f})$ where
-$f:x\to y$ and $\bar{f}:\bar{x}\to_f\bar{y}$.</li>
+  <li>An object of $\TotCat{E}$ is given by a pair $(x,\dot{x})$ where $x\in B$ and
+$\dot{x}\in E_x$.</li>
+  <li>A morphism $(x,\dot{x})\to (y,\dot{y})$ in $\TotCat{E}$ is given by a pair $(f,\dot{f})$ where
+$f:x\to y$ and $\dot{f}:\dot{x}\to_f\dot{y}$.</li>
 </ol>
 
 <p>The construction of the total category of displayed category is called the <em>Grothendieck construction.</em></p>
@@ -322,8 +356,8 @@ category displayed over the total category $\TotCat{E}$.</p>
 displayed category $B\Sub{!}F$ over $B$ as follows:</p>
 
 <ol>
-  <li>An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\bar{x},{\ddot{x}})$ with $\bar{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\bar{x}}$.</li>
-  <li>A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.</li>
+  <li>An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\dot{x},{\ddot{x}})$ with $\dot{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\dot{x}}$.</li>
+  <li>A morphism $(\dot{x},{\ddot{x}})\to\Sub{f}(\dot{y},{\ddot{y}})$ is given by a pair $(\dot{f},{\ddot{f}})$ where $\dot{f}:\dot{x}\to\Sub{f}\dot{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\dot{f}} {\ddot{y}}$ in $F$.</li>
 </ol>
 
 <p>By virtue of the <a href="#displayed-cats-from-functors">above</a>, we may define the
@@ -343,7 +377,97 @@ equivalent total category $\TotCat{U_\bullet}$ by <a href="#base-change">change 
 
 <h2 id="properties-of-fibrations">Properties of fibrations</h2>
 
-<h3 id="locally-small-fibrations-todo">Locally small fibrations [todo]</h3>
+<h3 id="locally-small-fibrations">Locally small fibrations</h3>
+
+<h4 id="warmup-locally-small-family-fibrations">Warmup: locally small family fibrations</h4>
+
+<p>An ordinary category $E$ is called <em>locally small</em> when for any $x,y\in E$ the
+collection of morphisms $x\to y$ is a set.  This property of $E$ can be
+rephrased in terms of its <a href="#ex:family-fibration"><em>family fibration</em></a> $\FAM{E}$ over
+$\SET$ as follows.</p>
+
+<p>Consider an index set $I\in \SET$ and two families $u,v\in C^I$. We may define
+an $I$-indexed collection $[u,v]\Sub{i\in I}$ consisting (pointwise) of all the
+morphisms $u_i\to v_i$ in $C$:
+\[
+  [u,v]\Sub{i} = \{ f \mid f: u_i\to v_i \}
+\]</p>
+
+<p>If $C$ is locally small, $[u,v]\Sub{i\in I}$ is in fact a family of sets for
+any $I\in\SET$ as each $[u,v]_i$ is a set. Conversely, if $[u,v]\Sub{i\in I}$
+is a family of sets for any $I\in \SET$, then $C$ is locally small as we may
+consider in particular the case that $I=\mathbf{1}$.</p>
+
+<h4 id="a-more-abstract-formulation">A more abstract formulation</h4>
+
+<p>We will reformulate the above in a way that uses only the language that makes
+sense for an arbitrary fibration, though for now we stick with $\FAM{C}$.</p>
+
+<ol>
+  <li>
+    <p>Given $u,v\in \FAM{C}[I]$, we have a “relative hom family” $[u,v]\in\Sl{\SET}{I}$, defined as above.</p>
+  </li>
+  <li>
+    <p>The fact that each $[u,v]_i$ is the set of all morphisms $u_i\to v_i$ can be
+rephrased more abstractly.</p>
+
+    <ul>
+      <li>
+        <p>First we consider the restriction of $u\in \FAM{C}[I]$ to $\FAM{C}[[u,v]]$ as follows:
+<span class="antex display"><img style='margin: -0.093ex 0.029ex -3.019ex 0.0ex; height: 17.652ex; width: 19.367ex;' src="/math/antex/6915d6e19e62c77c278d472907ebb2b0.svg" /></span>
+Explicitly the family $\InvImg{[u,v]}u$ is indexed in a pair of an element $i\in I$ and a morphism $u_i\to v_i$.
+Informally we can think of $\InvImg{[u,v]}u$ as the object of elements of $u_i$ indexed in pairs $(u,u_i\to v_i)$.</p>
+      </li>
+      <li>
+        <p>There is a canonical map
+$\epsilon\Sub{[u,v]}:\InvImg{[u,v]}u\to\Sub{p\Sub{[u,v]}} v$ that
+“evaluates” each indexing morphism $u_i\to v_i$.</p>
+      </li>
+      <li>
+        <p>That each $[u,v]_i$ is the set of all morphisms $u_i\to v_i$ can be
+rephrased as a universal property: for any family $h\in\Sl{\SET}{I}$ and
+morphism $\epsilon\Sub{h} : \InvImg{h}u\to\Sub{h} v$ in $\FAM{C}$, there is a
+unique cartesian map $\InvImg{h}u\to \InvImg{[u,v]}u$ factoring $\epsilon\Sub{h}$ through $\epsilon\Sub{[u,v]}$
+in the sense depicted below:
+<span class="antex display"><img style='margin: -0.023ex 0.0ex -18.456ex 0.0ex; height: 27.136ex; width: 37.966ex;' src="/math/antex/7e35d82dad98ff5b96eccf60faadde24.svg" /></span></p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="the-definition-of-local-smallness">The definition of local smallness</h4>
+
+<p>Based on our explorations above, we are now prepared to write down (and
+understand) the proper definition of local smallness for an arbitrary fibration
+$E$ over $B$, which should be thought of as a (potentially large) category
+relative to $B$.</p>
+
+<p>For any $x\in B$ and displayed objects $u,v\in E_x$, we define a <em>hom
+candidate</em> for $u,v$ to be a span $u\leftarrow \dot{h} \rightarrow v$ in $E$ in which the left-hand leg is cartesian:
+<span class="antex display"><img style='margin: -0.094ex 0.028ex -13.144ex 0.0ex; height: 16.91ex; width: 30.861ex;' src="/math/antex/656451da097632bc350c0ed16cf23021.svg" /></span></p>
+
+<p>In the above, $h$ should be thought of as a candidate for the “hom object” of $u,v$,
+and $\epsilon_h$ should be viewed as the structure of an “evaluation map” for $h$.
+This structure can be rephrased in terms of a displayed category $\CandHom{x}{u}{v}$ over $\Sl{B}{x}$:</p>
+
+<ol>
+  <li>
+    <p>Given $h\in \Sl{B}{x}$, an object of $\CandHom{x}{u}{v}\Sub{h}$ is given by a hom candidate
+whose apex in the base is $h$ itself. We will write $\dot{h}$ metonymically
+for the entire hom candidate over $h$.</p>
+  </li>
+  <li>
+    <p>Given $\alpha:l\to h\in\Sl{B}{x}$ and hom candidates $\dot{l}\in \CandHom{x}{u}{v}\Sub{l}$ and
+$\dot{h}\in \CandHom{x}{u}{v}\Sub{h}$, a morphism $\dot{h}\to\Sub{\alpha} \dot{l}$ is given by a
+cartesian morphism $\dot\alpha:\dot{l}\to\Sub{\alpha}\dot{h}$ in $E$ such that the
+following diagram commutes:
+<span class="antex display"><img style='margin: -0.093ex 0.112ex -8.491ex 0.0ex; height: 17.939ex; width: 24.097ex;' src="/math/antex/ac417bcaf63536e5789c8ddd6fb8273a.svg" /></span></p>
+  </li>
+</ol>
+
+<p><strong>Definition.</strong> A fibration $E$ over $B$ is <em>locally small</em> if and only if for
+each $x\in B$ and $u,v\in E_x$, the total category $\TotCat{\CandHom{x}{u}{v}}$
+has a terminal object.</p>
 
 <h3 id="generic-objects-todo">Generic objects [todo]</h3>
 
@@ -355,6 +479,7 @@ equivalent total category $\TotCat{U_\bullet}$ by <a href="#base-change">change 
 
 <h2 id="bibliography">Bibliography</h2>
 <ol class="bibliography"><li><span id="ahrens-lumsdaine:2019">Ahrens, B., Lumsdaine, P.L.F., 2019. Displayed Categories.</span></li>
+<li><span id="borceux:1994:vol2">Borceux, F., 1994. Handbook of Categorical Algebra 2 – Categories and Structures. Cambridge University Press.</span></li>
 <li><span id="jacobs:1999">Jacobs, B., 1999. Categorical Logic and Type Theory, Studies in Logic and the Foundations of Mathematics. North Holland, Amsterdam.</span></li>
 <li><span id="streicher:2021:fib">Streicher, T., 2021. Fibered Categories à la Jean Bénabou.</span></li></ol>
 
