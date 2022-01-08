@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Categorical foundations (draft)
+title: Foundations of relative category theory
 macrolib: topos
 usemathjax: true
 date: 2022-01-01
