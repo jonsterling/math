@@ -96,7 +96,7 @@ for the collection of objects of $B$.
 
 There is an alternative definition of fibration {%cite street:1980%} that avoids
 equality of objects; here we require for each $f:x\to Pv$ a cartesian morphism
-$h:\InvImg{f}v \to v$ together with an isomorphism $\phi : \InvImg{f}v\cong x$
+$h:\InvImg{f}v \to v$ together with an isomorphism $\phi : P(\InvImg{f}v)\cong x$
 such that $P(\phi^{-1};h) = f$.
 
 By unrolling definitions, it is not difficult to see that the displayed
