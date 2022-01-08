@@ -13,6 +13,9 @@
 (define-local GlSymbol
   @tex{\boldsymbol{\mathcal{G}}})
 
+(define-local FamSymbol
+  @tex{\boldsymbol{\mathcal{F}}})
+
 (define-global (Con x)
   @tex{\mathsf{@x}})
 
@@ -64,5 +67,14 @@
 
 (define-global (InvImg f)
   f (Sup @tex{*}))
+
+(define-global SET
+  (bold "Set"))
+
+(define-global (FAM cat)
+  FamSymbol (Sub cat))
+
+(define-global (CandHom i u v)
+ (bold "H") (Sub i) "(" u "," v ")")
 
 (publish-macro-library 'topos)

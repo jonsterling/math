@@ -18,6 +18,7 @@ notion of a category *over* another category.
 We will draw on the following materials:
 
 > - Ahrens and Lumsdaine {%cite ahrens-lumsdaine:2019 -A%}. [Displayed Categories](https://arxiv.org/abs/1705.04296).
+> - Borceux {%cite borceux:1994:vol2 -A%}. Handbook of Categorical Algebra 2: Categories and Structures.
 > - Jacobs {%cite jacobs:1999 -A%}.  [Categorical Logic and Type Theory](https://people.mpi-sws.org/~dreyer/courses/catlogic/jacobs.pdf) .
 > - Streicher {%cite streicher:2021:fib -A%}. [Fibered Categories à la Jean Bénabou](https://www2.mathematik.tu-darmstadt.de/~streicher/FIBR/FiBo.pdf).
 
@@ -48,6 +49,8 @@ following data:
 Note that these are well-defined because of the corresponding
 laws for the base category $B$.
 
+
+**Notation**. When we have too many subscripts, $E[x]$ instead of $E_x$.
 
 
 ### Cartesian morphisms
@@ -83,7 +86,7 @@ this unique factorization of $\dot{h}$ through $\dot{f}$ over $m$ as follows:
 
 ### Cartesian fibrations
 
-A displayed category $E$ over $B$ is said to be a *Cartesian fibration*, when
+A displayed category $E$ over $B$ is said to be a *cartesian fibration*, when
 for each morphism $f : x \to y$ and displayed object $\dot{y}\in E_y$, there
 exists a displayed object $\dot{x}\in E_x$ and a *cartesian* morphism
 $\dot{f} : \dot{x}\to\Sub{f} \dot{y}$. Note that the pair $(\dot{x},\dot{f})$ is unique up to
@@ -93,7 +96,7 @@ There are other variations of fibration. For instance, $E$ is said to be an
 *isofibration* when the condition above holds just for isomorphisms $f : x
 \cong y$ in the base.
 
-### The canonical self-indexing
+### Example: the canonical self-indexing
 
 Let $B$ be an ordinary category; there is a canonical displayed category
 $\SelfIx{B}$ over $B$ given fiberwise by the *slices* of $B$.
@@ -118,7 +121,31 @@ $\SelfIx{B}$ over $B$ given fiberwise by the *slices* of $B$.
   }
 »
 
-**Exercise.** Prove that $\SelfIx{B}$ is a Cartesian fibration if and only if $B$ has pullbacks.
+**Exercise.** Prove that $\SelfIx{B}$ is a cartesian fibration if and only if $B$ has pullbacks.
+
+
+### Example: the family fibration as a basis for relative category theory {#ex:family-fibration}
+
+Any ordinary category $C$ can be viewed as a displayed category $\FAM{C}$ over $\SET$:
+
+1. For $S\in \SET$, object in $\FAM{C}[S]$ is specified by a functor $C^S$
+   where $S$ is regarded as a discrete category.
+2. Given $f : S \to T$ in $\SET$ and $x\in C^S$ and $y\in C^T$, a morphism
+   $x \to\Sub{f} y$ is given by a morphism $\InvImg{f}x\to y$ in $C^S$ where
+   $\InvImg{f} : C^T \to C^S$ is precomposiiton with $f$.
+
+The displayed category $\FAM{C}$ is in fact a cartesian fibration. This family
+fibration is the starting point for developing a *relative* form of category
+theory, the purpose of this lecture. By analogy with viewing an ordinary
+category $C$ as a fibration $\FAM{C}$ over $\SET$, we may reasonably define a
+"relative category" over another base $B$ to be a fibration over $B$.
+
+This story for relative category theory reflects the way that ordinary
+categories are "based on" $\SET$ in some sense in spite of the fact that they
+do not necessarily have sets of objects or even sets of morphisms between
+objects. Being small and locally small respectively will later be seen to be
+properties of a family fibration over an arbitrary base $B$, strictly
+generalizing the classical notions.
 
 
 ### Fiber categories and vertical maps
@@ -144,7 +171,7 @@ From this notion, we can see the varition of displayed categories over their
 base categories itself has a "displayed categorical" structure; up to size
 issues, we could speak of the displayed *bicategory* of displayed categories.
 
-**Note.** The correct notion of morphism between Cartesian fibrations is given
+**Note.** The correct notion of morphism between cartesian fibrations is given
 by displayed functors that preserve cartesian maps. We will call these *fibered
 functors*.
 
@@ -299,7 +326,161 @@ obtain a displayed category $U\Sub{!}E$ over $C$ as follows:
 
 ## Properties of fibrations
 
-### Locally small fibrations [todo]
+
+### Locally small fibrations
+
+#### Warmup: locally small family fibrations
+
+An ordinary category $E$ is called *locally small* when for any $x,y\in E$ the
+collection of morphisms $x\to y$ is a set.  This property of $E$ can be
+rephrased in terms of its [*family fibration*](#ex:family-fibration) $\FAM{E}$ over
+$\SET$ as follows.
+
+Consider an index set $I\in \SET$ and two families $u,v\in C^I$. We may define
+an $I$-indexed collection $[u,v]\Sub{i\in I}$ consisting (pointwise) of all the
+morphisms $u_i\to v_i$ in $C$:
+\\[
+  [u,v]\Sub{i} = \\{ f \mid f: u_i\to v_i \\}
+\\]
+
+If $C$ is locally small, $[u,v]\Sub{i\in I}$ is in fact a family of sets for
+any $I\in\SET$ as each $[u,v]_i$ is a set. Conversely, if $[u,v]\Sub{i\in I}$
+is a family of sets for any $I\in \SET$, then $C$ is locally small as we may
+consider in particular the case that $I=\mathbf{1}$.
+
+#### A more abstract formulation
+
+We will reformulate the above in a way that uses only the language that makes
+sense for an arbitrary fibration, though for now we stick with $\FAM{C}$.
+
+1. Given $u,v\in \FAM{C}[I]$, we have a "relative hom family" $[u,v]\in\Sl{\SET}{I}$, defined as above.
+
+2. The fact that each $[u,v]_i$ is the set of all morphisms $u_i\to v_i$ can be
+   rephrased more abstractly.
+
+    +  First we consider the restriction of $u\in \FAM{C}[I]$ to $\FAM{C}[[u,v]]$ as follows:
+       «
+       \DiagramSquare{
+         nw/style = pullback,
+         west/style = lies over,
+         east/style = lies over,
+         north/style = exists,
+         height = 1.5cm,
+         nw = \InvImg{[u,v]}u,
+         ne = u,
+         sw = {[u,v]},
+         se = I,
+         south = p\Sub{[u,v]},
+         north = \dot{p}\Sub{[u,v]}
+       }
+       »
+       Explicitly the family $\InvImg{[u,v]}u$ is indexed in a pair of an element $i\in I$ and a morphism $u_i\to v_i$.
+       Informally we can think of $\InvImg{[u,v]}u$ as the object of elements of $u_i$ indexed in pairs $(u,u_i\to v_i)$.
+
+    + There is a canonical map
+      $\epsilon\Sub{[u,v]}:\InvImg{[u,v]}u\to\Sub{p\Sub{[u,v]}} v$ that
+      "evaluates" each indexing morphism $u_i\to v_i$.
+
+    + That each $[u,v]_i$ is the set of all morphisms $u_i\to v_i$ can be
+      rephrased as a universal property: for any family $h\in\Sl{\SET}{I}$ and
+      morphism $\epsilon\Sub{h} : \InvImg{h}u\to\Sub{h} v$ in $\FAM{C}$, there is a
+      unique cartesian map $\InvImg{h}u\to \InvImg{[u,v]}u$ factoring $\epsilon\Sub{h}$ through $\epsilon\Sub{[u,v]}$
+      in the sense depicted below:
+      «
+      \begin{tikzpicture}[diagram]
+        \SpliceDiagramSquare{
+          height = 1.5cm,
+          width = 3cm,
+          west/style = lies over,
+          east/style = lies over,
+          north/node/style = upright desc,
+          south/node/style = upright desc,
+          nw = \InvImg{[u,v]}u,
+          ne = v,
+          sw = {[u,v]},
+          se = I,
+          south = p\Sub{[u,v]},
+          north = \epsilon\Sub{[u,v]},
+        }
+        \node (h/u) [pullback,left = of nw] {$\InvImg{h}u$};
+        \node (h) [left = of sw] {$h$};
+        \draw[bend left,->] (h/u) to node [sloped,above] {$\epsilon_h$} (ne);
+        \draw[lies over] (h/u) to (h);
+        \draw[->,exists] (h) to (sw);
+        \draw[->,exists] (h/u) to (nw);
+        \draw[->,bend right=30] (h) to node [below] {$p_h$} (se);
+      \end{tikzpicture}
+      »
+
+#### The definition of local smallness
+
+Based on our explorations above, we are now prepared to write down (and
+understand) the proper definition of local smallness for an arbitrary fibration
+$E$ over $B$, which should be thought of as a (potentially large) category
+relative to $B$.
+
+For any $x\in B$ and displayed objects $u,v\in E_x$, we define a *hom
+candidate* for $u,v$ to be a span $u\leftarrow \dot{h} \rightarrow v$ in $E$ in which the left-hand leg is cartesian:
+«
+\begin{tikzpicture}[diagram]
+\SpliceDiagramSquare<l/>{
+  height = 1.5cm,
+  west/style = lies over,
+  east/style = lies over,
+  north/style = <-,
+  south/style = <-,
+  ne/style = ne pullback,
+  ne = \dot{h},
+  se = h,
+  sw = x,
+  nw = u,
+  south = p_h,
+  north = \dot{p}_h
+}
+\SpliceDiagramSquare<r/>{
+  height = 1.5cm,
+  west/style = lies over,
+  east/style = lies over,
+  glue = west,
+  glue target = l/,
+  ne = v,
+  se = x,
+  north = \epsilon_h,
+  south = p_h,
+}
+\end{tikzpicture}
+»
+
+In the above, $h$ should be thought of as a candidate for the "hom object" of $u,v$,
+and $\epsilon_h$ should be viewed as the structure of an "evaluation map" for $h$.
+This structure can be rephrased in terms of a displayed category $\CandHom{x}{u}{v}$ over $\Sl{B}{x}$:
+
+1. Given $h\in \Sl{B}{x}$, an object of $\CandHom{x}{u}{v}\Sub{h}$ is given by a hom candidate
+   whose apex in the base is $h$ itself. We will write $\dot{h}$ metonymically
+   for the entire hom candidate over $h$.
+
+2. Given $\alpha:l\to h\in\Sl{B}{x}$ and hom candidates $\dot{l}\in \CandHom{x}{u}{v}\Sub{l}$ and
+   $\dot{h}\in \CandHom{x}{u}{v}\Sub{h}$, a morphism $\dot{h}\to\Sub{\alpha} \dot{l}$ is given by a
+   cartesian morphism $\dot\alpha:\dot{l}\to\Sub{\alpha}\dot{h}$ in $E$ such that the
+   following diagram commutes:
+   «
+   \begin{tikzpicture}[diagram]
+     \node (u) {$u$};
+     \node (l) [above right = 1.5cm of u,xshift=.5cm] {$\dot{l}$};
+     \node (h) [below right = 1.5cm of u,xshift=.5cm] {$\dot{h}$};
+     \node (v) [below right = 1.5cm of l,xshift=.5cm] {$v$};
+     \draw[->] (h) to node [sloped,below] {$\dot{p}_h$} (u);
+     \draw[->] (l) to node [sloped,above] {$\dot{p}_l$} (u);
+     \draw[->] (h) to node [sloped,below] {$\epsilon_h$} (v);
+     \draw[->] (l) to node [sloped,above] {$\epsilon_l$} (v);
+     \draw[->] (l) to node [upright desc] {$\dot\alpha$} (h);
+   \end{tikzpicture}
+   »
+
+**Definition.** A fibration $E$ over $B$ is *locally small* if and only if for
+each $x\in B$ and $u,v\in E_x$, the total category $\TotCat{\CandHom{x}{u}{v}}$
+has a terminal object.
+
 
 ### Generic objects [todo]
 
