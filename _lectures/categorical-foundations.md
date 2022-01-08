@@ -73,6 +73,7 @@ this unique factorization of $\bar{h}$ through $\bar{f}$ over $m$ as follows:
       north = \bar{f},
       south = f,
       se = y,
+      nw/style = pullback,
     }
     \node (u') [above left = 1.5cm of nw,xshift=-.5cm] {$\bar{u}$};
     \node (u) [above left = 1.5cm of sw,xshift=-.5cm] {$u$};
@@ -82,6 +83,8 @@ this unique factorization of $\bar{h}$ through $\bar{f}$ over $m$ as follows:
     \draw[->,exists] (u') to node [desc] {$\bar{m}$} (nw);
   \end{tikzpicture}
 »
+
+Above we have used the "pullback corner" to indicate $\bar{x}\to\bar{y}$ as a cartesian map. We return to this in our discussion of the [self-indexing](#self-indexing) of a category.
 
 
 ### Cartesian fibrations
@@ -96,7 +99,7 @@ There are other variations of fibration. For instance, $E$ is said to be an
 *isofibration* when the condition above holds just for isomorphisms $f : x
 \cong y$ in the base.
 
-### Example: the canonical self-indexing
+### Example: the canonical self-indexing {#self-indexing}
 
 Let $B$ be an ordinary category; there is a canonical displayed category
 $\SelfIx{B}$ over $B$ given fiberwise by the *slices* of $B$.
