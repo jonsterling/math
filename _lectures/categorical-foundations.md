@@ -29,21 +29,21 @@ We will draw on the following materials:
 Let $B$ be a category. A *displayed category* $E$ over $B$ is defined by the
 following data:
 1. for each object $x\in B$, a collection of *displayed objects* $E_x$,
-2. for each morphism $f : x \to y\in B$ and displayed objects $\bar{x}\in E_x$ and
-   $\bar{y}\in E_y$, a family of collections of *displayed morphisms* $E_f(\bar{x},\bar{y})$,
-3. for each $x\in B$ and $\bar{x}\in E_x$, a morphism $\Idn{\bar{x}} \in
-   E\Sub{\Idn{x}}(\bar{x},\bar{x})$ which we may also write $\bar{f}:\bar{x}\to_f \bar{y}$,
-4. for each $f : x \to y$ and $g:y \to z$ in $B$ and objects $\bar{x}\in E_x, \bar{y}\in
-   E_y, \bar{z}\in E_z$, a function
+2. for each morphism $f : x \to y\in B$ and displayed objects $\dot{x}\in E_x$ and
+   $\dot{y}\in E_y$, a family of collections of *displayed morphisms* $E_f(\dot{x},\dot{y})$,
+3. for each $x\in B$ and $\dot{x}\in E_x$, a morphism $\Idn{\dot{x}} \in
+   E\Sub{\Idn{x}}(\dot{x},\dot{x})$ which we may also write $\dot{f}:\dot{x}\to_f \dot{y}$,
+4. for each $f : x \to y$ and $g:y \to z$ in $B$ and objects $\dot{x}\in E_x, \dot{y}\in
+   E_y, \dot{z}\in E_z$, a function
     \\[
-      E_f(\bar{x},\bar{y}) \times E_g(\bar{y},\bar{z}) \to E_{f;g}(\bar{x},\bar{z})
+      E_f(\dot{x},\dot{y}) \times E_g(\dot{y},\dot{z}) \to E_{f;g}(\dot{x},\dot{z})
     \\]
    that we will denote like ordinary (digrammatic) function composition,
 5. such that the following equations hold:
   \\[
-      \Idn{\bar{x}};\bar{h} = \bar{h}\qquad
-      \bar{h};\Idn{\bar{y}} = \bar{h}\qquad
-      \bar{f};(\bar{g};\bar{h}) = (\bar{f};\bar{g});\bar{h}
+      \Idn{\dot{x}};\dot{h} = \dot{h}\qquad
+      \dot{h};\Idn{\dot{y}} = \dot{h}\qquad
+      \dot{f};(\dot{g};\dot{h}) = (\dot{f};\dot{g});\dot{h}
   \\]
 Note that these are well-defined because of the corresponding
 laws for the base category $B$.
@@ -53,10 +53,10 @@ laws for the base category $B$.
 ### Cartesian morphisms
 
 Let $E$ be displayed over $B$, and let $f:x\to y \in B$; a morphism
-$\bar{f}:\bar{x}\to_f \bar{y}$ in $E$ is called *cartesian* over $f$ when for
-any $m:u\to x$ and $\bar{h}:\bar{u}\to_{u;f} \bar{y}$ there exists a unique
-$\bar{m} : \bar{u}\to_m \bar{x}$ with $\bar{m};\bar{f} = \bar{h}$. We visualize
-this unique factorization of $\bar{h}$ through $\bar{f}$ over $m$ as follows:
+$\dot{f}:\dot{x}\to_f \dot{y}$ in $E$ is called *cartesian* over $f$ when for
+any $m:u\to x$ and $\dot{h}:\dot{u}\to_{u;f} \dot{y}$ there exists a unique
+$\dot{m} : \dot{u}\to_m \dot{x}$ with $\dot{m};\dot{f} = \dot{h}$. We visualize
+this unique factorization of $\dot{h}$ through $\dot{f}$ over $m$ as follows:
 «
   \begin{tikzpicture}[diagram]
     \SpliceDiagramSquare{
@@ -64,19 +64,19 @@ this unique factorization of $\bar{h}$ through $\bar{f}$ over $m$ as follows:
       east/style = lies over,
       north/node/style = upright desc,
       height = 1.5cm,
-      nw = \bar{x},
-      ne = \bar{y},
+      nw = \dot{x},
+      ne = \dot{y},
       sw = x,
-      north = \bar{f},
+      north = \dot{f},
       south = f,
       se = y,
     }
-    \node (u') [above left = 1.5cm of nw,xshift=-.5cm] {$\bar{u}$};
+    \node (u') [above left = 1.5cm of nw,xshift=-.5cm] {$\dot{u}$};
     \node (u) [above left = 1.5cm of sw,xshift=-.5cm] {$u$};
     \draw[lies over] (u') to (u);
-    \draw[->,bend left=30] (u') to node [sloped,above] {$\bar{h}$} (ne);
+    \draw[->,bend left=30] (u') to node [sloped,above] {$\dot{h}$} (ne);
     \draw[->] (u) to node [sloped,below] {$m$} (sw);
-    \draw[->,exists] (u') to node [desc] {$\bar{m}$} (nw);
+    \draw[->,exists] (u') to node [desc] {$\dot{m}$} (nw);
   \end{tikzpicture}
 »
 
@@ -84,9 +84,9 @@ this unique factorization of $\bar{h}$ through $\bar{f}$ over $m$ as follows:
 ### Cartesian fibrations
 
 A displayed category $E$ over $B$ is said to be a *Cartesian fibration*, when
-for each morphism $f : x \to y$ and displayed object $\bar{y}\in E_y$, there
-exists a displayed object $\bar{x}\in E_x$ and a *cartesian* morphism
-$\bar{f} : \bar{x}\to\Sub{f} \bar{y}$. Note that the pair $(\bar{x},\bar{f})$ is unique up to
+for each morphism $f : x \to y$ and displayed object $\dot{y}\in E_y$, there
+exists a displayed object $\dot{x}\in E_x$ and a *cartesian* morphism
+$\dot{f} : \dot{x}\to\Sub{f} \dot{y}$. Note that the pair $(\dot{x},\dot{f})$ is unique up to
 unique isomorphism, so being fibered is a *property* of a displayed category.
 
 There are other variations of fibration. For instance, $E$ is said to be an
@@ -98,20 +98,20 @@ There are other variations of fibration. For instance, $E$ is said to be an
 Let $B$ be an ordinary category; there is a canonical displayed category
 $\SelfIx{B}$ over $B$ given fiberwise by the *slices* of $B$.
 1. For $x\in B$, we define $\SelfIx{B}\Sub{x}$ to be the collection $\Sl{B}{x}$
-   of pairs $(\bar{x}\in B,p_x:\bar{x}\to x)$.
+   of pairs $(\dot{x}\in B,p_x:\dot{x}\to x)$.
 2. For $f : x\to y\in B$, we define $\SelfIx{B}\Sub{f}$ to be the collection of
    commuting squares in the following configuration:
 «
   \DiagramSquare{
     height = 1.7cm,
-    nw = \bar{x},
-    ne = \bar{y},
+    nw = \dot{x},
+    ne = \dot{y},
     sw = x,
     se = y,
     west = p_x,
     east = p_y,
     south = f,
-    north = \bar{f},
+    north = \dot{f},
     west/style = exists,
     east/style = exists,
     north/style = exists,
@@ -136,9 +136,9 @@ Let $E$ be displayed over $B$ and let $F$ be displayed over $C$. If $U:B \to C$
 is an ordinary functor, than a *displayed functor* from $E$ to $F$ over $U$ is
 given by the following data:
 
-1. for each displayed object $\bar{x}\in E\Sub{x}$, a displayed object $\bar{U}\bar{x}\in E\Sub{Ux}$,
-2. for each displayed morphism $\bar{f} : \bar{x}\to\Sub{f}\bar{y}$, a displayed morphism $\bar{U}\bar{f} : \bar{U}\bar{x}\to\Sub{Uf}\bar{U}\bar{y}$,
-3. such that the assignment $\bar{U}f$ preserves displayed identities and displayed composition.
+1. for each displayed object $\dot{x}\in E\Sub{x}$, a displayed object $\dot{U}\dot{x}\in E\Sub{Ux}$,
+2. for each displayed morphism $\dot{f} : \dot{x}\to\Sub{f}\dot{y}$, a displayed morphism $\dot{U}\dot{f} : \dot{U}\dot{x}\to\Sub{Uf}\dot{U}\dot{y}$,
+3. such that the assignment $\dot{U}f$ preserves displayed identities and displayed composition.
 
 From this notion, we can see the varition of displayed categories over their
 base categories itself has a "displayed categorical" structure; up to size
@@ -151,12 +151,12 @@ functors*.
 ### Change of base {#base-change}
 
 Suppose that $E$ is displayed over $B$ and $F : X\to B$ is a
-functor; then we may define a displayed category $\InvImg{X}E$ as over $X$ follows:
+functor; then we may define a displayed category $\InvImg{F}E$ as over $X$ follows:
 
-1. An object of $(\InvImg{X}E)\Sub{x}$ is an object of $E\Sub{Fx}$.
+1. An object of $(\InvImg{F}E)\Sub{x}$ is an object of $E\Sub{Fx}$.
 
-2. Given $\bar{x}\in (\InvImg{X}E)\Sub{x}$, $\bar{y}\in (\InvImg{X}E)\Sub{y}$ and $f : x
-   \to y$, a morphism $\bar{x}\to\Sub{f}\bar{y}$ in $\InvImg{X}E$ is given by a morphism $\bar{x}\to\Sub{Ff}\bar{y}$ in $E$.
+2. Given $\dot{x}\in (\InvImg{F}E)\Sub{x}$, $\dot{y}\in (\InvImg{F}E)\Sub{y}$ and $f : x
+   \to y$, a morphism $\dot{x}\to\Sub{f}\dot{y}$ in $\InvImg{F}E$ is given by a morphism $\dot{x}\to\Sub{Ff}\dot{y}$ in $E$.
 
 We visualize the change of base scenario as follows:
 «
@@ -165,7 +165,7 @@ We visualize the change of base scenario as follows:
   west/style = lies over,
   east/style = lies over,
   height = 1.5cm,
-  nw = \InvImg{X}{E},
+  nw = \InvImg{F}{E},
   ne = E,
   sw = X,
   se = B,
@@ -182,10 +182,10 @@ Note that any displayed category $E$ over $B$ can be viewed as an undisplayed
 category $\TotCat{E}$ equipped with a projection functor $p_E: \TotCat{E}\to
 B$; in this case $\TotCat{E}$ is called the *total category* of $E$.
 
-1. An object of $\TotCat{E}$ is given by a pair $(x,\bar{x})$ where $x\in B$ and
-   $\bar{x}\in E_x$.
-2. A morphism $(x,\bar{x})\to (y,\bar{y})$ in $\TotCat{E}$ is given by a pair $(f,\bar{f})$ where
-   $f:x\to y$ and $\bar{f}:\bar{x}\to_f\bar{y}$.
+1. An object of $\TotCat{E}$ is given by a pair $(x,\dot{x})$ where $x\in B$ and
+   $\dot{x}\in E_x$.
+2. A morphism $(x,\dot{x})\to (y,\dot{y})$ in $\TotCat{E}$ is given by a pair $(f,\dot{f})$ where
+   $f:x\to y$ and $\dot{f}:\dot{x}\to_f\dot{y}$.
 
 The construction of the total category of displayed category is called the *Grothendieck construction.*
 
@@ -280,8 +280,8 @@ category displayed over the total category $\TotCat{E}$.
 Now let $F$ be displayed over $E$ over $B$. Then we may regard $F$ as a
 displayed category $B\Sub{!}F$ over $B$ as follows:
 
-1. An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\bar{x},{\ddot{x}})$ with $\bar{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\bar{x}}$.
-2. A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.
+1. An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\dot{x},{\ddot{x}})$ with $\dot{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\dot{x}}$.
+2. A morphism $(\dot{x},{\ddot{x}})\to\Sub{f}(\dot{y},{\ddot{y}})$ is given by a pair $(\dot{f},{\ddot{f}})$ where $\dot{f}:\dot{x}\to\Sub{f}\dot{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\dot{f}} {\ddot{y}}$ in $F$.
 
 By virtue of the [above](#displayed-cats-from-functors), we may define the
 *pushforward* of a displayed category along a functor. In particular, let $E$
