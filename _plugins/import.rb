@@ -6,6 +6,39 @@ module Jekyll
     end
   end
 
+  class TOC
+    def initialize(site)
+      @site = site
+    end
+
+    def get_toc_object()
+      if @site.data["toc"] == nil then
+        @site.data["toc"] = {}
+      end
+
+      @site.data["toc"]
+    end
+
+    def get_subpages(slug)
+      toc = get_toc_object()
+      subpages = toc[slug]
+      unless subpages
+        subpages = []
+        toc[slug] = subpages
+      end
+      subpages
+    end
+
+    def register_subpage(slug, subpage)
+      subpages = get_subpages slug
+
+      unless subpages.detect {|x| x["slug"] == subpage["slug"]}
+        subpages.append subpage
+      end
+    end
+
+  end
+
   class ImportTag < Liquid::Tag
     def initialize(tag_name, slug, tokens)
       super
@@ -17,25 +50,17 @@ module Jekyll
       site = context.registers[:site]
       page = context.registers[:page]
 
-      if site.data["toc"] == nil then
-        site.data["toc"] = {}
-      end
-
       current_level = page["level"] || 1
 
       referent = site.documents.find {|d| d.data["slug"] == @slug }
 
-      subpages = site.data["toc"][page["slug"]]
-      unless subpages
-        subpages = []
-        site.data["toc"][page["slug"]] = subpages
-      end
-
-      subpages.append(referent.data)
+      toc = TOC.new site
+      toc.register_subpage(page["slug"],referent.data)
 
       file = "_nodes/#{@slug}.md"
       partial = PartialPage.new(site, site.source, '', file)
       partial.data["level"] = current_level + 1
+      partial.data["url"] = "#{site.baseurl}/nodes/#{@slug}.html"
       partial.data["layout"] = "import"
       partial.data["slug"] = @slug
       partial.render(site.layouts, site.site_payload)
@@ -76,7 +101,7 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       page = context.registers[:page]
-      page["toc"] = site.data["toc"]
+      page["toc"] = TOC.new(site).get_toc_object()
 
       all_docs = site.documents
 
