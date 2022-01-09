@@ -68,3 +68,5 @@ scholar:
 collections:
   lectures:
     output: true
+  nodes:
+    output: true
