@@ -13,8 +13,6 @@ antex:
     \usepackage{topos}
 ---
 
-{{page.jon}}
-
 We assume knowledge of basic categorical concepts such as categories, functors,
 and natural transformations. The purpose of this lecture is to develop the
 notion of a category *over* another category.
