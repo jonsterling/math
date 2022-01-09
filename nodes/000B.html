@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Foundations of Relative Category Theory II | The Nursury</title>
+<title>Displayed categories from functors | The Nursury</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Foundations of Relative Category Theory II" />
+<meta property="og:title" content="Displayed categories from functors" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Table of Contents" />
-<meta property="og:description" content="Table of Contents" />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/lectures/categorical-foundations-2.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/lectures/categorical-foundations-2.html" />
+<meta name="description" content="In many cases, one starts with a functor $P:E\to B$; if it were meaningful to speak of equality of objects in an arbitrary category then there would be an obvious construction of a displayed category $P\Sub{\bullet}$ from $P$; we would simply set $P\Sub{x}$ to be the collection of objects $u\in E$ such that $Pu=x$. As it stands there is a more subtle version that will coincide up to categorical equivalence with the naïve one in all cases that the latter is meaningful." />
+<meta property="og:description" content="In many cases, one starts with a functor $P:E\to B$; if it were meaningful to speak of equality of objects in an arbitrary category then there would be an obvious construction of a displayed category $P\Sub{\bullet}$ from $P$; we would simply set $P\Sub{x}$ to be the collection of objects $u\in E$ such that $Pu=x$. As it stands there is a more subtle version that will coincide up to categorical equivalence with the naïve one in all cases that the latter is meaningful." />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/000B.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000B.html" />
 <meta property="og:site_name" content="The Nursury" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-02T00:00:00+01:00" />
+<meta property="article:published_time" content="2022-01-09T15:52:32+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Foundations of Relative Category Theory II" />
+<meta property="twitter:title" content="Displayed categories from functors" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Foundations of Relative Category Theory II","dateModified":"2022-01-02T00:00:00+01:00","datePublished":"2022-01-02T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/lectures/categorical-foundations-2.html"},"description":"Table of Contents","url":"https://www.jonsmsterling.com//math/lectures/categorical-foundations-2.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Displayed categories from functors","dateModified":"2022-01-09T15:52:32+01:00","datePublished":"2022-01-09T15:52:32+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000B.html"},"description":"In many cases, one starts with a functor $P:E\\to B$; if it were meaningful to speak of equality of objects in an arbitrary category then there would be an obvious construction of a displayed category $P\\Sub{\\bullet}$ from $P$; we would simply set $P\\Sub{x}$ to be the collection of objects $u\\in E$ such that $Pu=x$. As it stands there is a more subtle version that will coincide up to categorical equivalence with the naïve one in all cases that the latter is meaningful.","url":"https://www.jonsmsterling.com//math/nodes/000B.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursury" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -72,51 +72,40 @@
       <div class="wrapper">
         <article class="post">
 
+  
+
   <header class="post-header">
-    <h1 class="post-title">Foundations of Relative Category Theory II</h1>
-    
-    <p id="page-subtitle" class="page__subtitle p-name" itemprop="headline">
-    The Grothendieck construction
-    </p>
+    <h1 class="post-title">Displayed categories from functors</h1>
     
 
   </header>
 
-  <div class="post-content">
-    <nav>
-  <h4>Table of Contents</h4>
-<ul id="markdown-toc">
-  <li><a href="#the-total-category-and-its-projection" id="markdown-toc-the-total-category-and-its-projection">The total category and its projection</a></li>
-  <li><a href="#displayed-cats-from-functors" id="markdown-toc-displayed-cats-from-functors">Displayed categories from functors</a>    <ul>
-      <li><a href="#relation-to-streets-fibrations" id="markdown-toc-relation-to-streets-fibrations">Relation to Street’s fibrations</a></li>
-    </ul>
-  </li>
-  <li><a href="#iteration-and-pushforward" id="markdown-toc-iteration-and-pushforward">Iteration and pushforward</a></li>
-  <li><a href="#bibliography" id="markdown-toc-bibliography">Bibliography</a></li>
+
+  
+  <nav>
+    <h4>Table of Contents</h4>
+    <ul class="toc">
+  
+  <li>
+    <a class="slug" href="/math/nodes/000C.html">[000C]</a>
+    <a href="#000C">Relationship to Street's fibrations</a>
+    
+    <ul class="toc">
+  
 </ul>
 
-</nav>
 
-<h2 id="the-total-category-and-its-projection">The total category and its projection</h2>
+  </li>
+  
+</ul>
 
-<p>Note that any displayed category $E$ over $B$ can be viewed as an undisplayed
-category $\TotCat{E}$ equipped with a projection functor $p\Sub{E}: \TotCat{E}\to
-B$; in this case $\TotCat{E}$ is called the <em>total category</em> of $E$.</p>
 
-<ol>
-  <li>An object of $\TotCat{E}$ is given by a pair $(x,\bar{x})$ where $x\in B$ and
-$\bar{x}\in E\Sub{x}$.</li>
-  <li>A morphism $(x,\bar{x})\to (y,\bar{y})$ in $\TotCat{E}$ is given by a pair $(f,\bar{f})$ where
-$f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
-</ol>
+  </nav>
+  
 
-<p>The construction of the total category of displayed category is called the <em>Grothendieck construction.</em></p>
 
-<p><strong>Exercise.</strong> Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing is the arrow category $B^{\to}$.</p>
-
-<h2 id="displayed-cats-from-functors">Displayed categories from functors</h2>
-
-<p>In many cases, one starts with a functor $P:E\to B$; if it were meaningful to
+  <div class="post-content">
+    <p>In many cases, one starts with a functor $P:E\to B$; if it were meaningful to
 speak of <em>equality</em> of objects in an arbitrary category then there would be an
 obvious construction of a displayed category $P\Sub{\bullet}$ from $P$; we would
 simply set $P\Sub{x}$ to be the collection of objects $u\in E$ such that $Pu=x$. As
@@ -150,7 +139,10 @@ $u$.</p>
 
 <p><strong>Exercise.</strong> Verify that $\TotCat{P\Sub{\bullet}}\to E$ is a categorical equivalence.</p>
 
-<h3 id="relation-to-streets-fibrations">Relation to Street’s fibrations</h3>
+<h2 id="000C">
+  Relationship to Street’s fibrations
+<a class="slug" href="/math/nodes/000C.html">[000C]</a>
+</h2>
 
 <p>In classical category theory, fibrations are defined by
 Grothendieck <a class="citation" href="#sga:1">(1971)</a> to be certain functors $E\to B$ such that any morphism $f:x\to Pv$
@@ -171,42 +163,25 @@ $\TotCat{P\Sub{\bullet}}\to B$; hence we have introduced by accident a convenien
 destription of the <em>strictification</em> of Street fibrations into equivalent
 Grothendieck fibrations.</p>
 
-<h2 id="iteration-and-pushforward">Iteration and pushforward</h2>
-
-<p>It also makes sense to speak of a categories displayed over other displayed
-categories; one way to formalize this notion is as follows. Let $E$ be
-displayed over $B$; we define a category displayed over $E$ to be simply a
-category displayed over the total category $\TotCat{E}$.</p>
-
-<p>Now let $F$ be displayed over $E$ over $B$. Then we may regard $F$ as a
-displayed category $B\Sub{!}F$ over $B$ as follows:</p>
-
-<ol>
-  <li>An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\bar{x},{\ddot{x}})$ with $\bar{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\bar{x}}$.</li>
-  <li>A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.</li>
-</ol>
-
-<p>By virtue of the <a href="/math/lectures/categorical-foundations-2.html#displayed-cats-from-functors">above</a>, we may define the
-<em>pushforward</em> of a displayed category along a functor. In particular, let $E$
-be displayed over $B$ and let $U:B\to C$ be an ordinary functor; then we may
-obtain a displayed category $U\Sub{!}E$ over $C$ as follows:</p>
-
-<ol>
-  <li>First we construct the displayed category $U\Sub{\bullet}$ corresponding to the
-functor $U:B \to C$.</li>
-  <li>We recall that there is a canonical equivalence of categories
-$\TotCat{U\Sub{\bullet}}\to B$.</li>
-  <li>Because $E$ is displayed over $B$, we may regard it as displayed over the
-equivalent total category $\TotCat{U\Sub{\bullet}}$ by
-<a href="/math/lectures/categorical-foundations-1.html#base-change">change of base</a>.</li>
-  <li>Hence we may define the pushforward $U\Sub{!}E$ to be the displayed category $(U\Sub{\bullet})\Sub{!}E$ as defined above.</li>
-</ol>
-
-<h2 id="bibliography">Bibliography</h2>
-<ol class="bibliography"><li><span id="sga:1">Grothendieck, A., 1971. Revêtements étales et groupe fondamental (SGA 1), Lecture notes in mathematics. Springer-Verlag.</span></li>
-<li><span id="street:1980">Street, R., 1980. Fibrations in bicategories. Cahiers de Topologie et Géométrie Différentielle Catégoriques 21, 111–160.</span></li></ol>
 
   </div>
+
+
+  
+  <nav>
+    <h4>Upwards</h4>
+    <ul>
+      
+      <li>
+        <a href="/math/nodes/0009.html#000B">The Grothendieck construction</a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+
 
 </article>
 

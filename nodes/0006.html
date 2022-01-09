@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Lectures | The Nursury</title>
+<title>Example: the family fibration | The Nursury</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Lectures" />
+<meta property="og:title" content="Example: the family fibration" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A mathematical web page." />
-<meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/" />
+<meta name="description" content="Any ordinary category $C$ can be viewed as a displayed category $\FAM{C}$ over $\SET$:" />
+<meta property="og:description" content="Any ordinary category $C$ can be viewed as a displayed category $\FAM{C}$ over $\SET$:" />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/0006.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0006.html" />
 <meta property="og:site_name" content="The Nursury" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-09T15:52:32+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Lectures" />
+<meta property="twitter:title" content="Example: the family fibration" />
 <script type="application/ld+json">
-{"@type":"WebSite","headline":"Lectures","description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/","name":"The Nursury","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Example: the family fibration","dateModified":"2022-01-09T15:52:32+01:00","datePublished":"2022-01-09T15:52:32+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0006.html"},"description":"Any ordinary category $C$ can be viewed as a displayed category $\\FAM{C}$ over $\\SET$:","url":"https://www.jonsmsterling.com//math/nodes/0006.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursury" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -25,7 +27,7 @@
 <script>
   const macros_promise =
     
-    Promise.resolve({})
+    fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
     ;
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -68,12 +70,64 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h1 class="page-heading">Lectures</h1>
-<p><a href="/math/lectures/categorical-foundations.html">Foundations of Relative Category Theory</a></p>
+        <article class="post">
 
-<p><a href="/math/lectures/topos.html">Geometric universes and topoi (draft)</a></p>
+  
 
-</div>
+  <header class="post-header">
+    <h1 class="post-title">Example: the family fibration</h1>
+    
+
+  </header>
+
+
+  
+
+
+  <div class="post-content">
+    <p>Any ordinary category $C$ can be viewed as a displayed category $\FAM{C}$ over $\SET$:</p>
+
+<ol>
+  <li>For $S\in \SET$, object in $\FAM{C}[S]$ is specified by a functor $C^S$
+where $S$ is regarded as a discrete category.</li>
+  <li>Given $f : S \to T$ in $\SET$ and $x\in C^S$ and $y\in C^T$, a morphism
+$x \to\Sub{f} y$ is given by a morphism $\InvImg{f}x\to y$ in $C^S$ where
+$\InvImg{f} : C^T \to C^S$ is precomposiiton with $f$.</li>
+</ol>
+
+<p>The displayed category $\FAM{C}$ is in fact a cartesian fibration. This family
+fibration is the starting point for developing a <em>relative</em> form of category
+theory, the purpose of this lecture. By analogy with viewing an ordinary
+category $C$ as a fibration $\FAM{C}$ over $\SET$, we may reasonably define a
+“relative category” over another base $B$ to be a fibration over $B$.</p>
+
+<p>This story for relative category theory reflects the way that ordinary
+categories are “based on” $\SET$ in some sense in spite of the fact that they
+do not necessarily have sets of objects or even sets of morphisms between
+objects. Being small and locally small respectively will later be seen to be
+properties of a family fibration over an arbitrary base $B$, strictly
+generalizing the classical notions.</p>
+
+  </div>
+
+
+  
+  <nav>
+    <h4>Upwards</h4>
+    <ul>
+      
+      <li>
+        <a href="/math/nodes/0008.html#0006">Displayed categories and fibrations</a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+
+
+</article>
 
       </div>
     </main><footer class="site-footer h-card">
