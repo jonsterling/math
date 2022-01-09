@@ -1,7 +1,8 @@
-<h{{page.level}}>
-<a href="{{baseurl}}{{page.target}}.html">{{page.title}}</a>
+<h{{page.level}} id="{{page.slug}}">
+  {{page.title}}
+<a href="{{page.target}}" class="slug">[{{page.slug}}]</a>
 </h{{page.level}}>
 
-<div class="import">
+<section class="import">
    {{ content }}
-</div>
+</section>

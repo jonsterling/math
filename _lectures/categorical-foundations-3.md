@@ -24,8 +24,7 @@ some intuition for these definitions.
 
 An ordinary category $E$ is called *locally small* when for any $x,y\in E$ the
 collection of morphisms $x\to y$ is a set.  This property of $E$ can be
-rephrased in terms of its [*family fibration*]({{site.baseurl}}{%link
-_lectures/categorical-foundations-1.md%}#ex:family-fibration).  $\FAM{E}$ over
+rephrased in terms of its *family fibration* {% ref T00A4 %} $\FAM{E}$ over
 $\SET$ as follows.
 
 Consider an index set $I\in \SET$ and two families $u,v\in C^I$. We may define

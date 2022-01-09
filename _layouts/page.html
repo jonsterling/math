@@ -3,6 +3,8 @@ layout: default
 ---
 <article class="post">
 
+  {% generate_backlinks %}
+
   <header class="post-header">
     <h1 class="post-title">{{ page.title | escape }}</h1>
     {% if page.subtitle %}
@@ -13,8 +15,44 @@ layout: default
 
   </header>
 
+
+  {% if page.toc[page.slug] %}
+  <nav>
+    <h4>Table of Contents</h4>
+    {%include toc.html slug=page.slug toc=page.toc%}
+  </nav>
+  {% endif %}
+
+
   <div class="post-content">
     {{ content }}
   </div>
+
+  {% if page.superpages %}
+  <nav>
+    <h4>Upwards</h4>
+    <ul>
+      {% for p in page.superpages %}
+      <li>
+        <a href="{{p.url | relative_url}}#{{page.slug}}">{{p.title}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
+  {% if page.referrers %}
+  <nav>
+    <h4>Referrers</h4>
+    <ul>
+      {% for p in page.referrers %}
+      <li>
+        <a href="{{p.url | relative_url}}#{{page.slug}}">{{p.title}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
 
 </article>

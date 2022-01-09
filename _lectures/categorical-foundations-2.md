@@ -133,7 +133,7 @@ obtain a displayed category $U\Sub{!}E$ over $C$ as follows:
    $\TotCat{U\Sub{\bullet}}\to B$.
 3. Because $E$ is displayed over $B$, we may regard it as displayed over the
    equivalent total category $\TotCat{U\Sub{\bullet}}$ by
-   [change of base]({{page.refs.rct1.base-change | url}}).
+   change of base {%ref T00A7%}.
 4. Hence we may define the pushforward $U\Sub{!}E$ to be the displayed category $(U\Sub{\bullet})\Sub{!}E$ as defined above.
 
 

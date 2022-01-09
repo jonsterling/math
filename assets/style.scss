@@ -13,6 +13,7 @@ body {
 h1,h2,h3,h4,h5  {
   font-family: "Roboto" !important;
   font-weight: bold !important;
+  margin-top: 0.2em;
 }
 
 h1 {
@@ -21,19 +22,17 @@ h1 {
 
 h2 {
   font-size: 1.5em !important;
-  margin-top: 1.7em;
   margin-block-end: .4em;
 }
 
 h3 {
   font-size: 1.2em !important;
-  margin-top: 1.7em;
   margin-block-end: .4em;
 }
 
 h4 {
   font-size: 1em !important;
-  margin-top: 1.7em;
+  margin-top: 1.2em;
   margin-block-end: .4em;
 }
 
@@ -46,4 +45,11 @@ h4 {
 
 .slug {
   font-family: monospace;
+  color: gray !important;
+}
+
+ul.toc {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10pt;
 }

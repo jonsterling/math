@@ -28,6 +28,12 @@ kramdown:
 antex:
   url_path_prefix: *baseurl
 
+  preamble: >-
+    \usepackage{jon-tikz}
+    \usepackage{mlmodern,amsfonts,amssymb,amsmath}
+    \usepackage{topos}
+
+
   commands:
     latexmk:
       command:
