@@ -42,13 +42,13 @@ layout: default
   </nav>
   {% endif %}
 
-  {% if page.referrers %}
+  {% if page.cotoc[page.slug] %}
   <nav>
     <h4>Referrers</h4>
     <ul>
-      {% for p in page.referrers %}
+      {% for p in page.cotoc[page.slug] %}
       <li>
-        <a href="{{p.url | relative_url}}#{{page.slug}}">{{p.title}}</a>
+        <a href="{{site.baseurl}}/nodes/{{p.slug}}.html">{{p.title}} <span class="slug">[{{p.slug}}]</a>
       </li>
       {% endfor %}
     </ul>

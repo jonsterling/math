@@ -19,6 +19,14 @@ module Jekyll
       @site.data["toc"]
     end
 
+    def get_cotoc_object()
+      if @site.data["cotoc"] == nil then
+        @site.data["cotoc"] = {}
+      end
+
+      @site.data["cotoc"]
+    end
+
     def get_subpages(slug)
       toc = get_toc_object()
       subpages = toc[slug]
@@ -28,6 +36,25 @@ module Jekyll
       end
       subpages
     end
+
+    def get_backlinks(slug)
+      cotoc = get_cotoc_object()
+      backlinks = cotoc[slug]
+      unless backlinks
+        backlinks = []
+        cotoc[slug] = backlinks
+      end
+      backlinks
+    end
+
+    def register_backlink(slug, page)
+      backlinks = get_backlinks slug
+
+      unless backlinks.detect {|x| x["slug"] == page["slug"]}
+        backlinks.append page
+      end
+    end
+
 
     def register_subpage(slug, subpage)
       subpages = get_subpages slug
@@ -81,15 +108,8 @@ module Jekyll
       nodes = site.collections["nodes"].docs
       node = nodes.detect {|d| d.data["slug"] == @slug}
 
-      referents = page["referents"]
-      unless referents
-        referents = []
-        page["referents"] = referents
-      end
-
-      unless referents.include? @slug
-        referents.append @slug
-      end
+      toc = TOC.new site
+      toc.register_backlink(@slug,page)
 
       "<a href='#{site.baseurl}#{node.url}' class='slug'>[#{@slug}]</a>"
     end
@@ -101,7 +121,10 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       page = context.registers[:page]
-      page["toc"] = TOC.new(site).get_toc_object()
+
+      toc = TOC.new(site)
+      page["toc"] = toc.get_toc_object()
+      page["cotoc"] = toc.get_cotoc_object()
 
       all_docs = site.documents
 
@@ -110,15 +133,7 @@ module Jekyll
         subpages.detect {|p| p["slug"] == page["slug"]}
       end
 
-      referrers = all_docs.filter do |e|
-        referents = e["referents"] || []
-        referents.detect {|slug| slug == page["slug"]}
-      end
-
       if superpages == [] then superpages = nil end
-      if referrers == [] then referrers = nil end
-
-      page["referrers"] = referrers
       page["superpages"] = superpages
       nil
     end
