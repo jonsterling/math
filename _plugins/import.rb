@@ -1,3 +1,5 @@
+# This code is roughly based on https://github.com/koraktor/jekyll/tree/import-tag
+
 module Jekyll
 
   class PartialPage < Page
