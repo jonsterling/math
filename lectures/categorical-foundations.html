@@ -329,6 +329,39 @@
 
   </li>
   
+  <li>
+    <a class="slug" href="/math/nodes/000P.html">[000P]</a>
+    <a href="#000P">The definition of global smallness</a>
+    
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    <a class="slug" href="/math/nodes/000N.html">[000N]</a>
+    <a href="#000N">Small fibrations and internal categories</a>
+    
+    <ul class="toc">
+  
+  <li>
+    <a class="slug" href="/math/nodes/000O.html">[000O]</a>
+    <a href="#000O">Internal categories</a>
+    
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
 </ul>
 
 
@@ -691,41 +724,28 @@ consider in particular the case that $I=\mathbf{1}$.</p>
 </h4>
 
 <p>We will reformulate the above in a way that uses only the language that makes
-sense for an arbitrary fibration, though for now we stick with $\FAM{C}$.</p>
+sense for an arbitrary fibration, though for now we stick with $\FAM{C}$. Given
+$u,v\in \FAM{C}[I]$, we have a “relative hom family” $[u,v]\in\Sl{\SET}{I}$,
+defined in <a href="/math/nodes/000G.html" class="slug">[000G]</a>. The fact that each $[u,v]\Sub{i}$ is the set of all
+morphisms $u\Sub{i}\to v\Sub{i}$ can be rephrased more abstractly.</p>
 
-<ol>
-  <li>
-    <p>Given $u,v\in \FAM{C}[I]$, we have a “relative hom family” $[u,v]\in\Sl{\SET}{I}$, defined as above.</p>
-  </li>
-  <li>
-    <p>The fact that each $[u,v]\Sub{i}$ is the set of all morphisms $u\Sub{i}\to v\Sub{i}$ can be
-rephrased more abstractly.</p>
-
-    <ul>
-      <li>
-        <p>First we consider the restriction of $u\in \FAM{C}[I]$ to $\FAM{C}[[u,v]]$ as follows:
-<span class="antex display"><img style='margin: 0.002ex 0.029ex -3.019ex 0.0ex; height: 17.557ex; width: 19.367ex;' src="/math/antex/613daf6cdc153ec2c08208114fc93a3d.svg" /></span>
+<p>First we consider the restriction of $u\in \FAM{C}[I]$ to $\FAM{C}[[u,v]]$ as follows:
+<span class="antex display"><img style='margin: 0.002ex 0.029ex -3.019ex 0.0ex; height: 17.557ex; width: 19.367ex;' src="/math/antex/32af0d7286cf47b57fa87bf13b510784.svg" /></span>
 Explicitly the family $\InvImg{[u,v]}u$ is indexed in a pair of an element $i\in I$ and a morphism $u\Sub{i}\to v\Sub{i}$.
 We can think of $\InvImg{[u,v]}u$ as the object of elements of $u\Sub{i}$ indexed in pairs $(i,u\Sub{i}\to v\Sub{i})$.</p>
-      </li>
-      <li>
-        <p>There is a canonical map
+
+<p>There is a canonical map
 $\epsilon\Sub{[u,v]}:\InvImg{[u,v]}u\to\Sub{p\Sub{[u,v]}} v$ that
 “evaluates” each indexing morphism $u\Sub{i}\to v\Sub{i}$.</p>
-      </li>
-      <li>
-        <p>That each $[u,v]\Sub{i}$ is the set of all morphisms $u\Sub{i}\to v\Sub{i}$ can be
+
+<p>That each $[u,v]\Sub{i}$ is the set of all morphisms $u\Sub{i}\to v\Sub{i}$ can be
 rephrased as a universal property: for any family $h\in\Sl{\SET}{I}$ and
 morphism $\epsilon\Sub{h} : \InvImg{h}u\to\Sub{h} v$ in $\FAM{C}$, there is a
 unique cartesian map $\InvImg{h}u\to \InvImg{[u,v]}u$ factoring $\epsilon\Sub{h}$ through $\epsilon\Sub{[u,v]}$
 in the sense depicted below:
-<span class="antex display"><img style='margin: -0.023ex 0.0ex -18.456ex 0.0ex; height: 27.136ex; width: 37.966ex;' src="/math/antex/4f117e932bcd5c15a9fc9dc839a6e4d7.svg" /></span></p>
+<span class="antex display"><img style='margin: -0.023ex 0.0ex -18.456ex 0.0ex; height: 27.136ex; width: 37.966ex;' src="/math/antex/c09613ab6c9806acee30a95ea2e878c4.svg" /></span></p>
 
-        <p>To convince ourselves of this, we note that the family $H \coloneqq \brc{u\Sub{i}\to v\Sub{i}}\Sub{i\in I}$ itself satisfies the universal property above. Indeed, fix a candiate $h \in \Sl{\SET}{I}$ equipped with a map $\epsilon\Sub{h} : h^*u \to_h v$. Unfolding the meaning of this map in set theoretical notation, we see that it amounts to a family of maps $\epsilon\Sub{h}[i] : \prod\Sub{x\in h_i} \brc{u_i\to v_i}$ for each $i\in I$; such a family immediately induces the desired map $h\to H$.</p>
-      </li>
-    </ul>
-  </li>
-</ol>
+<p>To convince ourselves of this, we note that the family $H \coloneqq \brc{u\Sub{i}\to v\Sub{i}}\Sub{i\in I}$ itself satisfies the universal property above. Indeed, fix a candiate $h \in \Sl{\SET}{I}$ equipped with a map $\epsilon\Sub{h} : h^*u \to_h v$. Unfolding the meaning of this map in set theoretical notation, we see that it amounts to a family of maps $\epsilon\Sub{h}[i] : \prod\Sub{x\in h_i} \brc{u_i\to v_i}$ for each $i\in I$; such a family immediately induces the desired map $h\to H$.</p>
 
 <h4 id="000I">
   The definition of local smallness
@@ -830,7 +850,38 @@ define a morphism $x\to y\in U$ to be given by the following data:</p>
 
 <p>Alternatively, if $C$ is locally small then we may take the quotient above without difficulty as sets are closed under quotients.</p>
 
+<h4 id="000P">
+  The definition of global smallness
+<a class="slug" href="/math/nodes/000P.html">[000P]</a>
+</h4>
+
 <p><strong>Definition.</strong> A fibration $E$ over $B$ is called <em>globally small</em> when it has a generic object <a href="/math/nodes/000K.html" class="slug">[000K]</a>.</p>
+
+<h3 id="000N">
+  Small fibrations and internal categories
+<a class="slug" href="/math/nodes/000N.html">[000N]</a>
+</h3>
+
+<p>The purpose of this section is to develop the relationship between <em>internal
+categories</em> (categories defined in the internal language of a category $B$) and
+fibrations over $B$, generalizing the relationship between categories internal
+to $\SET$ (i.e. small categories) and their family fibrations over $\SET$.</p>
+
+<p><strong>Definition.</strong> A fibration is called <em>small</em> when it is both locally small
+<a href="/math/nodes/000I.html" class="slug">[000I]</a> and globally small <a href="/math/nodes/000J.html" class="slug">[000J]</a>.</p>
+
+<p>We have already seen in <a href="/math/nodes/000G.html" class="slug">[000G]</a> and <a href="/math/nodes/000L.html" class="slug">[000L]</a> that smallness in the
+sense of the definition above appropriately generalizes the ordinary notion of
+smallness for categories over $\SET$. Another perspective on smallness is given
+by the <em>internal language</em>, in which a category is viewed as an algebra for the
+“theory of categories” computed in another category with enough structure. The
+notion of internal categories is credited (independently) to Alexander
+Grothendieck and Charles Ehresmann.</p>
+
+<h4 id="000O">
+  Internal categories
+<a class="slug" href="/math/nodes/000O.html">[000O]</a>
+</h4>
 
 
   </div>
