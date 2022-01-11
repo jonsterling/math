@@ -4,3 +4,4 @@ compiled
 _site
 *~
 .sass-cache
+.jekyll*
