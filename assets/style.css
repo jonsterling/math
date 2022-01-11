@@ -530,6 +530,9 @@ h4 {
   margin-top: 1.2em;
   margin-block-end: .4em; }
 
+h5 {
+  font-size: 1em !important; }
+
 .page__subtitle {
   font-size: 1.5em;
   font-weight: 500;

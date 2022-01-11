@@ -77,4 +77,8 @@
 (define-global (CandHom i u v)
  (bold "H") (Sub i) "(" u "," v ")")
 
+
+(define-global (brc x)
+  @tex{\{ @x \}})
+
 (publish-macro-library 'topos)

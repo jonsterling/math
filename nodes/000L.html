@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Displayed and fibered functors | The Nursury</title>
+<title>Globally small categories | The Nursury</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Displayed and fibered functors" />
+<meta property="og:title" content="Globally small categories" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Let $E$ be displayed over $B$ and let $F$ be displayed over $C$. If $U:B \to C$ is an ordinary functor, than a displayed functor from $E$ to $F$ over $U$ is given by the following data:" />
-<meta property="og:description" content="Let $E$ be displayed over $B$ and let $F$ be displayed over $C$. If $U:B \to C$ is an ordinary functor, than a displayed functor from $E$ to $F$ over $U$ is given by the following data:" />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/0004.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0004.html" />
+<meta name="description" content="Theorem. An ordinary category $C$ is equivalent to a globally small category if and only if the fibration $\FAM{C}$ has a generic object." />
+<meta property="og:description" content="Theorem. An ordinary category $C$ is equivalent to a globally small category if and only if the fibration $\FAM{C}$ has a generic object." />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/000L.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000L.html" />
 <meta property="og:site_name" content="The Nursury" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-11T14:51:47+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Displayed and fibered functors" />
+<meta property="twitter:title" content="Globally small categories" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Displayed and fibered functors","dateModified":"2022-01-11T14:51:47+01:00","datePublished":"2022-01-11T14:51:47+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0004.html"},"description":"Let $E$ be displayed over $B$ and let $F$ be displayed over $C$. If $U:B \\to C$ is an ordinary functor, than a displayed functor from $E$ to $F$ over $U$ is given by the following data:","url":"https://www.jonsmsterling.com//math/nodes/0004.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Globally small categories","dateModified":"2022-01-11T14:51:47+01:00","datePublished":"2022-01-11T14:51:47+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000L.html"},"description":"Theorem. An ordinary category $C$ is equivalent to a globally small category if and only if the fibration $\\FAM{C}$ has a generic object.","url":"https://www.jonsmsterling.com//math/nodes/000L.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursury" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -75,34 +75,75 @@
   
 
   <header class="post-header">
-    <h1 class="post-title">Displayed and fibered functors</h1>
+    <h1 class="post-title">Globally small categories</h1>
     
 
   </header>
 
 
   
+  <nav>
+    <h4>Table of Contents</h4>
+    <ul class="toc">
+  
+  <li>
+    <a class="slug" href="/math/nodes/000M.html">[000M]</a>
+    <a href="#000M">Avoiding the axiom of choice</a>
+    
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+</ul>
+
+
+  </nav>
+  
 
 
   <div class="post-content">
-    <p>Let $E$ be displayed over $B$ and let $F$ be displayed over $C$. If $U:B \to C$
-is an ordinary functor, than a <em>displayed functor</em> from $E$ to $F$ over $U$ is
-given by the following data:</p>
+    <p><strong>Theorem.</strong> An ordinary category $C$ is equivalent to a globally small category if and only if the fibration $\FAM{C}$ has a generic object.</p>
+
+<p><strong>Proof.</strong>
+To see that this is the case, suppose that $C$ has a set of objects. Then
+$C\in\SET$ and we define $\lfloor{C}\rfloor$ to be the displayed object
+$\brc{x}\Sub{x\in C}\in \FAM{C}[C]$. Fixing $I\in \SET$ and $z\in C^I$, we
+consider the cartesian map displayed over $z : I \to C$:
+<span class="antex display"><img style='margin: -0.024ex 0.069ex -2.23ex 0.0ex; height: 14.758ex; width: 33.227ex;' src="/math/antex/f9b6daf1d0c21d371f0388d07c838237.svg" /></span></p>
+
+<p>Conversely assume that $\FAM{C}$ has a generic object $\bar{u}\in\FAM{C}[U]$
+for some $U\in \SET$; then we may equip $U$ with the structure of a globally
+small category, such that $U$ is equivalent to $C$.  By the axiom of choice we
+may choose for each $x\in U$ a cartesian map
+$\InvImg{x}\bar{u}\to\Sub{x}\bar{u}$ over $x:1\to U$; then we say that a
+morphism $x\to y\in U$  is given by a vertical map $\InvImg{x}\bar{u}\to
+\InvImg{y}\bar{u}$ in $\FAM{C}[1] \simeq C$.</p>
+
+<h2 id="000M">
+  Avoiding the axiom of choice
+<a class="slug" href="/math/nodes/000M.html">[000M]</a>
+</h2>
+
+<p>In some cases we may avoid use of the axiom of choice in <a href="/math/nodes/000L.html" class="slug">[000L]</a>; if our foundations allow us to
+take the quotient of a <em>class</em> (e.g. using
+<a href="http://ncatlab.org/nlab/show/Scott%27s+trick">Scott’s Trick</a>), then we may
+define a morphism $x\to y\in U$ to be given by the following data:</p>
 
 <ol>
-  <li>for each displayed object $\bar{x}\in E\Sub{x}$, a displayed object $\bar{U}\bar{x}\in E\Sub{Ux}$,</li>
-  <li>for each displayed morphism $\bar{f} : \bar{x}\to\Sub{f}\bar{y}$, a displayed morphism $\bar{U}\bar{f} : \bar{U}\bar{x}\to\Sub{Uf}\bar{U}\bar{y}$,</li>
-  <li>such that the assignment $\bar{U}f$ preserves displayed identities and displayed composition.</li>
+  <li>a cartesian map $a\to\Sub{x} \bar{u}$ over $x : 1\to U$,</li>
+  <li>a cartesian map $b\to\Sub{y} \bar{u}$ over $y : 1\to U$,</li>
+  <li>and a vertical map $h:a\to b$ in $\FAM{C}[1]\simeq C$,</li>
 </ol>
 
-<p>From this notion, we can see the varition of displayed categories over their
-base categories itself has a “displayed categorical” structure; up to size
-issues, we could speak of the displayed <em>bicategory</em> of displayed categories.</p>
+<p>such that $(a\Sub{1},b\Sub{1},h\Sub{1})$ is identified with $(a\Sub{2},b\Sub{2},h\Sub{2})$ when $h_1$ and $h_2$ are equal modulo the (unique) isomorphisms between the cartesian lifts in the sense depicted below:
+<span class="antex display"><img style='margin: -0.023ex 0.052ex -16.596ex 0.0ex; height: 19.998ex; width: 33.325ex;' src="/math/antex/ad5fe4e2ec0b3a38cda6cdec2eb215e6.svg" /></span></p>
 
-<p><strong>Note.</strong> The correct notion of morphism between cartesian fibrations is given
-by displayed functors that preserve cartesian maps. We will call these <em>fibered
-functors</em>.</p>
+<p>Alternatively, if $C$ is locally small then we may take the quotient above without difficulty as sets are closed under quotients.</p>
 
+<p><strong>Definition.</strong> A fibration $E$ over $B$ is called <em>globally small</em> when it has a generic object <a href="/math/nodes/000K.html" class="slug">[000K]</a>.</p>
 
   </div>
 
@@ -113,7 +154,7 @@ functors</em>.</p>
     <ul>
       
       <li>
-        <a href="/math/nodes/0008.html#0004">Displayed categories and fibrations</a>
+        <a href="/math/nodes/000K.html#000L">Generic objects</a>
       </li>
       
     </ul>
@@ -126,7 +167,7 @@ functors</em>.</p>
     <ul>
       
       <li>
-        <a href="/math/nodes/000G.html">Warmup: locally small family fibrations <span class="slug">[000G]</a>
+        <a href="/math/nodes/000M.html">Avoiding the axiom of choice <span class="slug">[000M]</a>
       </li>
       
     </ul>
