@@ -92,6 +92,14 @@ module Jekyll
       partial.data["url"] = "#{site.baseurl}/nodes/#{@slug}.html"
       partial.data["layout"] = "import"
       partial.data["slug"] = @slug
+
+      # tracks dependencies like Jekyll::Tags::IncludeTag so --incremental works
+      if context.registers[:page]&.key?("path")
+        path = site.in_source_dir(context.registers[:page]["path"])
+        dependency = site.in_source_dir(file)
+        site.regenerator.add_dependency(path, dependency)
+      end
+
       partial.render(site.layouts, site.site_payload)
 
       partial.output
