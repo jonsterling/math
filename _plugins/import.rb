@@ -10,7 +10,7 @@ module Jekyll
     end
   end
 
-  class TOC
+  class NodeGraph
     attr_reader :toc, :cotoc
 
     def initialize(site_data)
@@ -75,7 +75,7 @@ module Jekyll
 
       referent = site.documents.find {|d| d.data['slug'] == @slug }
 
-      toc = TOC.new site.data
+      toc = NodeGraph.new site.data
       toc.register_subpage(page['slug'],referent.data)
 
       file = "_nodes/#{@slug}.md"
@@ -110,8 +110,8 @@ module Jekyll
       nodes = site.collections['nodes'].docs
       node = nodes.detect {|d| d.data['slug'] == @slug}
 
-      toc = TOC.new site.data
-      toc.register_backlink(@slug,page)
+      gph = NodeGraph.new site.data
+      gph.register_backlink(@slug,page)
 
       "<a href='#{site.baseurl}#{node.url}' class='slug'>[#{@slug}]</a>"
     end
@@ -124,14 +124,14 @@ module Jekyll
       site = context.registers[:site]
       page = context.registers[:page]
 
-      toc = TOC.new site.data
-      page['toc'] = toc.toc
-      page['cotoc'] = toc.cotoc
+      gph = NodeGraph.new site.data
+      page['toc'] = gph.toc
+      page['cotoc'] = gph.cotoc
 
       all_docs = site.documents
 
       superpages = all_docs.filter do |e|
-        subpages = toc.toc[e['slug']] || []
+        subpages = gph.toc[e['slug']] || []
         subpages.detect {|p| p['slug'] == page['slug']}
       end
 
