@@ -69,27 +69,24 @@ module Jekyll
     end
 
     def render(context)
+      registers = context.registers
+      site = registers[:site]
+      page = registers[:page]
 
-      site = context.registers[:site]
-      page = context.registers[:page]
+      referent = site.documents.find {|doc| doc.data['slug'] == @slug }
 
-      current_level = page['level'] || 1
-
-      referent = site.documents.find {|d| d.data['slug'] == @slug }
-
-      toc = NodeGraph.new site.data
-      toc.register_subpage(page['slug'],referent.data)
+      NodeGraph.new(site.data).register_subpage(page['slug'], referent.data)
 
       file = "_nodes/#{@slug}.md"
       partial = PartialPage.new(site, site.source, '', file)
       partial_data = partial.data
-      partial_data['level'] = current_level + 1
+      partial_data['level'] = (page['level'] || 1) + 1
       partial_data['layout'] = 'import'
       partial_data['slug'] = @slug
 
       # tracks dependencies like Jekyll::Tags::IncludeTag so --incremental works
-      if context.registers[:page]&.key?('path')
-        path = site.in_source_dir(context.registers[:page]['path'])
+      if page&.key?('path')
+        path = site.in_source_dir(page['path'])
         dependency = site.in_source_dir(file)
         site.regenerator.add_dependency(path, dependency)
       end
@@ -123,17 +120,18 @@ module Jekyll
 
   class GenerateBacklinksTag < Liquid::Tag
     def render(context)
-      site = context.registers[:site]
-      page = context.registers[:page]
+      registers = context.registers
+      site = registers[:site]
+      page = registers[:page]
 
       gph = NodeGraph.new site.data
       gph.install_on page
 
       all_docs = site.documents
 
-      superpages = all_docs.filter do |e|
-        subpages = gph.toc[e.data['slug']] || []
-        subpages.detect {|p| p['slug'] == page['slug']}
+      superpages = all_docs.filter do |doc|
+        subpages = gph.toc[doc.data['slug']] || []
+        subpages.detect {|subpage| subpage['slug'] == page['slug']}
       end
 
       if superpages == [] then superpages = nil end
