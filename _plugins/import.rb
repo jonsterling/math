@@ -132,7 +132,7 @@ module Jekyll
       all_docs = site.documents
 
       superpages = all_docs.filter do |e|
-        subpages = gph.toc[e['slug']] || []
+        subpages = gph.toc[e.data['slug']] || []
         subpages.detect {|p| p['slug'] == page['slug']}
       end
 
