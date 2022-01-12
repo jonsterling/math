@@ -4,7 +4,15 @@
 
 module Jekyll
   # A version of `Page` that is meant to be rendered but not written.
-  class PartialPage < Page
+  class ImportedPage < Page
+
+    def initialize(site, base, dir, name, superpage:)
+      super(site, base, dir, name)
+      data['slug'] = basename
+      data['level'] = (superpage['level'] || 1) + 1
+      data['layout'] = 'import'
+    end
+
     def write?
       false
     end
@@ -67,25 +75,19 @@ module Jekyll
       site = registers[:site]
       page = registers[:page]
 
-      referent = site.documents.find {|doc| doc.data['slug'] == @slug }
-
+      referent = site.documents.find { |doc| doc.data['slug'] == @slug }
       NodeGraph.new(site.data).register_subpage(page['slug'], referent.data)
-
-      partial = PartialPage.new(site, site.source, '_nodes', "#{@slug}.md")
-      partial_data = partial.data
-      partial_data['level'] = (page['level'] || 1) + 1
-      partial_data['layout'] = 'import'
-      partial_data['slug'] = @slug
+      imported = ImportedPage.new(site, site.source, '_nodes', "#{@slug}.md", superpage: page)
 
       # tracks dependencies like Jekyll::Tags::IncludeTag so --incremental works
       if page&.key?('path')
         path = site.in_source_dir(page['path'])
-        dependency = site.in_source_dir(partial.path)
+        dependency = site.in_source_dir(imported.path)
         site.regenerator.add_dependency(path, dependency)
       end
 
-      partial.render(site.layouts, site.site_payload)
-      partial.output
+      imported.render(site.layouts, site.site_payload)
+      imported.output
     end
   end
 
