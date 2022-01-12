@@ -10,7 +10,7 @@ body {
   font-size: 12pt;
 }
 
-h1,h2,h3,h4,h5  {
+h1,h2,h3,h4,h5,h6  {
   font-family: "Roboto" !important;
   font-weight: bold !important;
   margin-top: 0.2em;
@@ -31,13 +31,18 @@ h3 {
 }
 
 h4 {
-  font-size: 1em !important;
+  font-size: 1.1em !important;
   margin-top: 1.2em;
   margin-block-end: .4em;
 }
 
 h5 {
   font-size: 1em !important;
+}
+
+h6 {
+  font-size: 1em !important;
+  font-style: italic;
 }
 
 
