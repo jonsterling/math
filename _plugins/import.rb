@@ -11,42 +11,32 @@ module Jekyll
   end
 
   class TOC
+    attr_reader :toc, :cotoc
+
     def initialize(site_data)
       @site_data = site_data
-    end
 
-    def get_toc_object()
-      if @site_data['toc'] == nil then
-        @site_data['toc'] = {}
-      end
+      @toc = @site_data['toc'] || {}
+      @site_data['toc'] = @toc
 
-      @site_data['toc']
-    end
-
-    def get_cotoc_object()
-      if @site_data['cotoc'] == nil then
-        @site_data['cotoc'] = {}
-      end
-
-      @site_data['cotoc']
+      @cotoc = @site_data['cotoc'] || {}
+      @site_data['cotoc'] = @cotoc
     end
 
     def get_subpages(slug)
-      toc = get_toc_object()
-      subpages = toc[slug]
+      subpages = @toc[slug]
       unless subpages
         subpages = []
-        toc[slug] = subpages
+        @toc[slug] = subpages
       end
       subpages
     end
 
     def get_backlinks(slug)
-      cotoc = get_cotoc_object()
-      backlinks = cotoc[slug]
+      backlinks = @cotoc[slug]
       unless backlinks
         backlinks = []
-        cotoc[slug] = backlinks
+        @cotoc[slug] = backlinks
       end
       backlinks
     end
@@ -135,13 +125,13 @@ module Jekyll
       page = context.registers[:page]
 
       toc = TOC.new site.data
-      page['toc'] = toc.get_toc_object()
-      page['cotoc'] = toc.get_cotoc_object()
+      page['toc'] = toc.toc
+      page['cotoc'] = toc.cotoc
 
       all_docs = site.documents
 
       superpages = all_docs.filter do |e|
-        subpages = site.data['toc'][e['slug']] || []
+        subpages = toc.toc[e['slug']] || []
         subpages.detect {|p| p['slug'] == page['slug']}
       end
 
