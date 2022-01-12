@@ -29,13 +29,13 @@ layout: default
   </div>
 
 
-  {% if page.superpages %}
+  {% if page.cotoc[page.slug] %}
   <nav>
     <h4>Context</h4>
     <ul>
-      {% for p in page.superpages %}
+      {% for p in page.cotoc[page.slug] %}
       <li>
-        <a href="{{p.url | relative_url}}#{{page.slug}}">{{p.title}}</a>
+        <a href="{{p.url | relative_url}}">{{p.title}}</a>
       </li>
       {% endfor %}
     </ul>
@@ -48,7 +48,7 @@ layout: default
     <ul>
       {% for p in page.referents[page.slug] %}
       <li>
-        <a href="{{site.baseurl}}/nodes/{{p.slug}}.html">{{p.title}} <span class="slug">[{{p.slug}}]</a>
+        <a href="{{p.url | relative_url}}">{{p.title}} <span class="slug">[{{p.slug}}]</a>
       </li>
       {% endfor %}
     </ul>

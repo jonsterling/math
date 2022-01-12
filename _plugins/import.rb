@@ -3,14 +3,28 @@
 # frozen_string_literal: true
 
 module Jekyll
-  # A version of `Page` that is meant to be rendered but not written.
-  class ImportedPage < Page
 
-    def initialize(site, base, dir, name, superpage:)
+  # A generator to embed the URL into each document's data object
+  class UrlGenerator < Jekyll::Generator
+    def generate(site)
+      site.documents.each do |doc|
+        doc.data['url'] = doc.url
+      end
+    end
+  end
+
+  # A version of `Page` that is meant to be rendered but not written.
+  class ImportedNode < Page
+    def initialize(site, base, name, superpage:)
+      dir = '_nodes'
       super(site, base, dir, name)
       data['slug'] = basename
       data['level'] = (superpage['level'] || 1) + 1
       data['layout'] = 'import'
+    end
+
+    def url
+      "/nodes/#{basename}.html"
     end
 
     def write?
@@ -43,9 +57,16 @@ module Jekyll
 
     def register_subpage(page, subpage)
       slug = page['slug']
-      subpages = @toc[slug] || []
-      @toc[slug] = subpages
-      subpages.append subpage unless subpages.detect { |existing| existing['slug'] == subpage['slug'] }
+      subslug = subpage['slug']
+
+      toc = @toc[slug] || []
+      @toc[slug] = toc
+
+      cotoc = @cotoc[subslug] || []
+      @cotoc[subslug] = cotoc
+
+      toc.append subpage unless toc.detect { |existing| existing['slug'] == subslug }
+      cotoc.append page unless cotoc.detect { |existing| existing['slug'] == slug }
     end
 
   end
@@ -61,9 +82,8 @@ module Jekyll
       site = registers[:site]
       page = registers[:page]
 
-      referent = site.documents.find { |doc| doc.data['slug'] == @slug }
-      NodeGraph.new(site.data).register_subpage(page, referent.data)
-      imported = ImportedPage.new(site, site.source, '_nodes', "#{@slug}.md", superpage: page)
+      imported = ImportedNode.new(site, site.source, "#{@slug}.md", superpage: page)
+      NodeGraph.new(site.data).register_subpage(page, imported)
 
       # tracks dependencies like Jekyll::Tags::IncludeTag so --incremental works
       if page&.key?('path')

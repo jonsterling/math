@@ -1,7 +1,7 @@
 <ul class="toc">
   {% for p in include.toc[include.slug] %}
   <li>
-    <a class="slug" href="{{site.baseurl}}/nodes/{{p.slug}}.html">[{{p.slug}}]</a>
+    <a class="slug" href="{{p.url | relative_url}}">[{{p.slug}}]</a>
     <a href="#{{p.slug}}">{{p.title}}</a>
     {%include toc.html toc=include.toc slug=p.slug%}
   </li>
