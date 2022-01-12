@@ -82,10 +82,11 @@ module Jekyll
 
       file = "_nodes/#{@slug}.md"
       partial = PartialPage.new(site, site.source, '', file)
-      partial.data['level'] = current_level + 1
-      partial.data['url'] = "#{site.baseurl}/nodes/#{@slug}.html"
-      partial.data['layout'] = 'import'
-      partial.data['slug'] = @slug
+      partial_data = partial.data
+      partial_data['level'] = current_level + 1
+      partial_data['url'] = "#{site.baseurl}/nodes/#{@slug}.html"
+      partial_data['layout'] = 'import'
+      partial_data['slug'] = @slug
 
       # tracks dependencies like Jekyll::Tags::IncludeTag so --incremental works
       if context.registers[:page]&.key?('path')
@@ -140,11 +141,7 @@ module Jekyll
       page['superpages'] = superpages
       nil
     end
-
   end
-
-
-
 end
 
 Liquid::Template.register_tag('generate_backlinks', Jekyll::GenerateBacklinksTag)
