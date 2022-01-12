@@ -45,19 +45,13 @@ module Jekyll
 
     def register_backlink(slug, page)
       backlinks = get_backlinks slug
-
-      unless backlinks.detect {|x| x['slug'] == page['slug']}
-        backlinks.append page
-      end
+      backlinks.append page unless backlinks.detect { |existing| existing['slug'] == page['slug'] }
     end
 
 
     def register_subpage(slug, subpage)
       subpages = get_subpages slug
-
-      unless subpages.detect {|x| x['slug'] == subpage['slug']}
-        subpages.append subpage
-      end
+      subpages.append subpage unless subpages.detect { |existing| existing['slug'] == subpage['slug']}
     end
 
   end
