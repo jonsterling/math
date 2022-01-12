@@ -120,16 +120,6 @@ module Jekyll
 
       gph = NodeGraph.new site.data
       gph.install_on page
-
-      all_docs = site.documents
-
-      superpages = all_docs.filter do |doc|
-        gph.toc[doc.data['slug']]&.detect { |subpage| subpage['slug'] == page['slug'] }
-      end
-
-      # Working around some strange Liquid behavior
-      superpages = nil if superpages == []
-      page['superpages'] = superpages
       nil
     end
   end
