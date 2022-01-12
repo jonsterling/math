@@ -6,6 +6,7 @@ module Jekyll
     def generate(site)
       site.documents.each do |doc|
         doc.data['url'] = doc.url
+        doc.data['collection'] = doc.collection.label
       end
     end
   end

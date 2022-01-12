@@ -9,6 +9,7 @@ module Jekyll
       data['slug'] = basename
       data['level'] = (superpage['level'] || 1) + 1
       data['layout'] = 'import'
+      data['collection'] = 'nodes'
     end
 
     def url
