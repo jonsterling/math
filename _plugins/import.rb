@@ -119,7 +119,7 @@ module Jekyll
   end
 
 
-  class BacklinksTag < Liquid::Tag
+  class GenerateBacklinksTag < Liquid::Tag
     def render(context)
       site = context.registers[:site]
       page = context.registers[:page]
@@ -146,6 +146,6 @@ module Jekyll
 
 end
 
-Liquid::Template.register_tag('generate_backlinks', Jekyll::BacklinksTag)
+Liquid::Template.register_tag('generate_backlinks', Jekyll::GenerateBacklinksTag)
 Liquid::Template.register_tag('import', Jekyll::ImportTag)
 Liquid::Template.register_tag('ref', Jekyll::RefTag)
