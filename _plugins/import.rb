@@ -42,24 +42,16 @@ module Jekyll
       subpages
     end
 
-    def get_backlinks(slug)
-      backlinks = @cotoc[slug]
-      unless backlinks
-        backlinks = []
-        @cotoc[slug] = backlinks
-      end
-      backlinks
-    end
-
     def register_backlink(slug, page)
-      backlinks = get_backlinks slug
+      backlinks = @cotoc[slug] || []
+      @cotoc[slug] = backlinks
       backlinks.append page unless backlinks.detect { |existing| existing['slug'] == page['slug'] }
     end
 
-
     def register_subpage(slug, subpage)
-      subpages = get_subpages slug
-      subpages.append subpage unless subpages.detect { |existing| existing['slug'] == subpage['slug']}
+      subpages = @toc[slug] || []
+      @toc[slug] = subpages
+      subpages.append subpage unless subpages.detect { |existing| existing['slug'] == subpage['slug'] }
     end
 
   end
