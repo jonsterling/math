@@ -104,17 +104,12 @@ module Jekyll
     end
 
     def render(context)
-      site = context.registers[:site]
-      page = context.registers[:page]
-      nodes = site.collections['nodes'].docs
-      node = nodes.detect {|d| d.data['slug'] == @slug}
-
-      gph = NodeGraph.new site.data
-      gph.register_backlink(@slug,page)
-
+      registers = context.registers
+      site = registers[:site]
+      node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
+      NodeGraph.new(site.data).register_backlink(@slug, registers[:page])
       "<a href='#{site.baseurl}#{node.url}' class='slug'>[#{@slug}]</a>"
     end
-
   end
 
 
@@ -130,11 +125,11 @@ module Jekyll
       all_docs = site.documents
 
       superpages = all_docs.filter do |doc|
-        subpages = gph.toc[doc.data['slug']] || []
-        subpages.detect {|subpage| subpage['slug'] == page['slug']}
+        gph.toc[doc.data['slug']]&.detect { |subpage| subpage['slug'] == page['slug'] }
       end
 
-      if superpages == [] then superpages = nil end
+      # Working around some strange Liquid behavior
+      superpages = nil if superpages == []
       page['superpages'] = superpages
       nil
     end
