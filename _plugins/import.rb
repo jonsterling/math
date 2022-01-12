@@ -25,17 +25,19 @@ module Jekyll
       @data = data
       @toc = @data['toc'] || {}
       @cotoc = @data['cotoc'] || {}
+      @referents = @data['referents'] || {}
       install_on data
     end
 
     def install_on(data)
       data['toc'] = @toc
       data['cotoc'] = @cotoc
+      data['referents'] = @referents
     end
 
-    def register_backlink(slug, page)
-      backlinks = @cotoc[slug] || []
-      @cotoc[slug] = backlinks
+    def register_referent(slug, page)
+      backlinks = @referents[slug] || []
+      @referents[slug] = backlinks
       backlinks.append page unless backlinks.detect { |existing| existing['slug'] == page['slug'] }
     end
 
@@ -84,7 +86,7 @@ module Jekyll
       registers = context.registers
       site = registers[:site]
       node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
-      NodeGraph.new(site.data).register_backlink(@slug, registers[:page])
+      NodeGraph.new(site.data).register_referent(@slug, registers[:page])
       "<a href='#{site.baseurl}#{node.url}' class='slug'>[#{@slug}]</a>"
     end
   end
