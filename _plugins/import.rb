@@ -33,15 +33,6 @@ module Jekyll
       data['cotoc'] = @cotoc
     end
 
-    def get_subpages(slug)
-      subpages = @toc[slug]
-      unless subpages
-        subpages = []
-        @toc[slug] = subpages
-      end
-      subpages
-    end
-
     def register_backlink(slug, page)
       backlinks = @cotoc[slug] || []
       @cotoc[slug] = backlinks
