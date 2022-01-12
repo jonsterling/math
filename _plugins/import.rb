@@ -1,7 +1,9 @@
 # This code is roughly based on https://github.com/koraktor/jekyll/tree/import-tag
 
-module Jekyll
+# frozen_string_literal: true
 
+module Jekyll
+  # A version of `Page` that is meant to be rendered but not written.
   class PartialPage < Page
     def write?
       false
