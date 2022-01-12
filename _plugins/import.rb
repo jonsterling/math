@@ -11,24 +11,24 @@ module Jekyll
   end
 
   class TOC
-    def initialize(site)
-      @site = site
+    def initialize(site_data)
+      @site_data = site_data
     end
 
     def get_toc_object()
-      if @site.data['toc'] == nil then
-        @site.data['toc'] = {}
+      if @site_data['toc'] == nil then
+        @site_data['toc'] = {}
       end
 
-      @site.data['toc']
+      @site_data['toc']
     end
 
     def get_cotoc_object()
-      if @site.data['cotoc'] == nil then
-        @site.data['cotoc'] = {}
+      if @site_data['cotoc'] == nil then
+        @site_data['cotoc'] = {}
       end
 
-      @site.data['cotoc']
+      @site_data['cotoc']
     end
 
     def get_subpages(slug)
@@ -85,7 +85,7 @@ module Jekyll
 
       referent = site.documents.find {|d| d.data['slug'] == @slug }
 
-      toc = TOC.new site
+      toc = TOC.new site.data
       toc.register_subpage(page['slug'],referent.data)
 
       file = "_nodes/#{@slug}.md"
@@ -120,7 +120,7 @@ module Jekyll
       nodes = site.collections['nodes'].docs
       node = nodes.detect {|d| d.data['slug'] == @slug}
 
-      toc = TOC.new site
+      toc = TOC.new site.data
       toc.register_backlink(@slug,page)
 
       "<a href='#{site.baseurl}#{node.url}' class='slug'>[#{@slug}]</a>"
@@ -134,7 +134,7 @@ module Jekyll
       site = context.registers[:site]
       page = context.registers[:page]
 
-      toc = TOC.new(site)
+      toc = TOC.new site.data
       page['toc'] = toc.get_toc_object()
       page['cotoc'] = toc.get_cotoc_object()
 
