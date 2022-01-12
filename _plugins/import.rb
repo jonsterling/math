@@ -13,14 +13,16 @@ module Jekyll
   class NodeGraph
     attr_reader :toc, :cotoc
 
-    def initialize(site_data)
-      @site_data = site_data
+    def initialize(data)
+      @data = data
+      @toc = @data['toc'] || {}
+      @cotoc = @data['cotoc'] || {}
+      install_on data
+    end
 
-      @toc = @site_data['toc'] || {}
-      @site_data['toc'] = @toc
-
-      @cotoc = @site_data['cotoc'] || {}
-      @site_data['cotoc'] = @cotoc
+    def install_on(data)
+      data['toc'] = @toc
+      data['cotoc'] = @cotoc
     end
 
     def get_subpages(slug)
@@ -125,8 +127,7 @@ module Jekyll
       page = context.registers[:page]
 
       gph = NodeGraph.new site.data
-      page['toc'] = gph.toc
-      page['cotoc'] = gph.cotoc
+      gph.install_on page
 
       all_docs = site.documents
 
