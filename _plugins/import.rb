@@ -41,7 +41,8 @@ module Jekyll
       backlinks.append page unless backlinks.detect { |existing| existing['slug'] == page['slug'] }
     end
 
-    def register_subpage(slug, subpage)
+    def register_subpage(page, subpage)
+      slug = page['slug']
       subpages = @toc[slug] || []
       @toc[slug] = subpages
       subpages.append subpage unless subpages.detect { |existing| existing['slug'] == subpage['slug'] }
@@ -61,7 +62,7 @@ module Jekyll
       page = registers[:page]
 
       referent = site.documents.find { |doc| doc.data['slug'] == @slug }
-      NodeGraph.new(site.data).register_subpage(page['slug'], referent.data)
+      NodeGraph.new(site.data).register_subpage(page, referent.data)
       imported = ImportedPage.new(site, site.source, '_nodes', "#{@slug}.md", superpage: page)
 
       # tracks dependencies like Jekyll::Tags::IncludeTag so --incremental works
