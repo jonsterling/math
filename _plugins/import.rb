@@ -84,7 +84,6 @@ module Jekyll
       partial = PartialPage.new(site, site.source, '', file)
       partial_data = partial.data
       partial_data['level'] = current_level + 1
-      partial_data['url'] = "#{site.baseurl}/nodes/#{@slug}.html"
       partial_data['layout'] = 'import'
       partial_data['slug'] = @slug
 
