@@ -8,17 +8,17 @@
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="Opposite categories" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Let $E$ be fibered over $B$; we may define the opposite fibered category $\OpCat{E}$ over $B$ like so:" />
-<meta property="og:description" content="Let $E$ be fibered over $B$; we may define the opposite fibered category $\OpCat{E}$ over $B$ like so:" />
+<meta name="description" content="Construction. Let $E$ be fibered over $B$; we may define the opposite fibered category $\OpCat{E}$ over $B$ like so:" />
+<meta property="og:description" content="Construction. Let $E$ be fibered over $B$; we may define the opposite fibered category $\OpCat{E}$ over $B$ like so:" />
 <link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/000Q.html" />
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000Q.html" />
 <meta property="og:site_name" content="The Nursury" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-13T12:26:45+01:00" />
+<meta property="article:published_time" content="2022-01-13T13:35:22+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Opposite categories" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Opposite categories","dateModified":"2022-01-13T12:26:45+01:00","datePublished":"2022-01-13T12:26:45+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000Q.html"},"description":"Let $E$ be fibered over $B$; we may define the opposite fibered category $\\OpCat{E}$ over $B$ like so:","url":"https://www.jonsmsterling.com//math/nodes/000Q.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Opposite categories","dateModified":"2022-01-13T13:35:22+01:00","datePublished":"2022-01-13T13:35:22+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000Q.html"},"description":"Construction. Let $E$ be fibered over $B$; we may define the opposite fibered category $\\OpCat{E}$ over $B$ like so:","url":"https://www.jonsmsterling.com//math/nodes/000Q.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursury" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -92,6 +92,26 @@
     <ul class="toc">
   
   <li>
+    <a class="slug" href="/math/nodes/000T.html">[000T]</a>
+    <a href="#000T">Characterization of cartesian maps</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    <a class="slug" href="/math/nodes/000U.html">[000U]</a>
+    <a href="#000U">Cartesian lifts in the opposite category</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
     <a class="slug" href="/math/nodes/000S.html">[000S]</a>
     <a href="#000S">Exegesis of opposite categories</a>
     <ul class="toc">
@@ -109,7 +129,8 @@
 
 
   <div class="post-content">
-    <p>Let $E$ be fibered over $B$; we may define the <em>opposite</em> fibered category
+    <p><strong>Construction.</strong>
+Let $E$ be fibered over $B$; we may define the <em>opposite</em> fibered category
 $\OpCat{E}$ over $B$ like so:</p>
 
 <ol>
@@ -118,7 +139,7 @@ $\OpCat{E}$ over $B$ like so:</p>
   </li>
   <li>
     <p>Given $f : x \to y\in B$, a morphism $\bar{x}\to_f \bar{y}$ in $\OpCat{E}$
-is given by a cartesian map $\bar{y}\Sub{f} : \bar{y}\Sub{x} \to\Sub{f} \bar{y}$ together
+is given in terms of $E$ by a cartesian map $\bar{y}\Sub{f} : \bar{y}\Sub{x} \to\Sub{f} \bar{y}$ together
 with a <em>vertical</em> map $h : \bar{y}\Sub{x}\to\Sub{\Idn{x}} \bar{y}$ as depicted below:
 <span class="antex display"><img style='margin: 0.002ex 0.079ex -11.846ex 0.0ex; height: 15.729ex; width: 31.109ex;' src="/math/antex/f364346f8e5e7b7cf49f69493dad6d4c.svg" /></span>
 such that $\brc{\bar{x} \leftarrow \bar{y}\Sub{x}\Sup{1}\to \bar{y}}$ is
@@ -129,7 +150,44 @@ induced by the universal property of cartesian maps in the sense that the follow
   </li>
 </ol>
 
-<p><strong>Note.</strong> Above we have used the ability to take the quotient of a proper class <a href="/math/nodes/000R.html" class="slug">[000R]</a></p>
+<p><strong>Note.</strong> Above we have used the ability to take the quotient of a proper class <a href="/math/nodes/000R.html" class="slug">[000R]</a>.</p>
+
+<h2 id="000T">
+  Characterization of cartesian maps
+<a class="slug" href="/math/nodes/000T.html">[000T]</a>
+</h2>
+
+<p>There is a simple characterization of cartesian maps in $\OpCat{E}$.</p>
+
+<p><strong>Lemma.</strong> A morphism $\bar{f}:\bar{x}\to\Sub{f} \bar{y}\in\OpCat{E}$ is cartesian
+over $f:x\to y$ if and only if the vertical leg of $f$ is an isomorphism.</p>
+
+<p><strong>Proof.</strong> Suppose that $\bar{f} : \bar{x}\to\Sub{f}\bar{y}$ is represented by a span $\brc{\bar{x}\leftarrow\bar{y}\Sub{x}\to\bar{y}}$ in $E$ in which the vertical leg $\bar{x}\leftarrow\bar{y}\Sub{x}$ is an isomorphism. We must show that $\bar{x}\to_f\bar{y}$ is cartesian in $\OpCat{E}$. We fix a morphism $\bar{h}:\bar{w}\to\Sub{m;f}\bar{y}\in \OpCat{E}$ where $m:w\to x$, depicted below in terms of $\OpCat{E}$:
+<span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 22.005ex; width: 30.279ex;' src="/math/antex/8783c073d72f4d2ba6b32ed4b99f479c.svg" /></span></p>
+
+<p>We must define the unique intervening map $\bar{w}\to_m \bar{x}$ in $\OpCat{E}$.
+We first translate the above into the language of $E$ by unfolding definitions:
+<span class="antex display"><img style='margin: 0.002ex 0.078ex -13.785ex 0.0ex; height: 18.069ex; width: 45.439ex;' src="/math/antex/c2b9f080032b15487862c87f6744a23c.svg" /></span></p>
+
+<p>The desired intervening map $\bar{w}\to\Sub{m} \bar{x}\in \OpCat{E}$ shakes out in the language of $E$ to be a span $\brc{\bar{w}\leftarrow \bar{x}\Sub{w}\to\Sub{m} \bar{x}}$ in which the left-hand leg is vertical and the right-hand leg is cartesian over $m:w\to x$. But the left-hand span $\brc{\bar{w}\leftarrow\bar{y}\Sub{w}\to \bar{y}\Sub{x}\cong \bar{x}}$ in the diagram above is exactly what we need.</p>
+
+<p>We leave the converse to the reader.</p>
+
+<h2 id="000U">
+  Cartesian lifts in the opposite category
+<a class="slug" href="/math/nodes/000U.html">[000U]</a>
+</h2>
+
+<p>The foreging characterization <a href="/math/nodes/000T.html" class="slug">[000T]</a> of cartesian maps in $\OpCat{E}$
+immediately implies that $\OpCat{E}$ is fibered over $B$.</p>
+
+<p><strong>Corollary.</strong> The displayed category $\OpCat{E}$ is a fibration.</p>
+
+<p><strong>Proof.</strong>
+Fixing $\bar{y}\in \OpCat{E}\Sub{y}$ and $f:x\to y\in B$, we must
+exhibit a cartesian lift $\bar{f} : \bar{x}\to\Sub{f}\bar{y}\in \OpCat{E}$.
+By the characterization <a href="/math/nodes/000T.html" class="slug">[000T]</a> it suffices to find <em>any</em> map over $f$ whose vertical component is an isomorphism. Writing $\bar{y}\Sub{x}\to\Sub{f}\bar{y}$ for the cartesian lift of $f$ in $E$, consider the map in $\OpCat{E}$ presented by the following span in $E$:
+<span class="antex display"><img style='margin: 0.002ex 0.08ex -13.786ex 0.0ex; height: 15.542ex; width: 31.765ex;' src="/math/antex/c7c976c7b145a470586dcc048f7cd9c7.svg" /></span></p>
 
 <h2 id="000S">
   Exegesis of opposite categories
