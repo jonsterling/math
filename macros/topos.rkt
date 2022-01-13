@@ -42,6 +42,9 @@
   (overline (Con "gl"))
   (Sub x))
 
+(define-global (OpCat C)
+  C (Sup (Con "o")))
+
 (define-global (Cod C)
   (Con "cod")
   (Sub C))

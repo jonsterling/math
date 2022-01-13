@@ -90,6 +90,16 @@
     <ul class="toc">
   
   <li>
+    <a class="slug" href="/math/nodes/000R.html">[000R]</a>
+    <a href="#000R">Foundational assumptions</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
     <a class="slug" href="/math/nodes/0008.html">[0008]</a>
     <a href="#0008">Displayed categories and fibrations</a>
     <ul class="toc">
@@ -148,6 +158,26 @@
     <a class="slug" href="/math/nodes/0005.html">[0005]</a>
     <a href="#0005">Fiber categories and vertical maps</a>
     <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    <a class="slug" href="/math/nodes/000Q.html">[000Q]</a>
+    <a href="#000Q">Opposite categories</a>
+    <ul class="toc">
+  
+  <li>
+    <a class="slug" href="/math/nodes/000S.html">[000S]</a>
+    <a href="#000S">Exegesis of opposite categories</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
   
 </ul>
 
@@ -289,16 +319,6 @@
     <a href="#000L">Globally small categories</a>
     <ul class="toc">
   
-  <li>
-    <a class="slug" href="/math/nodes/000M.html">[000M]</a>
-    <a href="#000M">Avoiding the axiom of choice</a>
-    <ul class="toc">
-  
-</ul>
-
-
-  </li>
-  
 </ul>
 
 
@@ -372,6 +392,28 @@ notion of a category <em>over</em> another category.</p>
     <li>Streicher. <a href="https://www2.mathematik.tu-darmstadt.de/~streicher/FIBR/FiBo.pdf">Fibered Categories à la Jean Bénabou</a>.</li>
   </ul>
 </blockquote>
+
+<h2 id="000R">
+  Foundational assumptions
+<a class="slug" href="/math/nodes/000R.html">[000R]</a>
+</h2>
+
+<p>In our foundation we have a notions of <em>class</em> and <em>set</em>. When we speak
+informally of “collections of things”, we are referring to classes; therefore,
+a “category” for us is one with a class of objects, and a class of morphisms
+from any one object to another. It is routine to define a class to be a formula
+in the language of set theory; we take a more agnostic approach and just say
+that classes are whatever is on the “outside”.</p>
+
+<p><strong>Explanation.</strong> A <em>class</em> $\Phi$ is defined by a specification of how to
+construct an element of $\Phi$, and when two elements of $\Phi$ are considered
+equal.</p>
+
+<p>Hence we assume the ability to take quotients of classes.</p>
+
+<p><strong>Assumption.</strong> We assume that there exists a category $\SET$ satisfying the axioms of
+<a href="http://ncatlab.org/nlab/show/ETCS">ETCS</a>; a <em>set</em> for us is then an object of
+the category $\SET$.</p>
 
 <h2 id="0008">
   Displayed categories and fibrations
@@ -490,6 +532,50 @@ lies over the identity map in $B$.
 For every $b\in B$, there the collection $E\Sub{b}$ of displayed objects has the
 structure of a category; in particular, we set $E\Sub{b}(u,v)$ to be the collection
 of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
+
+<h3 id="000Q">
+  Opposite categories
+<a class="slug" href="/math/nodes/000Q.html">[000Q]</a>
+</h3>
+
+<p>Let $E$ be fibered over $B$; we may define the <em>opposite</em> fibered category
+$\OpCat{E}$ over $B$ like so:</p>
+
+<ol>
+  <li>
+    <p>An object of $\OpCat{E}\Sub{x}$ is given by an object of $E\Sub{x}$.</p>
+  </li>
+  <li>
+    <p>Given $f : x \to y\in B$, a morphism $\bar{x}\to_f \bar{y}$ in $\OpCat{E}$
+is given by a cartesian map $\bar{y}\Sub{f} : \bar{y}\Sub{x} \to\Sub{f} \bar{y}$ together
+with a <em>vertical</em> map $h : \bar{y}\Sub{x}\to\Sub{\Idn{x}} \bar{y}$ as depicted below:
+<span class="antex display"><img style='margin: 0.002ex 0.079ex -11.846ex 0.0ex; height: 15.729ex; width: 31.109ex;' src="/math/antex/f364346f8e5e7b7cf49f69493dad6d4c.svg" /></span>
+such that $\brc{\bar{x} \leftarrow \bar{y}\Sub{x}\Sup{1}\to \bar{y}}$ is
+identified with $\brc{\bar{x}\leftarrow\bar{y}\Sub{x}\Sup{2}\to \bar{y}}$
+when they agree up to the unique vertical isomorphism $\bar{y}\Sub{x}\Sup{1}\cong\bar{y}\Sub{x}\Sup{2}$
+induced by the universal property of cartesian maps in the sense that the following diagram commutes:
+<span class="antex display"><img style='margin: -0.05ex 0.151ex -11.384ex 0.0ex; height: 22.94ex; width: 21.527ex;' src="/math/antex/43b600c7ccbae9fced9cc5d7d6348d16.svg" /></span></p>
+  </li>
+</ol>
+
+<p><strong>Note.</strong> Above we have used the ability to take the quotient of a proper class <a href="/math/nodes/000R.html" class="slug">[000R]</a></p>
+
+<h4 id="000S">
+  Exegesis of opposite categories
+<a class="slug" href="/math/nodes/000S.html">[000S]</a>
+</h4>
+
+<p>The construction of fibered opposite categories <a href="/math/nodes/000Q.html" class="slug">[000Q]</a> does appear quite
+involved, but it can be seen to be inevitable from the perspective of the fiber
+categories $\OpCat{E}\Sub{x}$ <a href="/math/nodes/0005.html" class="slug">[0005]</a>. Indeed, let $u,v\in
+\OpCat{E}\Sub{x}$ and fix a <em>vertical</em> map $h : u \to v\in \OpCat{E}\Sub{x}$;
+by unfolding definitions, we see that the vertical map $h : u \to v$ is
+uniquely determined by a morphism $v\to u\in E\Sub{x}$.</p>
+
+<p><strong>Proof.</strong> A displayed morphism $u\to\Sub{\Idn{x}} v\in \OpCat{E}$ is
+determined by a span $\brc{u\leftarrow v\Sub{x} \to v}\in E$ where the right-hand
+map is cartesian over $\Idn{x} : x\to x$ and the left-hand map is vertical, taken up to the identification of
+different cartesian lifts $v\Sub{x}\to x$. A displayed morphism that is cartesian over the identity is an isomorphism; hence, displayed morphisms $u\to\Sub{\Idn{x}} v\in\OpCat{E}$ are equivalently determined by vertical maps $v\to u \in E$.</p>
 
 <h3 id="0006">
   Example: the family fibration
@@ -800,21 +886,8 @@ consider the cartesian map displayed over $z : I \to C$:
 
 <p>Conversely assume that $\FAM{C}$ has a generic object $\bar{u}\in\FAM{C}[U]$
 for some $U\in \SET$; then we may equip $U$ with the structure of a globally
-small category, such that $U$ is equivalent to $C$.  By the axiom of choice we
-may choose for each $x\in U$ a cartesian map
-$\InvImg{x}\bar{u}\to\Sub{x}\bar{u}$ over $x:1\to U$; then we say that a
-morphism $x\to y\in U$  is given by a vertical map $\InvImg{x}\bar{u}\to
-\InvImg{y}\bar{u}$ in $\FAM{C}[1] \simeq C$.</p>
-
-<h6 id="000M">
-  Avoiding the axiom of choice
-<a class="slug" href="/math/nodes/000M.html">[000M]</a>
-</h6>
-
-<p>In some cases we may avoid use of the axiom of choice in <a href="/math/nodes/000L.html" class="slug">[000L]</a>; if our foundations allow us to
-take the quotient of a <em>class</em> (e.g. using
-<a href="http://ncatlab.org/nlab/show/Scott%27s+trick">Scott’s Trick</a>), then we may
-define a morphism $x\to y\in U$ to be given by the following data:</p>
+small category such that $U$ is equivalent to $C$, using a construction that is similar to our implementation of the opposite fibration <a href="/math/nodes/000Q.html" class="slug">[000Q]</a>. In particular we define a
+morphism $x\to y\in U$ to be given by the following data:</p>
 
 <ol>
   <li>a cartesian map $a\to\Sub{x} \bar{u}$ over $x : 1\to U$,</li>
@@ -825,7 +898,12 @@ define a morphism $x\to y\in U$ to be given by the following data:</p>
 <p>such that $(a\Sub{1},b\Sub{1},h\Sub{1})$ is identified with $(a\Sub{2},b\Sub{2},h\Sub{2})$ when $h_1$ and $h_2$ are equal modulo the (unique) vertical isomorphisms between the cartesian lifts in the sense depicted below:
 <span class="antex display"><img style='margin: -0.023ex 0.052ex -16.596ex 0.0ex; height: 19.998ex; width: 33.325ex;' src="/math/antex/ad5fe4e2ec0b3a38cda6cdec2eb215e6.svg" /></span></p>
 
-<p>Alternatively, if $C$ is locally small then we may take the quotient above without difficulty as sets are closed under quotients.</p>
+<p>Remember that a cartesian map $a\to\Sub{x}\bar{u}$ is standing for a <em>choice</em>
+of an object of $C$ encoded by $x\in U$. Because such choices are unique only
+up to isomorphism, we must include them explicitly in the data.</p>
+
+<p><strong>Note.</strong> To define the categry $U$ above, we have used our assumption that
+<em>classes</em> are closed under quotients <a href="/math/nodes/000R.html" class="slug">[000R]</a>.</p>
 
 <h4 id="000P">
   The definition of global smallness

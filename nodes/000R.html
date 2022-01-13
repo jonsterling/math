@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>The total category and its projection | The Nursury</title>
+<title>Foundational assumptions | The Nursury</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="The total category and its projection" />
+<meta property="og:title" content="Foundational assumptions" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Note that any displayed category $E$ over $B$ can be viewed as an undisplayed category $\TotCat{E}$ equipped with a projection functor $p\Sub{E}: \TotCat{E}\to B$; in this case $\TotCat{E}$ is called the total category of $E$." />
-<meta property="og:description" content="Note that any displayed category $E$ over $B$ can be viewed as an undisplayed category $\TotCat{E}$ equipped with a projection functor $p\Sub{E}: \TotCat{E}\to B$; in this case $\TotCat{E}$ is called the total category of $E$." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/000A.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000A.html" />
+<meta name="description" content="In our foundation we have a notions of class and set. When we speak informally of “collections of things”, we are referring to classes; therefore, a “category” for us is one with a class of objects, and a class of morphisms from any one object to another. It is routine to define a class to be a formula in the language of set theory; we take a more agnostic approach and just say that classes are whatever is on the “outside”." />
+<meta property="og:description" content="In our foundation we have a notions of class and set. When we speak informally of “collections of things”, we are referring to classes; therefore, a “category” for us is one with a class of objects, and a class of morphisms from any one object to another. It is routine to define a class to be a formula in the language of set theory; we take a more agnostic approach and just say that classes are whatever is on the “outside”." />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/000R.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000R.html" />
 <meta property="og:site_name" content="The Nursury" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-13T12:26:45+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="The total category and its projection" />
+<meta property="twitter:title" content="Foundational assumptions" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"The total category and its projection","dateModified":"2022-01-13T12:26:45+01:00","datePublished":"2022-01-13T12:26:45+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000A.html"},"description":"Note that any displayed category $E$ over $B$ can be viewed as an undisplayed category $\\TotCat{E}$ equipped with a projection functor $p\\Sub{E}: \\TotCat{E}\\to B$; in this case $\\TotCat{E}$ is called the total category of $E$.","url":"https://www.jonsmsterling.com//math/nodes/000A.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Foundational assumptions","dateModified":"2022-01-13T12:26:45+01:00","datePublished":"2022-01-13T12:26:45+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000R.html"},"description":"In our foundation we have a notions of class and set. When we speak informally of “collections of things”, we are referring to classes; therefore, a “category” for us is one with a class of objects, and a class of morphisms from any one object to another. It is routine to define a class to be a formula in the language of set theory; we take a more agnostic approach and just say that classes are whatever is on the “outside”.","url":"https://www.jonsmsterling.com//math/nodes/000R.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursury" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -76,9 +76,9 @@
 
   <header class="post-header">
     <h1 class="post-title">
-      The total category and its projection
+      Foundational assumptions
       
-      <span class="slug">[000A]</span>
+      <span class="slug">[000R]</span>
       
     </h1>
     
@@ -90,20 +90,22 @@
 
 
   <div class="post-content">
-    <p>Note that any displayed category $E$ over $B$ can be viewed as an undisplayed
-category $\TotCat{E}$ equipped with a projection functor $p\Sub{E}: \TotCat{E}\to
-B$; in this case $\TotCat{E}$ is called the <em>total category</em> of $E$.</p>
+    <p>In our foundation we have a notions of <em>class</em> and <em>set</em>. When we speak
+informally of “collections of things”, we are referring to classes; therefore,
+a “category” for us is one with a class of objects, and a class of morphisms
+from any one object to another. It is routine to define a class to be a formula
+in the language of set theory; we take a more agnostic approach and just say
+that classes are whatever is on the “outside”.</p>
 
-<ol>
-  <li>An object of $\TotCat{E}$ is given by a pair $(x,\bar{x})$ where $x\in B$ and
-$\bar{x}\in E\Sub{x}$.</li>
-  <li>A morphism $(x,\bar{x})\to (y,\bar{y})$ in $\TotCat{E}$ is given by a pair $(f,\bar{f})$ where
-$f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
-</ol>
+<p><strong>Explanation.</strong> A <em>class</em> $\Phi$ is defined by a specification of how to
+construct an element of $\Phi$, and when two elements of $\Phi$ are considered
+equal.</p>
 
-<p>The construction of the total category of displayed category is called the <em>Grothendieck construction.</em></p>
+<p>Hence we assume the ability to take quotients of classes.</p>
 
-<p><strong>Exercise.</strong> Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing is the arrow category $B^{\to}$.</p>
+<p><strong>Assumption.</strong> We assume that there exists a category $\SET$ satisfying the axioms of
+<a href="http://ncatlab.org/nlab/show/ETCS">ETCS</a>; a <em>set</em> for us is then an object of
+the category $\SET$.</p>
 
 
   </div>
@@ -115,10 +117,8 @@ $f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
     <ul>
       
       <li>
-        <a href="/math/nodes/0009.html">
-          The Grothendieck construction
-          
-          <span class="slug">[0009]</span>
+        <a href="/math/lectures/categorical-foundations.html">
+          Foundations of Relative Category Theory
           
         </a>
       </li>
@@ -127,6 +127,31 @@ $f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
   </nav>
   
 
+  
+  <nav>
+    <h4>Referrers</h4>
+    <ul>
+      
+      <li>
+        <a href="/math/nodes/000Q.html">
+          Opposite categories
+          
+          <span class="slug">[000Q]</span>
+          
+        </a>
+      </li>
+      
+      <li>
+        <a href="/math/nodes/000L.html">
+          Globally small categories
+          
+          <span class="slug">[000L]</span>
+          
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
   
 
 
