@@ -12,11 +12,8 @@ class ImportTag < Liquid::Tag
     registers = context.registers
     site = registers[:site]
     page = registers[:page]
-    index = (page['import_count'] || 0) + 1
-    page['import_count'] = index
 
-    index_str = (page['index_str'] || "") + "#{index}."
-    imported = Jekyll::ImportedNode.new(site, site.source, "#{@slug}.md", superpage: page, index_str: index_str)
+    imported = Jekyll::ImportedNode.new(site, site.source, "#{@slug}.md", superpage: page)
     Jekyll::NodeGraph.new(site.data).register_subpage(page, imported)
 
     # tracks dependencies like Jekyll::Tags::IncludeTag so --incremental works
