@@ -144,15 +144,18 @@
 
 \ExplSyntaxOff
 
+
+
+
 \tikzset{
   square/nw/.style = {},
   square/ne/.style = {},
   square/se/.style = {},
   square/sw/.style = {},
-  square/north/.style = {},
-  square/south/.style = {},
-  square/west/.style = {},
-  square/east/.style = {},
+  square/north/.style = {->},
+  square/south/.style = {->},
+  square/west/.style = {->},
+  square/east/.style = {->},
   square/north/node/.style = {above},
   square/south/node/.style = {below},
   square/west/node/.style = {left},
@@ -227,19 +230,19 @@
   \bool_if:nTF \l_jon_glue_west {
     \node (#1ne) [right = \l_jon_tikz_diagram_width~of~\l_jon_tikz_glue_target ne,square/ne] {$\l_jon_tikz_diagram_ne$};
     \node (#1se) [below = \l_jon_tikz_diagram_height~of~#1ne,square/se] {$\l_jon_tikz_diagram_se$};
-    \path[->,square/north] (\l_jon_tikz_glue_target ne) edge node [square/north/node] {$\l_jon_tikz_diagram_north$} (#1ne);
-    \path[->,square/east] (#1ne) edge node [square/east/node] {$\l_jon_tikz_diagram_east$} (#1se);
-    \path[->,square/south] (\l_jon_tikz_glue_target se) edge node [square/south/node] {$\l_jon_tikz_diagram_south$} (#1se);
+    \draw[square/north] (\l_jon_tikz_glue_target ne) to node [square/north/node] {$\l_jon_tikz_diagram_north$} (#1ne);
+    \draw[square/east] (#1ne) to node [square/east/node] {$\l_jon_tikz_diagram_east$} (#1se);
+    \draw[square/south] (\l_jon_tikz_glue_target se) to node [square/south/node] {$\l_jon_tikz_diagram_south$} (#1se);
   } {
     \node (#1nw) [square/nw] {$\l_jon_tikz_diagram_nw$};
     \node (#1sw) [below = \l_jon_tikz_diagram_height~of~#1nw,square/sw] {$\l_jon_tikz_diagram_sw$};
-    \path[->,square/west] (#1nw) edge node [square/west/node] {$\l_jon_tikz_diagram_west$} (#1sw);
+    \draw[square/west] (#1nw) to node [square/west/node] {$\l_jon_tikz_diagram_west$} (#1sw);
 
     \node (#1ne) [right = \l_jon_tikz_diagram_width~of~#1nw,square/ne] {$\l_jon_tikz_diagram_ne$};
     \node (#1se) [below = \l_jon_tikz_diagram_height~of~#1ne,square/se] {$\l_jon_tikz_diagram_se$};
-    \path[->,square/north] (#1nw) edge node [square/north/node] {$\l_jon_tikz_diagram_north$} (#1ne);
-    \path[->,square/east] (#1ne) edge node [square/east/node] {$\l_jon_tikz_diagram_east$} (#1se);
-    \path[->,square/south] (#1sw) edge node [square/south/node] {$\l_jon_tikz_diagram_south$} (#1se);
+    \draw[square/north] (#1nw) to node [square/north/node] {$\l_jon_tikz_diagram_north$} (#1ne);
+    \draw[square/east] (#1ne) to node [square/east/node] {$\l_jon_tikz_diagram_east$} (#1se);
+    \draw[square/south] (#1sw) to node [square/south/node] {$\l_jon_tikz_diagram_south$} (#1se);
   }
   \group_end:
 }
@@ -254,5 +257,6 @@
     \__jon_tikz_render_square:nn {#1} {#3}
   \end{tikzpicture}
 }
+
 
 \ExplSyntaxOff
