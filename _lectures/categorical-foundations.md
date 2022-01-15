@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Foundations of Relative Category Theory
 macrolib: topos
 usemathjax: true

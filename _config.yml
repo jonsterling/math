@@ -10,13 +10,12 @@ github_username: jonsterling
 theme: minima
 
 safe: false
-source : .
-destination : ./_site
+source: .
+destination: ./_site
 exclude:
   - compiled
   - _site
   - _bibliography
-
 
 markdown: kramdown
 kramdown:
@@ -33,7 +32,6 @@ antex:
     \usepackage{mlmodern,amsfonts,amssymb,amsmath}
     \usepackage{topos}
 
-
   commands:
     latexmk:
       command:
@@ -46,7 +44,6 @@ antex:
       targets:
         - "{{ file.dvi }}"
         - "{{ file.yml }}"
-
 
   aliases: # disable most aliases and use server side AnTeX only for complex LaTeX
     display_math:
@@ -66,7 +63,6 @@ plugins:
   - jekyll-feed
   - jekyll-scholar
 
-
 scholar:
   style: elsevier-harvard
   bibliography: refs-bibtex.bib
@@ -76,3 +72,13 @@ collections:
     output: true
   nodes:
     output: true
+
+defaults:
+  - scope:
+      type: nodes
+    values:
+      layout: page
+  - scope:
+      type: lectures
+    values:
+      layout: page
