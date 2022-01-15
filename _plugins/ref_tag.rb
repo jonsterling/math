@@ -11,7 +11,6 @@ class RefTag < Liquid::Tag
     registers = context.registers
     site = registers[:site]
     node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
-    Jekyll::NodeGraph.new(site.data).register_referent(@slug, registers[:page])
     "<a href='#{site.baseurl}#{node.url}' class='slug'>[#{@slug}]</a>"
   end
 end
