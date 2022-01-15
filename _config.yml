@@ -77,8 +77,8 @@ defaults:
   - scope:
       type: nodes
     values:
-      layout: page
+      layout: node
   - scope:
       type: lectures
     values:
-      layout: page
+      layout: node

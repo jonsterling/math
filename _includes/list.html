@@ -1,0 +1,12 @@
+<ul>
+  {% for resource in include.list %}
+  <li>
+    <a href="{{resource.url | relative_url}}">
+      {{resource.title}}
+      {% if resource.collection == "nodes" %}
+      <span class="slug">[{{resource.slug}}]</span>
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
