@@ -69,6 +69,7 @@ module Gnarly
         nodes.find { |target| target.data["slug"] == slug }
       end
       source.data["children"] = targets
+      source.data["parents"] ||= []
       targets.each do |target|
         target.data["parents"] ||= []
         target.data["parents"] << source
