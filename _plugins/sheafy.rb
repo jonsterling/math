@@ -105,7 +105,7 @@ module Sheafy
   # end
 end
 
-Jekyll::Hooks.register :site, :post_read do |site|
+Jekyll::Hooks.register :site, :post_read, priority: 30 do |site|
   resources = site.collections.
     values_at("nodes", "lectures").
     map(&:docs).flatten
