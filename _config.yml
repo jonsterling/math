@@ -76,6 +76,8 @@ scholar:
   details_layout: bibtex.html
   details_link: Details
 
+header_pages: ['']
+
 collections:
   lectures:
     output: true
