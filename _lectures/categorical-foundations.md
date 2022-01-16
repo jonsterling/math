@@ -17,7 +17,7 @@ We will draw on the following materials:
 > - Jacobs.  [Categorical Logic and Type Theory](https://people.mpi-sws.org/~dreyer/courses/catlogic/jacobs.pdf) .
 > - Streicher. [Fibered Categories à la Jean Bénabou](https://www2.mathematik.tu-darmstadt.de/~streicher/FIBR/FiBo.pdf).
 
-{% import 000R %}
-{% import 0008 %}
-{% import 0009 %}
-{% import 000E %}
+@include{000R}
+@include{0008}
+@include{0009}
+@include{000E}
