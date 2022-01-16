@@ -1,5 +1,5 @@
 /** Reset some basic elements */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
 
 /** Basic styling */
@@ -275,17 +275,17 @@ table td { border: 1px solid #e8e8e8; }
 
 .highlight .il { color: #099; }
 
-body { font-family: "Roboto"; font-size: 12pt; }
+body { font-family: "Inria Sans"; font-size: 12pt; }
 
-h1, h2, h3, h4, h5, h6 { font-family: "Roboto" !important; font-weight: bold !important; margin-top: 0.2em; }
+h1, h2, h3, h4, h5, h6 { font-family: "Inria Sans" !important; font-weight: bold !important; }
 
-h1 { font-size: 2.3em !important; }
+h1 { font-size: 2em !important; }
 
-h2 { font-size: 1.5em !important; margin-block-end: .4em; }
+h2 { font-size: 1.5em !important; margin-block-end: .4em; margin-top: 1.5em; }
 
-h3 { font-size: 1.2em !important; margin-block-end: .4em; }
+h3 { font-size: 1.2em !important; margin-block-end: .4em; margin-top: .3em; }
 
-h4 { font-size: 1.1em !important; margin-top: 1.2em; margin-block-end: .4em; }
+h4 { font-size: 1.1em !important; margin-top: .3em; margin-block-end: .4em; }
 
 h5 { font-size: 1em !important; }
 
@@ -293,7 +293,7 @@ h6 { font-size: 1em !important; font-style: italic; }
 
 .page__subtitle { font-size: 1.5em; font-weight: 500; font-style: italic; }
 
-.slug { font-family: monospace; color: gray !important; }
+.slug { font-family: "Inria Sans"; font-weight: 200; color: gray !important; }
 
 ul.toc { list-style-type: none; padding: 0; margin-left: 10pt; }
 
