@@ -2,16 +2,15 @@
 ---
 
 @import "{{ site.theme }}";
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 body {
-  font-family: "Roboto";
+  font-family: "Inria Sans";
   font-size: 12pt;
 }
 
 h1,h2,h3,h4,h5,h6  {
-  font-family: "Roboto" !important;
+  font-family: "Inria Sans" !important;
   font-weight: bold !important;
 }
 
@@ -54,7 +53,8 @@ h6 {
 }
 
 .slug {
-  font-family: monospace;
+  font-family: "Inria Sans";
+  font-weight: 200;
   color: gray !important;
 }
 
