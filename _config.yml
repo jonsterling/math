@@ -68,7 +68,7 @@ plugins:
 
 scholar:
   style: elsevier-harvard
-  bibliography: refs-bibtex.bib
+  bibliography: refs.bib
   bibliography_template: bib
   details_dir: bibliography
   details_layout: bibtex.html
