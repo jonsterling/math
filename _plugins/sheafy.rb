@@ -25,12 +25,12 @@ module Sheafy
     HEADER
   end
 
-  RE_IMPORT_TAG = /{%\s*import (?<slug>.+?)\s*%}/
+  RE_INCLUDE_TAG = /@include{(?<slug>.+?)}/
   RE_REF_TAG = /{%\s*ref (?<slug>.+?)\s*%}/
 
   def self.flatten_imports(resource, resources, level=1, prepend_header=false)
     header = prepend_header ? render_header(resource, level) : ""
-    content = resource.content.gsub(RE_IMPORT_TAG) do
+    content = resource.content.gsub(RE_INCLUDE_TAG) do
       doc = resources.
         find { |doc| doc.data["slug"] == Regexp.last_match[:slug] }
       flatten_imports(doc, resources, level + 1, true)
@@ -64,7 +64,7 @@ module Sheafy
 
     # First we build the adjacency list of the dependency graph...
     adjacency_list = nodes.map do |source|
-      targets = source.content.scan(RE_IMPORT_TAG).map do |(slug)|
+      targets = source.content.scan(RE_INCLUDE_TAG).map do |(slug)|
         # TODO: handle missing targets
         nodes.find { |target| target.data["slug"] == slug }
       end
