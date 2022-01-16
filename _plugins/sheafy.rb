@@ -1,6 +1,6 @@
 require 'tsort'
 
-module Gnarly
+module Sheafy
   class Graph < Hash
     include TSort
 
@@ -109,5 +109,5 @@ Jekyll::Hooks.register :site, :post_read do |site|
   resources = site.collections.
     values_at("nodes", "lectures").
     map(&:docs).flatten
-  Gnarly.process(resources)
+  Sheafy.process(resources)
 end
