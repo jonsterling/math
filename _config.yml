@@ -78,7 +78,9 @@ defaults:
       type: nodes
     values:
       layout: node
+      excerpt: ""
   - scope:
       type: lectures
     values:
       layout: node
+      excerpt: ""
