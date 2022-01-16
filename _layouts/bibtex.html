@@ -1,0 +1,19 @@
+---
+layout: page
+---
+<div class="text-justify">
+    {{page.reference}}
+    {% if page.entry.doi %}
+    <span><a href="{{ page.entry.doi | prepend: 'http://doi.org/' }}">doi:{{page.entry.doi}}</a>.</span>
+    {% endif %}
+    {% if page.entry.eprinttype == "arXiv" %}
+    <span><a href="{{ page.entry.eprint | prepend: 'http://arxiv.org/abs/' }}">arXiv:{{page.entry.eprint}}</a>.</span>
+    {% endif %}
+    {% if page.entry.hal_id %}
+    <span><a href="{{ page.entry.hal_id | prepend: 'http://hal.inria.fr/' }}">hal:{{page.entry.hal_id}}</a>.</span>
+    {% endif %}
+</div>
+
+<div class="bibtex-code">
+  <pre>{{page.entry.bibtex}}</pre>
+</div>
