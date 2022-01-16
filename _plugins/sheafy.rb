@@ -25,7 +25,7 @@ module Sheafy
     HEADER
   end
 
-  RE_INCLUDE_TAG = /@include{(?<slug>.+?)}/
+  RE_INCLUDE_TAG = /^@include{(?<slug>.+?)}$/
   RE_REF_TAG = /{%\s*ref (?<slug>.+?)\s*%}/
 
   def self.flatten_imports(resource, resources, level=1, prepend_header=false)
