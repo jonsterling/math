@@ -17,6 +17,9 @@ exclude:
   - _site
   - _bibliography
 
+keep_files:
+  - antex
+
 markdown: kramdown
 kramdown:
   input: GFM
