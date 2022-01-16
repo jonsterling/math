@@ -13,9 +13,11 @@ safe: false
 source: .
 destination: ./_site
 exclude:
-  - compiled
+  - macros/compiled
   - _site
   - _bibliography
+  - setup-worktree.sh
+  - deploy.sh
 
 keep_files:
   - antex

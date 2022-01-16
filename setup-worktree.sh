@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm -rf _site
+rm -rf _deploy
 git worktree prune
-git worktree add -B gh-pages _site origin/gh-pages
+git worktree add -B gh-pages _deploy origin/gh-pages
