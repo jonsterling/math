@@ -4,8 +4,8 @@
 
 <script>
   const macros_promise =
-    {% if page.macrolib %}
-    fetch("{{site.baseurl}}/assets/macros/{{page.macrolib}}.katex.json").then(response => response.json());
+    {% if site.macrolib %}
+    fetch("{{site.baseurl}}/assets/macros/{{site.macrolib}}.katex.json").then(response => response.json());
     {% else %}
     Promise.resolve({})
     {% endif %};

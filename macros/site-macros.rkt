@@ -84,4 +84,4 @@
 (define-global (brc x)
   @tex{\{ @x \}})
 
-(publish-macro-library 'topos)
+(publish-macro-library 'site-macros)

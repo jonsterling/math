@@ -24,13 +24,16 @@ kramdown:
   math_engine: null
   parse_block_html: true
 
+macrolib:
+  site-macros
+
 antex:
   url_path_prefix: *baseurl
 
   preamble: >-
     \usepackage{jon-tikz}
     \usepackage{mlmodern,amsfonts,amssymb,amsmath}
-    \usepackage{topos}
+    \usepackage{site-macros}
 
   commands:
     latexmk:
