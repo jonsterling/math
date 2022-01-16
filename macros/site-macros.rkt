@@ -1,11 +1,7 @@
 #lang at-exp racket
 
 (require "macro-kit.rkt")
-
-(define-global (Sub x)
-  "_{" x "}")
-(define-global (Sup x)
-  "^{" x "}")
+(require "basic-macros.rkt")
 
 (define-local ShSymbol
   @tex{\boldsymbol{\mathcal{S}}})
@@ -15,9 +11,6 @@
 
 (define-local FamSymbol
   @tex{\boldsymbol{\mathcal{F}}})
-
-(define-global (Con x)
-  @tex{\mathsf{@x}})
 
 (define-global (Sh X)
   ShSymbol
@@ -30,9 +23,6 @@
 (define-global (Gl x)
   (Con "gl")
   (Sub x))
-
-(define-local (overline x)
-  @tex{\overline{@x}})
 
 (define-global (OpGL x)
   (overline GlSymbol)
@@ -48,9 +38,6 @@
 (define-global (Cod C)
   (Con "cod")
   (Sub C))
-
-(define-local (bold kwd)
-  @tex{\mathbf{@kwd}})
 
 (define-global (TOP E)
   (bold "Top")
@@ -79,9 +66,5 @@
 
 (define-global (CandHom i u v)
  (bold "H") (Sub i) "(" u "," v ")")
-
-
-(define-global (brc x)
-  @tex{\{ @x \}})
 
 (publish-macro-library 'site-macros)
