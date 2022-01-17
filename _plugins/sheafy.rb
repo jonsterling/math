@@ -1,16 +1,6 @@
-require 'tsort'
+require 'jekyll/sheafy/directed_graph'
 
 module Sheafy
-  class Graph < Hash
-    include TSort
-
-    alias tsort_each_node each_key
-
-    def tsort_each_child(node, &block)
-      fetch(node).each(&block)
-    end
-  end
-
   def self.render_header(resource, level)
     slug = resource.data["slug"]
     title = resource.data["title"]
@@ -78,7 +68,14 @@ module Sheafy
     end.to_h
 
     # ... then we build the graph and do a topological sort on the nodes.
-    tsorted_nodes = Graph[adjacency_list].tsort
+    graph = Jekyll::Sheafy::DirectedGraph[adjacency_list]
+    begin
+      graph.ensure_rooted_forest!
+    rescue Jekyll::Sheafy::DirectedGraph::PayloadError => error
+      humanize_sheafy_error!(error)
+    end
+    tsorted_nodes = graph.topologically_sorted
+    
     # TODO: catch TSort::Cyclic and provide meaningful message
 
     # Top. order is good to denormalize data from leaves up to roots,
@@ -90,6 +87,29 @@ module Sheafy
     tsorted_nodes.reverse.each do |node|
       node.content = flatten_imports(node, nodes)
     end
+  end
+
+  def self.humanize_sheafy_error!(error)
+    message = case error
+      when Jekyll::Sheafy::DirectedGraph::MultipleEdgesError then "node reuse"
+      when Jekyll::Sheafy::DirectedGraph::LoopsError then "self reference"
+      when Jekyll::Sheafy::DirectedGraph::CyclesError then "cyclic reference"
+      when Jekyll::Sheafy::DirectedGraph::IndegreeError then "node reuse"
+      else raise StandardError.new("Malformed dependency graph!")
+    end
+    graph_fragment = case error
+      when Jekyll::Sheafy::DirectedGraph::MultipleEdgesError,
+           Jekyll::Sheafy::DirectedGraph::LoopsError,
+           Jekyll::Sheafy::DirectedGraph::IndegreeError
+        error.payload.
+          transform_keys { |k| k.data["slug"] }.
+          transform_values { |vs| vs.map { |v| v.data["slug"] } }
+      when Jekyll::Sheafy::DirectedGraph::CyclesError
+        error.payload.map { |vs| vs.map { |v| v.data["slug"] } }
+      end
+    raise StandardError.new(<<~MESSAGE)
+      Error in dependency graph topology, #{message} detected: #{graph_fragment}
+    MESSAGE
   end
 
   def self.process(nodes)
