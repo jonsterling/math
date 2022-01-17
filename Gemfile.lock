@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/paolobrasolin/jekyll-sheafy.git
+  revision: 448d7ca086b86de26474a3288b1db297352977d6
+  branch: main
+  specs:
+    jekyll-sheafy (0.1.0)
+      jekyll (>= 3, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -67,7 +75,7 @@ GEM
       kramdown (~> 2.0)
     latex-decode (0.3.2)
     liquid (4.0.3)
-    listen (3.7.0)
+    listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
@@ -77,7 +85,7 @@ GEM
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
     namae (1.1.1)
-    nokogiri (1.13.0)
+    nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     pathutil (0.16.2)
@@ -103,6 +111,7 @@ DEPENDENCIES
   jekyll (~> 4.2.1)
   jekyll-antex (~> 0.6.1)
   jekyll-scholar
+  jekyll-sheafy!
   kramdown-parser-gfm
   minima (~> 2.0)
 
