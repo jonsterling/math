@@ -7,6 +7,7 @@ rm -rf _deploy/*
 cp -rf _site/* _deploy/
 
 cd _deploy
+git add .
 git commit -am "Deploy"
 git push -u origin gh-pages
 cd ..
