@@ -11,8 +11,8 @@ def get_git_data
       "--no-renames",
       "--diff-filter=ADM",
       "--",
-      "_lectures/*.md",
-      "_nodes/*.md",
+      "_lectures/",
+      "_nodes/",
     ].join(" "),
   )
   stdout
