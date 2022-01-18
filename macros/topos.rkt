@@ -7,19 +7,19 @@
 (define-global (Sup x)
   "^{" x "}")
 
-(define (bold-symbol x)
+(define-global (BoldSymbol x)
   (match (target)
     ['katex @tex{\pmb{@x}}]
     [_ @tex{\boldsymbol{@x}}]))
 
 (define-local (ShSymbol)
-  (bold-symbol @tex{\mathcal{S}}))
+  (BoldSymbol @tex{\mathcal{S}}))
 
 (define-local (GlSymbol)
-  (bold-symbol @tex{\mathcal{G}}))
+  (BoldSymbol @tex{\mathcal{G}}))
 
 (define-local (FamSymbol)
-  (bold-symbol @tex{\mathcal{F}}))
+  (BoldSymbol @tex{\mathcal{F}}))
 
 (define-global (Con x)
   @tex{\mathsf{@x}})
@@ -88,5 +88,8 @@
 
 (define-global (brc x)
   @tex{\{ @x \}})
+
+(define-global (brk x)
+  @tex{[@x]})
 
 (publish-macro-library 'topos)
