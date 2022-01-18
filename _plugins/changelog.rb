@@ -1,5 +1,4 @@
 require 'open3'
-require 'byebug'
 require 'date'
 
 def get_git_data
