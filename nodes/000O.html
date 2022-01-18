@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000O.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-18T19:45:37+01:00" />
+<meta property="article:published_time" content="2022-01-18T21:13:32+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Internal categories" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Internal categories","dateModified":"2022-01-18T19:45:37+01:00","datePublished":"2022-01-18T19:45:37+01:00","description":"A mathematical web page.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000O.html"},"url":"https://www.jonsmsterling.com//math/nodes/000O.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Internal categories","dateModified":"2022-01-18T21:13:32+01:00","datePublished":"2022-01-18T21:13:32+01:00","description":"A mathematical web page.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000O.html"},"url":"https://www.jonsmsterling.com//math/nodes/000O.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -93,6 +93,36 @@
     <a href="#000V">The externalization of an internal category</a>
     <ul class="toc">
   
+  <li>
+    <a class="slug" href="/math/nodes/000W.html">[000W]</a>
+    <a href="#000W">The externalization is a fibration</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    <a class="slug" href="/math/nodes/000X.html">[000X]</a>
+    <a href="#000X">The externalization is globally small</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    <a class="slug" href="/math/nodes/000Y.html">[000Y]</a>
+    <a href="#000Y">The externalization is locally small</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
 </ul>
 
 
@@ -141,12 +171,68 @@ x\to C\Sub{1}$ in $E$ such that the following diagram commutes:
   </li>
 </ol>
 
-<p><strong>The externalization is a fibration.</strong> Given an object $v\in \brk{C}\Sub{y}$ and a
+<h3 id="000W">
+  The externalization is a fibration
+  <a class="slug" href="/math/nodes/000W.html">[000W]</a>
+</h3>
+
+<p>Given an object $v\in \brk{C}\Sub{y}$ and a
 morphism $f:x\to y$ in $E$, we may define a cartesian lift
 $\InvImg{f}v\to\Sub{f} v$ by setting $\InvImg{f}v = v\circ f : x \to C\Sub{0}$.</p>
 
-<p><strong>The externalization is globally small.</strong> We may choose a generic object <a href="/math/nodes/000K.html" class="slug">[000K]</a> for $\brk{C}$, namely the identity element $(C\Sub{0},\Idn{C\Sub{0}})\in \TotCat{\brk{C}}$. Given any object $(x,u)\in \TotCat{\brk{C}}$ the cartesian map $(x,u)\to (C\Sub{0},\Idn{C\Sub{0}})$ is given as follows:
+<h3 id="000X">
+  The externalization is globally small
+  <a class="slug" href="/math/nodes/000X.html">[000X]</a>
+</h3>
+
+<p>We may choose a generic object <a href="/math/nodes/000K.html" class="slug">[000K]</a> for $\brk{C}$, namely the identity element $(C\Sub{0},\Idn{C\Sub{0}})\in \TotCat{\brk{C}}$. Given any object $(x,u)\in \TotCat{\brk{C}}$ the cartesian map $(x,u)\to (C\Sub{0},\Idn{C\Sub{0}})$ is given as follows:
 <span class="antex display"><img style='margin: -0.075ex 0.097ex -17.056ex 0.0ex; height: 32.205ex; width: 18.647ex;' src="/math/antex/ce7ac4ab2528931bf6e45b760de9b5d5.svg" /></span></p>
+
+<h3 id="000Y">
+  The externalization is locally small
+  <a class="slug" href="/math/nodes/000Y.html">[000Y]</a>
+</h3>
+
+<p>Fix $x\in E$ and $u,v\in
+\brk{C}\Sub{x}$, we must exhibit a terminal object to the (total) category
+$\TotCat{\CandHom{x}{u}{v}}$ of “hom candidates” defined in <a href="/math/nodes/000I.html" class="slug">[000I]</a>.
+First we define $\brk{u,v}$ to be the following pullback in $E$:
+<span class="antex display"><img style='margin: -0.052ex 0.23ex -3.523ex 0.0ex; height: 20.582ex; width: 23.189ex;' src="/math/antex/6242be2e4354a155482db98762786a01.svg" /></span></p>
+
+<p>We define $\overline{p}:\InvImg{\brk{u,v}}{u}\to\Sub{p} u\in \brk{C}\Sub{\brk{u,v}}$ to be
+the cartesian lift of $u\in \brk{C}\Sub{x}$ along $p:\brk{u,v}\to x$:
+<span class="antex display"><img style='margin: 0.0ex 0.029ex -2.651ex 0.0ex; height: 16.923ex; width: 19.593ex;' src="/math/antex/b7db3956ef5248eb93631aa2cc62d275.svg" /></span></p>
+
+<p>We need to define a displayed evaluation map
+$\epsilon : \InvImg{\brk{u,v}}u\to\Sub{p} v$; unraveling the definition of a displayed
+morphism in the externalization of $C$, we choose the following diagram:</p>
+
+<p><span class="antex display"><img style='margin: -0.05ex 0.098ex -16.024ex 0.0ex; height: 32.049ex; width: 18.703ex;' src="/math/antex/fd0b10b06f2a4bfcb834fcadc4f234d5.svg" /></span></p>
+
+<p>Putting all this together, we assert that the terminal object of
+$\TotCat{\CandHom{x}{u}{v}}$ is the following span in $\brk{C}$:
+<span class="antex display"><img style='margin: 0.002ex 0.028ex -13.144ex 0.0ex; height: 16.815ex; width: 30.861ex;' src="/math/antex/0bcb367c4d60fee68ebcc726774e5e92.svg" /></span></p>
+
+<p>Fixing another such candidate hom span $\brc{u \leftarrow \bar{h}\rightarrow v}\in\TotCat{\CandHom{x}{u}{v}}$, according to <a href="/math/nodes/000I.html" class="slug">[000I]</a> we must exhibit a unique cartesian morphism $\bar\alpha : \bar{h}\to \InvImg{\brk{u,v}}{u}$ making the following diagram commute:
+   <span class="antex display"><img style='margin: 0.002ex 0.112ex -9.044ex 0.0ex; height: 18.396ex; width: 24.017ex;' src="/math/antex/a5b39bbded0af6848664125e11a54289.svg" /></span></p>
+
+<p>First we note that the evaluation map $\epsilon\Sub{h} : \bar{h}\to v$ amounts
+to an internal morphism $h\to C\Sub{1}$ satisfying the appropriate
+compatibility conditions. Therefore we may define the base $\alpha:h\to \brk{u,v}$ of
+the universal map using the universal property of the pullback that defines $\brk{u,v}$:
+<span class="antex display"><img style='margin: -0.022ex 0.227ex -17.32ex -0.102ex; height: 29.58ex; width: 33.14ex;' src="/math/antex/1b397b7ff0e27f40c6bb6b6473d9e68a.svg" /></span></p>
+
+<p>The morphism $\alpha:h\to \brk{u,v}$ defined above is the <em>unique</em> map in $E$
+satisfying the conditions required of the base for $\bar\alpha$; therefore, it
+suffices to show that there exists a cartesian morphism
+$\bar\alpha:\bar{h}\to\Sub{\alpha}\InvImg{\brk{u,v}}u$ since it will be unique if it
+exists. We define $\bar\alpha$ using the universal property of the cartesian lift:
+<span class="antex display"><img style='margin: 0.002ex 0.028ex -17.499ex 0.0ex; height: 25.525ex; width: 29.723ex;' src="/math/antex/2901b871830c212037892f560c307929.svg" /></span></p>
+
+<p>That $\alpha:\bar{h}\to\Sub{\alpha}\brk{u,v}$ is cartesian follows from the
+“generalized pullback lemma” for cartesian morphisms: it suffices to observe
+that both $\bar{h}\to u$ and its second factor $\InvImg{u,v}u\to u$ are
+cartesian.</p>
 
 
   </div>
