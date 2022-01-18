@@ -68,12 +68,16 @@ title: Changelog
   {% for diff in commit.diffs %}
   <li class="diff-{{ diff.status }}">
 
+    {% if diff.node %}
     <a href="{{diff.node.url | relative_url}}">
       {{diff.node.title}}
       {% if diff.node.collection == "nodes" %}
       <span class="slug">[{{diff.node.slug}}]</span>
       {% endif %}
     </a>
+    {% else %}
+    <del>{{ diff.path | split: "/" | last | remove: ".md" }}</del>
+    {% endif%}
 
   </li>
   {% endfor %}
