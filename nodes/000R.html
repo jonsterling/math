@@ -14,13 +14,13 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000R.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-17T22:44:34+01:00" />
+<meta property="article:published_time" content="2022-01-18T13:54:27+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Foundational assumptions" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Foundational assumptions","dateModified":"2022-01-17T22:44:34+01:00","datePublished":"2022-01-17T22:44:34+01:00","description":"A mathematical web page.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000R.html"},"url":"https://www.jonsmsterling.com//math/nodes/000R.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Foundational assumptions","dateModified":"2022-01-18T13:54:27+01:00","datePublished":"2022-01-18T13:54:27+01:00","description":"A mathematical web page.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000R.html"},"url":"https://www.jonsmsterling.com//math/nodes/000R.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursery" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
@@ -86,23 +86,48 @@
   
 
   <div class="post-content">
-    <p>In our foundation we have a notions of <em>class</em> and <em>set</em>. When we speak
-informally of “collections of things”, we are referring to classes; therefore,
-a “category” for us is one with a class of objects, and a class of morphisms
-from any one object to another. It is routine to define a class to be a formula
-in the language of set theory; we take a more agnostic approach and just say
-that classes are whatever is on the “outside”.</p>
+    <p><strong>Definition.</strong> A <em>meta-category</em> $\mathfrak{C}$ is defined by explaining what
+an object of $\mathfrak{E}$ is, and, given two objects $x,y\in \mathfrak{E}$,
+what a morphism from $x$ to $y$ is, together with the following operations:</p>
 
-<p><strong>Explanation.</strong> A <em>class</em> $\Phi$ is defined by a specification of how to
-construct an element of $\Phi$, and when two elements of $\Phi$ are considered
-equal.</p>
+<ol>
+  <li>for each object $x\in \mathfrak{E}$, an <em>identity</em> map $\Idn{x} : x \to x$,</li>
+  <li>for any two maps $f:x\to y$ and $g:y\to z$, a <em>composite map</em> $f;g : x \to z$,</li>
+  <li>such that the following equations hold:
+\[
+  \Idn{x};h = h\qquad
+  h;\Idn{y} = h\qquad
+  f;(g;h) = (f;g);{h}
+\]</li>
+</ol>
 
-<p>Hence we assume the ability to take quotients of classes.</p>
+<p>In our explanation above, we have not imposed any restrictions on what kinds of
+things the objects and morphisms are; our definition is pre-mathematical, so we
+do not assume beforehand that there is a such thing as a collection of “all”
+meta-categories.</p>
 
-<p><strong>Assumption.</strong> We assume that there exists a category $\SET$ satisfying the axioms of
-<a href="http://ncatlab.org/nlab/show/ETCS">ETCS</a>; a <em>set</em> for us is then an object of
-the category $\SET$.</p>
+<p><strong>Remark.</strong> We may define analogous notions of meta-functor, etc. But we do not
+assume that the notion of “all meta-functors $\mathfrak{C}\to\mathfrak{D}$” is
+well-defined; the notion is entirely schematic.</p>
 
+<p><strong>Assumption.</strong> We assume a meta-category $\BoldSymbol{\mathfrak{Coll}}$ whose
+objects we will refer to as “collections”. We assume that the meta-category of all collections satisfies the axioms of Lawvere’s <a href="http://ncatlab.org/nlab/show/ETCS">ETCS</a>.</p>
+
+<p><strong>Definition.</strong> A <em>category</em> $E$ is defined to be a meta-category whose objects
+are defined to be the elements of some collection, and for any two objects
+$x,y\in E$ the morphisms $x\to y$ are defined to be an element of some
+collection.</p>
+
+<p>Consequently there exists a meta-category $\BoldSymbol{\mathfrak{Cat}}$ of all
+categories.</p>
+
+<p><strong>Assumption.</strong> At times we may assume that there exists a <em>category</em>
+$\SET\subseteq\BoldSymbol{\mathfrak{Coll}}$ of collections that we will refer
+to as sets, such that $\SET$ is closed under the axioms of
+<a href="https://ncatlab.org/show/ETCS">ETCS</a>. Rather than work with $\SET$ at all
+times, our approach is to use the tools of relative category theory to
+objectify the notions of “small” and “locally small” category over any category
+$B$, generalizing the role of $\SET$ from classical category theory.</p>
 
   </div>
 
@@ -123,32 +148,6 @@ the category $\SET$.</p>
   </nav>
   
 
-  
-  <nav>
-    <h4>Referrers</h4>
-    <ul>
-  
-  <li>
-    <a href="/math/nodes/000L.html">
-      Globally small categories
-      
-      <span class="slug">[000L]</span>
-      
-    </a>
-  </li>
-  
-  <li>
-    <a href="/math/nodes/000Q.html">
-      Opposite categories
-      
-      <span class="slug">[000Q]</span>
-      
-    </a>
-  </li>
-  
-</ul>
-
-  </nav>
   
 
   

@@ -7,24 +7,29 @@
 (define-global (Sup x)
   "^{" x "}")
 
-(define-local ShSymbol
-  @tex{\boldsymbol{\mathcal{S}}})
+(define-global (BoldSymbol x)
+  (match (target)
+    ['katex @tex{\pmb{@x}}]
+    [_ @tex{\boldsymbol{@x}}]))
 
-(define-local GlSymbol
-  @tex{\boldsymbol{\mathcal{G}}})
+(define-local (ShSymbol)
+  (BoldSymbol @tex{\mathcal{S}}))
 
-(define-local FamSymbol
-  @tex{\boldsymbol{\mathcal{F}}})
+(define-local (GlSymbol)
+  (BoldSymbol @tex{\mathcal{G}}))
+
+(define-local (FamSymbol)
+  (BoldSymbol @tex{\mathcal{F}}))
 
 (define-global (Con x)
   @tex{\mathsf{@x}})
 
 (define-global (Sh X)
-  ShSymbol
+  (ShSymbol)
   (Sub X))
 
 (define-global (GL X)
-  GlSymbol
+  (GlSymbol)
   (Sub X))
 
 (define-global (Gl x)
@@ -35,7 +40,7 @@
   @tex{\overline{@x}})
 
 (define-global (OpGL x)
-  (overline GlSymbol)
+  (overline (GlSymbol))
   (Sub x))
 
 (define-global (OpGl x)
@@ -71,17 +76,20 @@
 (define-global (InvImg f)
   f (Sup @tex{*}))
 
-(define-global SET
+(define-global (SET)
   (bold "Set"))
 
 (define-global (FAM cat)
-  FamSymbol (Sub cat))
+  (FamSymbol) (Sub cat))
 
 (define-global (CandHom i u v)
- (bold "H") (Sub i) "(" u "," v ")")
+  (bold "H") (Sub i) "(" u "," v ")")
 
 
 (define-global (brc x)
   @tex{\{ @x \}})
+
+(define-global (brk x)
+  @tex{[@x]})
 
 (publish-macro-library 'topos)

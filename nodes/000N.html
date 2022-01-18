@@ -14,13 +14,13 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000N.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-17T22:44:34+01:00" />
+<meta property="article:published_time" content="2022-01-18T13:54:27+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Small fibrations and internal categories" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Small fibrations and internal categories","dateModified":"2022-01-17T22:44:34+01:00","datePublished":"2022-01-17T22:44:34+01:00","description":"A mathematical web page.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000N.html"},"url":"https://www.jonsmsterling.com//math/nodes/000N.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Small fibrations and internal categories","dateModified":"2022-01-18T13:54:27+01:00","datePublished":"2022-01-18T13:54:27+01:00","description":"A mathematical web page.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000N.html"},"url":"https://www.jonsmsterling.com//math/nodes/000N.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/math/assets/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.jonsmsterling.com//math/feed.xml" title="The Nursery" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
@@ -93,6 +93,16 @@
     <a href="#000O">Internal categories</a>
     <ul class="toc">
   
+  <li>
+    <a class="slug" href="/math/nodes/000V.html">[000V]</a>
+    <a href="#000V">The externalization of an internal category</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
 </ul>
 
 
@@ -125,6 +135,46 @@ Grothendieck and Charles Ehresmann.</p>
   Internal categories
   <a class="slug" href="/math/nodes/000O.html">[000O]</a>
 </h2>
+
+<p>The notion of a (meta-)category is an <a href="http://ncatlab.org/nlab/show/essentially+algebraic+theory">essentially algebraic
+theory</a>. As such it is
+possible to compute <em>models</em> of this theory in any category that has finite
+limits. Let $E$ be a category with finite limits; then an <em>internal category</em>
+in $E$ is defined by the following data:</p>
+
+<ol>
+  <li>an object of objects $C\Sub{0}\in E$,</li>
+  <li>an object of morphisms $C\Sub{1}\in E$,</li>
+  <li>source and target morphisms $s,t:C\Sub{1}\to C\Sub{0}$,</li>
+  <li>a generic identity morphism $C\Sub{0}\to C\Sub{1}$,</li>
+  <li>a generic composition morphism $C\Sub{1}\times\Sub{C\Sub{0}}C\Sub{1}\to C\Sub{1}$,</li>
+  <li>satisfying a number of laws corresponding to those of a category.</li>
+</ol>
+
+<p>For the details of these laws, we refer to the <a href="http://ncatlab.org/nlab/show/internal+category">nLab</a>.</p>
+
+<h3 id="000V">
+  The externalization of an internal category
+  <a class="slug" href="/math/nodes/000V.html">[000V]</a>
+</h3>
+
+<p>Let $C$ be an internal category in $E$. We may define a fibered category $\brk{C}$ over $E$ called the <em>externalization</em> of $C$.</p>
+
+<ol>
+  <li>
+    <p>Given $x\in E$, an object of $\brk{C}\Sub{x}$ is defined to be a morphism $x\to C\Sub{0}$ in $E$.</p>
+  </li>
+  <li>
+    <p>Given $x,y\in E$ and $f:x\to y$ and $u \in \brk{C}\Sub{x}$ and $v\in
+\brk{C}\Sub{y}$, a morphism $u\to\Sub{f} v$ is defined to be a morphism $h :
+x\to C\Sub{1}$ in $E$ such that the following diagram commutes:
+<span class="antex display"><img style='margin: -0.075ex 0.098ex -16.024ex 0.0ex; height: 31.173ex; width: 18.743ex;' src="/math/antex/5f637300581f782ec5c2a292f6c58407.svg" /></span></p>
+  </li>
+</ol>
+
+<p><strong>The externalization is a fibration.</strong> Given an object $v\in \brk{C}\Sub{y}$ and a
+morphism $f:x\to y$ in $E$, we may define a cartesian lift
+$\InvImg{f}v\to\Sub{f} v$ by setting $\InvImg{f}v = v\circ f : x \to C\Sub{0}$.</p>
 
 
   </div>

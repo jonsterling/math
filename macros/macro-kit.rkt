@@ -2,34 +2,40 @@
 
 (require json)
 
-(provide tex define-global define-local publish-macro-library)
-
+(provide tex define-global define-local publish-macro-library target)
 (struct macro-repr (name arity inst) #:transparent)
 
+(define target (make-parameter null))
+
 (define (macro-reprs->mathjax-jsexpr reprs)
-  (make-hash
-   (for/list ([repr reprs])
-     (cons
-      (string->symbol (macro-repr-name repr))
-      (list (macro-repr-inst repr) (macro-repr-arity repr))))))
+  (parameterize ([target 'mathjax])
+    (make-hash
+     (for/list ([repr reprs])
+       (cons
+        (string->symbol (macro-repr-name repr))
+        (list
+         ((macro-repr-inst repr))
+         (macro-repr-arity repr)))))))
 
 (define (macro-reprs->katex-jsexpr reprs)
-  (make-hash
-   (for/list ([repr reprs])
-     (cons
-      (string->symbol (string-append "\\" (macro-repr-name repr)))
-      (macro-repr-inst repr)))))
+  (parameterize ([target 'katex])
+    (make-hash
+     (for/list ([repr reprs])
+       (cons
+        (string->symbol (string-append "\\" (macro-repr-name repr)))
+        ((macro-repr-inst repr)))))))
 
 (define (write-macro-repr-latex repr port)
-  (display "\\newcommand\\" port)
-  (display (macro-repr-name repr) port)
-  (when (> (macro-repr-arity repr) 0)
-    (display "[" port)
-    (display (macro-repr-arity repr) port)
-    (display "]" port))
-  (display "{" port)
-  (display (macro-repr-inst repr) port)
-  (displayln "}" port))
+  (parameterize ([target 'latex])
+    (display "\\newcommand\\" port)
+    (display (macro-repr-name repr) port)
+    (when (> (macro-repr-arity repr) 0)
+      (display "[" port)
+      (display (macro-repr-arity repr) port)
+      (display "]" port))
+    (display "{" port)
+    (display ((macro-repr-inst repr)) port)
+    (displayln "}" port)))
 
 (define macro-set (make-parameter (mutable-set)))
 
@@ -84,25 +90,18 @@
 (define (tex . args)
   (string-append* args))
 
-(define-syntax-rule (define-local head bdy ...)
+(define-syntax-rule (define-local (id arg ...) bdy ...)
   (begin
-    (define head (tex bdy ...))))
+    (define (id arg ...) (tex bdy ...))))
  
-(define-syntax define-global
-  (syntax-rules ()
-    [(emit (id arg ...) bdy ...)
-     (begin
-       (define (id arg ...) (string-append "" bdy ...))
-       (let*
-           ([name (id->string id)]
-            [args (list (syntax->datum #'arg) ...)]
-            [arity (length args)]       
-            [inst
-             (let ([arg (name-arg (syntax->datum #'arg) args)] ...)
-               (tex bdy ...))])
-         (set-add! (macro-set) (macro-repr name arity inst))))]
-    [(emit id bdy ...)
-     (begin
-       (define id (tex bdy ...))
-       (let ([name (id->string id)])
-         (set-add! (macro-set) (macro-repr name 0 id))))]))
+(define-syntax-rule (define-global (id arg ...) bdy ...)
+  (begin
+    (define (id arg ...) (tex bdy ...))
+    (let*
+        ([name (id->string id)]
+         [args (list (syntax->datum #'arg) ...)]
+         [arity (length args)]       
+         [inst
+          (let ([arg (name-arg (syntax->datum #'arg) args)] ...)
+            (thunk (tex bdy ...)))])
+      (set-add! (macro-set) (macro-repr name arity inst)))))
