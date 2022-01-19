@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Changelog
+limit: 30
 ---
 
 <style>
@@ -44,9 +45,13 @@ title: Changelog
 
 </style>
 
+{% if page.commits.size > page.limit %}
+These are the last {{ page.limit }} of the {{ page.commits.size }} commits involving nodes.
+{% endif %}
+
 <dl>
 
-{% for commit in page.commits %}
+{% for commit in page.commits limit: page.limit %}
 
 <dt>
 
