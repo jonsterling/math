@@ -77,8 +77,6 @@ module Sheafy
     end
     tsorted_nodes = graph.topologically_sorted
 
-    # TODO: catch TSort::Cyclic and provide meaningful message
-
     # Top. order is good to denormalize data from leaves up to roots,
     # i.e. to do destructive procedures which need the altered children.
     # tsorted_nodes.each { |resource| ... }
