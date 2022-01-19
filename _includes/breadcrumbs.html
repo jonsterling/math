@@ -5,6 +5,7 @@
   }
 </style>
 
+{% unless include.list.size == 0 %}
 <nav class="breadcrumbs">
   {% for resource in include.list %}
     <a href="{{resource.url | relative_url}}">
@@ -19,3 +20,4 @@
     /
   {% endfor %}
 </nav>
+{% endunless %}
