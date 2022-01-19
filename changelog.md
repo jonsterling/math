@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Changelog
+title: Recent changes
 limit: 30
 ---
 
@@ -58,7 +58,7 @@ These are the last {{ page.limit }} of the {{ page.commits.size }} commits invol
 <strong>{{ commit.timestamp | date_to_string }}</strong>
 
 <a href="https://github.com/jonsterling/math/commit/{{ commit.hash }}">
-<code>{{ commit.hash | truncate: 7, "" }}</code>
+  <code>{{ commit.hash | truncate: 7, "" }}</code>
 </a>
 
 {{ commit.subject }}
@@ -74,25 +74,27 @@ These are the last {{ page.limit }} of the {{ page.commits.size }} commits invol
   <li class="diff-{{ diff.status }}">
 
     {% if diff.node %}
-    <a href="{{diff.node.url | relative_url}}">
-      {{diff.node.title}}
-      {% if diff.node.collection == "nodes" %}
-      <span class="slug">[{{diff.node.slug}}]</span>
-      {% endif %}
-    </a>
+      <a href="{{diff.node.url | relative_url}}">
+        {{diff.node.title}}
+        {% if diff.node.collection == "nodes" %}
+          <span class="slug">[{{diff.node.slug}}]</span>
+        {% endif %}
+      </a>
     {% else %}
-    <del>{{ diff.path | split: "/" | last | remove: ".md" }}</del>
+      <del>{{ diff.path | split: "/" | last | remove: ".md" }}</del>
     {% endif%}
 
   </li>
   {% endfor %}
 </ul>
+
 {% endcapture %}
 
 <details {% if commit.diffs.size < 7 %}open{% endif %}>
-<summary markdown='span'>Click to (un)fold the list of all {{ commit.diffs.size }} affected nodes.</summary>
-{{ commit_list }}
+  <summary markdown='span'>Click to (un)fold the list of all {{ commit.diffs.size }} affected nodes.</summary>
+  {{ commit_list }}
 </details>
+
 </dd>
 
 {% endfor %}
