@@ -4,10 +4,12 @@ module Sheafy
   def self.render_header(resource, level)
     slug = resource.data["slug"]
     title = resource.data["title"]
+    numbering = resource.data["iso_2145"]
     href = "{{ '#{resource.url}' | relative_url }}"
 
     <<~HEADER
       <h#{level} id="#{slug}">
+        <span class="numbering">#{numbering}.</span>
         #{title}
         <a class="slug" href="#{href}">[#{slug}]</a>
       </h#{level}>
@@ -75,15 +77,27 @@ module Sheafy
       humanize_sheafy_error!(error)
     end
     tsorted_nodes = graph.topologically_sorted
-    
-    # TODO: catch TSort::Cyclic and provide meaningful message
 
     # Top. order is good to denormalize data from leaves up to roots,
     # i.e. to do destructive procedures which need the altered children.
     # tsorted_nodes.each { |resource| ... }
-
+    #
     # Reversed top. order is good to denormalize data from roots down to leaves,
     # i.e. to do destructive procedures which need the original children.
+    tsorted_nodes.reverse.each do |node|
+      node.data["children"].each_with_index do |child, index|
+        child.data["numbering"] = index + 1
+      end
+
+      node.data["ancestors"] = []
+      if (parent = node.data["parents"].first)
+        ancestors = [*parent.data["ancestors"], parent]
+        node.data["ancestors"] = ancestors
+        node.data["iso_2145"] = [*ancestors[1..], node].
+          map { |n| n.data["numbering"] }.join(".")
+      end
+    end
+
     tsorted_nodes.reverse.each do |node|
       node.content = flatten_imports(node, nodes)
     end

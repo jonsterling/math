@@ -1,6 +1,13 @@
-<ul>
+<style>
+  .breadcrumbs {
+    font-size: small;
+    margin-bottom: 1.5em;
+  }
+</style>
+
+{% unless include.list.size == 0 %}
+<nav class="breadcrumbs">
   {% for resource in include.list %}
-  <li>
     <a href="{{resource.url | relative_url}}">
       {% if resource.collection == "nodes" %}
       <span class="numbering">{{ resource.iso_2145 | append: "." }}</span>
@@ -10,6 +17,7 @@
       <span class="slug">[{{resource.slug}}]</span>
       {% endif %}
     </a>
-  </li>
+    /
   {% endfor %}
-</ul>
+</nav>
+{% endunless %}

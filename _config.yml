@@ -13,6 +13,7 @@ safe: false
 source: .
 destination: ./_site
 exclude:
+  - .byebug_history
   - macros/compiled
   - _site
   - _bibliography
@@ -76,7 +77,8 @@ scholar:
   details_layout: bibtex.html
   details_link: Details
 
-header_pages: ['']
+header_pages:
+  - changelog.md
 
 collections:
   lectures:
