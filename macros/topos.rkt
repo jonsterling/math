@@ -89,7 +89,16 @@
 (define-global (brc x)
   @tex{\{ @x \}})
 
+(define-global (gl x)
+  @tex{\langle @x \rangle})
+
 (define-global (brk x)
   @tex{[@x]})
+
+(define-global (prn x)
+  @tex{(@x)})
+
+(define-global (FullSubfib u)
+  (bold "Full") (prn u))
 
 (publish-macro-library 'topos)
