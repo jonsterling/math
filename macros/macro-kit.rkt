@@ -41,7 +41,7 @@
 
 (define (macro-list)
   (define (lt? repr1 repr2)
-    (string<? (macro-repr-name repr1) (macro-repr-name repr2)))
+    (string-ci<? (macro-repr-name repr1) (macro-repr-name repr2)))
   
   (sort (set->list (macro-set)) lt?))
 
