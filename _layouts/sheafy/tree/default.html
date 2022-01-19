@@ -2,6 +2,37 @@
 layout: default
 ---
 
+<style>
+  section.ellipsis > header {
+    opacity: 0.5;
+    border-bottom: 3px dashed black;
+  }
+  section.ellipsis > :not(header) {
+    display: none;
+  }
+  form.search {
+    margin-bottom: 2rem;
+  }
+  form.search fieldset {
+    display: flex;
+    padding: 0;
+    border: none;
+  }
+  form.search input {
+    flex-grow: 1;
+  }
+</style>
+
+<script src="{{ 'assets/in_page_search.js' | relative_url }}"></script>
+
+<form class="search" action="{{ 'search' | relative_url }}" method="GET">
+  <fieldset>
+    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
+    <button type="submit">Search</button>
+    <button type="reset">Clear</button>
+  </fieldset>
+</form>
+
 <article class="post">
   <nav>
     {% include breadcrumbs.html list=page.ancestors %}
