@@ -4,12 +4,12 @@ module Sheafy
   def self.render_header(resource, level)
     slug = resource.data["slug"]
     title = resource.data["title"]
-    breadcrumb = resource.data["breadcrumb"]
+    numbering = resource.data["numbering"]
     href = "{{ '#{resource.url}' | relative_url }}"
 
     <<~HEADER
       <h#{level} id="#{slug}">
-        #{breadcrumb} #{title}
+        #{numbering} #{title}
         <a class="slug" href="#{href}">[#{slug}]</a>
       </h#{level}>
 
@@ -88,9 +88,9 @@ module Sheafy
     tsorted_nodes.reverse.each do |node|
       parent = node.data["parents"].first
       unless parent.nil?
-        parent.data["breadcrumb"] ||= ""
+        parent.data["numbering"] ||= ""
         index = 1 + parent.data["children"]&.index(node) || 0
-        node.data["breadcrumb"] = "#{parent.data["breadcrumb"]}#{index}."
+        node.data["numbering"] = "#{parent.data["numbering"]}#{index}."
       end
     end
 
