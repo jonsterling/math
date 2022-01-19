@@ -299,4 +299,6 @@ ul.toc { list-style-type: none; padding: 0; margin-left: 10pt; }
 
 div.bibtex-code { margin-top: 1em; }
 
+header.post-header { margin-bottom: 1em !important; }
+
 /*# sourceMappingURL=style.css.map */

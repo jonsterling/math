@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000E.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-19T14:40:34+01:00" />
+<meta property="article:published_time" content="2022-01-19T15:03:56+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Properties of fibrations" />
 <script type="application/ld+json">
-{"datePublished":"2022-01-19T14:40:34+01:00","@type":"BlogPosting","headline":"Properties of fibrations","dateModified":"2022-01-19T14:40:34+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000E.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000E.html","@context":"https://schema.org"}</script>
+{"dateModified":"2022-01-19T15:03:56+01:00","datePublished":"2022-01-19T15:03:56+01:00","@type":"BlogPosting","headline":"Properties of fibrations","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000E.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000E.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -73,7 +73,31 @@
         <article class="post">
 
   <header class="post-header">
+    <style>
+  .breadcrumbs {
+    font-size: small;
+    margin-bottom: 1.5em;
+  }
+</style>
+
+
+<nav class="breadcrumbs">
+  
+    <a href="/math/lectures/categorical-foundations.html">
+      
+      Foundations of Relative Category Theory
+      
+    </a>
+    /
+  
+</nav>
+
+
+
     <h1 class="post-title">
+      
+      <span class="numbering">4.</span>
+      
       Properties of fibrations
       
       <span class="slug">[000E]</span>
@@ -89,13 +113,15 @@
     <ul class="toc">
   
   <li>
-    <a class="slug" href="/math/nodes/000F.html">[000F]</a>
+    4.1.
     <a href="#000F">Locally small fibrations</a>
+    <a class="slug" href="/math/nodes/000F.html">[000F]</a>
     <ul class="toc">
   
   <li>
-    <a class="slug" href="/math/nodes/000G.html">[000G]</a>
+    4.1.1.
     <a href="#000G">Warmup: locally small family fibrations</a>
+    <a class="slug" href="/math/nodes/000G.html">[000G]</a>
     <ul class="toc">
   
 </ul>
@@ -104,8 +130,9 @@
   </li>
   
   <li>
-    <a class="slug" href="/math/nodes/000H.html">[000H]</a>
+    4.1.2.
     <a href="#000H">A more abstract formulation</a>
+    <a class="slug" href="/math/nodes/000H.html">[000H]</a>
     <ul class="toc">
   
 </ul>
@@ -114,8 +141,9 @@
   </li>
   
   <li>
-    <a class="slug" href="/math/nodes/000I.html">[000I]</a>
+    4.1.3.
     <a href="#000I">The definition of local smallness</a>
+    <a class="slug" href="/math/nodes/000I.html">[000I]</a>
     <ul class="toc">
   
 </ul>
@@ -129,18 +157,21 @@
   </li>
   
   <li>
-    <a class="slug" href="/math/nodes/000J.html">[000J]</a>
+    4.2.
     <a href="#000J">Globally small fibrations</a>
+    <a class="slug" href="/math/nodes/000J.html">[000J]</a>
     <ul class="toc">
   
   <li>
-    <a class="slug" href="/math/nodes/000K.html">[000K]</a>
+    4.2.1.
     <a href="#000K">Generic objects</a>
+    <a class="slug" href="/math/nodes/000K.html">[000K]</a>
     <ul class="toc">
   
   <li>
-    <a class="slug" href="/math/nodes/000L.html">[000L]</a>
+    4.2.1.1.
     <a href="#000L">Globally small categories</a>
+    <a class="slug" href="/math/nodes/000L.html">[000L]</a>
     <ul class="toc">
   
 </ul>
@@ -154,8 +185,9 @@
   </li>
   
   <li>
-    <a class="slug" href="/math/nodes/000P.html">[000P]</a>
+    4.2.2.
     <a href="#000P">The definition of global smallness</a>
+    <a class="slug" href="/math/nodes/000P.html">[000P]</a>
     <ul class="toc">
   
 </ul>
@@ -176,6 +208,7 @@
 
   <div class="post-content">
     <h2 id="000F">
+  <span class="numbering">4.1.</span>
   Locally small fibrations
   <a class="slug" href="/math/nodes/000F.html">[000F]</a>
 </h2>
@@ -185,6 +218,7 @@ small fibration. We attempt to provide
 some intuition for these definitions.</p>
 
 <h3 id="000G">
+  <span class="numbering">4.1.1.</span>
   Warmup: locally small family fibrations
   <a class="slug" href="/math/nodes/000G.html">[000G]</a>
 </h3>
@@ -205,6 +239,7 @@ is a family of sets for any $I\in \SET$, then $C$ is locally small as we may
 consider in particular the case that $I=\mathbf{1}$.</p>
 
 <h3 id="000H">
+  <span class="numbering">4.1.2.</span>
   A more abstract formulation
   <a class="slug" href="/math/nodes/000H.html">[000H]</a>
 </h3>
@@ -234,6 +269,7 @@ in the sense depicted below:
 <p>To convince ourselves of this, we note that the family $H \coloneqq \brc{u\Sub{i}\to v\Sub{i}}\Sub{i\in I}$ itself satisfies the universal property above. Indeed, fix a candiate $h \in \Sl{\SET}{I}$ equipped with a map $\epsilon\Sub{h} : h^*u \to_h v$. Unfolding the meaning of this map in set theoretical notation, we see that it amounts to a family of maps $\epsilon\Sub{h}[i] : \prod\Sub{x\in h_i} \brc{u_i\to v_i}$ for each $i\in I$; such a family immediately induces the desired map $h\to H$.</p>
 
 <h3 id="000I">
+  <span class="numbering">4.1.3.</span>
   The definition of local smallness
   <a class="slug" href="/math/nodes/000I.html">[000I]</a>
 </h3>
@@ -271,6 +307,7 @@ each $x\in B$ and $u,v\in E\Sub{x}$, the total category $\TotCat{\CandHom{x}{u}{
 has a terminal object.</p>
 
 <h2 id="000J">
+  <span class="numbering">4.2.</span>
   Globally small fibrations
   <a class="slug" href="/math/nodes/000J.html">[000J]</a>
 </h2>
@@ -285,6 +322,7 @@ smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(1999)</a> and 
 <p><strong>Definition.</strong> An ordinary category is called <em>globally small</em> when it has a set of objects.</p>
 
 <h3 id="000K">
+  <span class="numbering">4.2.1.</span>
   Generic objects
   <a class="slug" href="/math/nodes/000K.html">[000K]</a>
 </h3>
@@ -294,6 +332,7 @@ smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(1999)</a> and 
 <p><strong>Definition.</strong> Let $E$ be a fibration over $B$; a <em>generic object</em> for $E$ is defined to be an object $\bar{u}\in \TotCat{E}$  such that for any $\bar{z}\in \TotCat{E}$ there exists a cartesian map $\bar{z}\to \bar{u}$.</p>
 
 <h4 id="000L">
+  <span class="numbering">4.2.1.1.</span>
   Globally small categories
   <a class="slug" href="/math/nodes/000L.html">[000L]</a>
 </h4>
@@ -326,6 +365,7 @@ of an object of $C$ encoded by $x\in U$. Because such choices are unique only
 up to isomorphism, we must include them explicitly in the data.</p>
 
 <h3 id="000P">
+  <span class="numbering">4.2.2.</span>
   The definition of global smallness
   <a class="slug" href="/math/nodes/000P.html">[000P]</a>
 </h3>
@@ -334,23 +374,6 @@ up to isomorphism, we must include them explicitly in the data.</p>
 
 
   </div>
-
-  
-  <nav>
-    <h4>Context</h4>
-    <ul>
-  
-  <li>
-    <a href="/math/lectures/categorical-foundations.html">
-      Foundations of Relative Category Theory
-      
-    </a>
-  </li>
-  
-</ul>
-
-  </nav>
-  
 
   
 
