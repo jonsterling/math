@@ -1,8 +1,9 @@
 <ul class="toc">
   {% for resource in include.page.children %}
   <li>
-    <a class="slug" href="{{resource.url | relative_url}}">[{{resource.slug}}]</a>
+    {{ resource.breadcrumb }}
     <a href="#{{resource.slug}}">{{resource.title}}</a>
+    <a class="slug" href="{{resource.url | relative_url}}">[{{resource.slug}}]</a>
     {% include toc.html page=resource %}
   </li>
   {% endfor %}
