@@ -2,7 +2,9 @@
   {% for resource in include.list %}
   <li>
     <a href="{{resource.url | relative_url}}">
-      {{resource.numbering}}
+      {% if resource.collection == "nodes" %}
+      <span class="numbering">{{ resource.iso_2145 | append: "." }}</span>
+      {% endif %}
       {{resource.title}}
       {% if resource.collection == "nodes" %}
       <span class="slug">[{{resource.slug}}]</span>

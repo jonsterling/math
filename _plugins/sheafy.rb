@@ -4,12 +4,13 @@ module Sheafy
   def self.render_header(resource, level)
     slug = resource.data["slug"]
     title = resource.data["title"]
-    numbering = resource.data["numbering"]
+    numbering = resource.data["iso_2145"]
     href = "{{ '#{resource.url}' | relative_url }}"
 
     <<~HEADER
       <h#{level} id="#{slug}">
-        #{numbering} #{title}
+        <span class="numbering">#{numbering}.</span>
+        #{title}
         <a class="slug" href="#{href}">[#{slug}]</a>
       </h#{level}>
 
@@ -84,11 +85,16 @@ module Sheafy
     # Reversed top. order is good to denormalize data from roots down to leaves,
     # i.e. to do destructive procedures which need the original children.
     tsorted_nodes.reverse.each do |node|
-      parent = node.data["parents"].first
-      unless parent.nil?
-        parent.data["numbering"] ||= ""
-        index = 1 + parent.data["children"]&.index(node) || 0
-        node.data["numbering"] = "#{parent.data["numbering"]}#{index}."
+      node.data["children"].each_with_index do |child, index|
+        child.data["numbering"] = index + 1
+      end
+
+      node.data["ancestors"] = []
+      if (parent = node.data["parents"].first)
+        ancestors = [*parent.data["ancestors"], parent]
+        node.data["ancestors"] = ancestors
+        node.data["iso_2145"] = [*ancestors[1..], node].
+          map { |n| n.data["numbering"] }.join(".")
       end
     end
 

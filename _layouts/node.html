@@ -6,7 +6,9 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title">
-      {{ page.numbering }}
+      {% if page.collection == "nodes" %}
+      <span class="numbering">{{ page.iso_2145 | append: "." }}</span>
+      {% endif %}
       {{ page.title | escape }}
       {% if page.collection == "nodes" %}
       <span class="slug">[{{page.slug}}]</span>
