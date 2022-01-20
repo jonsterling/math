@@ -3,6 +3,12 @@ title: Foundations of Relative Category Theory
 macrolib: topos
 usemathjax: true
 date: 2022-01-01
+subnodes:
+  - 000R
+  - 0008
+  - 0009
+  - 000E
+  - 000N
 ---
 
 We assume knowledge of basic categorical concepts such as categories, functors,
@@ -16,9 +22,3 @@ We will draw on the following materials:
 > - Borceux. Handbook of Categorical Algebra 2: Categories and Structures.
 > - Jacobs.  [Categorical Logic and Type Theory](https://people.mpi-sws.org/~dreyer/courses/catlogic/jacobs.pdf) .
 > - Streicher. [Fibered Categories à la Jean Bénabou](https://www2.mathematik.tu-darmstadt.de/~streicher/FIBR/FiBo.pdf).
-
-@include{000R}
-@include{0008}
-@include{0009}
-@include{000E}
-@include{000N}

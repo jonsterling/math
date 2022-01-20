@@ -17,17 +17,15 @@ module Sheafy
     HEADER
   end
 
-  RE_INCLUDE_TAG = /^@include{(?<slug>.+?)}$/
   RE_REF_TAG = /{%\s*ref (?<slug>.+?)\s*%}/
 
-  def self.flatten_imports(resource, resources, level=1, prepend_header=false)
+  def self.flatten_node(resource, resources, level=1, prepend_header=false)
     header = prepend_header ? render_header(resource, level) : ""
-    content = resource.content.gsub(RE_INCLUDE_TAG) do
-      doc = resources.
-        find { |doc| doc.data["slug"] == Regexp.last_match[:slug] }
-      flatten_imports(doc, resources, level + 1, true)
+    flattened_subnodes = resource.data.fetch("subnodes", []).map do |slug|
+      doc = resources.find { |doc| doc.data["slug"] == slug }
+      flatten_node(doc, resources, level + 1, true)
     end
-    header + content
+    header + resource.content + flattened_subnodes.join("\n")
   end
 
   def self.process_references(nodes)
@@ -56,7 +54,7 @@ module Sheafy
 
     # First we build the adjacency list of the dependency graph...
     adjacency_list = nodes.map do |source|
-      targets = source.content.scan(RE_INCLUDE_TAG).map do |(slug)|
+      targets = source.data.fetch("subnodes", []).map do |slug|
         # TODO: handle missing targets
         nodes.find { |target| target.data["slug"] == slug }
       end
@@ -99,7 +97,7 @@ module Sheafy
     end
 
     tsorted_nodes.reverse.each do |node|
-      node.content = flatten_imports(node, nodes)
+      node.content = flatten_node(node, nodes)
     end
   end
 
