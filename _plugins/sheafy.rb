@@ -28,13 +28,13 @@ module Sheafy
     header + resource.content + flattened_subnodes.join("\n")
   end
 
-  def self.process_references(nodes)
+  def self.process_references(nodes, slugs_map)
     # The structure of references is a directed graph,
     # where source = referrer and target = referent.
 
     nodes.each do |source|
       source.content.scan(RE_REF_TAG).each do |(slug)|
-        target = nodes.find { |r| r.data["slug"] == slug }
+        target = slugs_map[slug]
         # TODO: handle missing targets
         target.data["referrers"] ||= []
         target.data["referrers"] << source
@@ -48,16 +48,15 @@ module Sheafy
     end
   end
 
-  def self.process_dependencies(nodes)
+  def self.process_dependencies(nodes, slugs_map)
     # The structure of dependencies is a directed acyclic graph,
     # where source = parent and target = child.
 
     # First we build the adjacency list of the dependency graph...
     adjacency_list = nodes.map do |source|
-      targets = source.data.fetch("subnodes", []).map do |slug|
-        # TODO: handle missing targets
-        nodes.find { |target| target.data["slug"] == slug }
-      end
+      # TODO: subnodes and children are redundant; just drop one
+      targets = source.data.fetch("subnodes", []).map(&slugs_map)
+      # TODO: handle missing targets
       source.data["children"] = targets
       source.data["parents"] ||= []
       targets.each do |target|
@@ -124,9 +123,9 @@ module Sheafy
     MESSAGE
   end
 
-  def self.process(nodes)
-    process_references(nodes)
-    process_dependencies(nodes)
+  def self.process(nodes, slugs_map)
+    process_references(nodes, slugs_map)
+    process_dependencies(nodes, slugs_map)
   end
 
   # TODO: handle regenerator dependencies
@@ -141,5 +140,6 @@ Jekyll::Hooks.register :site, :post_read, priority: 30 do |site|
   resources = site.collections.
     values_at("nodes", "lectures").
     map(&:docs).flatten
-  Sheafy.process(resources)
+  slugs_map = resources.map { |r| [r.data["slug"], r] }.to_h
+  Sheafy.process(resources, slugs_map)
 end
