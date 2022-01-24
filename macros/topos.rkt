@@ -79,6 +79,9 @@
 (define-global (SET)
   (bold "Set"))
 
+(define-global (PtSET)
+  "{" (bold "Pt") (Sub (SET)) "}")
+
 (define-global (FAM cat)
   (FamSymbol) (Sub cat))
 
