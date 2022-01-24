@@ -3,9 +3,6 @@
 <!-- _layouts/bib.html -->
 <div class="text-justify">
     {{reference}}
-    {% if entry.doi %}
-    <span><a href="{{ entry.doi | prepend: 'http://doi.org/' }}">doi:{{entry.doi}}</a>.</span>
-    {% endif %}
     {% if entry.eprinttype == "arXiv" %}
     <span><a href="{{ entry.eprint | prepend: 'http://arxiv.org/abs/' }}">arXiv:{{entry.eprint}}</a>.</span>
     {% endif %}

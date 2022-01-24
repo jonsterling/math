@@ -70,7 +70,6 @@ plugins:
   - jekyll-scholar
 
 scholar:
-  style: elsevier-harvard
   bibliography: refs.bib
   bibliography_template: bib
   details_dir: bibliography
