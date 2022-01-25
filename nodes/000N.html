@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000N.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-20T08:01:28+01:00" />
+<meta property="article:published_time" content="2022-01-25T15:32:56-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Small fibrations and internal categories" />
 <script type="application/ld+json">
-{"dateModified":"2022-01-20T08:01:28+01:00","datePublished":"2022-01-20T08:01:28+01:00","@type":"BlogPosting","headline":"Small fibrations and internal categories","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000N.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000N.html","@context":"https://schema.org"}</script>
+{"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000N.html","headline":"Small fibrations and internal categories","@type":"BlogPosting","dateModified":"2022-01-25T15:32:56-05:00","datePublished":"2022-01-25T15:32:56-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000N.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -96,7 +96,7 @@
 
     <h1 class="post-title">
       
-      <span class="numbering">5.</span>
+      <span class="numbering">6.</span>
       
       Small fibrations and internal categories
       
@@ -113,7 +113,7 @@
     <ul class="toc">
   
   <li>
-    5.1.
+    6.1.
     <a href="#000O">Internal categories</a>
     <a class="slug" href="/math/nodes/000O.html">[000O]</a>
     <ul class="toc">
@@ -124,14 +124,14 @@
   </li>
   
   <li>
-    5.2.
+    6.2.
     <a href="#000V">The externalization of an internal category</a>
     <a class="slug" href="/math/nodes/000V.html">[000V]</a>
     <ul class="toc">
   
   <li>
-    5.2.1.
-    <a href="#000W">The externalization is a fibration</a>
+    6.2.1.
+    <a href="#000W">The externalization is a cartesian fibration</a>
     <a class="slug" href="/math/nodes/000W.html">[000W]</a>
     <ul class="toc">
   
@@ -141,7 +141,7 @@
   </li>
   
   <li>
-    5.2.2.
+    6.2.2.
     <a href="#000X">The externalization is globally small</a>
     <a class="slug" href="/math/nodes/000X.html">[000X]</a>
     <ul class="toc">
@@ -152,7 +152,7 @@
   </li>
   
   <li>
-    5.2.3.
+    6.2.3.
     <a href="#000Y">The externalization is locally small</a>
     <a class="slug" href="/math/nodes/000Y.html">[000Y]</a>
     <ul class="toc">
@@ -168,7 +168,7 @@
   </li>
   
   <li>
-    5.3.
+    6.3.
     <a href="#0010">The full subfibration associated to a displayed object</a>
     <a class="slug" href="/math/nodes/0010.html">[0010]</a>
     <ul class="toc">
@@ -179,7 +179,7 @@
   </li>
   
   <li>
-    5.4.
+    6.4.
     <a href="#0011">The full internal subcategory associated to a displayed object</a>
     <a class="slug" href="/math/nodes/0011.html">[0011]</a>
     <ul class="toc">
@@ -190,7 +190,7 @@
   </li>
   
   <li>
-    5.5.
+    6.5.
     <a href="#000Z">The internalization of a small fibration</a>
     <a class="slug" href="/math/nodes/000Z.html">[000Z]</a>
     <ul class="toc">
@@ -209,10 +209,10 @@
   <div class="post-content">
     <p>The purpose of this section is to develop the relationship between <em>internal
 categories</em> (categories defined in the internal language of a category $B$) and
-fibrations over $B$, generalizing the relationship between categories internal
+cartesian fibrations over $B$, generalizing the relationship between categories internal
 to $\SET$ (i.e. small categories) and their family fibrations over $\SET$.</p>
 
-<p><strong>Definition.</strong> A fibration is called <em>small</em> when it is both locally small
+<p><strong>Definition.</strong> A cartesian fibration is called <em>small</em> when it is both locally small
 <a href="/math/nodes/000I.html" class="slug">[000I]</a> and globally small <a href="/math/nodes/000J.html" class="slug">[000J]</a>.</p>
 
 <p>We have already seen in <a href="/math/nodes/000G.html" class="slug">[000G]</a> and <a href="/math/nodes/000L.html" class="slug">[000L]</a> that smallness in the
@@ -224,7 +224,7 @@ notion of internal categories is credited (independently) to Alexander
 Grothendieck and Charles Ehresmann.</p>
 
 <h2 id="000O">
-  <span class="numbering">5.1.</span>
+  <span class="numbering">6.1.</span>
   Internal categories
   <a class="slug" href="/math/nodes/000O.html">[000O]</a>
 </h2>
@@ -247,7 +247,7 @@ in $E$ is defined by the following data:</p>
 <p>For the details of these laws, we refer to the <a href="http://ncatlab.org/nlab/show/internal+category">nLab</a>.</p>
 
 <h2 id="000V">
-  <span class="numbering">5.2.</span>
+  <span class="numbering">6.2.</span>
   The externalization of an internal category
   <a class="slug" href="/math/nodes/000V.html">[000V]</a>
 </h2>
@@ -267,8 +267,8 @@ x\to C\Sub{1}$ in $E$ such that the following diagram commutes:
 </ol>
 
 <h3 id="000W">
-  <span class="numbering">5.2.1.</span>
-  The externalization is a fibration
+  <span class="numbering">6.2.1.</span>
+  The externalization is a cartesian fibration
   <a class="slug" href="/math/nodes/000W.html">[000W]</a>
 </h3>
 
@@ -277,7 +277,7 @@ morphism $f:x\to y$ in $E$, we may define a cartesian lift
 $\InvImg{f}v\to\Sub{f} v$ by setting $\InvImg{f}v = v\circ f : x \to C\Sub{0}$.</p>
 
 <h3 id="000X">
-  <span class="numbering">5.2.2.</span>
+  <span class="numbering">6.2.2.</span>
   The externalization is globally small
   <a class="slug" href="/math/nodes/000X.html">[000X]</a>
 </h3>
@@ -286,7 +286,7 @@ $\InvImg{f}v\to\Sub{f} v$ by setting $\InvImg{f}v = v\circ f : x \to C\Sub{0}$.<
 <span class="antex display"><img style='margin: -0.075ex 0.097ex -17.056ex 0.0ex; height: 32.205ex; width: 18.647ex;' src="/math/antex/ce7ac4ab2528931bf6e45b760de9b5d5.svg" /></span></p>
 
 <h3 id="000Y">
-  <span class="numbering">5.2.3.</span>
+  <span class="numbering">6.2.3.</span>
   The externalization is locally small
   <a class="slug" href="/math/nodes/000Y.html">[000Y]</a>
 </h3>
@@ -333,7 +333,7 @@ that both $\bar{h}\to u$ and its second factor $\InvImg{\brk{u,v}}u\to u$ are
 cartesian.</p>
 
 <h2 id="0010">
-  <span class="numbering">5.3.</span>
+  <span class="numbering">6.3.</span>
   The full subfibration associated to a displayed object
   <a class="slug" href="/math/nodes/0010.html">[0010]</a>
 </h2>
@@ -351,12 +351,12 @@ over $B$; then any displayed object $\bar{x} \in E\Sub{x}$ induces a <em>full su
 </ol>
 
 <h2 id="0011">
-  <span class="numbering">5.4.</span>
+  <span class="numbering">6.4.</span>
   The full internal subcategory associated to a displayed object
   <a class="slug" href="/math/nodes/0011.html">[0011]</a>
 </h2>
 
-<p>This full internal subfibration <a href="/math/nodes/0010.html" class="slug">[0010]</a> associated to a displayed object $\bar{u}$ of a locally small fibration $E$ over $B$ can be seen to be equivalent to the externalization
+<p>This full internal subfibration <a href="/math/nodes/0010.html" class="slug">[0010]</a> associated to a displayed object $\bar{u}$ of a locally small cartesian fibration $E$ over $B$ can be seen to be equivalent to the externalization
 of an internal category $\gl{\bar{u}}$ in $B$. In particular, we let the object of objects $\gl{\bar{u}}\Sub{0}$ be $u$ itself; defining the object of arrows $\gl{\bar{u}}\Sub{1}$ is more complex, making critical use of the local smalness of $E$ over $B$.</p>
 
 <p>We will think of the fiber $E\Sub{u\times u}$ as the category of
@@ -395,13 +395,13 @@ into $E$ using the universal property of the cartesian lift:
 </ol>
 
 <h2 id="000Z">
-  <span class="numbering">5.5.</span>
+  <span class="numbering">6.5.</span>
   The internalization of a small fibration
   <a class="slug" href="/math/nodes/000Z.html">[000Z]</a>
 </h2>
 
-<p>Let $C$ be a small fibration <a href="/math/nodes/000N.html" class="slug">[000N]</a> over $B$ a category with finite
-limits, i.e. a fibration that is both locally small <a href="/math/nodes/000I.html" class="slug">[000I]</a> and globally
+<p>Let $C$ be a small cartesian fibration <a href="/math/nodes/000N.html" class="slug">[000N]</a> over $B$ a category with finite
+limits, i.e. a cartesian fibration that is both locally small <a href="/math/nodes/000I.html" class="slug">[000I]</a> and globally
 small <a href="/math/nodes/000P.html" class="slug">[000P]</a>. We will show that $C$ is equivalent to the externalization
 <a href="/math/nodes/000V.html" class="slug">[000V]</a> of an internal category <a href="/math/nodes/000O.html" class="slug">[000O]</a> $\underline{C}$ in $B$,
 namely the the full internal subcategory <a href="/math/nodes/0011.html" class="slug">[0011]</a> associated to the generic
@@ -423,7 +423,7 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
   <li>
     <a href="/math/nodes/000Z.html">
       
-      <span class="numbering">5.5.</span>
+      <span class="numbering">6.5.</span>
       
       The internalization of a small fibration
       
