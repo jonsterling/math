@@ -63,6 +63,16 @@ These are the last {{ page.limit }} of the {{ page.commits.size }} commits invol
 
 {{ commit.subject }}
 
+{{ if commit.author -}}
+  <span style="float:right;display:box;">
+    {%- if commit.author.link -%}
+      <a href="{{ commit.author.link }}">{{ commit.author.name }}</a>
+    {%- else -%}
+      {{ commit.author.name }}
+    {%- endif -%}
+  </span>
+{{- endif }}
+
 </dt>
 
 <dd>
