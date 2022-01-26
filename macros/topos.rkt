@@ -50,6 +50,9 @@
 (define-global (OpCat C)
   C (Sup (Con "o")))
 
+(define-global (TotOpCat C)
+  C (Sup @tex{\tilde{@(Con "o")}}))
+
 (define-global (Cod C)
   (Con "cod")
   (Sub C))

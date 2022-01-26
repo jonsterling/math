@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0012.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-26T22:34:12+01:00" />
+<meta property="article:published_time" content="2022-01-26T17:35:35-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Other kinds of fibrations" />
 <script type="application/ld+json">
-{"headline":"Other kinds of fibrations","dateModified":"2022-01-26T22:34:12+01:00","datePublished":"2022-01-26T22:34:12+01:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0012.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0012.html","@context":"https://schema.org"}</script>
+{"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0012.html","@type":"BlogPosting","headline":"Other kinds of fibrations","dateModified":"2022-01-26T17:35:35-05:00","datePublished":"2022-01-26T17:35:35-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0012.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -116,6 +116,61 @@
   
   <li>
     5.1.
+    <a href="#0015">Cocartesian fibrations</a>
+    <a class="slug" href="/math/nodes/0015.html">[0015]</a>
+    <ul class="toc">
+  
+  <li>
+    5.1.1.
+    <a href="#0016">Cocartesian morphisms</a>
+    <a class="slug" href="/math/nodes/0016.html">[0016]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    5.1.2.
+    <a href="#0017">The definition of cocartesian fibrations</a>
+    <a class="slug" href="/math/nodes/0017.html">[0017]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    5.1.3.
+    <a href="#0018">The total opposite of a displayed category</a>
+    <a class="slug" href="/math/nodes/0018.html">[0018]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    5.1.4.
+    <a href="#0019">Example: Coslices and pushouts</a>
+    <a class="slug" href="/math/nodes/0019.html">[0019]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    5.2.
     <a href="#0013">Right fibrations</a>
     <a class="slug" href="/math/nodes/0013.html">[0013]</a>
     <ul class="toc">
@@ -132,8 +187,101 @@
   
 
   <div class="post-content">
-    <h2 id="0013">
+    <h2 id="0015">
   <span class="numbering">5.1.</span>
+  Cocartesian fibrations
+  <a class="slug" href="/math/nodes/0015.html">[0015]</a>
+</h2>
+
+<p>Cocartesian fibrations are a dual notion to cartesian fibrations, in which the
+variance of indexing is reversed.</p>
+
+<h3 id="0016">
+  <span class="numbering">5.1.1.</span>
+  Cocartesian morphisms
+  <a class="slug" href="/math/nodes/0016.html">[0016]</a>
+</h3>
+
+<p>Let $E$ be displayed over $B$, and let $f:x\to y \in B$; a morphism
+$\bar{f}:\bar{x}\to\Sub{f} \bar{y}$ in $E$ is called <em>cocartesian</em> over $f$ when for
+any $m:y\to u$ and $\bar{h}:\bar{x}\to\Sub{f;m} \bar{u}$ there exists a unique
+$\bar{m} : \bar{y}\to\Sub{m} \bar{u}$ with $\bar{f};\bar{m} = \bar{h}$:
+<span class="antex display"><img style='margin: 0.042ex 0.028ex -13.784ex 0.0ex; height: 25.436ex; width: 26.929ex;' src="/math/antex/8167edc78c9a9a040bb4d055e2cfc099.svg" /></span></p>
+
+<p>We use a “pushout corner” to indicate $\bar{x}\to\bar{y}$ as a cocartesian morphism,
+a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Example: Coslices and pushouts" class="slug">[0019]</a>.</p>
+
+<h3 id="0017">
+  <span class="numbering">5.1.2.</span>
+  The definition of cocartesian fibrations
+  <a class="slug" href="/math/nodes/0017.html">[0017]</a>
+</h3>
+
+<p>A displayed category $E$ over $B$ is a <em>cocartesian fibration</em> when for each
+$f : x \to y\in B$ and $\bar{x}\in E\Sub{x}$, there exists a displayed object
+$\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\Sub{f} \bar{y}$.</p>
+
+<p><strong>Remark.</strong> These are also known as <em>opfibrations</em>.</p>
+
+<h3 id="0018">
+  <span class="numbering">5.1.3.</span>
+  The total opposite of a displayed category
+  <a class="slug" href="/math/nodes/0018.html">[0018]</a>
+</h3>
+
+<p><strong>Construction.</strong>
+Let $E$ be displayed over $B$; we define its <em>total opposite</em> $\TotOpCat{E}$
+displayed over $\OpCat{B}$ as follows:</p>
+
+<ol>
+  <li>
+    <p>An object of $\TotOpCat{E}\Sub{x}$ is given by an object of $E\Sub{x}$.</p>
+  </li>
+  <li>
+    <p>Given $f : x \to y\in \OpCat{B}$, a displayed morphism $\bar{x}\to\Sub{f} \bar{y}$ in $\TotOpCat{E}$
+is given by a displayed morphism $\bar{y}\to\Sub{f} \bar{x}$ in $E$.</p>
+  </li>
+</ol>
+
+<p><strong>Warning.</strong> Do not confuse this construction with <a href="/math/nodes/000Q.html" role="tooltip" aria-label="Opposite categories" class="slug">[000Q]</a>, which produces a
+displayed category over $B$.</p>
+
+<p><strong>Exercise.</strong> Let $E$ be displayed over $B$. Prove that the total category <a href="/math/nodes/000A.html" role="tooltip" aria-label="The total category and its projection" class="slug">[000A]</a>
+$\TotCat{\TotOpCat{E}}$ is $\OpCat{\prn{\TotCat{E}}}$, and its projection functor is
+$\OpCat{\prn{p\Sub{E}}} : \OpCat{\TotCat{E}}\to\OpCat{B}$.</p>
+
+<p><strong>Exercise.</strong> Let $E$ be displayed over $B$, and let $f:x\to y\in B$. Prove that a
+morphism $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ is cartesian over $f$ in $E$ if and only
+if $\bar{f}:\bar{y}\to\Sub{f}\bar{x}$ is cocartesian over $f$ in $\TotOpCat{E}$.</p>
+
+<p><strong>Exercise.</strong> Prove that a displayed category $E$ is a cartesian fibration over $B$
+if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
+
+<h3 id="0019">
+  <span class="numbering">5.1.4.</span>
+  Example: Coslices and pushouts
+  <a class="slug" href="/math/nodes/0019.html">[0019]</a>
+</h3>
+
+<p>Dually to <a href="/math/nodes/0003.html" role="tooltip" aria-label="Example: the canonical-self-indexing" class="slug">[0003]</a>, every category $B$ can also be displayed over itself via its
+<em>coslices</em>. That is, for any category $B$, we define a displayed category
+$\overline{B}$ over $B$ as follows:</p>
+<ol>
+  <li>For $x\in B$, define $\overline{B}\Sub{x}$ as the collection of pairs
+$(\bar{x}\in B,p\Sub{x}:x\to\bar{x})$.</li>
+  <li>For $f : x\to y\in B$, define $\overline{B}\Sub{f}$ to be the collection of
+commuting squares in the following configuration:
+<span class="antex display"><img style='margin: -0.05ex 0.082ex -3.754ex -0.104ex; height: 19.442ex; width: 21.774ex;' src="/math/antex/f97189be99747030c50c13f6b9b2b593.svg" /></span></li>
+</ol>
+
+<p><strong>Exercise.</strong> Prove that $\overline{B}$ is a cocartesian fibration if and only if
+$B$ has pushouts.</p>
+
+<p><strong>Exercise.</strong> Prove that the total category <a href="/math/nodes/000A.html" role="tooltip" aria-label="The total category and its projection" class="slug">[000A]</a> of $\overline{B}$ is the
+arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
+
+<h2 id="0013">
+  <span class="numbering">5.2.</span>
   Right fibrations
   <a class="slug" href="/math/nodes/0013.html">[0013]</a>
 </h2>
