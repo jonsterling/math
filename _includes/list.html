@@ -1,5 +1,6 @@
 <ul>
-  {% for resource in include.list %}
+  {% assign sorted_resources = include.list | sort: "iso_2145" -%}
+  {% for resource in sorted_resources %}
   <li>
     <a href="{{resource.url | relative_url}}">
       {% if resource.collection == "nodes" %}
