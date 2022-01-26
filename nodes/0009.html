@@ -14,15 +14,17 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0009.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-26T12:25:26+01:00" />
+<meta property="article:published_time" content="2022-01-26T15:36:30+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="The Grothendieck construction" />
 <script type="application/ld+json">
-{"headline":"The Grothendieck construction","dateModified":"2022-01-26T12:25:26+01:00","datePublished":"2022-01-26T12:25:26+01:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0009.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0009.html","@context":"https://schema.org"}</script>
+{"headline":"The Grothendieck construction","dateModified":"2022-01-26T15:36:30+01:00","datePublished":"2022-01-26T15:36:30+01:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0009.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0009.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
 
 <script>
   const macros_promise =
@@ -182,7 +184,7 @@ $f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
 
 <p>The construction of the total category of a displayed category is called the <em>Grothendieck construction.</em></p>
 
-<p><strong>Exercise.</strong> Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing <a href="/math/nodes/0003.html" class="slug">[0003]</a> is the arrow category $B^{\to}$, and the projection is the codomain functor.</p>
+<p><strong>Exercise.</strong> Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing <a href="/math/nodes/0003.html" role="tooltip" aria-label="Example: the canonical-self-indexing" class="slug">[0003]</a> is the arrow category $B^{\to}$, and the projection is the codomain functor.</p>
 
 <h2 id="000B">
   <span class="numbering">3.2.</span>
@@ -268,7 +270,7 @@ displayed category $B\Sub{!}F$ over $B$ as follows:</p>
   <li>A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.</li>
 </ol>
 
-<p>By virtue of <a href="/math/nodes/000B.html" class="slug">[000B]</a>, we may define the <em>pushforward</em> of a displayed category along a functor. In particular, let $E$
+<p>By virtue of <a href="/math/nodes/000B.html" role="tooltip" aria-label="Displayed categories from functors" class="slug">[000B]</a>, we may define the <em>pushforward</em> of a displayed category along a functor. In particular, let $E$
 be displayed over $B$ and let $U:B\to C$ be an ordinary functor; then we may
 obtain a displayed category $U\Sub{!}E$ over $C$ as follows:</p>
 
@@ -279,7 +281,7 @@ functor $U:B \to C$.</li>
 $\TotCat{U\Sub{\bullet}}\to B$.</li>
   <li>Because $E$ is displayed over $B$, we may regard it as displayed over the
 equivalent total category $\TotCat{U\Sub{\bullet}}$ by
-change of base <a href="/math/nodes/0007.html" class="slug">[0007]</a>.</li>
+change of base <a href="/math/nodes/0007.html" role="tooltip" aria-label="Change of base" class="slug">[0007]</a>.</li>
   <li>Hence we may define the pushforward $U\Sub{!}E$ to be the displayed category $(U\Sub{\bullet})\Sub{!}E$ as defined above.</li>
 </ol>
 
