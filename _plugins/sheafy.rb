@@ -30,8 +30,8 @@ module Sheafy
 
   def self.flatten_subtree(resource, resources, topmost=true)
     content = resource.content.gsub(RE_INCLUDE_TAG) do
-      doc = resources.
-        find { |doc| doc.data["slug"] == Regexp.last_match[:slug] }
+      doc = resources[Regexp.last_match[:slug]]
+      # TODO: handle missing references
       flatten_subtree(doc, resources, false)
     end
     apply_sublayout(resource, content, topmost)
@@ -41,9 +41,9 @@ module Sheafy
     # The structure of references is a directed graph,
     # where source = referrer and target = referent.
 
-    nodes.each do |source|
+    nodes.values.each do |source|
       source.content.scan(RE_REF_TAG).each do |(slug)|
-        target = nodes.find { |r| r.data["slug"] == slug }
+        target = nodes[slug]
         # TODO: handle missing targets
         target.data["referrers"] ||= []
         target.data["referrers"] << source
@@ -51,7 +51,7 @@ module Sheafy
     end
 
     # TODO: use a Set to avoid second pass
-    nodes.each do |resource|
+    nodes.values.each do |resource|
       resource.data["referrers"]&.uniq!
       resource.data["referrers"] ||= []
     end
@@ -62,11 +62,9 @@ module Sheafy
     # where source = parent and target = child.
 
     # First we build the adjacency list of the dependency graph...
-    adjacency_list = nodes.map do |source|
-      targets = source.content.scan(RE_INCLUDE_TAG).map do |(slug)|
-        # TODO: handle missing targets
-        nodes.find { |target| target.data["slug"] == slug }
-      end
+    adjacency_list = nodes.values.map do |source|
+      targets = source.content.scan(RE_INCLUDE_TAG).flatten.map(&nodes)
+      # TODO: handle missing targets
       source.data["children"] = targets
       source.data["parents"] ||= []
       targets.each do |target|
@@ -135,7 +133,8 @@ module Sheafy
     MESSAGE
   end
 
-  def self.process(nodes)
+  def self.process(resources)
+    nodes = resources.map { |r| [r.data["slug"], r] }.to_h
     process_references(nodes)
     process_dependencies(nodes)
   end
