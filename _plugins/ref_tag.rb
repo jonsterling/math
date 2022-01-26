@@ -11,7 +11,7 @@ class RefTag < Liquid::Tag
     registers = context.registers
     site = registers[:site]
     node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
-    "<a href='#{site.baseurl}#{node.url}' class='slug'>[#{@slug}]</a>"
+    "<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{node.title}' class='slug'>[#{@slug}]</a>"
   end
 end
 
