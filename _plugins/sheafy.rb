@@ -91,6 +91,7 @@ module Sheafy
     # i.e. to do destructive procedures which need the original children.
     tsorted_nodes.reverse.each do |node|
       node.data["children"].each_with_index do |child, index|
+        # TODO: use counters
         child.data["numbering"] = index + 1
       end
 
@@ -148,8 +149,14 @@ module Sheafy
 end
 
 Jekyll::Hooks.register :site, :post_read, priority: 30 do |site|
-  resources = site.collections.
-    values_at("nodes", "lectures").
-    map(&:docs).flatten
+  resources = site.collections.values.flat_map(&:docs).filter{ |doc| doc.data["sheafy"] }
+  resources.each do |resource|
+    taxon = resource.data['sheafy']
+    taxon_meta = site.config.fetch("sheafy").fetch("taxa").fetch(taxon)
+    resource.data.
+      tap { |d| d.delete("sheafy") }.
+      merge!(taxon_meta) { |key, override, default| override }.
+      merge!("taxon" => taxon)
+  end
   Sheafy.process(resources)
 end

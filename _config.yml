@@ -89,11 +89,27 @@ defaults:
   - scope:
       type: nodes
     values:
-      layout: sheafy/tree/default
-      sublayout: sheafy/node/section
+      sheafy: section
       excerpt: ""
   - scope:
       type: lectures
     values:
-      layout: sheafy/tree/default
+      sheafy: section
       excerpt: ""
+
+sheafy:
+  taxa:
+    section:
+      toc: true
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/section
+    theorem:
+      toc: false
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/section
+      genus: Theorem
+    definition:
+      toc: false
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/section
+      genus: Definition
