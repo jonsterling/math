@@ -9,11 +9,17 @@ layout: default
 
     <h1 class="post-title">
       {% if page.collection == "nodes" %}
-      <span class="numbering">{{ page.iso_2145 | append: "." }}</span>
+        <span class="numbering">{{ page.iso_2145 | append: "." }}</span>
       {% endif %}
-      {{ page.title | escape }}
+      {% if page.title != page.slug %}
+        {{ page.title }}
+      {% elsif page.genus %}
+        {{ page.genus }}
+      {% else %}
+        {{ page.slug }}
+      {% endif %}
       {% if page.collection == "nodes" %}
-      <span class="slug">[{{page.slug}}]</span>
+        <span class="slug">[{{page.slug}}]</span>
       {% endif %}
     </h1>
     {% if page.subtitle %}

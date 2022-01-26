@@ -89,10 +89,11 @@ defaults:
   - scope:
       type: nodes
     values:
-      layout: node
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/section
       excerpt: ""
   - scope:
       type: lectures
     values:
-      layout: node
+      layout: sheafy/tree/default
       excerpt: ""

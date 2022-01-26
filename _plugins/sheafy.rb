@@ -1,33 +1,40 @@
 require 'jekyll/sheafy/directed_graph'
 
 module Sheafy
-  def self.render_header(resource, level)
-    slug = resource.data["slug"]
-    title = resource.data["title"]
-    numbering = resource.data["iso_2145"]
-    href = "{{ '#{resource.url}' | relative_url }}"
-
-    <<~HEADER
-      <h#{level} id="#{slug}">
-        <span class="numbering">#{numbering}.</span>
-        #{title}
-        <a class="slug" href="#{href}">[#{slug}]</a>
-      </h#{level}>
-
-    HEADER
-  end
-
   RE_INCLUDE_TAG = /^@include{(?<slug>.+?)}$/
   RE_REF_TAG = /{%\s*ref (?<slug>.+?)\s*%}/
+  SUBLAYOUT_KEY = "sublayout"
+  SUBLAYOUT_DEFAULT_VALUE = "sheafy/node/default"
+  TOPMOST_KEY = "topmost"
 
-  def self.flatten_imports(resource, resources, level=1, prepend_header=false)
-    header = prepend_header ? render_header(resource, level) : ""
+  def self.apply_sublayout(resource, content, topmost)
+    sublayout = resource.data.fetch(SUBLAYOUT_KEY, SUBLAYOUT_DEFAULT_VALUE)
+    # NOTE: all this mess is just to adhere to Jekyll's internals
+    site = resource.site
+    payload = site.site_payload
+    payload["page"] = resource.to_liquid
+    payload["page"].merge!(TOPMOST_KEY => topmost)
+    payload["content"] = content
+    info = {
+      :registers        => { :site => site, :page => payload["page"] },
+      :strict_filters   => site.config["liquid"]["strict_filters"],
+      :strict_variables => site.config["liquid"]["strict_variables"],
+    }
+    layout = site.layouts[sublayout]
+    # TODO add_regenerator_dependencies(layout)
+    template = site.liquid_renderer.file(layout.path).parse(layout.content)
+    # TODO: handle warnings like https://github.com/jekyll/jekyll/blob/0b12fd26aed1038f69169b665818f5245e4f4b6d/lib/jekyll/renderer.rb#L126
+    template.render!(payload, info)
+    # TODO: handle exceptions like https://github.com/jekyll/jekyll/blob/0b12fd26aed1038f69169b665818f5245e4f4b6d/lib/jekyll/renderer.rb#L131
+  end
+
+  def self.flatten_subtree(resource, resources, topmost=true)
     content = resource.content.gsub(RE_INCLUDE_TAG) do
       doc = resources.
         find { |doc| doc.data["slug"] == Regexp.last_match[:slug] }
-      flatten_imports(doc, resources, level + 1, true)
+      flatten_subtree(doc, resources, false)
     end
-    header + content
+    apply_sublayout(resource, content, topmost)
   end
 
   def self.process_references(nodes)
@@ -90,7 +97,9 @@ module Sheafy
       end
 
       node.data["ancestors"] = []
-      if (parent = node.data["parents"].first)
+      parent = node.data["parents"].first
+      node.data["depth"] = 1 + (parent&.data&.[]("depth") || -1)
+      if parent
         ancestors = [*parent.data["ancestors"], parent]
         node.data["ancestors"] = ancestors
         node.data["iso_2145"] = [*ancestors[1..], node].
@@ -99,7 +108,7 @@ module Sheafy
     end
 
     tsorted_nodes.reverse.each do |node|
-      node.content = flatten_imports(node, nodes)
+      node.content = flatten_subtree(node, nodes)
     end
   end
 

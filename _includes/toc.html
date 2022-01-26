@@ -2,7 +2,15 @@
   {% for resource in include.page.children %}
   <li>
     {{ resource.iso_2145 | append: "." }}
-    <a href="#{{resource.slug}}">{{resource.title}}</a>
+    <a href="#{{resource.slug}}">
+      {%- if resource.title != resource.slug -%}
+        {{ resource.title }}
+      {%- elsif resource.genus -%}
+        {{ resource.genus }}
+      {%- else -%}
+        {{ resource.slug }}
+      {%- endif -%}
+    </a>
     <a class="slug" href="{{resource.url | relative_url}}">[{{resource.slug}}]</a>
     {% include toc.html page=resource %}
   </li>
