@@ -43,6 +43,11 @@ limit: 30
   li.diff-M::marker { color: hsl(240, 100%, 40%); }
   li.diff-D::marker { color: hsl(  0, 100%, 40%); }
 
+  .author {
+    float: right;
+    font-style: italic;
+  }
+
 </style>
 
 {% if page.commits.size > page.limit %}
@@ -62,6 +67,16 @@ These are the last {{ page.limit }} of the {{ page.commits.size }} commits invol
 </a>
 
 {{ commit.subject }}
+
+{% unless commit.author.hide -%}
+  <span class="author">by
+    {% if commit.author.link -%}
+      <a href="{{ commit.author.link }}">{{ commit.author.name }}</a>
+    {%- else -%}
+      {{ commit.author.name }}
+    {%- endif -%}
+  </span>
+{%- endunless %}
 
 </dt>
 
