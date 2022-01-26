@@ -6,7 +6,7 @@
         {{ page.genus | default: 'Theorem' }}
         <span class="numbering">{{ page.iso_2145 }}.</span>
       </strong>
-      {% if page.title != page.slug %}({{ page.title }}){% endif -%}
+      {% if page.title != page.slug %}({{ page.title }}).{% endif -%}
     </span>
   {%- endunless %}
   {{ content }}
