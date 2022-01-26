@@ -1,6 +1,5 @@
 require 'open3'
 require 'date'
-require 'byebug'
 
 module Changelog
   class Generator < Jekyll::Generator
