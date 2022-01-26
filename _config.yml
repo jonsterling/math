@@ -100,9 +100,8 @@ defaults:
 changelog:
   authors:
     jon@jonmsterling.com:
-      name: Jon Sterling
       link: https://www.jonmsterling.com/
     carlo@carloangiuli.com:
-      name: Carlo Angiuli
       link: http://www.cs.cmu.edu/~cangiuli/
-    paolo.brasolin@gmail.com: null
+    paolo.brasolin@gmail.com:
+      hide: true
