@@ -89,19 +89,24 @@ module Sheafy
     # Reversed top. order is good to denormalize data from roots down to leaves,
     # i.e. to do destructive procedures which need the original children.
     tsorted_nodes.reverse.each do |node|
-      node.data["children"].each_with_index do |child, index|
-        # TODO: use counters
-        child.data["numbering"] = index + 1
-      end
-
       node.data["ancestors"] = []
       parent = node.data["parent"]
       node.data["depth"] = 1 + (parent&.data&.[]("depth") || -1)
       if parent
         ancestors = [*parent.data["ancestors"], parent]
         node.data["ancestors"] = ancestors
-        node.data["iso_2145"] = [*ancestors[1..], node].
-          map { |n| n.data["numbering"] }.join(".")
+      end
+
+      node.data["clicks"] ||= [
+        { "clicker" => node.data["clicker"], "value" => 0 }]
+      node.data["children"].
+        group_by { |child| child.data["clicker"] }.
+        each do |clicker, children|
+          children.each_with_index do |child, index|
+            clicks = node.data["clicks"].dup
+            clicks << { "clicker" => clicker, "value" => index }
+            child.data["clicks"] = clicks
+          end
       end
     end
 
