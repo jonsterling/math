@@ -106,10 +106,10 @@ sheafy:
     theorem:
       toc: false
       layout: sheafy/tree/default
-      sublayout: sheafy/node/section
+      sublayout: sheafy/node/result
       genus: Theorem
     definition:
       toc: false
       layout: sheafy/tree/default
-      sublayout: sheafy/node/section
+      sublayout: sheafy/node/result
       genus: Definition

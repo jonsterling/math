@@ -6,6 +6,7 @@ module Sheafy
   SUBLAYOUT_KEY = "sublayout"
   SUBLAYOUT_DEFAULT_VALUE = "sheafy/node/default"
   TOPMOST_KEY = "topmost"
+  TAXON_KEY = "sheafy"
 
   def self.apply_sublayout(resource, content, topmost)
     sublayout = resource.data.fetch(SUBLAYOUT_KEY, SUBLAYOUT_DEFAULT_VALUE)
@@ -134,10 +135,24 @@ module Sheafy
     MESSAGE
   end
 
-  def self.process(resources)
-    nodes = resources.map { |r| [r.data["slug"], r] }.to_h
+  def self.process(site)
+    nodes = gather_node(site)
+    nodes.values.each(&method(:apply_taxon))
     process_references(nodes)
     process_dependencies(nodes)
+  end
+
+  def self.gather_node(site)
+    site.collections.values.flat_map(&:docs).
+      filter { |doc| doc.data.key?(TAXON_KEY) }.
+      map { |doc| [doc.data["slug"], doc] }.to_h
+  end
+
+  def self.apply_taxon(node)
+    taxon_name = node.data[TAXON_KEY]
+    taxon_data = node.site.config.dig("sheafy", "taxa", taxon_name) || {}
+    # TODO: handle missing taxa
+    node.data.merge!(taxon_data) { |key, left, right| left }
   end
 
   # TODO: handle regenerator dependencies
@@ -149,14 +164,5 @@ module Sheafy
 end
 
 Jekyll::Hooks.register :site, :post_read, priority: 30 do |site|
-  resources = site.collections.values.flat_map(&:docs).filter{ |doc| doc.data["sheafy"] }
-  resources.each do |resource|
-    taxon = resource.data['sheafy']
-    taxon_meta = site.config.fetch("sheafy").fetch("taxa").fetch(taxon)
-    resource.data.
-      tap { |d| d.delete("sheafy") }.
-      merge!(taxon_meta) { |key, override, default| override }.
-      merge!("taxon" => taxon)
-  end
-  Sheafy.process(resources)
+  Sheafy.process(site)
 end
