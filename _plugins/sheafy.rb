@@ -67,10 +67,8 @@ module Sheafy
       targets = source.content.scan(RE_INCLUDE_TAG).flatten.map(&nodes)
       # TODO: handle missing targets
       source.data["children"] = targets
-      source.data["parents"] ||= []
       targets.each do |target|
-        target.data["parents"] ||= []
-        target.data["parents"] << source
+        target.data["parent"] ||= source
       end
       [source, targets]
     end.to_h
@@ -97,7 +95,7 @@ module Sheafy
       end
 
       node.data["ancestors"] = []
-      parent = node.data["parents"].first
+      parent = node.data["parent"]
       node.data["depth"] = 1 + (parent&.data&.[]("depth") || -1)
       if parent
         ancestors = [*parent.data["ancestors"], parent]
