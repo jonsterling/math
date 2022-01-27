@@ -30,7 +30,8 @@ layout: default
 
   </header>
 
-  {% if page.children.size != 0 %}
+  {% assign filtered_resources = page.children | where: "sheafy", "section" -%}
+  {% if filtered_resources.size != 0 %}
   <nav>
     <h4>Table of Contents</h4>
     {% include toc.html page=page %}
