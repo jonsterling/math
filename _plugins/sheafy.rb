@@ -5,16 +5,16 @@ module Sheafy
   RE_REF_TAG = /{%\s*ref (?<slug>.+?)\s*%}/
   SUBLAYOUT_KEY = "sublayout"
   SUBLAYOUT_DEFAULT_VALUE = "sheafy/node/default"
-  TOPMOST_KEY = "topmost"
+  SUBROOT_KEY = "subroot"
   TAXON_KEY = "sheafy"
 
-  def self.apply_sublayout(resource, content, topmost)
+  def self.apply_sublayout(resource, content, subroot)
     sublayout = resource.data.fetch(SUBLAYOUT_KEY, SUBLAYOUT_DEFAULT_VALUE)
     # NOTE: all this mess is just to adhere to Jekyll's internals
     site = resource.site
     payload = site.site_payload
     payload["page"] = resource.to_liquid
-    payload["page"].merge!(TOPMOST_KEY => topmost)
+    payload["page"].merge!(SUBROOT_KEY => subroot)
     payload["content"] = content
     info = {
       :registers        => { :site => site, :page => payload["page"] },
@@ -29,13 +29,13 @@ module Sheafy
     # TODO: handle exceptions like https://github.com/jekyll/jekyll/blob/0b12fd26aed1038f69169b665818f5245e4f4b6d/lib/jekyll/renderer.rb#L131
   end
 
-  def self.flatten_subtree(resource, resources, topmost=true)
+  def self.flatten_subtree(resource, resources, subroot=resource)
     content = resource.content.gsub(RE_INCLUDE_TAG) do
       doc = resources[Regexp.last_match[:slug]]
       # TODO: handle missing references
-      flatten_subtree(doc, resources, false)
+      flatten_subtree(doc, resources, subroot)
     end
-    apply_sublayout(resource, content, topmost)
+    apply_sublayout(resource, content, subroot)
   end
 
   def self.process_references(nodes)

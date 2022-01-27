@@ -3,40 +3,9 @@ layout: default
 ---
 
 <article class="post">
-
-  <header class="post-header">
-    {% include breadcrumbs.html list=page.ancestors %}
-
-    <h1 class="post-title">
-      {% if page.collection == "nodes" %}
-        <span class="numbering">{{ page.clicks | to_numbering }}</span>
-      {% endif %}
-      {% if page.title != page.slug %}
-        {{ page.title }}
-      {% elsif page.genus %}
-        {{ page.genus }}
-      {% else %}
-        {{ page.slug }}
-      {% endif %}
-      {% if page.collection == "nodes" %}
-        <span class="slug">[{{page.slug}}]</span>
-      {% endif %}
-    </h1>
-    {% if page.subtitle %}
-    <p id="page-subtitle" class="page__subtitle p-name" itemprop="headline">
-    {{ page.subtitle }}
-    </p>
-    {% endif %}
-
-  </header>
-
-  {% assign filtered_resources = page.children | where: "sheafy", "section" -%}
-  {% if filtered_resources.size != 0 %}
   <nav>
-    <h4>Table of Contents</h4>
-    {% include toc.html page=page %}
+    {% include breadcrumbs.html list=page.ancestors %}
   </nav>
-  {% endif %}
 
   <div class="post-content">
     {{ content }}
