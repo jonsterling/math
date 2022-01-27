@@ -100,18 +100,15 @@ defaults:
 sheafy:
   taxa:
     section:
-      toc: true
       layout: sheafy/tree/default
       sublayout: sheafy/node/section
       clicker: section
     theorem:
-      toc: false
       layout: sheafy/tree/default
       sublayout: sheafy/node/result
       genus: Theorem
       clicker: result
     definition:
-      toc: false
       layout: sheafy/tree/default
       sublayout: sheafy/node/result
       genus: Definition

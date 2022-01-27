@@ -1,6 +1,6 @@
 <ul class="toc">
-  {% assign filtered_resources = include.page.children | where: "toc", true -%}
-  {% for resource in include.page.children %}
+  {% assign filtered_resources = include.page.children | where: "sheafy", "section" -%}
+  {% for resource in filtered_resources %}
   <li>
     {{ resource.clicks | to_numbering }}
     <a href="#{{resource.slug}}">
