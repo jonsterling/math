@@ -9,7 +9,7 @@ module ToNumberingFilter
         else ".#{tick["value"]}"
       end
     end
-    label[1..] + "."
+    label[1..]
   end
 end
 
