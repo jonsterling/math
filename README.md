@@ -43,6 +43,10 @@ considerable friction, so we will use the following method for drafts.
 2. Prior to merging, you may acquire a temporary lock on the entire repository
    and rename every node draft node to the next consecutive "permanent" UID.
 
+3. Pull requests that involve draft nodes should be squashed prior to being
+   merged; this is because we want to avoid the auto-generated changelog from
+   referring to draft nodes that do not exist at merge-time.
+
 The script `mint-node.rkt` will assist you in determining what the next
 permanent UID is. For now you must handle the renaming manually, but in the
 future we can include scripts to automate this process.
