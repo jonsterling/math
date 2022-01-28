@@ -113,3 +113,11 @@ sheafy:
       sublayout: sheafy/node/result
       genus: Definition
       clicker: result
+changelog:
+  authors:
+    jon@jonmsterling.com:
+      link: https://www.jonmsterling.com/
+    carlo@carloangiuli.com:
+      link: http://www.cs.cmu.edu/~cangiuli/
+    paolo.brasolin@gmail.com:
+      hide: true
