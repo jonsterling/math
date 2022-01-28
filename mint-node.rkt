@@ -39,11 +39,19 @@
 (define (node-path->int path)
   (uid-string->int (node-path->uid-string path)))
 
+(define (uid-committed? uid-string)
+  (not (string-prefix? uid-string "_")))
+
+(define all-committed-uids
+  (filter
+   uid-committed?
+   (map
+    node-path->uid-string
+    (directory-list NODE_DIR))))
+
 (define next-uid-string
   (int->uid-string
    (+ 1
-      (apply max (map node-path->int (directory-list NODE_DIR))))))
-
-(define uids (map node-path->uid-string (directory-list NODE_DIR)))
+      (apply max (map uid-string->int all-committed-uids)))))
 
 (printf "Next node: ~a\n" next-uid-string)
