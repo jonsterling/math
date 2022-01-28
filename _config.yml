@@ -89,12 +89,12 @@ defaults:
   - scope:
       type: nodes
     values:
-      sheafy: section
+      taxon: section
       excerpt: ""
   - scope:
       type: lectures
     values:
-      sheafy: section
+      taxon: section
       excerpt: ""
 
 sheafy:

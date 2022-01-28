@@ -6,7 +6,7 @@ module Sheafy
   SUBLAYOUT_KEY = "sublayout"
   SUBLAYOUT_DEFAULT_VALUE = "sheafy/node/default"
   SUBROOT_KEY = "subroot"
-  TAXON_KEY = "sheafy"
+  TAXON_KEY = "taxon"
 
   def self.apply_sublayout(resource, content, subroot)
     sublayout = resource.data.fetch(SUBLAYOUT_KEY, SUBLAYOUT_DEFAULT_VALUE)
