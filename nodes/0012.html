@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0012.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-28T14:01:35+01:00" />
+<meta property="article:published_time" content="2022-01-28T14:33:51+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Other kinds of fibrations" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Other kinds of fibrations","dateModified":"2022-01-28T14:01:35+01:00","datePublished":"2022-01-28T14:01:35+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0012.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0012.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Other kinds of fibrations","dateModified":"2022-01-28T14:33:51+01:00","datePublished":"2022-01-28T14:33:51+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0012.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0012.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -277,33 +277,100 @@ $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\
 
 
 
-      <p><strong>Construction.</strong>
-Let $E$ be displayed over $B$; we define its <em>total opposite</em> $\TotOpCat{E}$
+      <section>
+
+
+<header class="inline" id="001I">
+  <a class="slug" href="/math/nodes/001I.html">[001I]</a>
+  <strong>
+    Construction
+    <span class="numbering">5.1.3❋a</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+        <p>Let $E$ be displayed over $B$; we define its <em>total opposite</em> $\TotOpCat{E}$
 displayed over $\OpCat{B}$ as follows:</p>
 
-      <ol>
-        <li>
-          <p>An object of $\TotOpCat{E}\Sub{x}$ is given by an object of $E\Sub{x}$.</p>
-        </li>
-        <li>
-          <p>Given $f : x \to y\in \OpCat{B}$, a displayed morphism $\bar{x}\to\Sub{f} \bar{y}$ in $\TotOpCat{E}$
+        <ol>
+          <li>
+            <p>An object of $\TotOpCat{E}\Sub{x}$ is given by an object of $E\Sub{x}$.</p>
+          </li>
+          <li>
+            <p>Given $f : x \to y\in \OpCat{B}$, a displayed morphism $\bar{x}\to\Sub{f} \bar{y}$ in $\TotOpCat{E}$
 is given by a displayed morphism $\bar{y}\to\Sub{f} \bar{x}$ in $E$.</p>
-        </li>
-      </ol>
+          </li>
+        </ol>
+
+      </section>
 
       <p><strong>Warning.</strong> Do not confuse this construction with <a href="/math/nodes/000Q.html" role="tooltip" aria-label="Opposite categories" class="slug">[000Q]</a>, which produces a
 displayed category over $B$.</p>
 
-      <p><strong>Exercise.</strong> Let $E$ be displayed over $B$. Prove that the total category <a href="/math/nodes/000A.html" role="tooltip" aria-label="The total category and its projection" class="slug">[000A]</a>
+      <section>
+
+
+<header class="inline" id="001J">
+  <a class="slug" href="/math/nodes/001J.html">[001J]</a>
+  <strong>
+    Exercise
+    <span class="numbering">5.1.3❋b</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+        <p>Let $E$ be displayed over $B$. Prove that the total category <a href="/math/nodes/000A.html" role="tooltip" aria-label="The total category and its projection" class="slug">[000A]</a>
 $\TotCat{\TotOpCat{E}}$ is $\OpCat{\prn{\TotCat{E}}}$, and its projection functor is
 $\OpCat{\prn{p\Sub{E}}} : \OpCat{\TotCat{E}}\to\OpCat{B}$.</p>
 
-      <p><strong>Exercise.</strong> Let $E$ be displayed over $B$, and let $f:x\to y\in B$. Prove that a
+      </section>
+
+      <section>
+
+
+<header class="inline" id="001K">
+  <a class="slug" href="/math/nodes/001K.html">[001K]</a>
+  <strong>
+    Exercise
+    <span class="numbering">5.1.3❋c</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+        <p>Let $E$ be displayed over $B$, and let $f:x\to y\in B$. Prove that a
 morphism $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ is cartesian over $f$ in $E$ if and only
 if $\bar{f}:\bar{y}\to\Sub{f}\bar{x}$ is cocartesian over $f$ in $\TotOpCat{E}$.</p>
 
-      <p><strong>Exercise.</strong> Prove that a displayed category $E$ is a cartesian fibration over $B$
+      </section>
+
+      <section>
+
+
+<header class="inline" id="001L">
+  <a class="slug" href="/math/nodes/001L.html">[001L]</a>
+  <strong>
+    Exercise
+    <span class="numbering">5.1.3❋d</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+        <p>Prove that a displayed category $E$ is a cartesian fibration over $B$
 if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
+
+      </section>
 
     </section>
 
@@ -323,7 +390,7 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
 
 
 
-      <p>Dually to <a href="/math/nodes/0003.html" role="tooltip" aria-label="Example: the canonical-self-indexing" class="slug">[0003]</a>, every category $B$ can also be displayed over itself via its
+      <p>Dually to <a href="/math/nodes/0003.html" role="tooltip" aria-label="The canonical self-indexing" class="slug">[0003]</a>, every category $B$ can also be displayed over itself via its
 <em>coslices</em>. That is, for any category $B$, we define a displayed category
 $\overline{B}$ over $B$ as follows:</p>
       <ol>
@@ -334,11 +401,45 @@ commuting squares in the following configuration:
 <span class="antex display"><img style='margin: -0.05ex 0.082ex -3.754ex -0.104ex; height: 19.442ex; width: 21.774ex;' src="/math/antex/f97189be99747030c50c13f6b9b2b593.svg" /></span></li>
       </ol>
 
-      <p><strong>Exercise.</strong> Prove that $\overline{B}$ is a cocartesian fibration if and only if
+      <section>
+
+
+<header class="inline" id="001M">
+  <a class="slug" href="/math/nodes/001M.html">[001M]</a>
+  <strong>
+    Exercise
+    <span class="numbering">5.1.4❋a</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+        <p>Prove that $\overline{B}$ is a cocartesian fibration if and only if
 $B$ has pushouts.</p>
 
-      <p><strong>Exercise.</strong> Prove that the total category <a href="/math/nodes/000A.html" role="tooltip" aria-label="The total category and its projection" class="slug">[000A]</a> of $\overline{B}$ is the
+      </section>
+
+      <section>
+
+
+<header class="inline" id="001N">
+  <a class="slug" href="/math/nodes/001N.html">[001N]</a>
+  <strong>
+    Exercise
+    <span class="numbering">5.1.4❋b</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+        <p>Prove that the total category <a href="/math/nodes/000A.html" role="tooltip" aria-label="The total category and its projection" class="slug">[000A]</a> of $\overline{B}$ is the
 arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
+
+      </section>
 
     </section>
 
@@ -360,17 +461,49 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
 
 
-    <p><strong>Definition.</strong> A cartesian fibration $E$ over $B$ is said to be a <em>right fibration</em>
+    <section>
+
+
+<header class="inline" id="001O">
+  <a class="slug" href="/math/nodes/001O.html">[001O]</a>
+  <strong>
+    Definition
+    <span class="numbering">5.2❋a</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+      <p>A cartesian fibration $E$ over $B$ is said to be a <em>right fibration</em>
 when all displayed morphisms in $E$ are cartesian.</p>
+
+    </section>
 
     <p>Recall from <a href="/math/nodes/0005.html" role="tooltip" aria-label="Fiber categories and vertical maps" class="slug">[0005]</a> that for every $b\in B$, the collection of displayed
 objects $E\Sub{b}$ and vertical maps $E\Sub{1\Sub{b}}$ forms a category. When $E$ is
 a right fibration over $B$, this category is in fact a <em>groupoid</em>.</p>
 
-    <p><strong>Theorem.</strong> A cartesian fibration $E$ over $B$ is a right fibration if and only if
+    <section>
+
+
+<header class="inline" id="001P">
+  <a class="slug" href="/math/nodes/001P.html">[001P]</a>
+  <strong>
+    Theorem
+    <span class="numbering">5.2❋b</span>
+  </strong>
+  
+  
+  .
+</header>
+
+
+      <p>A cartesian fibration $E$ over $B$ is a right fibration if and only if
 all its vertical maps are isomorphisms.</p>
 
-    <p><strong>Proof.</strong> Suppose that $E$ is a right fibration over $B$, and fix $b\in B$,
+      <p><strong>Proof.</strong> Suppose that $E$ is a right fibration over $B$, and fix $b\in B$,
 $\bar{b}\in E\Sub{b}$, and a vertical map $f:\bar{b}\to\Sub{1\Sub{b}} \bar{b}$.
 Using the hypothesis that $f$ is cartesian, it has a unique section
 $g:\bar{b}\to\Sub{1\Sub{b}} \bar{b}$ as follows:
@@ -378,7 +511,7 @@ $g:\bar{b}\to\Sub{1\Sub{b}} \bar{b}$ as follows:
 Likewise, because $g$ is cartesian, $f$ is the unique section of $g$; thus $f$ is an
 isomorphism in $E\Sub{b}$.</p>
 
-    <p>Conversely, suppose that $E$ is a cartesian fibration whose vertical maps are
+      <p>Conversely, suppose that $E$ is a cartesian fibration whose vertical maps are
 isomorphisms. Fix $f:x\to y \in B$ and an arbitrary displayed morphism
 $\bar{g}:\bar{x}\to\Sub{f}\bar{y}$. Then $\bar{g}$ is the precomposition of a
 cartesian lift $\bar{f}:\bar{x}\Sup{\prime}\to\Sub{f}\bar{y}$ with a vertical map:
@@ -387,6 +520,8 @@ Because vertical maps are isomorphisms and $\bar{f}$ is cartesian, we can observ
 that $\bar{g}$ is cartesian as follows, writing $\bar{m} : \bar{u}\to\Sub{m}
 \bar{x}\Sup{\prime}$ for the unique factorization of $\bar{h}$ through $\bar{f}$ over $m$:
 <span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.904ex; width: 30.398ex;' src="/math/antex/5802a79efeac534d2226a0f931b4bbee.svg" /></span></p>
+
+    </section>
 
   </section>
 
