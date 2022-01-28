@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/paolobrasolin/jekyll-sheafy.git
+  revision: 78ff488c3ac2a2ad560bb6109c3fc4415d63bec3
+  branch: main
+  specs:
+    jekyll-sheafy (0.1.0)
+      jekyll (>= 3, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -59,8 +67,6 @@ GEM
       jekyll (~> 4.0)
     jekyll-seo-tag (2.7.1)
       jekyll (>= 3.8, < 5.0)
-    jekyll-sheafy (0.1.0)
-      jekyll (>= 3, < 5)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.3.1)
@@ -105,7 +111,7 @@ DEPENDENCIES
   jekyll (~> 4.2.1)
   jekyll-antex (~> 0.6.1)
   jekyll-scholar
-  jekyll-sheafy (~> 0.1.0)
+  jekyll-sheafy!
   kramdown-parser-gfm
   minima (~> 2.0)
 
