@@ -1,5 +1,5 @@
 <ul>
-  {% assign sorted_resources = include.list | sort: "iso_2145" -%}
+  {% assign sorted_resources = include.list | sort: "clicks" -%}
   {% for resource in sorted_resources %}
   <li>
     <a href="{{resource.url | relative_url}}">
