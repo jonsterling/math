@@ -139,6 +139,11 @@ sheafy:
       sublayout: sheafy/node/result
       genus: Example
       clicker: result
+    notation:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/result
+      genus: Notation
+      clicker: result
 changelog:
   authors:
     jon@jonmsterling.com:

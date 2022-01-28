@@ -78,6 +78,8 @@
 
 (define-global (InvImg f)
   f (Sup @tex{*}))
+(define-global (DirImg f)
+  f (Sub @tex{*}))
 
 (define-global (SET)
   (bold "Set"))
