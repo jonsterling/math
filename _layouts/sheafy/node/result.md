@@ -7,7 +7,7 @@
   <strong>{{ page.genus | default: 'Result' }} <span class="numbering">{{-page.clicks | to_numbering-}}</span></strong>
   {%- assign downslug = page.slug | downcase-%}
   {%- assign downtitle = page.title | downcase-%}
-  {%- if downslug != downtitle -%}
+  {%- if downslug != downtitle %}
   ({{ page.title }})
   {%-endif-%}.
 </header>
