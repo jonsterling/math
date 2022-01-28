@@ -5,7 +5,7 @@ module ToNumberingFilter
     clicks[1..].each do |tick|
       label << case tick["clicker"]
         when "section" then ".#{tick["value"] + 1}"
-        when "result" then "❋#{(tick["value"] + 97).chr}"
+        when "result" then "﹡#{(tick["value"] + 97).chr}"
         else ".#{tick["value"]}"
       end
     end
