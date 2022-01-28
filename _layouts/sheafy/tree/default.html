@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<article class="post">
+  <nav>
+    {% include breadcrumbs.html list=page.ancestors %}
+  </nav>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.referrers.size != 0 %}
+  <nav>
+    <h4>Referrers</h4>
+    {% include list.html list=page.referrers %}
+  </nav>
+  {% endif %}
+
+  {% capture bibliography_count_cited %}{% bibliography_count --cited %}{% endcapture %}
+  {% if bibliography_count_cited != "0" %}
+    <h4>Bibliography</h4>
+    {% bibliography --cited %}
+  {% endif %}
+
+</article>

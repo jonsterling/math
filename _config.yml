@@ -89,14 +89,30 @@ defaults:
   - scope:
       type: nodes
     values:
-      layout: node
+      taxon: section
       excerpt: ""
   - scope:
       type: lectures
     values:
-      layout: node
+      taxon: section
       excerpt: ""
 
+sheafy:
+  taxa:
+    section:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/section
+      clicker: section
+    theorem:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/result
+      genus: Theorem
+      clicker: result
+    definition:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/result
+      genus: Definition
+      clicker: result
 changelog:
   authors:
     jon@jonmsterling.com:

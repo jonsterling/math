@@ -1,42 +1,50 @@
 require 'jekyll/sheafy/directed_graph'
 
 module Sheafy
-  def self.render_header(resource, level)
-    slug = resource.data["slug"]
-    title = resource.data["title"]
-    numbering = resource.data["iso_2145"]
-    href = "{{ '#{resource.url}' | relative_url }}"
-
-    <<~HEADER
-      <h#{level} id="#{slug}">
-        <span class="numbering">#{numbering}.</span>
-        #{title}
-        <a class="slug" href="#{href}">[#{slug}]</a>
-      </h#{level}>
-
-    HEADER
-  end
-
   RE_INCLUDE_TAG = /^@include{(?<slug>.+?)}$/
   RE_REF_TAG = /{%\s*ref (?<slug>.+?)\s*%}/
+  SUBLAYOUT_KEY = "sublayout"
+  SUBLAYOUT_DEFAULT_VALUE = "sheafy/node/default"
+  SUBROOT_KEY = "subroot"
+  TAXON_KEY = "taxon"
 
-  def self.flatten_imports(resource, resources, level=1, prepend_header=false)
-    header = prepend_header ? render_header(resource, level) : ""
+  def self.apply_sublayout(resource, content, subroot)
+    sublayout = resource.data.fetch(SUBLAYOUT_KEY, SUBLAYOUT_DEFAULT_VALUE)
+    # NOTE: all this mess is just to adhere to Jekyll's internals
+    site = resource.site
+    payload = site.site_payload
+    payload["page"] = resource.to_liquid
+    payload["page"].merge!(SUBROOT_KEY => subroot)
+    payload["content"] = content
+    info = {
+      :registers        => { :site => site, :page => payload["page"] },
+      :strict_filters   => site.config["liquid"]["strict_filters"],
+      :strict_variables => site.config["liquid"]["strict_variables"],
+    }
+    layout = site.layouts[sublayout]
+    # TODO add_regenerator_dependencies(layout)
+    template = site.liquid_renderer.file(layout.path).parse(layout.content)
+    # TODO: handle warnings like https://github.com/jekyll/jekyll/blob/0b12fd26aed1038f69169b665818f5245e4f4b6d/lib/jekyll/renderer.rb#L126
+    template.render!(payload, info)
+    # TODO: handle exceptions like https://github.com/jekyll/jekyll/blob/0b12fd26aed1038f69169b665818f5245e4f4b6d/lib/jekyll/renderer.rb#L131
+  end
+
+  def self.flatten_subtree(resource, resources, subroot=resource)
     content = resource.content.gsub(RE_INCLUDE_TAG) do
-      doc = resources.
-        find { |doc| doc.data["slug"] == Regexp.last_match[:slug] }
-      flatten_imports(doc, resources, level + 1, true)
+      doc = resources[Regexp.last_match[:slug]]
+      # TODO: handle missing references
+      flatten_subtree(doc, resources, subroot)
     end
-    header + content
+    apply_sublayout(resource, content, subroot)
   end
 
   def self.process_references(nodes)
     # The structure of references is a directed graph,
     # where source = referrer and target = referent.
 
-    nodes.each do |source|
+    nodes.values.each do |source|
       source.content.scan(RE_REF_TAG).each do |(slug)|
-        target = nodes.find { |r| r.data["slug"] == slug }
+        target = nodes[slug]
         # TODO: handle missing targets
         target.data["referrers"] ||= []
         target.data["referrers"] << source
@@ -44,7 +52,7 @@ module Sheafy
     end
 
     # TODO: use a Set to avoid second pass
-    nodes.each do |resource|
+    nodes.values.each do |resource|
       resource.data["referrers"]&.uniq!
       resource.data["referrers"] ||= []
     end
@@ -55,16 +63,12 @@ module Sheafy
     # where source = parent and target = child.
 
     # First we build the adjacency list of the dependency graph...
-    adjacency_list = nodes.map do |source|
-      targets = source.content.scan(RE_INCLUDE_TAG).map do |(slug)|
-        # TODO: handle missing targets
-        nodes.find { |target| target.data["slug"] == slug }
-      end
+    adjacency_list = nodes.values.map do |source|
+      targets = source.content.scan(RE_INCLUDE_TAG).flatten.map(&nodes)
+      # TODO: handle missing targets
       source.data["children"] = targets
-      source.data["parents"] ||= []
       targets.each do |target|
-        target.data["parents"] ||= []
-        target.data["parents"] << source
+        target.data["parent"] ||= source
       end
       [source, targets]
     end.to_h
@@ -85,21 +89,29 @@ module Sheafy
     # Reversed top. order is good to denormalize data from roots down to leaves,
     # i.e. to do destructive procedures which need the original children.
     tsorted_nodes.reverse.each do |node|
-      node.data["children"].each_with_index do |child, index|
-        child.data["numbering"] = index + 1
-      end
-
       node.data["ancestors"] = []
-      if (parent = node.data["parents"].first)
+      parent = node.data["parent"]
+      node.data["depth"] = 1 + (parent&.data&.[]("depth") || -1)
+      if parent
         ancestors = [*parent.data["ancestors"], parent]
         node.data["ancestors"] = ancestors
-        node.data["iso_2145"] = [*ancestors[1..], node].
-          map { |n| n.data["numbering"] }.join(".")
+      end
+
+      node.data["clicks"] ||= [
+        { "clicker" => node.data["clicker"], "value" => 0 }]
+      node.data["children"].
+        group_by { |child| child.data["clicker"] }.
+        each do |clicker, children|
+          children.each_with_index do |child, index|
+            clicks = node.data["clicks"].dup
+            clicks << { "clicker" => clicker, "value" => index }
+            child.data["clicks"] = clicks
+          end
       end
     end
 
     tsorted_nodes.reverse.each do |node|
-      node.content = flatten_imports(node, nodes)
+      node.content = flatten_subtree(node, nodes)
     end
   end
 
@@ -126,9 +138,24 @@ module Sheafy
     MESSAGE
   end
 
-  def self.process(nodes)
+  def self.process(site)
+    nodes = gather_node(site)
+    nodes.values.each(&method(:apply_taxon))
     process_references(nodes)
     process_dependencies(nodes)
+  end
+
+  def self.gather_node(site)
+    site.collections.values.flat_map(&:docs).
+      filter { |doc| doc.data.key?(TAXON_KEY) }.
+      map { |doc| [doc.data["slug"], doc] }.to_h
+  end
+
+  def self.apply_taxon(node)
+    taxon_name = node.data[TAXON_KEY]
+    taxon_data = node.site.config.dig("sheafy", "taxa", taxon_name) || {}
+    # TODO: handle missing taxa
+    node.data.merge!(taxon_data) { |key, left, right| left }
   end
 
   # TODO: handle regenerator dependencies
@@ -140,8 +167,5 @@ module Sheafy
 end
 
 Jekyll::Hooks.register :site, :post_read, priority: 30 do |site|
-  resources = site.collections.
-    values_at("nodes", "lectures").
-    map(&:docs).flatten
-  Sheafy.process(resources)
+  Sheafy.process(site)
 end
