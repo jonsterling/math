@@ -100,6 +100,48 @@
 
   
   
+    <nav>
+      <h4>Table of Contents</h4>
+      <ul class="toc">
+  
+  <li>
+    1.
+    <a href="#0023">Geometric universes</a>
+    <a class="slug" href="/math/nodes/0023.html">[0023]</a>
+    <ul class="toc">
+  
+  <li>
+    1.1.
+    <a href="#0027">Relative and fibered geometric universes</a>
+    <a class="slug" href="/math/nodes/0027.html">[0027]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    2.
+    <a href="#0024">Topoi in a geometric universe</a>
+    <a class="slug" href="/math/nodes/0024.html">[0024]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+</ul>
+
+
+    </nav>
+  
 
 
 
@@ -107,26 +149,114 @@
   
 </ul>
 
-  <h2 id="geometric-universes">Geometric universes</h2>
+  <section>
 
-  <p>A <em>geometric universe</em> $E$ is defined to be a cartesian closed category
+
+<header id="0023">
+  <h2>
+    
+      <span class="numbering">1.</span>
+      Geometric universes
+      <a class="slug" href="/math/nodes/0023.html">[0023]</a>
+    
+  </h2>
+</header>
+
+
+
+
+    <section>
+
+
+<header class="inline" id="0022">
+  <a class="slug" href="/math/nodes/0022.html">[0022]</a>
+  <strong>Definition <span class="numbering">1·a</span></strong>
+  (Geometric universe).
+</header>
+
+
+      <p>A <em>geometric universe</em> $E$ is defined to be a cartesian closed category
 equipped with a subobject classifier. A morphism $f : E \to F$ of geometric
-universes is given by a functor $f^*:F\to E$ preserving finite limits equipped
-with a right adjoint $f_*: E\to F$.  A 2-morphism $f\to g$ is given by a
-natural transformation $f^*\to g^*$.</p>
+universes is given by a functor $\InvImg{f}:F\to E$ preserving finite limits equipped
+with a right adjoint $\DirImg{f}: E\to F$.  A 2-morphism $f\to g$ is given by a
+natural transformation $\InvImg{f}\to \InvImg{g}$, or equivalently, a natural transformation $\DirImg{g}\to\DirImg{f}$.</p>
 
-  <p>Let $f : E \to F$ be a morphism of geometric universes; the properties of such
-a morphism are profitably accessed through its <em>gluing fibration</em> $\GL{f}$ over $E$.
+      <p>The left adjoint $\InvImg{f} : F \to E$ is called the <em>inverse image</em> and the right adjoint $\DirImg{f} : E \to F$ is called the <em>direct image</em>.</p>
+
+    </section>
+
+    <section>
+
+
+<header id="0027">
+  <h3>
+    
+      <span class="numbering">1.1.</span>
+      Relative and fibered geometric universes
+      <a class="slug" href="/math/nodes/0027.html">[0027]</a>
+    
+  </h3>
+</header>
+
+
+
+
+      <p>Just as it is important to study <em>relative</em> categories in addition to
+absolute categories, the same is true of geometric universes. The main way
+for a geometric universe $F$ to vary in a geometric universe $E$ is for it
+to be equipped with a structure map $f : E \to F$. This should at first be slightly counter-intuitive, because usually we think of something varying <em>over</em> rather than <em>under</em> a base. The reason for the present orientation will become more clear when we study below the relative geometric universe $f : E \to F$ in terms of a <em>fibered</em> category in the sense of <a href="/math/nodes/0002.html" role="tooltip" aria-label="Cartesian fibration" class="slug">[0002]</a>.</p>
+
+      <section>
+
+
+<header class="inline" id="0028">
+  <a class="slug" href="/math/nodes/0028.html">[0028]</a>
+  <strong>Definition <span class="numbering">1.1·a</span></strong>
+  (The gluing fibration).
+</header>
+
+
+        <p>Let $f : E \to F$ be a morphism of geometric universes; the properties of such
+a morphism are profitably accessed through its <em>gluing fibration</em> $\GL{f}$ over $E$, obtained as the base change <a href="/math/nodes/0007.html" role="tooltip" aria-label="Change of base" class="slug">[0007]</a> along the inverse image $\InvImg{f} : E \to F$ of the canonical self-indexing <a href="/math/nodes/0003.html" role="tooltip" aria-label="The canonical self-indexing" class="slug">[0003]</a> of $F$.
 <span class="antex display"><img style='margin: -0.067ex 0.0ex -3.293ex 0.0ex; height: 15.717ex; width: 17.489ex;' src="/math/antex/fe9575b21b3269fb356b673576ce020d.svg" /></span></p>
 
-  <p>There is another fibration that will also be of use in some cases, such as
-the theory of realizability. This is the <em>relative scone</em> or <em>inverted
-gluing</em> fibration $\OpGL{f}$ over $F$:
-<span class="antex display"><img style='margin: 0.0ex 0.0ex -3.293ex 0.0ex; height: 16.218ex; width: 17.57ex;' src="/math/antex/142a588287d61927cc61ecd3aaa3da6d.svg" /></span></p>
+      </section>
 
-  <h2 id="topoi-in-a-geometric-universe">Topoi in a geometric universe</h2>
+      <p>The gluing fibration $\GL{f}$ provides a solid intuition for the way in which
+$F$ varies in $E$: we are concerned with the variation of families of
+$F$-objects indexed in $E$ objects.</p>
 
-  <p>Let $E$ be a geometric universe. A $E$-<em>topos</em> $X$ or a <em>topos in
+    </section>
+
+  </section>
+
+  <section>
+
+
+<header id="0024">
+  <h2>
+    
+      <span class="numbering">2.</span>
+      Topoi in a geometric universe
+      <a class="slug" href="/math/nodes/0024.html">[0024]</a>
+    
+  </h2>
+</header>
+
+
+
+
+    <section>
+
+
+<header class="inline" id="0025">
+  <a class="slug" href="/math/nodes/0025.html">[0025]</a>
+  <strong>Definition <span class="numbering">2·a</span></strong>
+  (Topos).
+</header>
+
+
+      <p>Let $E$ be a geometric universe. A $E$-<em>topos</em> $X$ or a <em>topos in
 $E$</em> is defined to be a geometric universe $\Sh{X}$ equipped with a structure
 map $X:E\to\Sh{X}$ whose gluing fibration $\GL{X}$ has a
 generating family. A morphism of $E$-topoi $f:{X}\to{Y}$ is defined by a
@@ -134,12 +264,27 @@ morphism $\Sh{f}:\Sh{Y}\to\Sh{X}$ of geometric universes equipped with
 a 2-isomorphism $\phi_{f}:\Sh{f}\circ Y\cong X$ in $[E,\Sh{X}]$.
 <span class="antex display"><img style='margin: -0.015ex 0.133ex -13.396ex 0.0ex; height: 15.267ex; width: 24.685ex;' src="/math/antex/f8938b2f737e4f05ac44befd63ac0588.svg" /></span></p>
 
-  <p>A 2-morphism $\alpha:{f}\to{g}$ in $[X,Y]$ is defined to be a
+      <p>A 2-morphism $\alpha:{f}\to{g}$ in $[X,Y]$ is defined to be a
 2-morphism $\alpha:\Sh{f}\to{\Sh{g}}$ compatible with $\phi_{f},\phi_{g}$
 in the sense that the following pasting diagrams are equal:
 <span class="antex display"><img style='margin: -0.014ex 0.128ex -9.503ex 0.0ex; height: 21.3ex; width: 55.144ex;' src="/math/antex/ad684b134451266a4a433746b3554723.svg" /></span></p>
 
-  <p>We will write $\TOP{E}$ for the (very large) bicategory of $E$-topoi.</p>
+    </section>
+
+    <section>
+
+
+<header class="inline" id="0026">
+  <a class="slug" href="/math/nodes/0026.html">[0026]</a>
+  <strong>Notation <span class="numbering">2·b</span></strong>.
+</header>
+
+
+      <p>We will write $\TOP{E}$ for the (very large) bicategory of $E$-topoi.</p>
+
+    </section>
+
+  </section>
 
 </section>
 

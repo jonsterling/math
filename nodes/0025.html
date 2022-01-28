@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>001q | The Nursery</title>
+<title>Topos | The Nursery</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="001q" />
+<meta property="og:title" content="Topos" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A mathematical web page." />
 <meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/001Q.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/001Q.html" />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/0025.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0025.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-28T21:40:53+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="001q" />
+<meta property="twitter:title" content="Topos" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/001Q.html"},"headline":"001q","description":"A mathematical web page.","dateModified":"2022-01-28T21:40:53+01:00","datePublished":"2022-01-28T21:40:53+01:00","url":"https://www.jonsmsterling.com//math/nodes/001Q.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0025.html"},"headline":"Topos","description":"A mathematical web page.","dateModified":"2022-01-28T21:40:53+01:00","datePublished":"2022-01-28T21:40:53+01:00","url":"https://www.jonsmsterling.com//math/nodes/0025.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -84,20 +84,20 @@
 
 <nav class="breadcrumbs">
   
-    <a href="/math/lectures/categorical-foundations.html">
+    <a href="/math/lectures/topos.html">
       
-      Foundations of Relative Category Theory
+      Geometric universes and topoi (draft)
       
     </a>
     /
   
-    <a href="/math/nodes/000N.html">
+    <a href="/math/nodes/0024.html">
       
-      <span class="numbering">6.</span>
+      <span class="numbering">2.</span>
       
-      Small fibrations and internal categories
+      Topoi in a geometric universe
       
-      <span class="slug">[000N]</span>
+      <span class="slug">[0024]</span>
       
     </a>
     /
@@ -111,39 +111,30 @@
     <section>
 
 
-<header class="inline" id="001Q">
-  <a class="slug" href="/math/nodes/001Q.html">[001Q]</a>
-  <strong>Definition <span class="numbering">6·a</span></strong>.
+<header class="inline" id="0025">
+  <a class="slug" href="/math/nodes/0025.html">[0025]</a>
+  <strong>Definition <span class="numbering">2·a</span></strong>
+  (Topos).
 </header>
 
 
-  <p>A cartesian fibration is called <em>small</em> when it is both locally small
-<a href="/math/nodes/000I.html" role="tooltip" aria-label="The definition of local smallness" class="slug">[000I]</a> and globally small <a href="/math/nodes/000J.html" role="tooltip" aria-label="Globally small fibrations" class="slug">[000J]</a>.</p>
+  <p>Let $E$ be a geometric universe. A $E$-<em>topos</em> $X$ or a <em>topos in
+$E$</em> is defined to be a geometric universe $\Sh{X}$ equipped with a structure
+map $X:E\to\Sh{X}$ whose gluing fibration $\GL{X}$ has a
+generating family. A morphism of $E$-topoi $f:{X}\to{Y}$ is defined by a
+morphism $\Sh{f}:\Sh{Y}\to\Sh{X}$ of geometric universes equipped with
+a 2-isomorphism $\phi_{f}:\Sh{f}\circ Y\cong X$ in $[E,\Sh{X}]$.
+<span class="antex display"><img style='margin: -0.015ex 0.133ex -13.396ex 0.0ex; height: 15.267ex; width: 24.685ex;' src="/math/antex/f8938b2f737e4f05ac44befd63ac0588.svg" /></span></p>
+
+  <p>A 2-morphism $\alpha:{f}\to{g}$ in $[X,Y]$ is defined to be a
+2-morphism $\alpha:\Sh{f}\to{\Sh{g}}$ compatible with $\phi_{f},\phi_{g}$
+in the sense that the following pasting diagrams are equal:
+<span class="antex display"><img style='margin: -0.014ex 0.128ex -9.503ex 0.0ex; height: 21.3ex; width: 55.144ex;' src="/math/antex/ad684b134451266a4a433746b3554723.svg" /></span></p>
 
 </section>
 
   </div>
 
-  
-  <nav>
-    <h4>Referrers</h4>
-    <ul>
-  
-  <li>
-    <a href="/math/nodes/000Z.html">
-      
-      <span class="numbering">6.4.</span>
-      
-      The internalization of a small fibration
-      
-      <span class="slug">[000Z]</span>
-      
-    </a>
-  </li>
-  
-</ul>
-
-  </nav>
   
 
   
