@@ -108,6 +108,11 @@ sheafy:
       sublayout: sheafy/node/result
       genus: Theorem
       clicker: result
+    lemma:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/result
+      genus: Lemma
+      clicker: result
     definition:
       layout: sheafy/tree/default
       sublayout: sheafy/node/result
