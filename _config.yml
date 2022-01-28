@@ -68,6 +68,7 @@ antex:
 plugins:
   - jekyll-feed
   - jekyll-scholar
+  - jekyll/sheafy
 
 scholar:
   bibliography: refs.bib
