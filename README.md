@@ -9,7 +9,14 @@ support "Stacks Project"-style websites, where you create a bunch of files like
 You will need a running LaTeX installation, including `latexmk`, `dvisvgm` and whatever engine and packages you plan on using.
 Chances are that if you're reading this you already have everything you need.
 
-You will need to [install Ruby][ruby-install-url].
+You will need to [install Ruby][ruby-install-url]; you will need to ensure that
+you have ghostscript installed, with the `LIBGS` environment variable correctly
+set. On macOS with Homebrew, after installing ghostscript you must add the
+following line to your `.bashrc` or `.zshrc`:
+
+```bash
+export LIBGS=/opt/homebrew/lib/libgs.dylib
+```
 
 After that, you can simply
 
