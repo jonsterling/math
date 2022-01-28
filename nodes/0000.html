@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0000.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-26T17:35:35-05:00" />
+<meta property="article:published_time" content="2022-01-28T13:53:43+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Displayed categories" />
 <script type="application/ld+json">
-{"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0000.html","@type":"BlogPosting","headline":"Displayed categories","dateModified":"2022-01-26T17:35:35-05:00","datePublished":"2022-01-26T17:35:35-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0000.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Displayed categories","dateModified":"2022-01-28T13:53:43+01:00","datePublished":"2022-01-28T13:53:43+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0000.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0000.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -73,8 +73,7 @@
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post">
-
-  <header class="post-header">
+  <nav>
     <style>
   .breadcrumbs {
     font-size: small;
@@ -94,7 +93,7 @@
   
     <a href="/math/nodes/0008.html">
       
-      <span class="numbering">2.</span>
+      <span class="numbering">2</span>
       
       Displayed categories and fibrations
       
@@ -106,38 +105,43 @@
 </nav>
 
 
-
-    <h1 class="post-title">
-      
-      <span class="numbering">2.1.</span>
-      
-      Displayed categories
-      
-      <span class="slug">[0000]</span>
-      
-    </h1>
-    
-
-  </header>
-
-  
+  </nav>
 
   <div class="post-content">
-    <p>Let $B$ be a category. A <em>displayed category</em> $E$ over $B$ is defined by the
+    <section>
+
+
+<header id="0000">
+  <h3>
+    
+      <span class="numbering">2.1.</span>
+      Displayed categories
+      <a class="slug" href="/math/nodes/0000.html">[0000]</a>
+    
+  </h3>
+</header>
+
+
+  
+  
+
+
+
+  <p>Let $B$ be a category. A <em>displayed category</em> $E$ over $B$ is defined by the
 following data <a class="citation" href="#ahrens-lumsdaine:2019">(Ahrens &amp; Lumsdaine, 2019)</a>:</p>
-<ol>
-  <li>for each object $x\in B$, a collection of <em>displayed objects</em> $E\Sub{x}$,</li>
-  <li>for each morphism $f : x \to y\in B$ and displayed objects $\bar{x}\in E\Sub{x}$ and
+  <ol>
+    <li>for each object $x\in B$, a collection of <em>displayed objects</em> $E\Sub{x}$,</li>
+    <li>for each morphism $f : x \to y\in B$ and displayed objects $\bar{x}\in E\Sub{x}$ and
 $\bar{y}\in E\Sub{y}$, a family of collections of <em>displayed morphisms</em> $E\Sub{f}(\bar{x},\bar{y})$,</li>
-  <li>for each $x\in B$ and $\bar{x}\in E\Sub{x}$, a morphism $\Idn{\bar{x}} \in
+    <li>for each $x\in B$ and $\bar{x}\in E\Sub{x}$, a morphism $\Idn{\bar{x}} \in
 E\Sub{\Idn{x}}(\bar{x},\bar{x})$ which we may also write $\bar{f}:\bar{x}\to\Sub{f} \bar{y}$,</li>
-  <li>for each $f : x \to y$ and $g:y \to z$ in $B$ and objects $\bar{x}\in E\Sub{x}, \bar{y}\in
+    <li>for each $f : x \to y$ and $g:y \to z$ in $B$ and objects $\bar{x}\in E\Sub{x}, \bar{y}\in
 E\Sub{y}, \bar{z}\in E\Sub{z}$, a function
  \[
    E\Sub{f}(\bar{x},\bar{y}) \times E\Sub{g}(\bar{y},\bar{z}) \to E\Sub{f;g}(\bar{x},\bar{z})
  \]
 that we will denote like ordinary (diagrammatic) function composition,</li>
-  <li>such that the following equations hold:
+    <li>such that the following equations hold:
   \[
    \Idn{\bar{x}};\bar{h} = \bar{h}\qquad
    \bar{h};\Idn{\bar{y}} = \bar{h}\qquad
@@ -145,9 +149,11 @@ that we will denote like ordinary (diagrammatic) function composition,</li>
   \]
 Note that these are well-defined because of the corresponding
 laws for the base category $B$.</li>
-</ol>
+  </ol>
 
-<p><strong>Notation</strong>. When we have too many subscripts, we will write $E[x]$ instead of $E\Sub{x}$.</p>
+  <p><strong>Notation</strong>. When we have too many subscripts, we will write $E[x]$ instead of $E\Sub{x}$.</p>
+
+</section>
 
   </div>
 

@@ -301,4 +301,6 @@ div.bibtex-code { margin-top: 1em; }
 
 header.post-header { margin-bottom: 1em !important; }
 
+header.inline { float: left; display: inline; margin-right: 1ex; }
+
 /*# sourceMappingURL=style.css.map */
