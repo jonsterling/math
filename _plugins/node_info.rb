@@ -35,20 +35,24 @@ class NodeInfo
     end
   end
 
-  def display_index
+  def display_numbering
     "<span class='numbering'>#{genus} #{numbering}</span>"
   end
 
+  def has_numbering?
+    @node["depth"] != 0 && !taxon.nil?
+  end
+
   def display_title
-    taxon.nil? ? title : (display_index + (has_title? ? ". #{title}" : ""))
+    has_numbering? ? (display_numbering + (has_title? ? ". #{title}" : "")) : title
   end
 
   def display_title_parenthetical
-    taxon.nil? ? title : (display_index + (has_title? ? " (#{title})" : ""))
+    has_numbering? ? (display_numbering + (has_title? ? " (#{title})" : "")) : title
   end
 
   def aria_label
-    label = taxon.nil? ? title : ("#{genus} #{numbering}." + (has_title? ? " #{title}" : ""))
+    label = has_numbering? ? ("#{genus} #{numbering}." + (has_title? ? " #{title}" : "")) : title
     CGI.escapeHTML label
   end
 end

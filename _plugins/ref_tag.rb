@@ -26,7 +26,7 @@ class CleverRefTag < Liquid::Tag
     site = registers[:site]
     node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
     info = NodeInfo.new node.data
-    "<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{info.aria_label}' class='cref'>#{info.display_index} <span class='slug'>[#{@slug}]</span></a>"
+    "<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{info.aria_label}' class='cref'>#{info.display_numbering} <span class='slug'>[#{@slug}]</span></a>"
   end
 end
 
@@ -41,7 +41,7 @@ class ParenCleverRefTag < Liquid::Tag
     site = registers[:site]
     node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
     info = NodeInfo.new node.data
-    "(<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{info.aria_label}' class='cref'>#{info.display_index} <span class='slug'>[#{@slug}]</span></a>)"
+    "(<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{info.aria_label}' class='cref'>#{info.display_numbering} <span class='slug'>[#{@slug}]</span></a>)"
   end
 end
 

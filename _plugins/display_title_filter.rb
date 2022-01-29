@@ -1,9 +1,9 @@
 module DisplayTitleFilter
   extend self
 
-  def display_index(resource)
+  def display_numbering(resource)
     info = NodeInfo.new resource
-    info.display_index
+    info.display_numbering
   end
 
   def display_title(resource)
