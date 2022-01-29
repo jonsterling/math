@@ -6,42 +6,29 @@ class RefTag < Liquid::Tag
     @slug = slug.strip
   end
 
+  def render_node(node, info, url)
+    "<a href='#{url}' role='tooltip' aria-label='#{info.aria_label}' class='slug'>[#{@slug}]</a>"
+  end
+
   def render(context)
     registers = context.registers
     site = registers[:site]
     node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
     info = NodeInfo.new node.data
-    "<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{info.aria_label}' class='slug'>[#{@slug}]</a>"
+    url = "#{site.baseurl}#{node.url}"
+    render_node(node, info, url)
   end
 end
 
-class CleverRefTag < Liquid::Tag
-  def initialize(tag_name, slug, tokens)
-    super
-    @slug = slug.strip
-  end
-
-  def render(context)
-    registers = context.registers
-    site = registers[:site]
-    node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
-    info = NodeInfo.new node.data
-    "<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{info.aria_label}' class='cref'>#{info.display_numbering} <span class='slug'>[#{@slug}]</span></a>"
+class CleverRefTag < RefTag
+  def render_node(node, info, url)
+    "<a href='#{url}' role='tooltip' aria-label='#{info.aria_label}' class='cref'>#{info.display_numbering} <span class='slug'>[#{@slug}]</span></a>"
   end
 end
 
-class ParenCleverRefTag < Liquid::Tag
-  def initialize(tag_name, slug, tokens)
-    super
-    @slug = slug.strip
-  end
-
-  def render(context)
-    registers = context.registers
-    site = registers[:site]
-    node = site.collections['nodes'].docs.detect { |doc| doc.data['slug'] == @slug }
-    info = NodeInfo.new node.data
-    "(<a href='#{site.baseurl}#{node.url}' role='tooltip' aria-label='#{info.aria_label}' class='cref'>#{info.display_numbering} <span class='slug'>[#{@slug}]</span></a>)"
+class ParenCleverRefTag < CleverRefTag
+  def render_node(node, info, url)
+    "(#{super})"
   end
 end
 
