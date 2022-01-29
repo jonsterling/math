@@ -23,6 +23,10 @@ class NodeInfo
     @node["taxon"]
   end
 
+  def numbering
+    ToNumberingFilter.to_numbering @node["clicks"]
+  end
+
   def genus
     if taxon == "section" then
       "Section"
@@ -32,7 +36,7 @@ class NodeInfo
   end
 
   def display_index
-    "<span class='numbering'>#{genus} #{clicks_to_numbering @node['clicks']}</span>"
+    "<span class='numbering'>#{genus} #{numbering}</span>"
   end
 
   def display_title
@@ -44,7 +48,7 @@ class NodeInfo
   end
 
   def aria_label
-    label = taxon.nil? ? title : ("#{genus} #{clicks_to_numbering @node['clicks']}." + (has_title? ? " #{title}" : ""))
+    label = taxon.nil? ? title : ("#{genus} #{numbering}." + (has_title? ? " #{title}" : ""))
     CGI.escapeHTML label
   end
 end
