@@ -145,6 +145,17 @@
   
   <li>
     2.3.
+    <a href="#0029">An alternative definition of fibration</a>
+    <a class="slug" href="/math/nodes/0029.html">[0029]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    2.4.
     <a href="#0004">Displayed and fibered functors</a>
     <a class="slug" href="/math/nodes/0004.html">[0004]</a>
     <ul class="toc">
@@ -155,7 +166,7 @@
   </li>
   
   <li>
-    2.4.
+    2.5.
     <a href="#0005">Fiber categories and vertical maps</a>
     <a class="slug" href="/math/nodes/0005.html">[0005]</a>
     <ul class="toc">
@@ -166,13 +177,13 @@
   </li>
   
   <li>
-    2.5.
+    2.6.
     <a href="#000Q">Opposite categories</a>
     <a class="slug" href="/math/nodes/000Q.html">[000Q]</a>
     <ul class="toc">
   
   <li>
-    2.5.1.
+    2.6.1.
     <a href="#000T">Characterization of cartesian maps</a>
     <a class="slug" href="/math/nodes/000T.html">[000T]</a>
     <ul class="toc">
@@ -183,7 +194,7 @@
   </li>
   
   <li>
-    2.5.2.
+    2.6.2.
     <a href="#000U">Cartesian lifts in the opposite category</a>
     <a class="slug" href="/math/nodes/000U.html">[000U]</a>
     <ul class="toc">
@@ -194,7 +205,7 @@
   </li>
   
   <li>
-    2.5.3.
+    2.6.3.
     <a href="#000S">Exegesis of opposite categories</a>
     <a class="slug" href="/math/nodes/000S.html">[000S]</a>
     <ul class="toc">
@@ -210,7 +221,7 @@
   </li>
   
   <li>
-    2.6.
+    2.7.
     <a href="#0006">Example: the family fibration</a>
     <a class="slug" href="/math/nodes/0006.html">[0006]</a>
     <ul class="toc">
@@ -221,7 +232,7 @@
   </li>
   
   <li>
-    2.7.
+    2.8.
     <a href="#0007">Change of base</a>
     <a class="slug" href="/math/nodes/0007.html">[0007]</a>
     <ul class="toc">
@@ -700,7 +711,7 @@ of a category.</p>
       <p>A displayed category $E$ over $B$ is said to be a <em>cartesian fibration</em>, when
 for each morphism $f : x \to y$ and displayed object $\bar{y}\in E\Sub{y}$, there
 exists a displayed object $\bar{x}\in E\Sub{x}$ and a <em>cartesian</em> morphism
-$\bar{f} : \bar{x}\to\Sub{f} \bar{y}$. Note that the pair $(\bar{x},\bar{f})$ is unique up to
+$\bar{f} : \bar{x}\to\Sub{f} \bar{y}$ in the sense of <a href="/math/nodes/0001.html" role="tooltip" aria-label="Cartesian morphisms" class="slug">[0001]</a>. Note that the pair $(\bar{x},\bar{f})$ is unique up to
 unique isomorphism, so being a cartesian fibration is a <em>property</em> of a displayed category.</p>
 
       <p>There are other variations of fibration. For instance, $E$ is said to be an
@@ -786,7 +797,8 @@ the ordinary “pullback lemma.”</p>
 
 <header class="inline" id="001H">
   <a class="slug" href="/math/nodes/001H.html">[001H]</a>
-  <strong>Lemma <span class="numbering">2.2·a</span></strong>.
+  <strong>Lemma <span class="numbering">2.2·a</span></strong>
+  (Generalized pullback lemma).
 </header>
 
 
@@ -824,10 +836,163 @@ $\bar{h} = i;\bar{f}$, as required.
     <section>
 
 
-<header id="0004">
+<header id="0029">
   <h3>
     
       <span class="numbering">2.3.</span>
+      An alternative definition of fibration
+      <a class="slug" href="/math/nodes/0029.html">[0029]</a>
+    
+  </h3>
+</header>
+
+
+
+
+      <p><strong>Warning.</strong> Some authors including Grothendieck <a class="citation" href="#sga:1">(<i>Revêtements Étales Et Groupe Fondamental (SGA 1)</i>, 1971)</a> give an
+equivalent definition of cartesian fibration that factors through a
+<em>nonequivalent</em> definition of cartesian morphisms. Such authors refer to our
+notion of cartesian morphism as <em>hypercartesian</em> <a class="citation" href="#streicher:2018">(Streicher, 2018)</a>.</p>
+
+      <section>
+
+
+<header class="inline" id="002A">
+  <a class="slug" href="/math/nodes/002A.html">[002A]</a>
+  <strong>Definition <span class="numbering">2.3·a</span></strong>
+  (Hypocartesian morphisms).
+</header>
+
+
+        <p>Let $E$ be displayed over $B$, and let $f:x\to y \in B$; a morphism
+$\bar{f}:\bar{x}\to\Sub{f} \bar{y}$ in $E$ is called <em>hypocartesian</em> over $f$ when
+for any $\bar{u}\in E\Sub{x}$ and $\bar{h}:\bar{u}\to\Sub{f} \bar{y}$ there exists a
+unique $i : \bar{u}\to\Sub{\Idn{x}} \bar{x}$ with $i;\bar{f} = \bar{h}$ as follows:
+<span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.466ex; width: 26.892ex;' src="/math/antex/f780ad6d8c953415d8e1950034836b69.svg" /></span></p>
+
+      </section>
+
+      <p>Cartesian morphisms are clearly hypocartesian (setting $u=x$ and $m=\Idn{x}$),
+but the converse does not hold. The problem is that in an arbitrary displayed
+category, hypocartesian morphisms may not be closed under composition.</p>
+
+      <section>
+
+
+<header class="inline" id="002C">
+  <a class="slug" href="/math/nodes/002C.html">[002C]</a>
+  <strong>Lemma <span class="numbering">2.3·b</span></strong>
+  (Hypocartesian = cartesian in a cartesian fibration).
+</header>
+
+
+        <p>Let $E$ be a cartesian fibration in the sense of <a href="/math/nodes/0002.html" role="tooltip" aria-label="Cartesian fibration" class="slug">[0002]</a>, and let
+$\bar{f} : \bar{x}\to\Sub{f}\bar{y}$ be displayed over $f:x\to y$. The
+displayed morphism $\bar{f}$ is cartesian if and only if it is hypocartesian.</p>
+
+        <p><strong>Proof.</strong>
+Any cartesian map is clearly hypocartesian. To see that a hypocartesian map
+$\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in a cartesian fibration is cartesian, we
+consider the cartesian lift of $f:x\to y$ under $\bar{y}$:
+<span class="antex display"><img style='margin: 0.002ex 0.078ex -3.292ex 0.0ex; height: 18.069ex; width: 16.392ex;' src="/math/antex/cab266c7e79915ca9c880f24e34c35b6.svg" /></span></p>
+
+        <p>As the cartesian lift $\bar{x}\tick\to \bar{y}$ is also hypocartesian, it
+follows that there is a unique vertical isomorphism identifying $\bar{x}$ with
+$\bar{x}\tick$ factoring $\bar{f} : \bar{x}\to\Sub{f}\bar{y}$ through
+$\bar{f}\tick : \bar{x}\tick\to\Sub{f}\bar{y}$. Being cartesian over $f$ is clearly
+stable under isomorphism, hence we conclude that $\bar{f}$ is cartesian from
+the fact that $\bar{f}\tick$ is cartesian.
+<span style="float:right">∎</span></p>
+
+      </section>
+
+      <p>Grothendieck <a class="citation" href="#sga:1">(<i>Revêtements Étales Et Groupe Fondamental (SGA 1)</i>, 1971)</a> defines a fibration in terms of (what we refer
+to as) hypocartesian morphisms rather than (what we refer to as) cartesian
+morphisms, and therefore imposes the additional constraint that the
+hypocartesian morphisms be closed under composition. In <a href="/math/nodes/002C.html" role="tooltip" aria-label="Hypocartesian = cartesian in a cartesian fibration" class="slug">[002C]</a> below, we
+verify that these two definitions of cartesian fibration coincide.</p>
+
+      <section>
+
+
+<header class="inline" id="002B">
+  <a class="slug" href="/math/nodes/002B.html">[002B]</a>
+  <strong>Lemma <span class="numbering">2.3·c</span></strong>
+  (Equivalence with Grothendieck's fibrations).
+</header>
+
+
+        <p>Let $E$ be displayed over $B$. Then $E$ is a cartesian fibration in the sense of
+<a href="/math/nodes/0002.html" role="tooltip" aria-label="Cartesian fibration" class="slug">[0002]</a> if and only if the following two conditions hold:</p>
+
+        <ol>
+          <li><em>Hypocartesian lifts.</em> For each $f:x\to y\in B$ and $\bar{y}\in E\Sub{y}$ there
+exists a displayed object $\bar{x}\in E\Sub{x}$ and hypocartesian morphism
+$\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
+          <li><em>Closure under composition.</em> If $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ and
+$\bar{g}:\bar{y}\to\Sub{g}\bar{z}$ are hypocartesian, then $\bar{f};\bar{g}$
+is hypocartesian.</li>
+        </ol>
+
+        <p><strong>Proof.</strong> Suppose first that $E$ is a cartesian fibration in our sense. Then
+$E$ has hypocartesian lifts because it has cartesian lifts. For closure under
+composition, fix hypocartesian $\bar{f},\bar{g}$; by <a href="/math/nodes/002C.html" role="tooltip" aria-label="Hypocartesian = cartesian in a cartesian fibration" class="slug">[002C]</a> we know that
+$\bar{f},\bar{g}$ are also cartesian and hence by the generalized pullback
+lemma <a href="/math/nodes/001H.html" role="tooltip" aria-label="Generalized pullback lemma" class="slug">[001H]</a> so is the composite $\bar{f};\bar{g}$; therefore it follows
+that $\bar{f};\bar{g}$ is also hypocartesian.</p>
+
+        <p>Conversely, suppose that $E$ is a cartesian fibration in the sense of
+Grothendieck, and let $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ be the hypocartesian
+lift of $f:x\to y$ at $\bar{y}\in E\Sub{y}$; we shall see that $\bar{f}$ is also
+a <em>cartesian</em> lift of $f$ at $\bar{y}$ by constructing a unique factorization as
+follows:
+<span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.466ex; width: 26.892ex;' src="/math/antex/a50f95f272d7b5b103f7f9194a448d7e.svg" /></span>
+Let $\bar{m}:\bar{u}\tick\to\Sub{m}\bar{x}$ be the hypocartesian lift of
+$m$ at $\bar{x}$, where $\bar{u}\tick\in E\Sub{u}$. By hypothesis, the
+composite $\bar{m};\bar{f} : \bar{u}\tick\to\Sub{m;f}\bar{y}$ is
+hypocartesian, so $\bar{h}$ factors uniquely through $\bar{m};\bar{f}$ over
+$\Idn{u}$:
+<span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.466ex; width: 26.892ex;' src="/math/antex/55698a02bcacf9e7c6a46f9029d20372.svg" /></span>
+The composite $i;\bar{m} : \bar{u}\to\Sub{m}\bar{x}$ is the required (cartesian)
+factorization of $\bar{h}$ through $\bar{f}$ over $m$. To see that $i;\bar{m}$
+is the unique such map, we observe that all morphisms $\bar{u}\to\Sub{m}\bar{x}$
+factor uniquely through $\bar{m}$ over $\Idn{u}$ as a consequence of $\bar{m}$
+being hypocartesian.
+<span style="float:right">∎</span></p>
+
+      </section>
+
+      <section>
+
+
+<header class="inline" id="002D">
+  <a class="slug" href="/math/nodes/002D.html">[002D]</a>
+  <strong>Remark <span class="numbering">2.3·d</span></strong>
+  (Two ways to generalize pullbacks).
+</header>
+
+
+        <p>Hypocartesian <a href="/math/nodes/002A.html" role="tooltip" aria-label="Hypocartesian morphisms" class="slug">[002A]</a> and cartesian <a href="/math/nodes/0001.html" role="tooltip" aria-label="Cartesian morphisms" class="slug">[0001]</a> morphisms can be thought
+of as two distinct ways to generalize the concept of a pullback, depending on
+what one considers the essential properties of pullbacks. Hypocartesian
+morphisms more directly generalize the “little picture” universal property of
+pullbacks as limiting cones, whereas cartesian morphisms generalize the “big
+picture” dynamics of the pullback pasting lemma. As we have seen in <a href="/math/nodes/002C.html" role="tooltip" aria-label="Hypocartesian = cartesian in a cartesian fibration" class="slug">[002C]</a> these two notions coincide in any cartesian fibration; the instance of
+this result for the canonical self-indexing <a href="/math/nodes/001X.html" role="tooltip" aria-label="The canonical self-indexing" class="slug">[001X]</a> verifies that
+pullbacks can be equivalently presented in terms of cartesian morphisms, as we
+have pointed out in <a href="/math/nodes/001Y.html" role="tooltip" aria-label="001y" class="slug">[001Y]</a>.</p>
+
+      </section>
+
+    </section>
+
+    <section>
+
+
+<header id="0004">
+  <h3>
+    
+      <span class="numbering">2.4.</span>
       Displayed and fibered functors
       <a class="slug" href="/math/nodes/0004.html">[0004]</a>
     
@@ -863,7 +1028,7 @@ functors</em>.</p>
 <header id="0005">
   <h3>
     
-      <span class="numbering">2.4.</span>
+      <span class="numbering">2.5.</span>
       Fiber categories and vertical maps
       <a class="slug" href="/math/nodes/0005.html">[0005]</a>
     
@@ -887,7 +1052,7 @@ of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
 <header id="000Q">
   <h3>
     
-      <span class="numbering">2.5.</span>
+      <span class="numbering">2.6.</span>
       Opposite categories
       <a class="slug" href="/math/nodes/000Q.html">[000Q]</a>
     
@@ -904,7 +1069,7 @@ of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
 
 <header class="inline" id="001Z">
   <a class="slug" href="/math/nodes/001Z.html">[001Z]</a>
-  <strong>Construction <span class="numbering">2.5·a</span></strong>.
+  <strong>Construction <span class="numbering">2.6·a</span></strong>.
 </header>
 
 
@@ -936,7 +1101,7 @@ induced by the universal property of cartesian maps in the sense that the follow
 <header id="000T">
   <h4>
     
-      <span class="numbering">2.5.1.</span>
+      <span class="numbering">2.6.1.</span>
       Characterization of cartesian maps
       <a class="slug" href="/math/nodes/000T.html">[000T]</a>
     
@@ -953,7 +1118,7 @@ induced by the universal property of cartesian maps in the sense that the follow
 
 <header class="inline" id="0020">
   <a class="slug" href="/math/nodes/0020.html">[0020]</a>
-  <strong>Lemma <span class="numbering">2.5.1·a</span></strong>.
+  <strong>Lemma <span class="numbering">2.6.1·a</span></strong>.
 </header>
 
 
@@ -982,7 +1147,7 @@ We first translate the above into the language of $E$ by unfolding definitions:
 <header id="000U">
   <h4>
     
-      <span class="numbering">2.5.2.</span>
+      <span class="numbering">2.6.2.</span>
       Cartesian lifts in the opposite category
       <a class="slug" href="/math/nodes/000U.html">[000U]</a>
     
@@ -1000,7 +1165,7 @@ immediately implies that $\OpCat{E}$ is fibered over $B$.</p>
 
 <header class="inline" id="0021">
   <a class="slug" href="/math/nodes/0021.html">[0021]</a>
-  <strong>Corollary <span class="numbering">2.5.2·a</span></strong>.
+  <strong>Corollary <span class="numbering">2.6.2·a</span></strong>.
 </header>
 
 
@@ -1023,7 +1188,7 @@ By the characterization <a href="/math/nodes/000T.html" role="tooltip" aria-labe
 <header id="000S">
   <h4>
     
-      <span class="numbering">2.5.3.</span>
+      <span class="numbering">2.6.3.</span>
       Exegesis of opposite categories
       <a class="slug" href="/math/nodes/000S.html">[000S]</a>
     
@@ -1056,7 +1221,7 @@ different cartesian lifts $v\Sub{x}\to x$. A displayed morphism that is cartesia
 <header id="0006">
   <h3>
     
-      <span class="numbering">2.6.</span>
+      <span class="numbering">2.7.</span>
       Example: the family fibration
       <a class="slug" href="/math/nodes/0006.html">[0006]</a>
     
@@ -1097,7 +1262,7 @@ generalizing the classical notions.</p>
 <header id="0007">
   <h3>
     
-      <span class="numbering">2.7.</span>
+      <span class="numbering">2.8.</span>
       Change of base
       <a class="slug" href="/math/nodes/0007.html">[0007]</a>
     
@@ -1947,7 +2112,8 @@ a right fibration over $B$, this category is in fact a <em>groupoid</em>.</p>
 
 <header class="inline" id="001P">
   <a class="slug" href="/math/nodes/001P.html">[001P]</a>
-  <strong>Theorem <span class="numbering">5.2·b</span></strong>.
+  <strong>Theorem <span class="numbering">5.2·b</span></strong>
+  (Characterization of right fibrations).
 </header>
 
 
@@ -1965,11 +2131,11 @@ isomorphism in $E\Sub{b}$.</p>
         <p>Conversely, suppose that $E$ is a cartesian fibration whose vertical maps are
 isomorphisms. Fix $f:x\to y \in B$ and an arbitrary displayed morphism
 $\bar{g}:\bar{x}\to\Sub{f}\bar{y}$. Then $\bar{g}$ is the precomposition of a
-cartesian lift $\bar{f}:\bar{x}\Sup{\prime}\to\Sub{f}\bar{y}$ with a vertical map:
+cartesian lift $\bar{f}:\bar{x}\tick\to\Sub{f}\bar{y}$ with a vertical map:
 <span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.291ex; width: 26.924ex;' src="/math/antex/2fc9d4fc9b97197882dac5815bb2746c.svg" /></span>
 Because vertical maps are isomorphisms and $\bar{f}$ is cartesian, we can observe
 that $\bar{g}$ is cartesian as follows, writing $\bar{m} : \bar{u}\to\Sub{m}
-\bar{x}\Sup{\prime}$ for the unique factorization of $\bar{h}$ through $\bar{f}$ over $m$:
+\bar{x}\tick$ for the unique factorization of $\bar{h}$ through $\bar{f}$ over $m$:
 <span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.904ex; width: 30.398ex;' src="/math/antex/5802a79efeac534d2226a0f931b4bbee.svg" /></span>
 <span style="float:right">∎</span></p>
 
@@ -2351,6 +2517,13 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
 <a class="details" href="/math/bibliography/ahrens-lumsdaine_2019.html">Details</a></li>
 <li><!-- _layouts/bib.html -->
 <div class="text-justify">
+    <span id="sga:1">Grothendieck, A. (1971). <i>Revêtements étales et groupe fondamental (SGA 1)</i> (Vol. 224). Springer-Verlag.</span>
+    
+    
+</div>
+<a class="details" href="/math/bibliography/sga_1.html">Details</a></li>
+<li><!-- _layouts/bib.html -->
+<div class="text-justify">
     <span id="streicher:2018">Streicher, T. (2018). <i>Fibred Categories à la Jean Bénabou</i>.</span>
     
     <span><a href="http://arxiv.org/abs/1801.02927">arXiv:1801.02927</a>.</span>
@@ -2358,13 +2531,6 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
     
 </div>
 <a class="details" href="/math/bibliography/streicher_2018.html">Details</a></li>
-<li><!-- _layouts/bib.html -->
-<div class="text-justify">
-    <span id="sga:1">Grothendieck, A. (1971). <i>Revêtements étales et groupe fondamental (SGA 1)</i> (Vol. 224). Springer-Verlag.</span>
-    
-    
-</div>
-<a class="details" href="/math/bibliography/sga_1.html">Details</a></li>
 <li><!-- _layouts/bib.html -->
 <div class="text-justify">
     <span id="street:1980">Street, R. (1980). Fibrations in bicategories. <i>Cahiers De Topologie Et Géométrie Différentielle Catégoriques</i>, <i>21</i>(2), 111–160. http://eudml.org/doc/91227</span>
