@@ -14,6 +14,7 @@ class NodeInfo
     @node["slug"]
   end
 
+  # This is a very strange routine, but at least the logic is factored out here.
   def has_title?
     title != slug.downcase
   end
