@@ -1,4 +1,5 @@
 module ToNumberingFilter
+  extend self
   def to_numbering(clicks)
     label = ""
     # NOTE: we skip the first one because it's the lesson
