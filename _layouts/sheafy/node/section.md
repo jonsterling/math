@@ -12,6 +12,15 @@
       <a class="slug" href="{{ page.url | relative_url }}">[{{ page.slug }}]</a>
     {% endif %}
   </h{{ page.depth | plus: 1 }}>
+  {%- if page.author -%}
+  <p>
+    by {% for author in page.author %}
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+      {%- if forloop.last == false %}, {% endif -%}
+    {% endfor %}
+  </p>
+  {%- endif -%}
 </header>
 
 {% if page == page.subroot %}

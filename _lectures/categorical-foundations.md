@@ -1,8 +1,10 @@
 ---
 title: Foundations of Relative Category Theory
 macrolib: topos
-usemathjax: true
 date: 2022-01-01
+author:
+- Jonathan Sterling
+- Carlo Angiuli
 ---
 
 We assume knowledge of basic categorical concepts such as categories, functors,
