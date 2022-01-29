@@ -109,4 +109,7 @@
 (define-global (tick)
   @tex{'})
 
+(define-global (ObjTerm E)
+  (bold "1") (Sub E))
+
 (publish-macro-library 'topos)
