@@ -1,16 +1,19 @@
-module ToNumberingFilter
-  extend self
-  def to_numbering(clicks)
-    label = ""
-    # NOTE: we skip the first one because it's the lesson
-    clicks[1..].each do |tick|
-      label << case tick["clicker"]
-        when "section" then ".#{tick["value"] + 1}"
-        when "result" then "·#{(tick["value"] + 97).chr}"
-        else ".#{tick["value"]}"
-      end
+def clicks_to_numbering(clicks)
+  label = ""
+  # NOTE: we skip the first one because it's the lesson
+  clicks[1..].each do |tick|
+    label << case tick["clicker"]
+    when "section" then ".#{tick["value"] + 1}"
+    when "result" then "·#{(tick["value"] + 97).chr}"
+    else ".#{tick["value"]}"
     end
-    label[1..]
+  end
+  label[1..]
+end
+
+module ToNumberingFilter
+  def to_numbering(clicks)
+    clicks_to_numbering clicks
   end
 end
 
