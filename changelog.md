@@ -19,7 +19,7 @@ limit: 50
   summary { list-style: none; }
   summary::-webkit-details-marker { display: none; }
 
-  details summary::before { 
+  details summary::before {
     position: absolute;
     transform: translateX(-100%);
     padding-right: 1ch;
@@ -28,7 +28,7 @@ limit: 50
   }
 
   summary {
-    cursor: pointer; 
+    cursor: pointer;
     margin-left: 30px;
     padding-inline-start: 1ch;
   }
@@ -90,7 +90,7 @@ These are the last {{ page.limit }} of the {{ page.commits.size }} commits invol
 
     {% if diff.node %}
       <a href="{{diff.node.url | relative_url}}">
-        {{diff.node.title}}
+        {{diff.node | display_title}}
         {% if diff.node.collection == "nodes" %}
           <span class="slug">[{{diff.node.slug}}]</span>
         {% endif %}
