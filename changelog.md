@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Recent changes
-limit: 30
+limit: 50
 ---
 
 <style>
