@@ -144,6 +144,11 @@ sheafy:
       sublayout: sheafy/node/result
       genus: Notation
       clicker: result
+    remark:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/result
+      genus: Remark
+      clicker: result
 changelog:
   authors:
     jon@jonmsterling.com:
