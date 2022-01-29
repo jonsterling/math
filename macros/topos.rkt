@@ -106,4 +106,7 @@
 (define-global (FullSubfib u)
   (bold "Full") (prn u))
 
+(define-global (tick)
+  @tex{'})
+
 (publish-macro-library 'topos)
