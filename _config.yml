@@ -149,6 +149,7 @@ sheafy:
       sublayout: sheafy/node/result
       genus: Remark
       clicker: result
+
 changelog:
   authors:
     jon@jonmsterling.com:
