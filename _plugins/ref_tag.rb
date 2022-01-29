@@ -16,3 +16,5 @@ class RefTag < Liquid::Tag
 end
 
 Liquid::Template.register_tag('ref', RefTag)
+Liquid::Template.register_tag('cref', RefTag)
+Liquid::Template.register_tag('pref', RefTag)
