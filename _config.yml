@@ -99,6 +99,9 @@ defaults:
       excerpt: ""
 
 sheafy:
+  references:
+    matchers:
+      - !ruby/regexp /{%\s*[cp]?ref (?<slug>.+?)\s*%}/
   taxa:
     section:
       layout: sheafy/tree/default
