@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/paolobrasolin/jekyll-sheafy.git
-  revision: 78ff488c3ac2a2ad560bb6109c3fc4415d63bec3
-  branch: main
+  remote: https://github.com/jonsterling/jekyll-sheafy.git
+  revision: 8d71f5d2656abf01fc2281d362ced7d2c63fac7d
+  branch: pref-and-cref
   specs:
     jekyll-sheafy (0.1.0)
       jekyll (>= 3, < 5)

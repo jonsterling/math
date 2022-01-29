@@ -10,7 +10,7 @@ gem 'minima', '~> 2.0'
 group :jekyll_plugins do
   gem 'jekyll-antex', '~> 0.6.1'
   gem 'jekyll-scholar'
-  gem 'jekyll-sheafy', github: 'paolobrasolin/jekyll-sheafy', branch: 'main'
+  gem 'jekyll-sheafy', github: 'jonsterling/jekyll-sheafy', branch: 'pref-and-cref'
 end
 
 # kramdown v2 ships without the gfm parser by default. If you're using
