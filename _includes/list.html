@@ -3,10 +3,7 @@
   {% for resource in sorted_resources %}
   <li>
     <a href="{{resource.url | relative_url}}">
-      {% if resource.collection == "nodes" %}
-      <span class="numbering">{{ resource.clicks | to_numbering }}.</span>
-      {% endif %}
-      {{resource.title}}
+      {{ resource | display_title }}
       {% if resource.collection == "nodes" %}
       <span class="slug">[{{resource.slug}}]</span>
       {% endif %}

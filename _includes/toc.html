@@ -4,13 +4,7 @@
   <li>
     {{ resource.clicks | to_numbering }}.
     <a href="#{{resource.slug}}">
-      {%- if resource.title != resource.slug -%}
-        {{ resource.title }}
-      {%- elsif resource.genus -%}
-        {{ resource.genus }}
-      {%- else -%}
-        {{ resource.slug }}
-      {%- endif -%}
+      {{ resource.title }}
     </a>
     <a class="slug" href="{{resource.url | relative_url}}">[{{resource.slug}}]</a>
     {% include toc.html page=resource %}
