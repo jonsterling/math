@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Hypocartesian morphisms | The Nursery</title>
+<title>Full subfibrations and figure shapes | The Nursery</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Hypocartesian morphisms" />
+<meta property="og:title" content="Full subfibrations and figure shapes" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A mathematical web page." />
 <meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/002A.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/002A.html" />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/002J.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/002J.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-29T16:18:38+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Hypocartesian morphisms" />
+<meta property="twitter:title" content="Full subfibrations and figure shapes" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Hypocartesian morphisms","dateModified":"2022-01-29T16:18:38+01:00","datePublished":"2022-01-29T16:18:38+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/002A.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/002A.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Full subfibrations and figure shapes","dateModified":"2022-01-29T16:18:38+01:00","datePublished":"2022-01-29T16:18:38+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/002J.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/002J.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -102,17 +102,6 @@
     </a>
     /
   
-    <a href="/math/nodes/0029.html">
-      
-      <span class="numbering">2.3.</span>
-      
-      An alternative definition of fibration
-      
-      <span class="slug">[0029]</span>
-      
-    </a>
-    /
-  
 </nav>
 
 
@@ -122,42 +111,100 @@
     <section>
 
 
-<header class="inline" id="002A">
-  <a class="slug" href="/math/nodes/002A.html">[002A]</a>
-  <span class='numbering'>Definition 2.3·a</span> (Hypocartesian morphisms).
+<header id="002J">
+  <h3>
+    
+      <span class="numbering">2.9.</span>
+      Full subfibrations and figure shapes
+      <a class="slug" href="/math/nodes/002J.html">[002J]</a>
+    
+  </h3>
 </header>
 
 
-  <p>Let $E$ be displayed over $B$, and let $f:x\to y \in B$; a morphism
-$\bar{f}:\bar{x}\to\Sub{f} \bar{y}$ in $E$ is called <em>hypocartesian</em> over $f$ when
-for any $\bar{u}\in E\Sub{x}$ and $\bar{h}:\bar{u}\to\Sub{f} \bar{y}$ there exists a
-unique $i : \bar{u}\to\Sub{\Idn{x}} \bar{x}$ with $i;\bar{f} = \bar{h}$ as follows:
-<span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 25.466ex; width: 26.892ex;' src="/math/antex/f780ad6d8c953415d8e1950034836b69.svg" /></span></p>
+  
+  
+
+
+
+  <p>In a category $E$, a morphism $f : x\to y$ can be thought of as a “figure”
+of shape $x$ valued in $y$. For instance, if $x$ is the point (i.e.
+$x=\ObjTerm{E}$) then a morphism $x\to y$ is a “point” of the “space” $y$.
+We refer to $x$ as the figure-shape in any such scenario.
+The perspective of morphisms as figures is developed in more detail by Lawvere and Schanuel <a class="citation" href="#lawvere-schanuel:2009">(<i>Conceptual Mathematics: A First Introduction to Categories</i>, 2009)</a>.</p>
+
+  <p>It often happens that there a useful class of figure shapes can be arranged
+into a <em>set</em>-indexed family $\prn{u\Sub{i}}\Sub{i\in I}$; viewed from the
+perspective of the family fibration (<a href="/math/nodes/0006.html" role="tooltip" aria-label="Section 2.7. Example: the family fibration" class="cref"><span class="numbering">Section 2.7</span> <span class="slug">[0006]</span></a>), this family is just a
+displayed object $\bar{u}$ over $I$ and then a figure shape relative to
+this family is given by any cartesian morphism $\bar{z}\to\bar{u}$. We will
+generalize this situation to the case of an arbitrary fibration, by
+constructing the full subfibration spanned by displayed objects equipped
+with a cartesian morphism into $\bar{u}$.</p>
+
+  <section>
+
+
+<header class="inline" id="0010">
+  <a class="slug" href="/math/nodes/0010.html">[0010]</a>
+  <span class='numbering'>Construction 2.9·a</span> (The full subfibration associated to a displayed object).
+</header>
+
+
+    <p>Let $E$ be a cartesian fibration
+over $B$; then any displayed object $\bar{x} \in E\Sub{x}$ induces a <em>full subfibration</em> $\FullSubfib{\bar{u}}\subseteq E$ spanned by displayed objects that are classified by $\bar{u}$, i.e. arise from $\bar{u}$ by cartesian lift.</p>
+
+    <ol>
+      <li>
+        <p>An object of $\FullSubfib{\bar{u}}\Sub{x}$ is specified by an object $\bar{x}\in E\Sub{x}$ together with a cartesian morphism $\bar{x}\to \bar{u}$.</p>
+      </li>
+      <li>
+        <p>Given $f:x\to y\in B$, a morphism from $\bar{x}\to \bar{u}$ to $\bar{y}\to\bar{u}\in$ over $f$ is given by any displayed morphism $\bar{x}\to\Sub{f}\bar{y}$.</p>
+      </li>
+    </ol>
+
+  </section>
+
+  <section>
+
+
+<header class="inline" id="002K">
+  <a class="slug" href="/math/nodes/002K.html">[002K]</a>
+  <span class='numbering'>Definition 2.9·b</span> (Figures and figure shapes in the full subfibration).
+</header>
+
+
+    <p>Let $E$ be a cartesian fibration and let $\FullSubfib{\bar{s}}\subseteq E$ be the full subfibration determined by a displayed object $\bar{s}\in E$ as in <a href="/math/nodes/0010.html" role="tooltip" aria-label="Construction 2.9·a. The full subfibration associated to a displayed object" class="cref"><span class="numbering">Construction 2.9·a</span> <span class="slug">[0010]</span></a>. We now develop the following vocabulary:</p>
+
+    <ol>
+      <li>
+        <p>We will refer to each object of $\FullSubfib{\bar{s}}$ as a $\bar{s}$-figure
+shape.</p>
+      </li>
+      <li>
+        <p>A displayed morphism $\bar{z}\to \bar{x}$ is called a $\bar{s}$-figure
+whenever $\bar{z}\in\FullSubfib{\bar{s}}$.</p>
+      </li>
+    </ol>
+
+  </section>
 
 </section>
 
   </div>
 
   
-  <nav>
-    <h4>Referrers</h4>
-    <ul>
-  
-  <li>
-    <a href="/math/nodes/002D.html">
-      <span class='numbering'>Remark 2.3·d</span>. Two ways to generalize pullbacks
-      
-      <span class="slug">[002D]</span>
-      
-    </a>
-  </li>
-  
-</ul>
-
-  </nav>
-  
 
   
+  
+    <h4>Bibliography</h4>
+    <ol class="bibliography"><li><!-- _layouts/bib.html -->
+<div class="text-justify">
+    <span id="lawvere-schanuel:2009">Lawvere, F. W., &amp; Schanuel, S. H. (2009). <i>Conceptual Mathematics: A First Introduction to Categories</i> (2nd ed.). Cambridge University Press.</span>
+    
+    
+</div>
+<a class="details" href="/math/bibliography/lawvere-schanuel_2009.html">Details</a></li></ol>
   
 
 </article>

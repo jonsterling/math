@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Characterization of cartesian maps | The Nursery</title>
+<title>Separators for cartesian fibrations | The Nursery</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Characterization of cartesian maps" />
+<meta property="og:title" content="Separators for cartesian fibrations" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A mathematical web page." />
 <meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/000T.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000T.html" />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/002E.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/002E.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-29T16:18:38+01:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Characterization of cartesian maps" />
+<meta property="twitter:title" content="Separators for cartesian fibrations" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Characterization of cartesian maps","dateModified":"2022-01-29T16:18:38+01:00","datePublished":"2022-01-29T16:18:38+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000T.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000T.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Separators for cartesian fibrations","dateModified":"2022-01-29T16:18:38+01:00","datePublished":"2022-01-29T16:18:38+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/002E.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/002E.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -29,7 +29,7 @@
 <script>
   const macros_promise =
     
-    fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
+    Promise.resolve({})
     ;
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -91,24 +91,13 @@
     </a>
     /
   
-    <a href="/math/nodes/0008.html">
+    <a href="/math/nodes/000E.html">
       
-      <span class="numbering">2.</span>
+      <span class="numbering">4.</span>
       
-      Displayed categories and fibrations
+      Properties of fibrations
       
-      <span class="slug">[0008]</span>
-      
-    </a>
-    /
-  
-    <a href="/math/nodes/000Q.html">
-      
-      <span class="numbering">2.6.</span>
-      
-      Opposite categories
-      
-      <span class="slug">[000Q]</span>
+      <span class="slug">[000E]</span>
       
     </a>
     /
@@ -122,14 +111,14 @@
     <section>
 
 
-<header id="000T">
-  <h4>
+<header id="002E">
+  <h3>
     
-      <span class="numbering">2.6.1.</span>
-      Characterization of cartesian maps
-      <a class="slug" href="/math/nodes/000T.html">[000T]</a>
+      <span class="numbering">4.3.</span>
+      Separators for cartesian fibrations
+      <a class="slug" href="/math/nodes/002E.html">[002E]</a>
     
-  </h4>
+  </h3>
 </header>
 
 
@@ -138,31 +127,78 @@
 
 
 
-  <p>There is a simple characterization of cartesian maps in $\OpCat{E}$.</p>
+  <p>Let $E$ be an ordinary category. In general,
+to compare two morphisms $f,g:x\to y$ in $E$, it is not enough to see if they
+agree on global points $u:1\to x$, because the behavior of $u,v$ may differ
+only on generalized elements. In some cases, however, there is a family of
+objects $\prn{s\Sub{i}}\Sub{i\in I}\in E$ are together <em>adequate</em> for comparing
+morphisms of $E$ in the sense of <a href="/math/nodes/002G.html" role="tooltip" aria-label="Definition 4.3·a. Separating family for a category" class="cref"><span class="numbering">Definition 4.3·a</span> <span class="slug">[002G]</span></a> below.</p>
 
   <section>
 
 
-<header class="inline" id="0020">
-  <a class="slug" href="/math/nodes/0020.html">[0020]</a>
-  <span class='numbering'>Lemma 2.6.1·a</span>.
+<header class="inline" id="002G">
+  <a class="slug" href="/math/nodes/002G.html">[002G]</a>
+  <span class='numbering'>Definition 4.3·a</span> (Separating family for a category).
 </header>
 
 
-    <p>A morphism $\bar{f}:\bar{x}\to\Sub{f} \bar{y}\in\OpCat{E}$ is cartesian
-over $f:x\to y$ if and only if the vertical leg of $f$ is an isomorphism.</p>
+    <p>Given an ordinary category $E$, a set-indexed family
+$\prn{s\Sub{i}}\Sub{i\in I}$ of $E$-objects is called a <em>small separating
+family</em> for $E$ when, assuming that for all $i\in I$ and all $u:s_i\to x$ we have
+$u;f=u;g$, we then have $f=g$.</p>
 
-    <p><strong>Proof.</strong> Suppose that $\bar{f} : \bar{x}\to\Sub{f}\bar{y}$ is represented by a span $\brc{\bar{x}\leftarrow\bar{y}\Sub{x}\to\bar{y}}$ in $E$ in which the vertical leg $\bar{x}\leftarrow\bar{y}\Sub{x}$ is an isomorphism. We must show that $\bar{x}\to_f\bar{y}$ is cartesian in $\OpCat{E}$. We fix a morphism $\bar{h}:\bar{w}\to\Sub{m;f}\bar{y}\in \OpCat{E}$ where $m:w\to x$, depicted below in terms of $\OpCat{E}$:
-<span class="antex display"><img style='margin: 0.002ex 0.077ex -13.784ex 0.0ex; height: 22.005ex; width: 30.279ex;' src="/math/antex/8783c073d72f4d2ba6b32ed4b99f479c.svg" /></span></p>
+  </section>
 
-    <p>We must define the unique intervening map $\bar{w}\to_m \bar{x}$ in $\OpCat{E}$.
-We first translate the above into the language of $E$ by unfolding definitions:
-<span class="antex display"><img style='margin: 0.002ex 0.078ex -13.785ex 0.0ex; height: 18.069ex; width: 45.439ex;' src="/math/antex/c2b9f080032b15487862c87f6744a23c.svg" /></span></p>
+  <p>The intuition of <a href="/math/nodes/002G.html" role="tooltip" aria-label="Definition 4.3·a. Separating family for a category" class="cref"><span class="numbering">Definition 4.3·a</span> <span class="slug">[002G]</span></a> is that to compare two morphisms $f,g:x\to y\in E$,
+it suffices to check that they behave the same on all $s\Sub{i}$-shaped figures
+when $\prn{s\Sub{i}}\Sub{i\in I}$ is a separating family for $E$.</p>
 
-    <p>The desired intervening map $\bar{w}\to\Sub{m} \bar{x}\in \OpCat{E}$ shakes out in the language of $E$ to be a span $\brc{\bar{w}\leftarrow \bar{x}\Sub{w}\to\Sub{m} \bar{x}}$ in which the left-hand leg is vertical and the right-hand leg is cartesian over $m:w\to x$. But the left-hand span $\brc{\bar{w}\leftarrow\bar{y}\Sub{w}\to \bar{y}\Sub{x}\cong \bar{x}}$ in the diagram above is exactly what we need.</p>
+  <section>
 
-    <p>We leave the converse to the reader.
-<span style="float:right">∎</span></p>
+
+<header class="inline" id="002F">
+  <a class="slug" href="/math/nodes/002F.html">[002F]</a>
+  <span class='numbering'>Example 4.3·b</span> (Well-pointedness of the category of sets).
+</header>
+
+
+    <p>In the category of sets, to compare two morphisms it is enough to check
+that they agree on global points. This means that the unary family
+$\brc{\ObjTerm{\SET}}$ is a separator for $\SET$, a property referred to more generally as <em>well-pointedness</em>.</p>
+
+  </section>
+
+  <p>We will now generalize <a href="/math/nodes/002G.html" role="tooltip" aria-label="Definition 4.3·a. Separating family for a category" class="cref"><span class="numbering">Definition 4.3·a</span> <span class="slug">[002G]</span></a> to the case of a cartesian fibration.</p>
+
+  <section>
+
+
+<header class="inline" id="002I">
+  <a class="slug" href="/math/nodes/002I.html">[002I]</a>
+  <span class='numbering'>Definition 4.3·c</span> (Agreement on a class of figure shapes).
+</header>
+
+
+    <p>Let $\bar{s}$ be a displayed object in a cartesian fibration $E$ over $B$.
+A pair of displayed morphisms $f,g:\bar{x}\to \bar{y}\in E$ are said to
+<em>agree on $\bar{s}$-figures</em> when for any $\bar{s}$-figure
+$h : \bar{z}\to \bar{x}$ in the sense of <a href="/math/nodes/002K.html" role="tooltip" aria-label="Definition 2.9·b. Figures and figure shapes in the full subfibration" class="cref"><span class="numbering">Definition 2.9·b</span> <span class="slug">[002K]</span></a>, we have $h;f = h;g : \bar{z}\to \bar{y}$.</p>
+
+  </section>
+
+  <section>
+
+
+<header class="inline" id="002H">
+  <a class="slug" href="/math/nodes/002H.html">[002H]</a>
+  <span class='numbering'>Definition 4.3·d</span> (Small separator for a fibration).
+</header>
+
+
+    <p>Let $E$ be a cartesian fibration over $B$ such that $B$ has
+binary products. A displayed object $\bar{s}\in E\Sub{s}$ is said to be a
+<em>small separator</em> for $E$ when any two vertical maps $f,g:\bar{u}\to\Sub{\Idn{x}}\bar{v}\in E\Sub{x}$ are equal when they are agree on $\bar{s}$-figures in the sense of <a href="/math/nodes/002I.html" role="tooltip" aria-label="Definition 4.3·c. Agreement on a class of figure shapes" class="cref"><span class="numbering">Definition 4.3·c</span> <span class="slug">[002I]</span></a>.</p>
 
   </section>
 
@@ -170,23 +206,6 @@ We first translate the above into the language of $E$ by unfolding definitions:
 
   </div>
 
-  
-  <nav>
-    <h4>Referrers</h4>
-    <ul>
-  
-  <li>
-    <a href="/math/nodes/0021.html">
-      <span class='numbering'>Corollary 2.6.2·a</span>
-      
-      <span class="slug">[0021]</span>
-      
-    </a>
-  </li>
-  
-</ul>
-
-  </nav>
   
 
   

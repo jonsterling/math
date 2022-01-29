@@ -303,4 +303,6 @@ header.post-header { margin-bottom: 1em !important; }
 
 header.inline { float: left; display: inline; margin-right: 1ex; }
 
+header.inline .numbering { font-weight: bold; }
+
 /*# sourceMappingURL=style.css.map */
