@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Foundations of Relative Category Theory" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Foundations of Relative Category Theory","dateModified":"2022-01-01T00:00:00+01:00","datePublished":"2022-01-01T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/lectures/categorical-foundations.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/lectures/categorical-foundations.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Foundations of Relative Category Theory","dateModified":"2022-01-01T00:00:00+01:00","datePublished":"2022-01-01T00:00:00+01:00","description":"A mathematical web page.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/lectures/categorical-foundations.html"},"url":"https://www.jonsmsterling.com//math/lectures/categorical-foundations.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -478,32 +478,6 @@
   
   <li>
     5.1.1.
-    <a href="#0016">
-      Cocartesian morphisms
-    </a>
-    <a class="slug" href="/math/nodes/0016.html">[0016]</a>
-    <ul class="toc">
-  
-</ul>
-
-
-  </li>
-  
-  <li>
-    5.1.2.
-    <a href="#0017">
-      The definition of cocartesian fibrations
-    </a>
-    <a class="slug" href="/math/nodes/0017.html">[0017]</a>
-    <ul class="toc">
-  
-</ul>
-
-
-  </li>
-  
-  <li>
-    5.1.3.
     <a href="#0018">
       The total opposite of a displayed category
     </a>
@@ -516,7 +490,7 @@
   </li>
   
   <li>
-    5.1.4.
+    5.1.2.
     <a href="#0019">
       Example: Coslices and pushouts
     </a>
@@ -2112,16 +2086,10 @@ variance of indexing is reversed.</p>
       <section>
 
 
-<header id="0016">
-  <h4>
-    
-      <span class="numbering">5.1.1.</span>
-      Cocartesian morphisms
-      <a class="slug" href="/math/nodes/0016.html">[0016]</a>
-    
-  </h4></header>
-
-
+<header class="inline" id="0016">
+  <a class="slug" href="/math/nodes/0016.html">[0016]</a>
+  <span class='numbering'>Definition 5.1·a</span> (Cocartesian morphism).
+</header>
 
 
         <p>Let $E$ be displayed over $B$, and let $f:x\to y \in B$; a morphism
@@ -2130,33 +2098,27 @@ any $m:y\to u$ and $\bar{h}:\bar{x}\to\Sub{f;m} \bar{u}$ there exists a unique
 $\bar{m} : \bar{y}\to\Sub{m} \bar{u}$ with $\bar{f};\bar{m} = \bar{h}$:
 <span class="antex display"><img style='margin: 0.042ex 0.028ex -13.784ex 0.0ex; height: 25.436ex; width: 26.929ex;' src="/math/antex/8167edc78c9a9a040bb4d055e2cfc099.svg" /></span></p>
 
-        <p>We use a “pushout corner” to indicate $\bar{x}\to\bar{y}$ as a cocartesian morphism,
-a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Section 5.1.4. Example: Coslices and pushouts" class="cref"><span class="numbering">Section 5.1.4</span> <span class="slug">[0019]</span></a>.</p>
-
       </section>
+
+      <p>We use a “pushout corner” to indicate $\bar{x}\to\bar{y}$ as a cocartesian morphism,
+a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Section 5.1.2. Example: Coslices and pushouts" class="cref"><span class="numbering">Section 5.1.2</span> <span class="slug">[0019]</span></a>.</p>
 
       <section>
 
 
-<header id="0017">
-  <h4>
-    
-      <span class="numbering">5.1.2.</span>
-      The definition of cocartesian fibrations
-      <a class="slug" href="/math/nodes/0017.html">[0017]</a>
-    
-  </h4></header>
-
-
+<header class="inline" id="0017">
+  <a class="slug" href="/math/nodes/0017.html">[0017]</a>
+  <span class='numbering'>Definition 5.1·b</span> (Cocartesian fibration).
+</header>
 
 
         <p>A displayed category $E$ over $B$ is a <em>cocartesian fibration</em> when for each
 $f : x \to y\in B$ and $\bar{x}\in E\Sub{x}$, there exists a displayed object
 $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\Sub{f} \bar{y}$.</p>
 
-        <p><strong>Remark.</strong> These are also known as <em>opfibrations</em>.</p>
-
       </section>
+
+      <p><strong>Remark.</strong> These are also known as <em>opfibrations</em>.</p>
 
       <section>
 
@@ -2164,7 +2126,7 @@ $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\
 <header id="0018">
   <h4>
     
-      <span class="numbering">5.1.3.</span>
+      <span class="numbering">5.1.1.</span>
       The total opposite of a displayed category
       <a class="slug" href="/math/nodes/0018.html">[0018]</a>
     
@@ -2178,7 +2140,7 @@ $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\
 
 <header class="inline" id="001I">
   <a class="slug" href="/math/nodes/001I.html">[001I]</a>
-  <span class='numbering'>Construction 5.1.3·a</span>.
+  <span class='numbering'>Construction 5.1.1·a</span>.
 </header>
 
 
@@ -2205,7 +2167,7 @@ displayed category over $B$.</p>
 
 <header class="inline" id="001J">
   <a class="slug" href="/math/nodes/001J.html">[001J]</a>
-  <span class='numbering'>Exercise 5.1.3·b</span>.
+  <span class='numbering'>Exercise 5.1.1·b</span>.
 </header>
 
 
@@ -2220,7 +2182,7 @@ $\OpCat{\prn{p\Sub{E}}} : \OpCat{\TotCat{E}}\to\OpCat{B}$.</p>
 
 <header class="inline" id="001K">
   <a class="slug" href="/math/nodes/001K.html">[001K]</a>
-  <span class='numbering'>Exercise 5.1.3·c</span>.
+  <span class='numbering'>Exercise 5.1.1·c</span>.
 </header>
 
 
@@ -2235,7 +2197,7 @@ if $\bar{f}:\bar{y}\to\Sub{f}\bar{x}$ is cocartesian over $f$ in $\TotOpCat{E}$.
 
 <header class="inline" id="001L">
   <a class="slug" href="/math/nodes/001L.html">[001L]</a>
-  <span class='numbering'>Exercise 5.1.3·d</span>.
+  <span class='numbering'>Exercise 5.1.1·d</span>.
 </header>
 
 
@@ -2252,7 +2214,7 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
 <header id="0019">
   <h4>
     
-      <span class="numbering">5.1.4.</span>
+      <span class="numbering">5.1.2.</span>
       Example: Coslices and pushouts
       <a class="slug" href="/math/nodes/0019.html">[0019]</a>
     
@@ -2277,7 +2239,7 @@ commuting squares in the following configuration:
 
 <header class="inline" id="001M">
   <a class="slug" href="/math/nodes/001M.html">[001M]</a>
-  <span class='numbering'>Exercise 5.1.4·a</span>.
+  <span class='numbering'>Exercise 5.1.2·a</span>.
 </header>
 
 
@@ -2291,7 +2253,7 @@ $B$ has pushouts.</p>
 
 <header class="inline" id="001N">
   <a class="slug" href="/math/nodes/001N.html">[001N]</a>
-  <span class='numbering'>Exercise 5.1.4·b</span>.
+  <span class='numbering'>Exercise 5.1.2·b</span>.
 </header>
 
 
