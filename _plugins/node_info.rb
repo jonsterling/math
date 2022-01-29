@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'cgi'
 
 class NodeInfo
   def initialize(resource)
@@ -34,27 +35,16 @@ class NodeInfo
   end
 
   def display_title
-    if taxon.nil? then
-      title
-    else
-      display_index + (has_title? ? ". #{title}" : "")
-    end
+    taxon.nil? ? title : (display_index + (has_title? ? ". #{title}" : ""))
   end
 
   def display_title_parenthetical
-    if taxon.nil? then
-      title
-    else
-      display_index + (has_title? ? " (#{title})" : "")
-    end
+    taxon.nil? ? title : (display_index + (has_title? ? " (#{title})" : ""))
   end
 
   def aria_label
-    if taxon.nil? then
-      title
-    else
-      "#{genus} #{ToNumberingFilter.to_numbering @node['clicks']}." + (has_title? ? " #{title}" : "")
-    end
+    label = taxon.nil? ? title : ("#{genus} #{ToNumberingFilter.to_numbering @node['clicks']}." + (has_title? ? " #{title}" : ""))
+    CGI.escapeHTML label
   end
 end
 
