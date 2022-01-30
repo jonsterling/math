@@ -305,6 +305,8 @@ header.inline { display: inline; margin-right: .5ex; }
 
 header.inline + p { display: inline; }
 
+header.inline + p + * { margin-top: 10px; }
+
 header.inline .numbering { font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
