@@ -155,6 +155,11 @@ sheafy:
       sublayout: sheafy/node/result
       genus: Remark
       clicker: result
+    intuition:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/result
+      genus: Intuition
+      clicker: result
 
 changelog:
   authors:
