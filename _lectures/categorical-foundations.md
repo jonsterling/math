@@ -1,6 +1,5 @@
 ---
 title: Foundations of Relative Category Theory
-macrolib: topos
 date: 2022-01-01
 author:
 - Jonathan Sterling

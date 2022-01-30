@@ -90,6 +90,7 @@ defaults:
   - scope:
       type: nodes
     values:
+      macrolib: topos
       taxon: section
       excerpt: ""
   - scope:
