@@ -96,6 +96,7 @@ defaults:
   - scope:
       type: lectures
     values:
+      macrolib: topos
       taxon: section
       excerpt: ""
 
