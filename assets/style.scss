@@ -73,9 +73,12 @@ header.post-header {
 }
 
 header.inline {
-  float: left;
   display: inline;
-  margin-right: 1ex;
+  margin-right: .5ex;
+}
+
+header.inline + p {
+  display: inline;
 }
 
 header.inline .numbering {
