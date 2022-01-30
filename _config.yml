@@ -108,6 +108,7 @@ sheafy:
     section:
       layout: sheafy/tree/default
       sublayout: sheafy/node/section
+      genus: Section
       clicker: section
     theorem:
       layout: sheafy/tree/default
