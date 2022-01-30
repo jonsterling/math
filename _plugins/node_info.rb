@@ -28,11 +28,7 @@ class NodeInfo
   end
 
   def genus
-    if taxon == "section" then
-      "Section"
-    else
-      @node["genus"] || "Result"
-    end
+    @node["genus"] || "Result"
   end
 
   def display_numbering
