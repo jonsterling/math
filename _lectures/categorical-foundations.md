@@ -4,6 +4,7 @@ date: 2022-01-01
 author:
 - Jonathan Sterling
 - Carlo Angiuli
+macrolib: topos
 ---
 
 We assume knowledge of basic categorical concepts such as categories, functors,
