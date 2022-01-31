@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000E.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-30T12:12:15+01:00" />
+<meta property="article:published_time" content="2022-01-31T10:24:58+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Properties of fibrations" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000E.html"},"headline":"Properties of fibrations","dateModified":"2022-01-30T12:12:15+01:00","datePublished":"2022-01-30T12:12:15+01:00","description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000E.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000E.html"},"headline":"Properties of fibrations","dateModified":"2022-01-31T10:24:58+01:00","datePublished":"2022-01-31T10:24:58+01:00","description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000E.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -201,6 +201,45 @@
     </a>
     <a class="slug" href="/math/nodes/002E.html">[002E]</a>
     <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    4.4.
+    <a href="#002L">
+      Definable classes à la Bénabou
+    </a>
+    <a class="slug" href="/math/nodes/002L.html">[002L]</a>
+    <ul class="toc">
+  
+  <li>
+    4.4.1.
+    <a href="#002Q">
+      Set-theoretic intuition for Bénabou's definability
+    </a>
+    <a class="slug" href="/math/nodes/002Q.html">[002Q]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    4.4.2.
+    <a href="#002S">
+      Bénabou's notion of definability
+    </a>
+    <a class="slug" href="/math/nodes/002S.html">[002S]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
   
 </ul>
 
@@ -596,6 +635,220 @@ binary products. A displayed object $\bar{s}\in E\Sub{s}$ is said to be a
 
   </section>
 
+  <section>
+
+
+<header id="002L">
+  <h3>
+    
+      <span class="numbering">4.4.</span>
+      Definable classes à la Bénabou
+      <a class="slug" href="/math/nodes/002L.html">[002L]</a>
+    
+  </h3></header>
+
+
+
+
+    <p>A class of sets $\mathfrak{C}$ is sometimes said to be <em>formally
+definable</em> when there is a formula $\prn{x \mid
+\phi\Sub{\mathfrak{C}}\prn{x}}$ in the language of set theory such that a
+set $S$ lies in $\mathfrak{C}$ if and only if
+$\phi\Sub{\mathfrak{C}}\prn{S}$ holds. This concept is a bit sensitive, as
+it presupposes that we have a notion of “class” whose constituents are not
+all definable in this sense.</p>
+
+    <p>A better behaved notion of definability for sets than the formal one is
+given <em>model-theoretically</em>, i.e. relative to a model $\mathscr{M}$ of set
+theory in some ambient set theory <a class="citation" href="#benabou:1985">(Bénabou, 1985)</a>. We will refer to
+an element of $\mathscr{M}$ as a set, and a subcollection of $\mathscr{M}$
+as a class.</p>
+
+    <section>
+
+
+<header class="inline" id="002U">
+  <a class="slug" href="/math/nodes/002U.html">[002U]</a>
+  <span class='numbering'>Definition 4.4·a</span> (Representable class of sets).
+</header>
+
+
+      <p>A class of sets $\mathfrak{C}\subseteq\mathscr{M}$ is called <em>representable</em> when there is a set $C\in\mathscr{M}$ such that $U\in C$ if and only if $U\in\mathfrak{C}$.</p>
+
+    </section>
+
+    <section>
+
+
+<header class="inline" id="002V">
+  <a class="slug" href="/math/nodes/002V.html">[002V]</a>
+  <span class='numbering'>Definition 4.4·b</span> (Definable class of sets).
+</header>
+
+
+      <p>A class of sets $\mathfrak{C}\subseteq\mathscr{M}$ is called <em>definable</em> when for any representable class $\mathfrak{S}$, the class $\mathfrak{C}\cap\mathfrak{S}$ is representable.</p>
+
+    </section>
+
+    <p>Bénabou then generalizes the definitions above to an arbitrary fibration,
+in such a way that the general fibered notion of definable class is
+equivalent in the canonical self-indexing $\SelfIx{\mathscr{M}}$ to that of
+definable classes in the sense of <a href="/math/nodes/002V.html" role="tooltip" aria-label="Definition 4.4·b. Definable class of sets" class="cref"><span class="numbering">Definition 4.4·b</span> <span class="slug">[002V]</span></a>.</p>
+
+    <section>
+
+
+<header id="002Q">
+  <h4>
+    
+      <span class="numbering">4.4.1.</span>
+      Set-theoretic intuition for Bénabou's definability
+      <a class="slug" href="/math/nodes/002Q.html">[002Q]</a>
+    
+  </h4></header>
+
+
+
+
+      <p>To motivate Bénabou’s general notion of definability, we will first develop an alternative
+perspective on definability for classes of sets in terms of <em>families</em> of
+sets.</p>
+
+      <section>
+
+
+<header class="inline" id="002M">
+  <a class="slug" href="/math/nodes/002M.html">[002M]</a>
+  <span class='numbering'>Construction 4.4.1·a</span> (Closure of a class of sets under base change).
+</header>
+
+
+        <p>Let $\mathfrak{C}\subseteq\mathscr{M}$ be a class of sets; there exists a class $\bar{\mathfrak{C}}$ of <em>families</em>
+of sets that contains $\prn{S\Sub{i}}\Sub{i\in I}$ exactly when each
+$S\Sub{i}$ lies in $\mathfrak{C}$. We will refer to $\bar{\mathfrak{C}}$ as the <em>closure under base change</em> of $\mathfrak{C}$, a name motivated by the fact that when $\prn{S\Sub{i}}\Sub{i\in I}$ lies in $\bar{\mathfrak{C}}$,
+then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies in $\bar{\mathfrak{C}}$.</p>
+
+      </section>
+
+      <section>
+
+
+<header class="inline" id="002N">
+  <a class="slug" href="/math/nodes/002N.html">[002N]</a>
+  <span class='numbering'>Construction 4.4.1·b</span> (From classes of families to classes of sets).
+</header>
+
+
+        <p>Conversely to <a href="/math/nodes/002M.html" role="tooltip" aria-label="Construction 4.4.1·a. Closure of a class of sets under base change" class="cref"><span class="numbering">Construction 4.4.1·a</span> <span class="slug">[002M]</span></a> we may take a class of families of sets $\mathfrak{F}$ to the the class of sets $\mathfrak{F}\Sub{1}\subseteq{\mathscr{M}}$ spanned by sets $S$ such that the singleton family $\brc{S}$ lies in $\mathfrak{C}$.</p>
+
+      </section>
+
+      <section>
+
+
+<header class="inline" id="002P">
+  <a class="slug" href="/math/nodes/002P.html">[002P]</a>
+  <span class='numbering'>Definition 4.4.1·c</span> (Definable class of families of sets).
+</header>
+
+
+        <p>A class of families of sets $\mathfrak{F}$ is said to be <em>definable</em> when it is stable and moreover, for any family of sets $\prn{S\Sub{i}}\Sub{i\in I}$, there exists a subset $J\subseteq I$ such that the base change $\prn{S\Sub{j}}\Sub{j\in J}$ lies in $\mathfrak{F}$, and moreover, such that $u:K\to I$ factors through $J\subseteq I$ whenever the base change $\prn{S\Sub{uk}}\Sub{k\in K}$ lies in $\mathfrak{F}$.</p>
+
+      </section>
+
+      <section>
+
+
+<header class="inline" id="002R">
+  <a class="slug" href="/math/nodes/002R.html">[002R]</a>
+  <span class='numbering'>Intuition 4.4.1·d</span>.
+</header>
+
+
+        <p>In other words, a stable class of families of sets is definable when any family of sets can be restricted to a “biggest” subfamily that lies in the class.</p>
+
+      </section>
+
+      <section>
+
+
+<header class="inline" id="002T">
+  <a class="slug" href="/math/nodes/002T.html">[002T]</a>
+  <span class='numbering'>Lemma 4.4.1·e</span> (Characterization of definable classes of families).
+</header>
+
+
+        <p>Let $\mathfrak{C}\subseteq\mathscr{M}$ be a class of sets; then $\bar{\mathfrak{C}}$ is a definable class of families of sets if and only if $\mathfrak{C}$ is a definable class of sets.</p>
+
+        <p><strong>Proof.</strong> Suppose that $\mathfrak{C}$ is a definable class of sets. To
+check that $\bar{\mathfrak{C}}$ is a definable class of families of sets,
+we fix a family $\prn{S\Sub{i}}\Sub{i\in I}$ not necessarily lying in $\bar{\mathfrak{C}}$. Because $\mathfrak{C}$ is definable, the intersection $\mathfrak{C}\cap \bigcup\Sub{i\in I}S\Sub{i}$ is represented by a set $U$. We therefore take the subset $J = \brc{i \in I\mid S_i\in U}\subseteq I$, and verify that the base change $\prn{S\Sub{j}}\Sub{j\in J}$ is the largest approximation of $\prn{S\Sub{i}}\Sub{i\in I}$ by a family lying in $\bar{\mathfrak{C}}$.</p>
+
+        <p>Conversely suppose that $\bar{\mathfrak{C}}$ is a definable class of families of sets. To see that $\mathfrak{C}$ is definable, we fix a class $\mathfrak{U}$ represented by a set $U\in\mathscr{M}$ to check that $\mathfrak{C}\cap\mathfrak{U}$ is representable. We consider the family of sets $\prn{u}\Sub{u\in U}$; because $\bar{\mathfrak{C}}$ is definable, there is a largest subset $V\subseteq U$ such that the change of base $\prn{v}\Sub{v\in V}$ lies in $\bar{\mathfrak{C}}$, i.e. such that each $v\in V$ lies in $\mathfrak{C}$. Therefore $\mathfrak{C}\cap\mathfrak{U}$ is represented by the set $V$.
+<span style="float:right">∎</span></p>
+
+      </section>
+
+    </section>
+
+    <section>
+
+
+<header id="002S">
+  <h4>
+    
+      <span class="numbering">4.4.2.</span>
+      Bénabou's notion of definability
+      <a class="slug" href="/math/nodes/002S.html">[002S]</a>
+    
+  </h4></header>
+
+
+
+
+      <p>We will now construe <a href="/math/nodes/002Q.html" role="tooltip" aria-label="Section 4.4.1. Set-theoretic intuition for Bénabou&#39;s definability" class="cref"><span class="numbering">Section 4.4.1</span> <span class="slug">[002Q]</span></a> as the instantiation at the canonical
+self-indexing $\SelfIx{\mathscr{M}}$ of a more general notion of
+definability for classes of objects in a cartesian fibration, defined
+forthwith. The following definition of definability in a cartesian fibration is due to Bénabou, but is discussed in print by Borceux <a class="citation" href="#borceux:1994:vol2">(<i>Handbook of Categorical Algebra 2 – Categories and Structures</i>, 1994)</a>, Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical Logic and Type Theory</i>, 1999)</a>, Streicher <a class="citation" href="#streicher:2018">(<i>Fibred Categories à La Jean Bénabou</i>, 2018)</a>.</p>
+
+      <section>
+
+
+<header class="inline" id="002W">
+  <a class="slug" href="/math/nodes/002W.html">[002W]</a>
+  <span class='numbering'>Definition 4.4.2·a</span> (Definable class in a fibration).
+</header>
+
+
+        <p>Let $E$ be a cartesian fibration over $B$. A <em>definable class</em>
+$\mathfrak{F}$ in $E$ is a stable subcollection of the displayed objects of $E$
+such that for any $\bar{u}\in E\Sub{u}$, there exists a cartesian map $\bar{v}\to \bar{u}$ lying over a monomorphism $v\rightarrowtail u$ such that $\bar{v}\in \mathfrak{F}$ and, moreover, any cartesian morphism $\bar{w}\to\bar{u}$ such that $\bar{w}\in\mathfrak{F}$ factors through $\bar{v}\to\bar{u}$.
+<span class="antex display"><img style='margin: 0.0ex 0.028ex -2.813ex 0.0ex; height: 21.332ex; width: 60.17ex;' src="/math/antex/74b63e3c1fe8bcca1766580cc8a4186c.svg" /></span></p>
+
+      </section>
+
+      <section>
+
+
+<header class="inline" id="002O">
+  <a class="slug" href="/math/nodes/002O.html">[002O]</a>
+  <span class='numbering'>Remark 4.4.2·b</span>.
+</header>
+
+
+        <p>Let $\mathscr{M}$ be a model of <a href="http://ncatlab.org/nlab/show/ETCS">ETCS</a>; and let $\mathfrak{C}$ be a
+class of families of sets in $\mathscr{M}$. Then $\mathfrak{C}$ is a class of
+objects in the canonical self-indexing $\SelfIx{\mathscr{M}}$ over
+$\mathscr{M}$.  Furthermore, $\mathscr{M}$ a definable class in
+$\SelfIx{\mathscr{M}}$ in the sense of <a href="/math/nodes/002W.html" role="tooltip" aria-label="Definition 4.4.2·a. Definable class in a fibration" class="cref"><span class="numbering">Definition 4.4.2·a</span> <span class="slug">[002W]</span></a> if and only if it is a
+definable class of families of sets in the sense of <a href="/math/nodes/002P.html" role="tooltip" aria-label="Definition 4.4.1·c. Definable class of families of sets" class="cref"><span class="numbering">Definition 4.4.1·c</span> <span class="slug">[002P]</span></a>.</p>
+
+      </section>
+
+    </section>
+
+  </section>
+
 </section>
 
   </div>
@@ -611,7 +864,30 @@ binary products. A displayed object $\bar{s}\in E\Sub{s}$ is said to be a
     
     
 </div>
-<a class="details" href="/math/bibliography/jacobs_1999.html">Details</a></li></ol>
+<a class="details" href="/math/bibliography/jacobs_1999.html">Details</a></li>
+<li><!-- _layouts/bib.html -->
+<div class="text-justify">
+    <span id="benabou:1985">Bénabou, J. (1985). Fibered categories and the foundations of naive category theory. <i>Journal of Symbolic Logic</i>, <i>50</i>(1), 10–37. https://doi.org/10.2307/2273784</span>
+    
+    
+</div>
+<a class="details" href="/math/bibliography/benabou_1985.html">Details</a></li>
+<li><!-- _layouts/bib.html -->
+<div class="text-justify">
+    <span id="borceux:1994:vol2">Borceux, F. (1994). <i>Handbook of Categorical Algebra 2 – Categories and Structures</i>. Cambridge University Press.</span>
+    
+    
+</div>
+<a class="details" href="/math/bibliography/borceux_1994_vol2.html">Details</a></li>
+<li><!-- _layouts/bib.html -->
+<div class="text-justify">
+    <span id="streicher:2018">Streicher, T. (2018). <i>Fibred Categories à la Jean Bénabou</i>.</span>
+    
+    <span><a href="http://arxiv.org/abs/1801.02927">arXiv:1801.02927</a>.</span>
+    
+    
+</div>
+<a class="details" href="/math/bibliography/streicher_2018.html">Details</a></li></ol>
   
 
 </article>

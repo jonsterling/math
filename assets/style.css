@@ -309,4 +309,6 @@ header.inline + p + * { margin-top: 10px; }
 
 header.inline .numbering { font-weight: bold; }
 
+section { margin-bottom: 1em; }
+
 /*# sourceMappingURL=style.css.map */
