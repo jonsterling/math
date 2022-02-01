@@ -5,6 +5,24 @@
     justify-content: space-between;
     margin: 3rem 0rem 4rem 0rem;
   }
+
+  nav.d-pad i.arrow {
+    display: inline-block;
+    font-style: normal;
+    position: relative;
+    width: 0.4em;
+    height: 0.4em;
+    border: 0.2em solid black;
+    border-bottom: unset;
+  }
+  nav.d-pad i.arrow.left {
+    border-right: unset;
+    transform: rotate(-45deg);
+  }
+  nav.d-pad i.arrow.right {
+    border-left: unset;
+    transform: rotate(45deg);
+  }
 </style>
 
 <nav class="d-pad">
@@ -15,19 +33,17 @@
 
 {% if prev %}
   <a href="{{prev.url | relative_url}}">
-    <span class="left-arrow">⮜</span>
+    <i class="arrow left"></i>
     {{ prev | display_title }}
     <span class="slug">[{{prev.slug}}]</span>
   </a>
 {% endif %}
 
-<span>🙟</span>
-
 {% if next %}
   <a href="{{next.url | relative_url}}">
     {{ next | display_title }}
     <span class="slug">[{{next.slug}}]</span>
-    <span class="right-arrow">⮞</span>
+    <i class="arrow right"></i>
   </a>
 {% endif %}
 
