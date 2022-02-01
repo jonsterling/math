@@ -16,8 +16,7 @@
 {% if prev %}
   <a href="{{prev.url | relative_url}}">
     <span class="left-arrow">⮜</span>
-    <span class="numbering">{{ prev.clicks | to_numbering }}.</span>
-    {{prev.title}}
+    {{ prev | display_title }}
     <span class="slug">[{{prev.slug}}]</span>
   </a>
 {% endif %}
@@ -26,8 +25,7 @@
 
 {% if next %}
   <a href="{{next.url | relative_url}}">
-    <span class="numbering">{{ next.clicks | to_numbering }}.</span>
-    {{next.title}}
+    {{ next | display_title }}
     <span class="slug">[{{next.slug}}]</span>
     <span class="right-arrow">⮞</span>
   </a>
