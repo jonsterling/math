@@ -1,0 +1,36 @@
+<style>
+  nav.d-pad {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3rem 0rem 4rem 0rem;
+  }
+</style>
+
+<nav class="d-pad">
+
+{% assign prev = page.predecessors | last %}
+{% assign upwd = page.parent %}
+{% assign next = page.successors | first %}
+
+{% if prev %}
+  <a href="{{prev.url | relative_url}}">
+    <span class="left-arrow">⮜</span>
+    <span class="numbering">{{ prev.clicks | to_numbering }}.</span>
+    {{prev.title}}
+    <span class="slug">[{{prev.slug}}]</span>
+  </a>
+{% endif %}
+
+<span>🙟</span>
+
+{% if next %}
+  <a href="{{next.url | relative_url}}">
+    <span class="numbering">{{ next.clicks | to_numbering }}.</span>
+    {{next.title}}
+    <span class="slug">[{{next.slug}}]</span>
+    <span class="right-arrow">⮞</span>
+  </a>
+{% endif %}
+
+</nav>

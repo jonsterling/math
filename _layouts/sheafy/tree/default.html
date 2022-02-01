@@ -11,6 +11,8 @@ layout: default
     {{ content }}
   </div>
 
+  {% include d-pad.html page=page %}
+
   {% if page.referrers.size != 0 %}
   <nav>
     <h4>Referrers</h4>
