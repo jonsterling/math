@@ -90,17 +90,17 @@ defaults:
   - scope:
       type: nodes
     values:
-      macrolib: topos
       taxon: section
       excerpt: ""
   - scope:
       type: lectures
     values:
-      macrolib: topos
       taxon: section
       excerpt: ""
 
 sheafy:
+  inheritable:
+    - macrolib
   references:
     matchers:
       - !ruby/regexp /{%\s*[cp]?ref (?<slug>.+?)\s*%}/
