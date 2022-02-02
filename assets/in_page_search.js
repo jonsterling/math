@@ -75,9 +75,10 @@ class InPageSearch {
     await this.setFormLock(true);
     const results = this.searchIndex(q);
     this.setVisibilities(false);
+    this.markFoldedSections(results);
+    this.applyVisibilities();
     await this.promiseToUnmarkDocument();
     await this.promiseToMarkDocument(results);
-    this.applyVisibilities();
     await this.setFormLock(false);
   }
 
@@ -91,8 +92,11 @@ class InPageSearch {
 
   promiseToMarkSection(section, terms) {
     return new Promise((resolve, reject) => {
-      // TODO: fix spurious highlights, e.g. (co)cartesian
-      new Mark(section).mark(terms, { exclude: "section", done: resolve });
+      console.log("marking", section.id, "with", terms);
+      new Mark(section).mark(terms, {
+        exclude: [".ellipsis *"],
+        done: resolve,
+      });
     });
   }
 
@@ -103,11 +107,17 @@ class InPageSearch {
     this.showSectionAndAncestors(node.parentNode);
   }
 
+  markFoldedSections(results) {
+    results.map(({ ref }) => {
+      const section = this.sections[ref];
+      this.showSectionAndAncestors(section);
+    });
+  }
+
   promiseToMarkDocument(results) {
     const promisesToMarkSections = results.map(
       ({ ref, matchData: { metadata } }) => {
         const section = this.sections[ref];
-        this.showSectionAndAncestors(section);
         this.promiseToMarkSection(section, Object.keys(metadata));
       }
     );
