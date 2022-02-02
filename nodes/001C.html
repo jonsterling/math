@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/001C.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-02-01T17:05:39+01:00" />
+<meta property="article:published_time" content="2022-02-02T19:15:01+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Hom candidates" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Hom candidates","dateModified":"2022-02-01T17:05:39+01:00","datePublished":"2022-02-01T17:05:39+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/001C.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/001C.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Hom candidates","dateModified":"2022-02-02T19:15:01+01:00","datePublished":"2022-02-02T19:15:01+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/001C.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/001C.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -170,27 +170,31 @@ following diagram commutes:
   nav.d-pad {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin: 3rem 0rem 4rem 0rem;
+    gap: 0.6rem;
   }
 
   nav.d-pad i.arrow {
     display: inline-block;
     font-style: normal;
     position: relative;
-    width: 0.4em;
-    height: 0.4em;
+    width: 0.6em;
+    height: 0.6em;
     border: 0.2em solid black;
     border-bottom: unset;
+    border-left: unset;
+    box-sizing: border-box;
   }
   nav.d-pad i.arrow.left {
-    border-right: unset;
-    transform: rotate(-45deg);
+    transform: rotate(-135deg);
   }
   nav.d-pad i.arrow.right {
-    border-left: unset;
     transform: rotate(45deg);
   }
+  nav.d-pad a.prev { text-align: right; }
+  nav.d-pad a.next { text-align: left; }
 </style>
 
 <nav class="d-pad">
@@ -202,7 +206,15 @@ following diagram commutes:
 
 
 
-  <a href="/math/nodes/001B.html">
+  <a class="prev" href="/math/nodes/000H.html">
+    <i class="arrow left"></i>
+    <span class='numbering'>Section 4.1.2</span>. A more abstract formulation
+    <span class="slug">[000H]</span>
+  </a>
+
+
+
+  <a class="next" href="/math/nodes/001B.html">
     <span class='numbering'>Definition 4.1.3·b</span>. Locally small fibration
     <span class="slug">[001B]</span>
     <i class="arrow right"></i>
