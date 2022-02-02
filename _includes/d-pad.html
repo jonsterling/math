@@ -14,26 +14,34 @@
     height: 0.4em;
     border: 0.2em solid black;
     border-bottom: unset;
+    border-left: unset;
   }
   nav.d-pad i.arrow.left {
-    border-right: unset;
+    transform: rotate(-135deg);
+  }
+  nav.d-pad i.arrow.up {
     transform: rotate(-45deg);
   }
   nav.d-pad i.arrow.right {
-    border-left: unset;
     transform: rotate(45deg);
   }
 </style>
 
 <nav class="d-pad">
 
-{% assign prev = page.predecessors | last %}
-{% assign upwd = page.parent %}
-{% assign next = page.successors | first %}
+{% assign lineage = page.ancestors | push: page | reverse %}
+{% assign node_with_pred = lineage | find_exp: "node", "node.predecessors.size > 0" %}
+{% assign prev = node_with_pred.predecessors | last %}
+{% assign node_with_succ = lineage | find_exp: "node", "node.successors.size > 0" %}
+{% assign next = node_with_succ.successors | first %}
 
 {% if prev %}
   <a href="{{prev.url | relative_url}}">
-    <i class="arrow left"></i>
+    {% if node_with_pred == page %}
+      <i class="arrow left"></i>
+    {% else %}
+      <i class="arrow up"></i>
+    {% endif %}
     {{ prev | display_title }}
     <span class="slug">[{{prev.slug}}]</span>
   </a>
@@ -43,7 +51,11 @@
   <a href="{{next.url | relative_url}}">
     {{ next | display_title }}
     <span class="slug">[{{next.slug}}]</span>
-    <i class="arrow right"></i>
+    {% if node_with_succ == page %}
+      <i class="arrow right"></i>
+    {% else %}
+      <i class="arrow up"></i>
+    {% endif %}
   </a>
 {% endif %}
 
