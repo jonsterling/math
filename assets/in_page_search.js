@@ -72,21 +72,21 @@ class InPageSearch {
 
   async run(q) {
     this.lazyInit();
-    // TODO: lock form
+    await this.setFormLock(true);
     const results = this.searchIndex(q);
     this.setVisibilities(false);
     await this.promiseToUnmarkDocument();
     await this.promiseToMarkDocument(results);
     this.applyVisibilities();
-    // TODO: unlock form
+    await this.setFormLock(false);
   }
 
   async clear() {
-    // TODO: lock form
+    await this.setFormLock(true);
     await this.promiseToUnmarkDocument();
     this.setVisibilities(true);
     this.applyVisibilities();
-    // TODO: unlock form
+    await this.setFormLock(false);
   }
 
   promiseToMarkSection(section, terms) {
@@ -150,6 +150,16 @@ class InPageSearch {
       this.handleOnInput.bind(this),
       false
     );
+  }
+
+  async setFormLock(locked) {
+    this.form.querySelector("fieldset").disabled = locked;
+    // we need to give slow machines some time to redraw
+    await this.sleep(1);
+  }
+
+  sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }
 
