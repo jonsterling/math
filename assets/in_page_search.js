@@ -12,13 +12,15 @@ class InPageSearch {
   }
 
   applyVisibilities() {
-    Object.entries(this.visibilities).forEach(([slug, visible]) => {
-      if (visible) {
-        this.sections[slug].classList.remove("ellipsis");
-      } else {
-        this.sections[slug].classList.add("ellipsis");
-      }
-    });
+    Object.keys(this.visibilities).forEach(this.applyVisibility.bind(this));
+  }
+
+  applyVisibility(slug) {
+    if (this.visibilities[slug]) {
+      this.sections[slug].classList.remove("ellipsis");
+    } else {
+      this.sections[slug].classList.add("ellipsis");
+    }
   }
 
   async lazyInit() {
@@ -72,7 +74,7 @@ class InPageSearch {
     this.lazyInit();
     // TODO: lock form
     const results = this.searchIndex(q);
-    this.setAllVisibilities(false);
+    this.setVisibilities(false);
     await this.promiseToUnmarkDocument();
     await this.promiseToMarkDocument(results);
     this.applyVisibilities();
@@ -82,7 +84,7 @@ class InPageSearch {
   async clear() {
     // TODO: lock form
     await this.promiseToUnmarkDocument();
-    this.setAllVisibilities(true);
+    this.setVisibilities(true);
     this.applyVisibilities();
     // TODO: unlock form
   }
@@ -119,13 +121,26 @@ class InPageSearch {
     });
   }
 
-  setAllVisibilities(status) {
+  setVisibilities(status) {
     Object.keys(this.visibilities).forEach(
-      (slug) => (this.visibilities[slug] = status)
+      this.setVisibility.bind(this, status)
     );
   }
 
+  setVisibility(status, slug) {
+    this.visibilities[slug] = status;
+  }
+
+  handleClick(event) {
+    if (!this.initialized) return;
+    const slug = event.target.closest("section").id;
+    if (this.visibilities[slug]) return;
+    this.setVisibility(true, slug);
+    this.applyVisibility(slug);
+  }
+
   bindEvents() {
+    document.addEventListener("click", this.handleClick.bind(this), false);
     this.form.addEventListener("submit", this.handleSubmit.bind(this), false);
     this.form.addEventListener("reset", this.handleReset.bind(this), false);
     this.input.addEventListener(
