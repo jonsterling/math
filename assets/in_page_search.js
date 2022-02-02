@@ -4,6 +4,7 @@ class InPageSearch {
     this.FOLDED_CLASS = "ellipsis";
     this.MARKJS_EXCLUDE_FOLDED = ".ellipsis *";
     this.INPUT_NAME = "q";
+    this.URL_PARAM = "q";
     this.DOC_REF_KEY = "slug";
     this.DOC_VAL_KEY = "text";
 
@@ -17,6 +18,8 @@ class InPageSearch {
     this.nodeElements = {};
     this.nodeVisibilities = {};
     this.initialized = false;
+
+    this.checkURL();
   }
 
   //=[ Initialization ]=========================================================
@@ -46,6 +49,36 @@ class InPageSearch {
       .join("\n");
   }
 
+  //=[ URI ]====================================================================
+
+  checkURL() {
+    const q = this.getURLQuery();
+    if (q) {
+      this.handleToggle();
+      this.input.value = q;
+      this.run(q);
+    }
+  }
+
+  getURLQuery() {
+    var url = new URL(window.location.href);
+    return url.searchParams.get(this.URL_PARAM);
+  }
+
+  setURLQuery(q) {
+    if (!history.replaceState) return;
+    var url = new URL(window.location.href);
+    url.searchParams.set(this.URL_PARAM, q);
+    window.history.replaceState(null, null, url);
+  }
+
+  deleteURLQuery() {
+    if (!history.replaceState) return;
+    var url = new URL(window.location.href);
+    url.searchParams.delete(this.URL_PARAM);
+    window.history.replaceState(null, null, url);
+  }
+
   //=[ Operation ]==============================================================
 
   async run(q) {
@@ -63,6 +96,8 @@ class InPageSearch {
     await this.promiseToMarkTree(results);
 
     await this.setFormLock(false);
+
+    this.setURLQuery(q);
   }
 
   async clear() {
@@ -74,6 +109,8 @@ class InPageSearch {
     this.applyVisibilities();
 
     await this.setFormLock(false);
+
+    this.deleteURLQuery();
   }
 
   //=[ Indexing ]===============================================================
