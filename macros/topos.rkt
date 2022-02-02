@@ -75,6 +75,9 @@
 
 (define-global (Sl E e)
   E (Sub @tex{/@e}))
+(define-global (CoSl e E)
+  @tex{} (Sub @tex{@e /}) E)
+
 
 (define-global (InvImg f)
   f (Sup @tex{*}))
