@@ -22,11 +22,6 @@
   nav.d-pad i.arrow.left {
     transform: rotate(-135deg);
   }
-  nav.d-pad i.arrow.up {
-    transform: rotate(-45deg);
-    margin: 0.2rem; /* emulates spacing of right/left arrows */
-    vertical-align: middle;
-  }
   nav.d-pad i.arrow.right {
     transform: rotate(45deg);
   }
@@ -36,23 +31,23 @@
 
 <nav class="d-pad">
 
-{% assign lineage = page.ancestors | push: page | reverse %}
-{% assign node_with_pred = lineage | find_exp: "node", "node.predecessors.size > 0" %}
-{% assign prev = node_with_pred.predecessors | last %}
-{% assign node_with_succ = lineage | find_exp: "node", "node.successors.size > 0" %}
-{% assign next = node_with_succ.successors | first %}
+{% assign prev = page.predecessors | last %}
+{% unless prev %}
+  {% assign fallback = page.ancestors | reverse | find_exp: "node", "node.predecessors.size > 0" %}
+  {% assign prev = fallback.predecessors | last %}
+{% endunless %}
+
+{% assign next = page.successors | first %}
+{% unless next %}
+  {% assign fallback = page.ancestors | reverse | find_exp: "node", "node.successors.size > 0" %}
+  {% assign next = fallback.successors | first %}
+{% endunless %}
 
 {% if prev %}
   <a class="prev" href="{{prev.url | relative_url}}">
-    {% if node_with_pred == page %}
-      <i class="arrow left"></i>
-    {% else %}
-      <i class="arrow up"></i>
-    {% endif %}
-    <span>
-      {{ prev | display_title }}
-      <span class="slug">[{{prev.slug}}]</span>
-    </span>
+    <i class="arrow left"></i>
+    {{ prev | display_title }}
+    <span class="slug">[{{prev.slug}}]</span>
   </a>
 {% endif %}
 
@@ -60,11 +55,7 @@
   <a class="next" href="{{next.url | relative_url}}">
     {{ next | display_title }}
     <span class="slug">[{{next.slug}}]</span>
-    {% if node_with_succ == page %}
-      <i class="arrow right"></i>
-    {% else %}
-      <i class="arrow up"></i>
-    {% endif %}
+    <i class="arrow right"></i>
   </a>
 {% endif %}
 
