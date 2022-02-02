@@ -133,7 +133,9 @@ class InPageSearch {
 
   handleClick(event) {
     if (!this.initialized) return;
-    const slug = event.target.closest("section").id;
+    const section = event.target.closest("section");
+    if (!section) return;
+    const slug = section.id;
     if (this.visibilities[slug]) return;
     this.setVisibility(true, slug);
     this.applyVisibility(slug);
