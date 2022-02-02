@@ -10,26 +10,31 @@ layout: default
   section.ellipsis > :not(header) {
     display: none;
   }
-  form.search {
+  #search-form {
     margin-bottom: 2rem;
   }
-  form.search fieldset {
+  #search-form fieldset {
     display: flex;
-    padding: 0;
-    border: none;
+    flex-wrap: wrap;
   }
-  form.search input {
+  #search-form input {
     flex-grow: 1;
+  }
+  #search-form .hint {
+    flex-basis: 100%;
+    margin: 0;
   }
 </style>
 
 <script src="{{ 'assets/in_page_search.js' | relative_url }}"></script>
 
-<form class="search" action="{{ 'search' | relative_url }}" method="GET">
+<form id="search-form" hidden>
   <fieldset>
+    <legend>Search</legend>
     <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
     <button type="submit">Search</button>
     <button type="reset">Clear</button>
+    <p class="hint">Some hints about searching effectively should be here.</p>
   </fieldset>
 </form>
 

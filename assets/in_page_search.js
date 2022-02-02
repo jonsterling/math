@@ -1,7 +1,7 @@
 class InPageSearch {
   constructor() {
     this.searchResults = document.getElementById("results");
-    this.form = document.querySelector("form");
+    this.form = document.getElementById("search-form");
     this.input = document.getElementById("search-query");
     this.bindEvents();
 
@@ -141,6 +141,10 @@ class InPageSearch {
     this.applyVisibility(slug);
   }
 
+  handleToggle() {
+    this.form.hidden = !this.form.hidden;
+  }
+
   bindEvents() {
     document.addEventListener("click", this.handleClick.bind(this), false);
     this.form.addEventListener("submit", this.handleSubmit.bind(this), false);
@@ -150,6 +154,9 @@ class InPageSearch {
       this.handleOnInput.bind(this),
       false
     );
+    document
+      .getElementById("search-toggle")
+      .addEventListener("click", this.handleToggle.bind(this), false);
   }
 
   async setFormLock(locked) {
