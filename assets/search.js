@@ -1,4 +1,4 @@
-class InPageSearch {
+class Search {
   constructor() {
     this.NODE_TAG = "SECTION"; // MUST be uppercase to be both selector and nodeName
     this.FOLDED_CLASS = "ellipsis";
@@ -251,5 +251,5 @@ class InPageSearch {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  window.inPageSearch = new InPageSearch();
+  window.search = new Search();
 });

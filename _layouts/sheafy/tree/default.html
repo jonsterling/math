@@ -2,60 +2,7 @@
 layout: default
 ---
 
-<style>
-  ul.toc li.ellipsis {
-    height: 0;
-    overflow: hidden;
-  }
-  section.ellipsis > header {
-    opacity: 0.5;
-    border-bottom: 3px dashed black;
-  }
-  section.ellipsis > :not(header) {
-    display: none;
-  }
-  #search-form {
-    margin-bottom: 2rem;
-  }
-  #search-form fieldset {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  #search-form input {
-    flex-grow: 1;
-  }
-  #search-form .hint {
-    flex-basis: 100%;
-    margin: 0;
-  }
-  #search-form .hint summary {
-    font-size: small;
-  }
-</style>
-
-<script src="{{ 'assets/in_page_search.js' | relative_url }}"></script>
-
-<form id="search-form" hidden>
-  <fieldset>
-    <legend>Search</legend>
-    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
-    <button type="submit">Search</button>
-    <button type="reset">Clear</button>
-    <details class="hint">
-      <summary>Click here for help.</summary>
-      <ul>
-        <li>You can type your query in the input box, click "Search" to start the search, and click "Clear" to clear the page.</li>
-        <li>The search happens on the current page. If you want to extend it, navigate the book upwards. A search on the root note will search the whole book.</li>
-        <li>Once the search is completed, matches will be highlighted and nodes with no matches will be folded. You can expand them by clicking.</li>
-        <li>Multiple terms are allowed in the query and the default behaviour is <code>OR</code>ing them. You can <code>AND</code> terms making them mandatory, see <code>+foo</code> below.</li>
-        <li><code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
-        <li><code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
-        <li><code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
-        <li>Note that the URL changes after a search. You can copy and paste it to share your search results. They will be displayed immediately upon visiting the URL.</li>
-      </ul>
-    </details>
-  </fieldset>
-</form>
+{% include search.html %}
 
 <article class="post">
   <nav>
