@@ -228,6 +228,7 @@ class InPageSearch {
 
   handleToggle() {
     this.form.hidden = !this.form.hidden;
+    if (!this.form.hidden) this.input.focus();
   }
 
   bindEvents() {
