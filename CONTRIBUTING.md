@@ -1,0 +1,1 @@
+Contributions are very welcome; however, this book is being written from a specific point of view, so before contributing you should discuss your idea with the maintainer by opening a thread in the [Discussions](https://github.com/jonsterling/math/discussions) tab.
