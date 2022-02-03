@@ -595,8 +595,21 @@
   
   <li>
     6.1.2.
+    <a href="#002X">
+      Example: Revisiting the canonical self-indexing
+    </a>
+    <a class="slug" href="/math/nodes/002X.html">[002X]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+  <li>
+    6.1.3.
     <a href="#0019">
-      Example: Coslices and pushouts
+      Example: The dual self-indexing
     </a>
     <a class="slug" href="/math/nodes/0019.html">[0019]</a>
     <ul class="toc">
@@ -877,7 +890,7 @@ commuting squares in the following configuration:
 </header>
 
 
-        <p>Prove that $\SelfIx{B}$ from <a href="/math/nodes/0003.html" role="tooltip" aria-label="Section 2.1. The canonical self-indexing" class="slug">[0003]</a> is a cartesian fibration if and only if $B$ has pullbacks.</p>
+        <p>Prove that $\SelfIx{B}$ from <a href="/math/nodes/001X.html" role="tooltip" aria-label="Construction 2.1·a. The canonical self-indexing" class="slug">[001X]</a> is a cartesian fibration if and only if $B$ has pullbacks.</p>
 
       </section>
 
@@ -2674,7 +2687,7 @@ $\bar{m} : \bar{y}\to\Sub{m} \bar{u}$ with $\bar{f};\bar{m} = \bar{h}$:
       </section>
 
       <p>We use a “pushout corner” to indicate $\bar{x}\to\bar{y}$ as a cocartesian morphism,
-a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Section 6.1.2. Example: Coslices and pushouts" class="cref"><span class="numbering">Section 6.1.2</span> <span class="slug">[0019]</span></a>.</p>
+a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Section 6.1.3. Example: The dual self-indexing" class="cref"><span class="numbering">Section 6.1.3</span> <span class="slug">[0019]</span></a>.</p>
 
       <section>
 
@@ -2784,11 +2797,47 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
       <section>
 
 
-<header id="0019">
+<header id="002X">
   <h4>
     
       <span class="numbering">6.1.2.</span>
-      Example: Coslices and pushouts
+      Example: Revisiting the canonical self-indexing
+      <a class="slug" href="/math/nodes/002X.html">[002X]</a>
+    
+  </h4></header>
+
+
+
+
+        <p>Recall that the canonical self-indexing $\SelfIx{B}$ (<a href="/math/nodes/001X.html" role="tooltip" aria-label="Construction 2.1·a. The canonical self-indexing" class="cref"><span class="numbering">Construction 2.1·a</span> <span class="slug">[001X]</span></a>) of a category $B$
+is a displayed category with $\SelfIx{B}\Sub{x} = \Sl{B}{x}$.
+As discussed in <a href="/math/nodes/001Y.html" role="tooltip" aria-label="Exercise 2.1·b." class="cref"><span class="numbering">Exercise 2.1·b</span> <span class="slug">[001Y]</span></a>, $\SelfIx{B}$ is a cartesian fibration over $B$ if and
+only if $B$ has pullbacks. However, $\SelfIx{B}$ is unconditionally a <em>cocartesian</em>
+fibration.</p>
+
+        <section>
+
+
+<header class="inline" id="002Y">
+  <a class="slug" href="/math/nodes/002Y.html">[002Y]</a>
+  <span class='numbering'>Exercise 6.1.2·a</span>.
+</header>
+
+
+          <p>Prove that $\SelfIx{B}$ from <a href="/math/nodes/001X.html" role="tooltip" aria-label="Construction 2.1·a. The canonical self-indexing" class="slug">[001X]</a> is a cocartesian fibration for any category $B$.</p>
+
+        </section>
+
+      </section>
+
+      <section>
+
+
+<header id="0019">
+  <h4>
+    
+      <span class="numbering">6.1.3.</span>
+      Example: The dual self-indexing
       <a class="slug" href="/math/nodes/0019.html">[0019]</a>
     
   </h4></header>
@@ -2796,23 +2845,37 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
 
 
 
-        <p>Dually to <a href="/math/nodes/0003.html" role="tooltip" aria-label="Section 2.1. The canonical self-indexing" class="cref"><span class="numbering">Section 2.1</span> <span class="slug">[0003]</span></a>, every category $B$ can also be displayed over itself via its
-<em>coslices</em>. That is, for any category $B$, we define a displayed category
-$\overline{B}$ over $B$ as follows:</p>
-        <ol>
-          <li>For $x\in B$, define $\overline{B}\Sub{x}$ as the collection of pairs
+        <p>Dually to the canonical self-indexing (<a href="/math/nodes/001X.html" role="tooltip" aria-label="Construction 2.1·a. The canonical self-indexing" class="cref"><span class="numbering">Construction 2.1·a</span> <span class="slug">[001X]</span></a>), every category $B$ can
+also be displayed over itself via its <em>coslices</em> $\CoSl{x}{B}$.</p>
+
+        <section>
+
+
+<header class="inline" id="002Z">
+  <a class="slug" href="/math/nodes/002Z.html">[002Z]</a>
+  <span class='numbering'>Construction 6.1.3·a</span>.
+</header>
+
+
+          <p>Let $B$ be a category. Define the displayed category $\overline{B}$ over $B$ as
+follows:</p>
+
+          <ol>
+            <li>For $x\in B$, define $\overline{B}\Sub{x}$ as the collection of pairs
 $(\bar{x}\in B,p\Sub{x}:x\to\bar{x})$.</li>
-          <li>For $f : x\to y\in B$, define $\overline{B}\Sub{f}$ to be the collection of
+            <li>For $f : x\to y\in B$, define $\overline{B}\Sub{f}$ to be the collection of
 commuting squares in the following configuration:
 <span class="antex display"><img style='margin: -0.05ex 0.082ex -3.754ex -0.104ex; height: 19.442ex; width: 21.774ex;' src="/math/antex/f97189be99747030c50c13f6b9b2b593.svg" /></span></li>
-        </ol>
+          </ol>
+
+        </section>
 
         <section>
 
 
 <header class="inline" id="001M">
   <a class="slug" href="/math/nodes/001M.html">[001M]</a>
-  <span class='numbering'>Exercise 6.1.2·a</span>.
+  <span class='numbering'>Exercise 6.1.3·b</span>.
 </header>
 
 
@@ -2826,12 +2889,25 @@ $B$ has pushouts.</p>
 
 <header class="inline" id="001N">
   <a class="slug" href="/math/nodes/001N.html">[001N]</a>
-  <span class='numbering'>Exercise 6.1.2·b</span>.
+  <span class='numbering'>Exercise 6.1.3·c</span>.
 </header>
 
 
           <p>Prove that the total category (<a href="/math/nodes/000A.html" role="tooltip" aria-label="Section 3.1. The total category and its projection" class="cref"><span class="numbering">Section 3.1</span> <span class="slug">[000A]</span></a>) of $\overline{B}$ is the
 arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
+
+        </section>
+
+        <section>
+
+
+<header class="inline" id="0030">
+  <a class="slug" href="/math/nodes/0030.html">[0030]</a>
+  <span class='numbering'>Exercise 6.1.3·d</span>.
+</header>
+
+
+          <p>Prove that $\overline{B}$ is a cartesian fibration for any category $B$.</p>
 
         </section>
 
