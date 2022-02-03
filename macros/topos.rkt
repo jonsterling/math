@@ -75,8 +75,9 @@
 
 (define-global (Sl E e)
   E (Sub @tex{/@e}))
+
 (define-global (CoSl e E)
-  @tex{} (Sub @tex{@e /}) E)
+  E (Sup @\tex{\setminus @e}))
 
 
 (define-global (InvImg f)
