@@ -14,17 +14,20 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/001V.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-02-03T11:45:22+01:00" />
+<meta property="article:published_time" content="2022-02-03T16:40:00+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="001v" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"001v","dateModified":"2022-02-03T11:45:22+01:00","datePublished":"2022-02-03T11:45:22+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/001V.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/001V.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"001v","dateModified":"2022-02-03T16:40:00+01:00","datePublished":"2022-02-03T16:40:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/001V.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/001V.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js" integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
 <script>
   const macros_promise =
@@ -67,12 +70,69 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
+        <div class="trigger">
+          <a class="page-link" id="search-toggle">Search</a><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <style>
+  ul.toc li.ellipsis {
+    height: 0;
+    overflow: hidden;
+  }
+  section.ellipsis > header {
+    opacity: 0.5;
+    border-bottom: 3px dashed black;
+  }
+  section.ellipsis > :not(header) {
+    display: none;
+  }
+  #search-form {
+    margin-bottom: 2rem;
+  }
+  #search-form fieldset {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #search-form input {
+    flex-grow: 1;
+  }
+  #search-form .hint {
+    flex-basis: 100%;
+    margin: 0;
+  }
+  #search-form .hint summary {
+    font-size: small;
+  }
+</style>
+
+<script src="/math/assets/search.js"></script>
+
+<form id="search-form" hidden>
+  <fieldset>
+    <legend>Search</legend>
+    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
+    <button type="submit">Search</button>
+    <button type="reset">Clear</button>
+    <details class="hint">
+      <summary>Click here for help.</summary>
+      <ul>
+        <li>You can type your query in the input box, click "Search" to start the search, and click "Clear" to clear the page.</li>
+        <li>The search happens on the current page. If you want to extend it, navigate the book upwards. A search on the root note will search the whole book.</li>
+        <li>Once the search is completed, matches will be highlighted and nodes with no matches will be folded. You can expand them by clicking.</li>
+        <li>Multiple terms are allowed in the query and the default behaviour is <code>OR</code>ing them. You can <code>AND</code> terms making them mandatory, see <code>+foo</code> below.</li>
+        <li><code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
+        <li><code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
+        <li><code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
+        <li>Note that the URL changes after a search. You can copy and paste it to share your search results. They will be displayed immediately upon visiting the URL.</li>
+      </ul>
+    </details>
+  </fieldset>
+</form>
+
+
+<article class="post">
   <nav>
     <style>
   .breadcrumbs {
@@ -119,10 +179,10 @@
   </nav>
 
   <div class="post-content">
-    <section>
+    <section id="001V">
 
 
-<header class="inline" id="001V">
+<header class="inline">
   <a class="slug" href="/math/nodes/001V.html">[001V]</a>
   <span class='numbering'>Exercise 3.2·b</span>.
 </header>

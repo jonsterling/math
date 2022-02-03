@@ -9,20 +9,20 @@
 
 (define-global (BoldSymbol x)
   (match (target)
-    ['katex @tex{\pmb{@x}}]
-    [_ @tex{\boldsymbol{@x}}]))
+    ['katex @raw{\pmb{@x}}]
+    [_ @raw{\boldsymbol{@x}}]))
 
 (define-local (ShSymbol)
-  (BoldSymbol @tex{\mathcal{S}}))
+  (BoldSymbol @raw{\mathcal{S}}))
 
 (define-local (GlSymbol)
-  (BoldSymbol @tex{\mathcal{G}}))
+  (BoldSymbol @raw{\mathcal{G}}))
 
 (define-local (FamSymbol)
-  (BoldSymbol @tex{\mathcal{F}}))
+  (BoldSymbol @raw{\mathcal{F}}))
 
 (define-global (Con x)
-  @tex{\mathsf{@x}})
+  @raw{\mathsf{@x}})
 
 (define-global (Sh X)
   (ShSymbol)
@@ -37,7 +37,7 @@
   (Sub x))
 
 (define-local (overline x)
-  @tex{\overline{@x}})
+  @raw{\overline{@x}})
 
 (define-global (OpGL x)
   (overline (GlSymbol))
@@ -51,14 +51,14 @@
   C (Sup (Con "o")))
 
 (define-global (TotOpCat C)
-  C (Sup @tex{\tilde{@(Con "o")}}))
+  C (Sup @raw{\tilde{@(Con "o")}}))
 
 (define-global (Cod C)
   (Con "cod")
   (Sub C))
 
 (define-local (bold kwd)
-  @tex{\mathbf{@kwd}})
+  @raw{\mathbf{@kwd}})
 
 (define-global (TOP E)
   (bold "Top")
@@ -68,22 +68,22 @@
   "1" (Sub x))
 
 (define-global (TotCat E)
-  @tex{\widetilde{@E}})
+  @raw{\widetilde{@E}})
 
 (define-global (SelfIx B)
-  @tex{\underline{@B}})
+  @raw{\underline{@B}})
 
 (define-global (Sl E e)
-  E (Sub @tex{/@e}))
+  E (Sub @raw{/@e}))
 
 (define-global (CoSl e E)
-  E (Sup @\tex{\setminus @e}))
+  E (Sup @raw{\setminus @e}))
 
 
 (define-global (InvImg f)
-  f (Sup @tex{*}))
+  f (Sup @raw{*}))
 (define-global (DirImg f)
-  f (Sub @tex{*}))
+  f (Sub @raw{*}))
 
 (define-global (SET)
   (bold "Set"))
@@ -94,24 +94,23 @@
 (define-global (CandHom i u v)
   (bold "H") (Sub i) "(" u "," v ")")
 
-
 (define-global (brc x)
-  @tex{\{ @x \}})
+  @raw{\{ @x \}})
 
 (define-global (gl x)
-  @tex{\langle @x \rangle})
+  @raw{\langle @x \rangle})
 
 (define-global (brk x)
-  @tex{[@x]})
+  @raw{[@x]})
 
 (define-global (prn x)
-  @tex{(@x)})
+  @raw{(@x)})
 
 (define-global (FullSubfib u)
   (bold "Full") (prn u))
 
 (define-global (tick)
-  @tex{'})
+  @raw{'})
 
 (define-global (ObjTerm E)
   (bold "1") (Sub E))

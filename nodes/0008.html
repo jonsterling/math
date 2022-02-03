@@ -14,17 +14,20 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0008.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-02-03T11:45:22+01:00" />
+<meta property="article:published_time" content="2022-02-03T16:40:00+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Displayed categories and fibrations" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Displayed categories and fibrations","dateModified":"2022-02-03T11:45:22+01:00","datePublished":"2022-02-03T11:45:22+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0008.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0008.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Displayed categories and fibrations","dateModified":"2022-02-03T16:40:00+01:00","datePublished":"2022-02-03T16:40:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0008.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0008.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js" integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
 <script>
   const macros_promise =
@@ -67,12 +70,69 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
+        <div class="trigger">
+          <a class="page-link" id="search-toggle">Search</a><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <style>
+  ul.toc li.ellipsis {
+    height: 0;
+    overflow: hidden;
+  }
+  section.ellipsis > header {
+    opacity: 0.5;
+    border-bottom: 3px dashed black;
+  }
+  section.ellipsis > :not(header) {
+    display: none;
+  }
+  #search-form {
+    margin-bottom: 2rem;
+  }
+  #search-form fieldset {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #search-form input {
+    flex-grow: 1;
+  }
+  #search-form .hint {
+    flex-basis: 100%;
+    margin: 0;
+  }
+  #search-form .hint summary {
+    font-size: small;
+  }
+</style>
+
+<script src="/math/assets/search.js"></script>
+
+<form id="search-form" hidden>
+  <fieldset>
+    <legend>Search</legend>
+    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
+    <button type="submit">Search</button>
+    <button type="reset">Clear</button>
+    <details class="hint">
+      <summary>Click here for help.</summary>
+      <ul>
+        <li>You can type your query in the input box, click "Search" to start the search, and click "Clear" to clear the page.</li>
+        <li>The search happens on the current page. If you want to extend it, navigate the book upwards. A search on the root note will search the whole book.</li>
+        <li>Once the search is completed, matches will be highlighted and nodes with no matches will be folded. You can expand them by clicking.</li>
+        <li>Multiple terms are allowed in the query and the default behaviour is <code>OR</code>ing them. You can <code>AND</code> terms making them mandatory, see <code>+foo</code> below.</li>
+        <li><code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
+        <li><code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
+        <li><code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
+        <li>Note that the URL changes after a search. You can copy and paste it to share your search results. They will be displayed immediately upon visiting the URL.</li>
+      </ul>
+    </details>
+  </fieldset>
+</form>
+
+
+<article class="post">
   <nav>
     <style>
   .breadcrumbs {
@@ -97,10 +157,10 @@
   </nav>
 
   <div class="post-content">
-    <section>
+    <section id="0008">
 
 
-<header id="0008">
+<header>
   <h2>
     
       <span class="numbering">2.</span>
@@ -280,10 +340,10 @@
 
 
 
-  <section>
+  <section id="0000">
 
 
-<header class="inline" id="0000">
+<header class="inline">
   <a class="slug" href="/math/nodes/0000.html">[0000]</a>
   <span class='numbering'>Definition 2·a</span> (Displayed category).
 </header>
@@ -317,10 +377,10 @@ laws for the base category $B$.</li>
 
   </section>
 
-  <section>
+  <section id="0001">
 
 
-<header class="inline" id="0001">
+<header class="inline">
   <a class="slug" href="/math/nodes/0001.html">[0001]</a>
   <span class='numbering'>Definition 2·b</span> (Cartesian morphisms).
 </header>
@@ -339,10 +399,10 @@ of a category.</p>
 
   </section>
 
-  <section>
+  <section id="0002">
 
 
-<header class="inline" id="0002">
+<header class="inline">
   <a class="slug" href="/math/nodes/0002.html">[0002]</a>
   <span class='numbering'>Definition 2·c</span> (Cartesian fibration).
 </header>
@@ -360,10 +420,10 @@ unique isomorphism, so being a cartesian fibration is a <em>property</em> of a d
 
   </section>
 
-  <section>
+  <section id="0003">
 
 
-<header id="0003">
+<header>
   <h3>
     
       <span class="numbering">2.1.</span>
@@ -375,10 +435,10 @@ unique isomorphism, so being a cartesian fibration is a <em>property</em> of a d
 
 
 
-    <section>
+    <section id="001X">
 
 
-<header class="inline" id="001X">
+<header class="inline">
   <a class="slug" href="/math/nodes/001X.html">[001X]</a>
   <span class='numbering'>Construction 2.1·a</span> (The canonical self-indexing).
 </header>
@@ -396,10 +456,10 @@ commuting squares in the following configuration:
 
     </section>
 
-    <section>
+    <section id="001Y">
 
 
-<header class="inline" id="001Y">
+<header class="inline">
   <a class="slug" href="/math/nodes/001Y.html">[001Y]</a>
   <span class='numbering'>Exercise 2.1·b</span>.
 </header>
@@ -411,10 +471,10 @@ commuting squares in the following configuration:
 
   </section>
 
-  <section>
+  <section id="0014">
 
 
-<header id="0014">
+<header>
   <h3>
     
       <span class="numbering">2.2.</span>
@@ -429,10 +489,10 @@ commuting squares in the following configuration:
     <p>In light of <a href="/math/nodes/0003.html" role="tooltip" aria-label="Section 2.1. The canonical self-indexing" class="slug">[0003]</a>, the following result for displayed categories generalizes
 the ordinary “pullback lemma.”</p>
 
-    <section>
+    <section id="001H">
 
 
-<header class="inline" id="001H">
+<header class="inline">
   <a class="slug" href="/math/nodes/001H.html">[001H]</a>
   <span class='numbering'>Lemma 2.2·a</span> (Generalized pullback lemma).
 </header>
@@ -469,10 +529,10 @@ $\bar{h} = i;\bar{f}$, as required.
 
   </section>
 
-  <section>
+  <section id="0029">
 
 
-<header id="0029">
+<header>
   <h3>
     
       <span class="numbering">2.3.</span>
@@ -489,10 +549,10 @@ equivalent definition of cartesian fibration that factors through a
 <em>nonequivalent</em> definition of cartesian morphisms. Such authors refer to our
 notion of cartesian morphism as <em>hypercartesian</em> <a class="citation" href="#streicher:2018">(Streicher, 2018)</a>.</p>
 
-    <section>
+    <section id="002A">
 
 
-<header class="inline" id="002A">
+<header class="inline">
   <a class="slug" href="/math/nodes/002A.html">[002A]</a>
   <span class='numbering'>Definition 2.3·a</span> (Hypocartesian morphisms).
 </header>
@@ -510,10 +570,10 @@ unique $i : \bar{u}\to\Sub{\Idn{x}} \bar{x}$ with $i;\bar{f} = \bar{h}$ as follo
 but the converse does not hold. The problem is that in an arbitrary displayed
 category, hypocartesian morphisms may not be closed under composition.</p>
 
-    <section>
+    <section id="002C">
 
 
-<header class="inline" id="002C">
+<header class="inline">
   <a class="slug" href="/math/nodes/002C.html">[002C]</a>
   <span class='numbering'>Lemma 2.3·b</span> (Hypocartesian = cartesian in a cartesian fibration).
 </header>
@@ -545,10 +605,10 @@ morphisms, and therefore imposes the additional constraint that the
 hypocartesian morphisms be closed under composition. In <a href="/math/nodes/002B.html" role="tooltip" aria-label="Lemma 2.3·c. Equivalence with Grothendieck&#39;s fibrations" class="cref"><span class="numbering">Lemma 2.3·c</span> <span class="slug">[002B]</span></a> below, we
 verify that these two definitions of cartesian fibration coincide.</p>
 
-    <section>
+    <section id="002B">
 
 
-<header class="inline" id="002B">
+<header class="inline">
   <a class="slug" href="/math/nodes/002B.html">[002B]</a>
   <span class='numbering'>Lemma 2.3·c</span> (Equivalence with Grothendieck's fibrations).
 </header>
@@ -593,10 +653,10 @@ being hypocartesian.
 
     </section>
 
-    <section>
+    <section id="002D">
 
 
-<header class="inline" id="002D">
+<header class="inline">
   <a class="slug" href="/math/nodes/002D.html">[002D]</a>
   <span class='numbering'>Remark 2.3·d</span> (Two ways to generalize pullbacks).
 </header>
@@ -616,10 +676,10 @@ have pointed out in <a href="/math/nodes/001Y.html" role="tooltip" aria-label="E
 
   </section>
 
-  <section>
+  <section id="0004">
 
 
-<header id="0004">
+<header>
   <h3>
     
       <span class="numbering">2.4.</span>
@@ -651,10 +711,10 @@ functors</em>.</p>
 
   </section>
 
-  <section>
+  <section id="0005">
 
 
-<header id="0005">
+<header>
   <h3>
     
       <span class="numbering">2.5.</span>
@@ -674,10 +734,10 @@ of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
 
   </section>
 
-  <section>
+  <section id="000Q">
 
 
-<header id="000Q">
+<header>
   <h3>
     
       <span class="numbering">2.6.</span>
@@ -691,10 +751,10 @@ of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
 
     <p>We adapt Bénabou’s construction as reported by Streicher <a class="citation" href="#streicher:2018">(<i>Fibred Categories à La Jean Bénabou</i>, 2018)</a>.</p>
 
-    <section>
+    <section id="001Z">
 
 
-<header class="inline" id="001Z">
+<header class="inline">
   <a class="slug" href="/math/nodes/001Z.html">[001Z]</a>
   <span class='numbering'>Construction 2.6·a</span>.
 </header>
@@ -722,10 +782,10 @@ induced by the universal property of cartesian maps in the sense that the follow
 
     </section>
 
-    <section>
+    <section id="000T">
 
 
-<header id="000T">
+<header>
   <h4>
     
       <span class="numbering">2.6.1.</span>
@@ -739,10 +799,10 @@ induced by the universal property of cartesian maps in the sense that the follow
 
       <p>There is a simple characterization of cartesian maps in $\OpCat{E}$.</p>
 
-      <section>
+      <section id="0020">
 
 
-<header class="inline" id="0020">
+<header class="inline">
   <a class="slug" href="/math/nodes/0020.html">[0020]</a>
   <span class='numbering'>Lemma 2.6.1·a</span>.
 </header>
@@ -767,10 +827,10 @@ We first translate the above into the language of $E$ by unfolding definitions:
 
     </section>
 
-    <section>
+    <section id="000U">
 
 
-<header id="000U">
+<header>
   <h4>
     
       <span class="numbering">2.6.2.</span>
@@ -785,10 +845,10 @@ We first translate the above into the language of $E$ by unfolding definitions:
       <p>The foregoing characterization of cartesian maps in $\OpCat{E}$
 immediately implies that $\OpCat{E}$ is fibered over $B$.</p>
 
-      <section>
+      <section id="0021">
 
 
-<header class="inline" id="0021">
+<header class="inline">
   <a class="slug" href="/math/nodes/0021.html">[0021]</a>
   <span class='numbering'>Corollary 2.6.2·a</span>.
 </header>
@@ -807,10 +867,10 @@ By the characterization <a href="/math/nodes/000T.html" role="tooltip" aria-labe
 
     </section>
 
-    <section>
+    <section id="000S">
 
 
-<header id="000S">
+<header>
   <h4>
     
       <span class="numbering">2.6.3.</span>
@@ -839,10 +899,10 @@ different cartesian lifts $v\Sub{x}\to x$. A displayed morphism that is cartesia
 
   </section>
 
-  <section>
+  <section id="0006">
 
 
-<header id="0006">
+<header>
   <h3>
     
       <span class="numbering">2.7.</span>
@@ -879,10 +939,10 @@ generalizing the classical notions.</p>
 
   </section>
 
-  <section>
+  <section id="0007">
 
 
-<header id="0007">
+<header>
   <h3>
     
       <span class="numbering">2.8.</span>
@@ -912,10 +972,10 @@ functor; then we may define a displayed category $\InvImg{F}E$ as over $X$ follo
 
   </section>
 
-  <section>
+  <section id="002J">
 
 
-<header id="002J">
+<header>
   <h3>
     
       <span class="numbering">2.9.</span>
@@ -942,10 +1002,10 @@ generalize this situation to the case of an arbitrary fibration, by
 constructing the full subfibration spanned by displayed objects equipped
 with a cartesian morphism into $\bar{u}$ in <a href="/math/nodes/0010.html" role="tooltip" aria-label="Construction 2.9·a. The full subfibration associated to a displayed object" class="cref"><span class="numbering">Construction 2.9·a</span> <span class="slug">[0010]</span></a> below.</p>
 
-    <section>
+    <section id="0010">
 
 
-<header class="inline" id="0010">
+<header class="inline">
   <a class="slug" href="/math/nodes/0010.html">[0010]</a>
   <span class='numbering'>Construction 2.9·a</span> (The full subfibration associated to a displayed object).
 </header>
@@ -965,10 +1025,10 @@ over $B$; then any displayed object $\bar{x} \in E\Sub{x}$ induces a <em>full su
 
     </section>
 
-    <section>
+    <section id="002K">
 
 
-<header class="inline" id="002K">
+<header class="inline">
   <a class="slug" href="/math/nodes/002K.html">[002K]</a>
   <span class='numbering'>Definition 2.9·b</span> (Figures and figure shapes in the full subfibration).
 </header>

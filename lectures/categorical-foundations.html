@@ -25,6 +25,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js" integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
 <script>
   const macros_promise =
@@ -67,12 +70,69 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
+        <div class="trigger">
+          <a class="page-link" id="search-toggle">Search</a><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <style>
+  ul.toc li.ellipsis {
+    height: 0;
+    overflow: hidden;
+  }
+  section.ellipsis > header {
+    opacity: 0.5;
+    border-bottom: 3px dashed black;
+  }
+  section.ellipsis > :not(header) {
+    display: none;
+  }
+  #search-form {
+    margin-bottom: 2rem;
+  }
+  #search-form fieldset {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #search-form input {
+    flex-grow: 1;
+  }
+  #search-form .hint {
+    flex-basis: 100%;
+    margin: 0;
+  }
+  #search-form .hint summary {
+    font-size: small;
+  }
+</style>
+
+<script src="/math/assets/search.js"></script>
+
+<form id="search-form" hidden>
+  <fieldset>
+    <legend>Search</legend>
+    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
+    <button type="submit">Search</button>
+    <button type="reset">Clear</button>
+    <details class="hint">
+      <summary>Click here for help.</summary>
+      <ul>
+        <li>You can type your query in the input box, click "Search" to start the search, and click "Clear" to clear the page.</li>
+        <li>The search happens on the current page. If you want to extend it, navigate the book upwards. A search on the root note will search the whole book.</li>
+        <li>Once the search is completed, matches will be highlighted and nodes with no matches will be folded. You can expand them by clicking.</li>
+        <li>Multiple terms are allowed in the query and the default behaviour is <code>OR</code>ing them. You can <code>AND</code> terms making them mandatory, see <code>+foo</code> below.</li>
+        <li><code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
+        <li><code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
+        <li><code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
+        <li>Note that the URL changes after a search. You can copy and paste it to share your search results. They will be displayed immediately upon visiting the URL.</li>
+      </ul>
+    </details>
+  </fieldset>
+</form>
+
+
+<article class="post">
   <nav>
     <style>
   .breadcrumbs {
@@ -86,10 +146,10 @@
   </nav>
 
   <div class="post-content">
-    <section>
+    <section id="categorical-foundations">
 
 
-<header id="categorical-foundations">
+<header>
   <h1>
     
       Foundations of Relative Category Theory
@@ -666,10 +726,10 @@ notion of a category <em>over</em> another category.</p>
     </ul>
   </blockquote>
 
-  <section>
+  <section id="000R">
 
 
-<header id="000R">
+<header>
   <h2>
     
       <span class="numbering">1.</span>
@@ -681,10 +741,10 @@ notion of a category <em>over</em> another category.</p>
 
 
 
-    <section>
+    <section id="001F">
 
 
-<header class="inline" id="001F">
+<header class="inline">
   <a class="slug" href="/math/nodes/001F.html">[001F]</a>
   <span class='numbering'>Definition 1·a</span>.
 </header>
@@ -719,10 +779,10 @@ well-defined; the notion is entirely schematic.</p>
     <p><strong>Assumption.</strong> We assume a meta-category $\BoldSymbol{\mathfrak{Coll}}$ whose
 objects we will refer to as “collections”. We assume that the meta-category of all collections satisfies the axioms of Lawvere’s <a href="http://ncatlab.org/nlab/show/ETCS">ETCS</a>.</p>
 
-    <section>
+    <section id="001G">
 
 
-<header class="inline" id="001G">
+<header class="inline">
   <a class="slug" href="/math/nodes/001G.html">[001G]</a>
   <span class='numbering'>Definition 1·b</span>.
 </header>
@@ -750,10 +810,10 @@ $B$, generalizing the role of $\SET$ from classical category theory.</p>
 
   </section>
 
-  <section>
+  <section id="0008">
 
 
-<header id="0008">
+<header>
   <h2>
     
       <span class="numbering">2.</span>
@@ -765,10 +825,10 @@ $B$, generalizing the role of $\SET$ from classical category theory.</p>
 
 
 
-    <section>
+    <section id="0000">
 
 
-<header class="inline" id="0000">
+<header class="inline">
   <a class="slug" href="/math/nodes/0000.html">[0000]</a>
   <span class='numbering'>Definition 2·a</span> (Displayed category).
 </header>
@@ -802,10 +862,10 @@ laws for the base category $B$.</li>
 
     </section>
 
-    <section>
+    <section id="0001">
 
 
-<header class="inline" id="0001">
+<header class="inline">
   <a class="slug" href="/math/nodes/0001.html">[0001]</a>
   <span class='numbering'>Definition 2·b</span> (Cartesian morphisms).
 </header>
@@ -824,10 +884,10 @@ of a category.</p>
 
     </section>
 
-    <section>
+    <section id="0002">
 
 
-<header class="inline" id="0002">
+<header class="inline">
   <a class="slug" href="/math/nodes/0002.html">[0002]</a>
   <span class='numbering'>Definition 2·c</span> (Cartesian fibration).
 </header>
@@ -845,10 +905,10 @@ unique isomorphism, so being a cartesian fibration is a <em>property</em> of a d
 
     </section>
 
-    <section>
+    <section id="0003">
 
 
-<header id="0003">
+<header>
   <h3>
     
       <span class="numbering">2.1.</span>
@@ -860,10 +920,10 @@ unique isomorphism, so being a cartesian fibration is a <em>property</em> of a d
 
 
 
-      <section>
+      <section id="001X">
 
 
-<header class="inline" id="001X">
+<header class="inline">
   <a class="slug" href="/math/nodes/001X.html">[001X]</a>
   <span class='numbering'>Construction 2.1·a</span> (The canonical self-indexing).
 </header>
@@ -881,10 +941,10 @@ commuting squares in the following configuration:
 
       </section>
 
-      <section>
+      <section id="001Y">
 
 
-<header class="inline" id="001Y">
+<header class="inline">
   <a class="slug" href="/math/nodes/001Y.html">[001Y]</a>
   <span class='numbering'>Exercise 2.1·b</span>.
 </header>
@@ -896,10 +956,10 @@ commuting squares in the following configuration:
 
     </section>
 
-    <section>
+    <section id="0014">
 
 
-<header id="0014">
+<header>
   <h3>
     
       <span class="numbering">2.2.</span>
@@ -914,10 +974,10 @@ commuting squares in the following configuration:
       <p>In light of <a href="/math/nodes/0003.html" role="tooltip" aria-label="Section 2.1. The canonical self-indexing" class="slug">[0003]</a>, the following result for displayed categories generalizes
 the ordinary “pullback lemma.”</p>
 
-      <section>
+      <section id="001H">
 
 
-<header class="inline" id="001H">
+<header class="inline">
   <a class="slug" href="/math/nodes/001H.html">[001H]</a>
   <span class='numbering'>Lemma 2.2·a</span> (Generalized pullback lemma).
 </header>
@@ -954,10 +1014,10 @@ $\bar{h} = i;\bar{f}$, as required.
 
     </section>
 
-    <section>
+    <section id="0029">
 
 
-<header id="0029">
+<header>
   <h3>
     
       <span class="numbering">2.3.</span>
@@ -974,10 +1034,10 @@ equivalent definition of cartesian fibration that factors through a
 <em>nonequivalent</em> definition of cartesian morphisms. Such authors refer to our
 notion of cartesian morphism as <em>hypercartesian</em> <a class="citation" href="#streicher:2018">(Streicher, 2018)</a>.</p>
 
-      <section>
+      <section id="002A">
 
 
-<header class="inline" id="002A">
+<header class="inline">
   <a class="slug" href="/math/nodes/002A.html">[002A]</a>
   <span class='numbering'>Definition 2.3·a</span> (Hypocartesian morphisms).
 </header>
@@ -995,10 +1055,10 @@ unique $i : \bar{u}\to\Sub{\Idn{x}} \bar{x}$ with $i;\bar{f} = \bar{h}$ as follo
 but the converse does not hold. The problem is that in an arbitrary displayed
 category, hypocartesian morphisms may not be closed under composition.</p>
 
-      <section>
+      <section id="002C">
 
 
-<header class="inline" id="002C">
+<header class="inline">
   <a class="slug" href="/math/nodes/002C.html">[002C]</a>
   <span class='numbering'>Lemma 2.3·b</span> (Hypocartesian = cartesian in a cartesian fibration).
 </header>
@@ -1030,10 +1090,10 @@ morphisms, and therefore imposes the additional constraint that the
 hypocartesian morphisms be closed under composition. In <a href="/math/nodes/002B.html" role="tooltip" aria-label="Lemma 2.3·c. Equivalence with Grothendieck&#39;s fibrations" class="cref"><span class="numbering">Lemma 2.3·c</span> <span class="slug">[002B]</span></a> below, we
 verify that these two definitions of cartesian fibration coincide.</p>
 
-      <section>
+      <section id="002B">
 
 
-<header class="inline" id="002B">
+<header class="inline">
   <a class="slug" href="/math/nodes/002B.html">[002B]</a>
   <span class='numbering'>Lemma 2.3·c</span> (Equivalence with Grothendieck's fibrations).
 </header>
@@ -1078,10 +1138,10 @@ being hypocartesian.
 
       </section>
 
-      <section>
+      <section id="002D">
 
 
-<header class="inline" id="002D">
+<header class="inline">
   <a class="slug" href="/math/nodes/002D.html">[002D]</a>
   <span class='numbering'>Remark 2.3·d</span> (Two ways to generalize pullbacks).
 </header>
@@ -1101,10 +1161,10 @@ have pointed out in <a href="/math/nodes/001Y.html" role="tooltip" aria-label="E
 
     </section>
 
-    <section>
+    <section id="0004">
 
 
-<header id="0004">
+<header>
   <h3>
     
       <span class="numbering">2.4.</span>
@@ -1136,10 +1196,10 @@ functors</em>.</p>
 
     </section>
 
-    <section>
+    <section id="0005">
 
 
-<header id="0005">
+<header>
   <h3>
     
       <span class="numbering">2.5.</span>
@@ -1159,10 +1219,10 @@ of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
 
     </section>
 
-    <section>
+    <section id="000Q">
 
 
-<header id="000Q">
+<header>
   <h3>
     
       <span class="numbering">2.6.</span>
@@ -1176,10 +1236,10 @@ of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
 
       <p>We adapt Bénabou’s construction as reported by Streicher <a class="citation" href="#streicher:2018">(<i>Fibred Categories à La Jean Bénabou</i>, 2018)</a>.</p>
 
-      <section>
+      <section id="001Z">
 
 
-<header class="inline" id="001Z">
+<header class="inline">
   <a class="slug" href="/math/nodes/001Z.html">[001Z]</a>
   <span class='numbering'>Construction 2.6·a</span>.
 </header>
@@ -1207,10 +1267,10 @@ induced by the universal property of cartesian maps in the sense that the follow
 
       </section>
 
-      <section>
+      <section id="000T">
 
 
-<header id="000T">
+<header>
   <h4>
     
       <span class="numbering">2.6.1.</span>
@@ -1224,10 +1284,10 @@ induced by the universal property of cartesian maps in the sense that the follow
 
         <p>There is a simple characterization of cartesian maps in $\OpCat{E}$.</p>
 
-        <section>
+        <section id="0020">
 
 
-<header class="inline" id="0020">
+<header class="inline">
   <a class="slug" href="/math/nodes/0020.html">[0020]</a>
   <span class='numbering'>Lemma 2.6.1·a</span>.
 </header>
@@ -1252,10 +1312,10 @@ We first translate the above into the language of $E$ by unfolding definitions:
 
       </section>
 
-      <section>
+      <section id="000U">
 
 
-<header id="000U">
+<header>
   <h4>
     
       <span class="numbering">2.6.2.</span>
@@ -1270,10 +1330,10 @@ We first translate the above into the language of $E$ by unfolding definitions:
         <p>The foregoing characterization of cartesian maps in $\OpCat{E}$
 immediately implies that $\OpCat{E}$ is fibered over $B$.</p>
 
-        <section>
+        <section id="0021">
 
 
-<header class="inline" id="0021">
+<header class="inline">
   <a class="slug" href="/math/nodes/0021.html">[0021]</a>
   <span class='numbering'>Corollary 2.6.2·a</span>.
 </header>
@@ -1292,10 +1352,10 @@ By the characterization <a href="/math/nodes/000T.html" role="tooltip" aria-labe
 
       </section>
 
-      <section>
+      <section id="000S">
 
 
-<header id="000S">
+<header>
   <h4>
     
       <span class="numbering">2.6.3.</span>
@@ -1324,10 +1384,10 @@ different cartesian lifts $v\Sub{x}\to x$. A displayed morphism that is cartesia
 
     </section>
 
-    <section>
+    <section id="0006">
 
 
-<header id="0006">
+<header>
   <h3>
     
       <span class="numbering">2.7.</span>
@@ -1364,10 +1424,10 @@ generalizing the classical notions.</p>
 
     </section>
 
-    <section>
+    <section id="0007">
 
 
-<header id="0007">
+<header>
   <h3>
     
       <span class="numbering">2.8.</span>
@@ -1397,10 +1457,10 @@ functor; then we may define a displayed category $\InvImg{F}E$ as over $X$ follo
 
     </section>
 
-    <section>
+    <section id="002J">
 
 
-<header id="002J">
+<header>
   <h3>
     
       <span class="numbering">2.9.</span>
@@ -1427,10 +1487,10 @@ generalize this situation to the case of an arbitrary fibration, by
 constructing the full subfibration spanned by displayed objects equipped
 with a cartesian morphism into $\bar{u}$ in <a href="/math/nodes/0010.html" role="tooltip" aria-label="Construction 2.9·a. The full subfibration associated to a displayed object" class="cref"><span class="numbering">Construction 2.9·a</span> <span class="slug">[0010]</span></a> below.</p>
 
-      <section>
+      <section id="0010">
 
 
-<header class="inline" id="0010">
+<header class="inline">
   <a class="slug" href="/math/nodes/0010.html">[0010]</a>
   <span class='numbering'>Construction 2.9·a</span> (The full subfibration associated to a displayed object).
 </header>
@@ -1450,10 +1510,10 @@ over $B$; then any displayed object $\bar{x} \in E\Sub{x}$ induces a <em>full su
 
       </section>
 
-      <section>
+      <section id="002K">
 
 
-<header class="inline" id="002K">
+<header class="inline">
   <a class="slug" href="/math/nodes/002K.html">[002K]</a>
   <span class='numbering'>Definition 2.9·b</span> (Figures and figure shapes in the full subfibration).
 </header>
@@ -1478,10 +1538,10 @@ whenever $\bar{z}\in\FullSubfib{\bar{s}}$.</p>
 
   </section>
 
-  <section>
+  <section id="0009">
 
 
-<header id="0009">
+<header>
   <h2>
     
       <span class="numbering">3.</span>
@@ -1493,10 +1553,10 @@ whenever $\bar{z}\in\FullSubfib{\bar{s}}$.</p>
 
 
 
-    <section>
+    <section id="000A">
 
 
-<header id="000A">
+<header>
   <h3>
     
       <span class="numbering">3.1.</span>
@@ -1521,10 +1581,10 @@ $f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
 
       <p>The construction of the total category of a displayed category is called the <em>Grothendieck construction.</em></p>
 
-      <section>
+      <section id="001T">
 
 
-<header class="inline" id="001T">
+<header class="inline">
   <a class="slug" href="/math/nodes/001T.html">[001T]</a>
   <span class='numbering'>Exercise 3.1·a</span>.
 </header>
@@ -1536,10 +1596,10 @@ $f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
 
     </section>
 
-    <section>
+    <section id="000B">
 
 
-<header id="000B">
+<header>
   <h3>
     
       <span class="numbering">3.2.</span>
@@ -1573,10 +1633,10 @@ $\phi\Sub{u},\phi\Sub{v}$ in sense depicted below:
         </li>
       </ol>
 
-      <section>
+      <section id="001U">
 
 
-<header class="inline" id="001U">
+<header class="inline">
   <a class="slug" href="/math/nodes/001U.html">[001U]</a>
   <span class='numbering'>Exercise 3.2·a</span>.
 </header>
@@ -1592,10 +1652,10 @@ collection of objects $u\in E$ such that $Pu = x$.</p>
       <p>We have a functor $\TotCat{P\Sub{\bullet}}\to E$ taking a pair $(x,(u,\phi\Sub{u}))$ to
 $u$.</p>
 
-      <section>
+      <section id="001V">
 
 
-<header class="inline" id="001V">
+<header class="inline">
   <a class="slug" href="/math/nodes/001V.html">[001V]</a>
   <span class='numbering'>Exercise 3.2·b</span>.
 </header>
@@ -1605,10 +1665,10 @@ $u$.</p>
 
       </section>
 
-      <section>
+      <section id="001W">
 
 
-<header class="inline" id="001W">
+<header class="inline">
   <a class="slug" href="/math/nodes/001W.html">[001W]</a>
   <span class='numbering'>Exercise 3.2·c</span>.
 </header>
@@ -1618,10 +1678,10 @@ $u$.</p>
 
       </section>
 
-      <section>
+      <section id="000C">
 
 
-<header id="000C">
+<header>
   <h4>
     
       <span class="numbering">3.2.1.</span>
@@ -1656,10 +1716,10 @@ Grothendieck fibrations.</p>
 
     </section>
 
-    <section>
+    <section id="000D">
 
 
-<header id="000D">
+<header>
   <h3>
     
       <span class="numbering">3.3.</span>
@@ -1703,10 +1763,10 @@ change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Secti
 
   </section>
 
-  <section>
+  <section id="000E">
 
 
-<header id="000E">
+<header>
   <h2>
     
       <span class="numbering">4.</span>
@@ -1718,10 +1778,10 @@ change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Secti
 
 
 
-    <section>
+    <section id="000F">
 
 
-<header id="000F">
+<header>
   <h3>
     
       <span class="numbering">4.1.</span>
@@ -1737,10 +1797,10 @@ change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Secti
 small fibration. We attempt to provide
 some intuition for these definitions.</p>
 
-      <section>
+      <section id="000G">
 
 
-<header id="000G">
+<header>
   <h4>
     
       <span class="numbering">4.1.1.</span>
@@ -1769,10 +1829,10 @@ consider in particular the case that $I=\mathbf{1}$.</p>
 
       </section>
 
-      <section>
+      <section id="000H">
 
 
-<header id="000H">
+<header>
   <h4>
     
       <span class="numbering">4.1.2.</span>
@@ -1811,10 +1871,10 @@ in the sense depicted below:
 
       </section>
 
-      <section>
+      <section id="000I">
 
 
-<header id="000I">
+<header>
   <h4>
     
       <span class="numbering">4.1.3.</span>
@@ -1831,10 +1891,10 @@ understand) the proper definition of local smallness for an arbitrary cartesian 
 $E$ over $B$, which should be thought of as a (potentially large) category
 relative to $B$.</p>
 
-        <section>
+        <section id="001C">
 
 
-<header class="inline" id="001C">
+<header class="inline">
   <a class="slug" href="/math/nodes/001C.html">[001C]</a>
   <span class='numbering'>Definition 4.1.3·a</span> (Hom candidates).
 </header>
@@ -1865,10 +1925,10 @@ following diagram commutes:
 
         </section>
 
-        <section>
+        <section id="001B">
 
 
-<header class="inline" id="001B">
+<header class="inline">
   <a class="slug" href="/math/nodes/001B.html">[001B]</a>
   <span class='numbering'>Definition 4.1.3·b</span> (Locally small fibration).
 </header>
@@ -1884,10 +1944,10 @@ has a terminal object.</p>
 
     </section>
 
-    <section>
+    <section id="000J">
 
 
-<header id="000J">
+<header>
   <h3>
     
       <span class="numbering">4.2.</span>
@@ -1906,10 +1966,10 @@ when we generalize them to fibrations. The latter is called <em>local smallness<
 and is discussed and defined in <a href="/math/nodes/000F.html" role="tooltip" aria-label="Section 4.1. Locally small fibrations" class="cref"><span class="numbering">Section 4.1</span> <span class="slug">[000F]</span></a>; the former is called <em>global
 smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical Logic and Type Theory</i>, 1999)</a> and factors through an important concept: the <em>generic object</em>.</p>
 
-      <section>
+      <section id="001D">
 
 
-<header class="inline" id="001D">
+<header class="inline">
   <a class="slug" href="/math/nodes/001D.html">[001D]</a>
   <span class='numbering'>Definition 4.2·a</span>.
 </header>
@@ -1919,10 +1979,10 @@ smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical
 
       </section>
 
-      <section>
+      <section id="000K">
 
 
-<header id="000K">
+<header>
   <h4>
     
       <span class="numbering">4.2.1.</span>
@@ -1936,10 +1996,10 @@ smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical
 
         <p>Up to equivalence of categories, we may detect global smallness of a category $C$ from the perspective of the family fibration $\FAM{C}$ (<a href="/math/nodes/0006.html" role="tooltip" aria-label="Section 2.7. Example: the family fibration" class="cref"><span class="numbering">Section 2.7</span> <span class="slug">[0006]</span></a>). In particular, a category is equivalent to a globally small category when its family fibration has a <em>generic object</em> in the following sense.</p>
 
-        <section>
+        <section id="001E">
 
 
-<header class="inline" id="001E">
+<header class="inline">
   <a class="slug" href="/math/nodes/001E.html">[001E]</a>
   <span class='numbering'>Definition 4.2.1·a</span> (Generic object).
 </header>
@@ -1951,10 +2011,10 @@ smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical
 
         </section>
 
-        <section>
+        <section id="000L">
 
 
-<header class="inline" id="000L">
+<header class="inline">
   <a class="slug" href="/math/nodes/000L.html">[000L]</a>
   <span class='numbering'>Theorem 4.2.1·b</span> (Globally small categories).
 </header>
@@ -1992,10 +2052,10 @@ up to isomorphism, we must include them explicitly in the data.
 
       </section>
 
-      <section>
+      <section id="000P">
 
 
-<header class="inline" id="000P">
+<header class="inline">
   <a class="slug" href="/math/nodes/000P.html">[000P]</a>
   <span class='numbering'>Definition 4.2·b</span> (Globally small fibration).
 </header>
@@ -2007,10 +2067,10 @@ up to isomorphism, we must include them explicitly in the data.
 
     </section>
 
-    <section>
+    <section id="002E">
 
 
-<header id="002E">
+<header>
   <h3>
     
       <span class="numbering">4.3.</span>
@@ -2029,10 +2089,10 @@ only on generalized elements. In some cases, however, there is a family of
 objects $\prn{s\Sub{i}}\Sub{i\in I}\in E$ are together <em>adequate</em> for comparing
 morphisms of $E$ in the sense of <a href="/math/nodes/002G.html" role="tooltip" aria-label="Definition 4.3·a. Separating family for a category" class="cref"><span class="numbering">Definition 4.3·a</span> <span class="slug">[002G]</span></a> below.</p>
 
-      <section>
+      <section id="002G">
 
 
-<header class="inline" id="002G">
+<header class="inline">
   <a class="slug" href="/math/nodes/002G.html">[002G]</a>
   <span class='numbering'>Definition 4.3·a</span> (Separating family for a category).
 </header>
@@ -2049,10 +2109,10 @@ $u;f=u;g$, we then have $f=g$.</p>
 it suffices to check that they behave the same on all $s\Sub{i}$-shaped figures
 when $\prn{s\Sub{i}}\Sub{i\in I}$ is a separating family for $E$.</p>
 
-      <section>
+      <section id="002F">
 
 
-<header class="inline" id="002F">
+<header class="inline">
   <a class="slug" href="/math/nodes/002F.html">[002F]</a>
   <span class='numbering'>Example 4.3·b</span> (Well-pointedness of the category of sets).
 </header>
@@ -2066,10 +2126,10 @@ $\brc{\ObjTerm{\SET}}$ is a separator for $\SET$, a property referred to more ge
 
       <p>We will now generalize <a href="/math/nodes/002G.html" role="tooltip" aria-label="Definition 4.3·a. Separating family for a category" class="cref"><span class="numbering">Definition 4.3·a</span> <span class="slug">[002G]</span></a> to the case of a cartesian fibration.</p>
 
-      <section>
+      <section id="002I">
 
 
-<header class="inline" id="002I">
+<header class="inline">
   <a class="slug" href="/math/nodes/002I.html">[002I]</a>
   <span class='numbering'>Definition 4.3·c</span> (Agreement on a class of figure shapes).
 </header>
@@ -2082,10 +2142,10 @@ $h : \bar{z}\to \bar{x}$ in the sense of <a href="/math/nodes/002K.html" role="t
 
       </section>
 
-      <section>
+      <section id="002H">
 
 
-<header class="inline" id="002H">
+<header class="inline">
   <a class="slug" href="/math/nodes/002H.html">[002H]</a>
   <span class='numbering'>Definition 4.3·d</span> (Small separator for a fibration).
 </header>
@@ -2099,10 +2159,10 @@ binary products. A displayed object $\bar{s}\in E\Sub{s}$ is said to be a
 
     </section>
 
-    <section>
+    <section id="002L">
 
 
-<header id="002L">
+<header>
   <h3>
     
       <span class="numbering">4.4.</span>
@@ -2128,10 +2188,10 @@ theory in some ambient set theory <a class="citation" href="#benabou:1985">(Bén
 an element of $\mathscr{M}$ as a set, and a subcollection of $\mathscr{M}$
 as a class.</p>
 
-      <section>
+      <section id="002U">
 
 
-<header class="inline" id="002U">
+<header class="inline">
   <a class="slug" href="/math/nodes/002U.html">[002U]</a>
   <span class='numbering'>Definition 4.4·a</span> (Representable class of sets).
 </header>
@@ -2141,10 +2201,10 @@ as a class.</p>
 
       </section>
 
-      <section>
+      <section id="002V">
 
 
-<header class="inline" id="002V">
+<header class="inline">
   <a class="slug" href="/math/nodes/002V.html">[002V]</a>
   <span class='numbering'>Definition 4.4·b</span> (Definable class of sets).
 </header>
@@ -2159,10 +2219,10 @@ in such a way that the general fibered notion of definable class is
 equivalent in the canonical self-indexing $\SelfIx{\mathscr{M}}$ to that of
 definable classes in the sense of <a href="/math/nodes/002V.html" role="tooltip" aria-label="Definition 4.4·b. Definable class of sets" class="cref"><span class="numbering">Definition 4.4·b</span> <span class="slug">[002V]</span></a>.</p>
 
-      <section>
+      <section id="002Q">
 
 
-<header id="002Q">
+<header>
   <h4>
     
       <span class="numbering">4.4.1.</span>
@@ -2178,10 +2238,10 @@ definable classes in the sense of <a href="/math/nodes/002V.html" role="tooltip"
 perspective on definability for classes of sets in terms of <em>families</em> of
 sets.</p>
 
-        <section>
+        <section id="002M">
 
 
-<header class="inline" id="002M">
+<header class="inline">
   <a class="slug" href="/math/nodes/002M.html">[002M]</a>
   <span class='numbering'>Construction 4.4.1·a</span> (Closure of a class of sets under base change).
 </header>
@@ -2194,10 +2254,10 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
         </section>
 
-        <section>
+        <section id="002N">
 
 
-<header class="inline" id="002N">
+<header class="inline">
   <a class="slug" href="/math/nodes/002N.html">[002N]</a>
   <span class='numbering'>Construction 4.4.1·b</span> (From classes of families to classes of sets).
 </header>
@@ -2207,10 +2267,10 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
         </section>
 
-        <section>
+        <section id="002P">
 
 
-<header class="inline" id="002P">
+<header class="inline">
   <a class="slug" href="/math/nodes/002P.html">[002P]</a>
   <span class='numbering'>Definition 4.4.1·c</span> (Definable class of families of sets).
 </header>
@@ -2220,10 +2280,10 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
         </section>
 
-        <section>
+        <section id="002R">
 
 
-<header class="inline" id="002R">
+<header class="inline">
   <a class="slug" href="/math/nodes/002R.html">[002R]</a>
   <span class='numbering'>Intuition 4.4.1·d</span>.
 </header>
@@ -2233,10 +2293,10 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
         </section>
 
-        <section>
+        <section id="002T">
 
 
-<header class="inline" id="002T">
+<header class="inline">
   <a class="slug" href="/math/nodes/002T.html">[002T]</a>
   <span class='numbering'>Lemma 4.4.1·e</span> (Characterization of definable classes of families).
 </header>
@@ -2255,10 +2315,10 @@ we fix a family $\prn{S\Sub{i}}\Sub{i\in I}$ not necessarily lying in $\bar{\mat
 
       </section>
 
-      <section>
+      <section id="002S">
 
 
-<header id="002S">
+<header>
   <h4>
     
       <span class="numbering">4.4.2.</span>
@@ -2275,10 +2335,10 @@ self-indexing $\SelfIx{\mathscr{M}}$ of a more general notion of
 definability for classes of objects in a cartesian fibration, defined
 forthwith. The following definition of definability in a cartesian fibration is due to Bénabou, but is discussed in print by Borceux <a class="citation" href="#borceux:1994:vol2">(<i>Handbook of Categorical Algebra 2 – Categories and Structures</i>, 1994)</a>, Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical Logic and Type Theory</i>, 1999)</a>, Streicher <a class="citation" href="#streicher:2018">(<i>Fibred Categories à La Jean Bénabou</i>, 2018)</a>.</p>
 
-        <section>
+        <section id="002W">
 
 
-<header class="inline" id="002W">
+<header class="inline">
   <a class="slug" href="/math/nodes/002W.html">[002W]</a>
   <span class='numbering'>Definition 4.4.2·a</span> (Definable class in a fibration).
 </header>
@@ -2291,10 +2351,10 @@ such that for any $\bar{u}\in E\Sub{u}$, there exists a cartesian map $\bar{v}\t
 
         </section>
 
-        <section>
+        <section id="002O">
 
 
-<header class="inline" id="002O">
+<header class="inline">
   <a class="slug" href="/math/nodes/002O.html">[002O]</a>
   <span class='numbering'>Remark 4.4.2·b</span>.
 </header>
@@ -2315,10 +2375,10 @@ definable class of families of sets in the sense of <a href="/math/nodes/002P.ht
 
   </section>
 
-  <section>
+  <section id="000N">
 
 
-<header id="000N">
+<header>
   <h2>
     
       <span class="numbering">5.</span>
@@ -2335,10 +2395,10 @@ categories</em> (categories defined in the internal language of a category $B$) 
 cartesian fibrations over $B$, generalizing the relationship between categories internal
 to $\SET$ (i.e. small categories) and their family fibrations over $\SET$.</p>
 
-    <section>
+    <section id="001Q">
 
 
-<header class="inline" id="001Q">
+<header class="inline">
   <a class="slug" href="/math/nodes/001Q.html">[001Q]</a>
   <span class='numbering'>Definition 5·a</span> (Small fibration).
 </header>
@@ -2357,10 +2417,10 @@ by the <em>internal language</em>, in which a category is viewed as an algebra f
 notion of internal categories is credited (independently) to Alexander
 Grothendieck and Charles Ehresmann.</p>
 
-    <section>
+    <section id="000O">
 
 
-<header id="000O">
+<header>
   <h3>
     
       <span class="numbering">5.1.</span>
@@ -2376,10 +2436,10 @@ Grothendieck and Charles Ehresmann.</p>
 possible to compute <em>models</em> of this theory in any category that has finite
 limits.</p>
 
-      <section>
+      <section id="001A">
 
 
-<header class="inline" id="001A">
+<header class="inline">
   <a class="slug" href="/math/nodes/001A.html">[001A]</a>
   <span class='numbering'>Definition 5.1·a</span> (Internal category).
 </header>
@@ -2403,10 +2463,10 @@ in $E$ is defined by the following data:</p>
 
     </section>
 
-    <section>
+    <section id="000V">
 
 
-<header id="000V">
+<header>
   <h3>
     
       <span class="numbering">5.2.</span>
@@ -2418,10 +2478,10 @@ in $E$ is defined by the following data:</p>
 
 
 
-      <section>
+      <section id="001R">
 
 
-<header class="inline" id="001R">
+<header class="inline">
   <a class="slug" href="/math/nodes/001R.html">[001R]</a>
   <span class='numbering'>Construction 5.2·a</span>.
 </header>
@@ -2443,10 +2503,10 @@ x\to C\Sub{1}$ in $E$ such that the following diagram commutes:
 
       </section>
 
-      <section>
+      <section id="000W">
 
 
-<header class="inline" id="000W">
+<header class="inline">
   <a class="slug" href="/math/nodes/000W.html">[000W]</a>
   <span class='numbering'>Lemma 5.2·b</span>.
 </header>
@@ -2462,10 +2522,10 @@ $\InvImg{f}v\to\Sub{f} v$ by setting $\InvImg{f}v = v\circ f : x \to C\Sub{0}$.
 
       </section>
 
-      <section>
+      <section id="000X">
 
 
-<header class="inline" id="000X">
+<header class="inline">
   <a class="slug" href="/math/nodes/000X.html">[000X]</a>
   <span class='numbering'>Lemma 5.2·c</span>.
 </header>
@@ -2480,10 +2540,10 @@ We may choose a generic object <a href="/math/nodes/000K.html" role="tooltip" ar
 
       </section>
 
-      <section>
+      <section id="000Y">
 
 
-<header class="inline" id="000Y">
+<header class="inline">
   <a class="slug" href="/math/nodes/000Y.html">[000Y]</a>
   <span class='numbering'>Lemma 5.2·d</span>.
 </header>
@@ -2538,10 +2598,10 @@ $\bar{p}:\InvImg{\brk{u,v}}u\to u$ are cartesian.
 
     </section>
 
-    <section>
+    <section id="0011">
 
 
-<header id="0011">
+<header>
   <h3>
     
       <span class="numbering">5.3.</span>
@@ -2565,10 +2625,10 @@ $\brk{\bar\partial\Sub{1},\bar\partial\Sub{2}}\in \Sl{B}{u\times u}$ that
 behaves as the “generic hom set”. We define $\gl{\bar{u}}\Sub{1}\in B$ and its
 source and target projections to be this very object.</p>
 
-      <section>
+      <section id="001S">
 
 
-<header class="inline" id="001S">
+<header class="inline">
   <a class="slug" href="/math/nodes/001S.html">[001S]</a>
   <span class='numbering'>Theorem 5.3·a</span>.
 </header>
@@ -2605,10 +2665,10 @@ into $E$ using the universal property of the cartesian lift:
 
     </section>
 
-    <section>
+    <section id="000Z">
 
 
-<header id="000Z">
+<header>
   <h3>
     
       <span class="numbering">5.4.</span>
@@ -2636,10 +2696,10 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
 
   </section>
 
-  <section>
+  <section id="0012">
 
 
-<header id="0012">
+<header>
   <h2>
     
       <span class="numbering">6.</span>
@@ -2651,10 +2711,10 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
 
 
 
-    <section>
+    <section id="0015">
 
 
-<header id="0015">
+<header>
   <h3>
     
       <span class="numbering">6.1.</span>
@@ -2669,10 +2729,10 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
       <p>Cocartesian fibrations are a dual notion to cartesian fibrations, in which the
 variance of indexing is reversed.</p>
 
-      <section>
+      <section id="0016">
 
 
-<header class="inline" id="0016">
+<header class="inline">
   <a class="slug" href="/math/nodes/0016.html">[0016]</a>
   <span class='numbering'>Definition 6.1·a</span> (Cocartesian morphism).
 </header>
@@ -2689,10 +2749,10 @@ $\bar{m} : \bar{y}\to\Sub{m} \bar{u}$ with $\bar{f};\bar{m} = \bar{h}$:
       <p>We use a “pushout corner” to indicate $\bar{x}\to\bar{y}$ as a cocartesian morphism,
 a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Section 6.1.3. Example: The dual self-indexing" class="cref"><span class="numbering">Section 6.1.3</span> <span class="slug">[0019]</span></a>.</p>
 
-      <section>
+      <section id="0017">
 
 
-<header class="inline" id="0017">
+<header class="inline">
   <a class="slug" href="/math/nodes/0017.html">[0017]</a>
   <span class='numbering'>Definition 6.1·b</span> (Cocartesian fibration).
 </header>
@@ -2706,10 +2766,10 @@ $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\
 
       <p><strong>Remark.</strong> These are also known as <em>opfibrations</em>.</p>
 
-      <section>
+      <section id="0018">
 
 
-<header id="0018">
+<header>
   <h4>
     
       <span class="numbering">6.1.1.</span>
@@ -2721,10 +2781,10 @@ $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\
 
 
 
-        <section>
+        <section id="001I">
 
 
-<header class="inline" id="001I">
+<header class="inline">
   <a class="slug" href="/math/nodes/001I.html">[001I]</a>
   <span class='numbering'>Construction 6.1.1·a</span>.
 </header>
@@ -2748,10 +2808,10 @@ is given by a displayed morphism $\bar{y}\to\Sub{f} \bar{x}$ in $E$.</p>
         <p><strong>Warning.</strong> Do not confuse this construction with <a href="/math/nodes/001Z.html" role="tooltip" aria-label="Construction 2.6·a." class="cref"><span class="numbering">Construction 2.6·a</span> <span class="slug">[001Z]</span></a>, which produces a
 displayed category over $B$ and not $\OpCat{B}$.</p>
 
-        <section>
+        <section id="001J">
 
 
-<header class="inline" id="001J">
+<header class="inline">
   <a class="slug" href="/math/nodes/001J.html">[001J]</a>
   <span class='numbering'>Exercise 6.1.1·b</span>.
 </header>
@@ -2763,10 +2823,10 @@ $\OpCat{\prn{p\Sub{E}}} : \OpCat{\TotCat{E}}\to\OpCat{B}$.</p>
 
         </section>
 
-        <section>
+        <section id="001K">
 
 
-<header class="inline" id="001K">
+<header class="inline">
   <a class="slug" href="/math/nodes/001K.html">[001K]</a>
   <span class='numbering'>Exercise 6.1.1·c</span>.
 </header>
@@ -2778,10 +2838,10 @@ if $\bar{f}:\bar{y}\to\Sub{f}\bar{x}$ is cocartesian over $f$ in $\TotOpCat{E}$.
 
         </section>
 
-        <section>
+        <section id="001L">
 
 
-<header class="inline" id="001L">
+<header class="inline">
   <a class="slug" href="/math/nodes/001L.html">[001L]</a>
   <span class='numbering'>Exercise 6.1.1·d</span>.
 </header>
@@ -2794,10 +2854,10 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
 
       </section>
 
-      <section>
+      <section id="002X">
 
 
-<header id="002X">
+<header>
   <h4>
     
       <span class="numbering">6.1.2.</span>
@@ -2815,10 +2875,10 @@ As discussed in <a href="/math/nodes/001Y.html" role="tooltip" aria-label="Exerc
 only if $B$ has pullbacks. However, $\SelfIx{B}$ is unconditionally a <em>cocartesian</em>
 fibration.</p>
 
-        <section>
+        <section id="002Y">
 
 
-<header class="inline" id="002Y">
+<header class="inline">
   <a class="slug" href="/math/nodes/002Y.html">[002Y]</a>
   <span class='numbering'>Exercise 6.1.2·a</span>.
 </header>
@@ -2830,10 +2890,10 @@ fibration.</p>
 
       </section>
 
-      <section>
+      <section id="0019">
 
 
-<header id="0019">
+<header>
   <h4>
     
       <span class="numbering">6.1.3.</span>
@@ -2848,10 +2908,10 @@ fibration.</p>
         <p>Dually to the canonical self-indexing (<a href="/math/nodes/001X.html" role="tooltip" aria-label="Construction 2.1·a. The canonical self-indexing" class="cref"><span class="numbering">Construction 2.1·a</span> <span class="slug">[001X]</span></a>), every category $B$ can
 also be displayed over itself via its <em>coslices</em> $\CoSl{x}{B}$.</p>
 
-        <section>
+        <section id="002Z">
 
 
-<header class="inline" id="002Z">
+<header class="inline">
   <a class="slug" href="/math/nodes/002Z.html">[002Z]</a>
   <span class='numbering'>Construction 6.1.3·a</span>.
 </header>
@@ -2870,10 +2930,10 @@ commuting squares in the following configuration:
 
         </section>
 
-        <section>
+        <section id="001M">
 
 
-<header class="inline" id="001M">
+<header class="inline">
   <a class="slug" href="/math/nodes/001M.html">[001M]</a>
   <span class='numbering'>Exercise 6.1.3·b</span>.
 </header>
@@ -2884,10 +2944,10 @@ $B$ has pushouts.</p>
 
         </section>
 
-        <section>
+        <section id="001N">
 
 
-<header class="inline" id="001N">
+<header class="inline">
   <a class="slug" href="/math/nodes/001N.html">[001N]</a>
   <span class='numbering'>Exercise 6.1.3·c</span>.
 </header>
@@ -2898,10 +2958,10 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
         </section>
 
-        <section>
+        <section id="0030">
 
 
-<header class="inline" id="0030">
+<header class="inline">
   <a class="slug" href="/math/nodes/0030.html">[0030]</a>
   <span class='numbering'>Exercise 6.1.3·d</span>.
 </header>
@@ -2915,10 +2975,10 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
     </section>
 
-    <section>
+    <section id="0013">
 
 
-<header id="0013">
+<header>
   <h3>
     
       <span class="numbering">6.2.</span>
@@ -2930,10 +2990,10 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
 
 
-      <section>
+      <section id="001O">
 
 
-<header class="inline" id="001O">
+<header class="inline">
   <a class="slug" href="/math/nodes/001O.html">[001O]</a>
   <span class='numbering'>Definition 6.2·a</span>.
 </header>
@@ -2948,10 +3008,10 @@ when all displayed morphisms in $E$ are cartesian.</p>
 objects $E\Sub{b}$ and vertical maps $E\Sub{1\Sub{b}}$ forms a category. When $E$ is
 a right fibration over $B$, this category is in fact a <em>groupoid</em>.</p>
 
-      <section>
+      <section id="001P">
 
 
-<header class="inline" id="001P">
+<header class="inline">
   <a class="slug" href="/math/nodes/001P.html">[001P]</a>
   <span class='numbering'>Theorem 6.2·b</span> (Characterization of right fibrations).
 </header>
