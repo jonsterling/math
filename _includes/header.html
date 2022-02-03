@@ -18,6 +18,7 @@
         </label>
 
         <div class="trigger">
+          {% if page.taxon %}<a class="page-link" id="search-toggle">Search</a>{% endif %}
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}

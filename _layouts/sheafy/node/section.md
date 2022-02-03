@@ -1,8 +1,8 @@
-<section>
+<section id="{{ page.slug }}">
 
 {::nomarkdown}
 
-<header id="{{ page.slug }}">
+<header>
   <h{{ page.depth | plus: 1 }}>
     {% if page.depth == 0 %}
       {{ page.title }}
