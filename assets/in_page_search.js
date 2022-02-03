@@ -2,7 +2,10 @@ class InPageSearch {
   constructor() {
     this.NODE_TAG = "SECTION"; // MUST be uppercase to be both selector and nodeName
     this.FOLDED_CLASS = "ellipsis";
-    this.MARKJS_EXCLUDE_FOLDED = ".ellipsis *";
+    this.MARKJS_EXCLUSIONS = [
+      `.${this.FOLDED_CLASS} *`, // folded nodes
+      "nav *", // toc, next/prev, etc.
+    ];
     this.INPUT_NAME = "q";
     this.URL_PARAM = "q";
     this.DOC_REF_KEY = "slug";
@@ -170,7 +173,8 @@ class InPageSearch {
   promiseToMarkNode(slug, terms) {
     return new Promise((resolve, reject) => {
       new Mark(this.nodeElements[slug]).mark(terms, {
-        exclude: [this.MARKJS_EXCLUDE_FOLDED],
+        exclude: this.MARKJS_EXCLUSIONS,
+        accuracy: "complementary",
         done: resolve,
       });
     });
