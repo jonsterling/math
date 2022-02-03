@@ -17,6 +17,7 @@ class InPageSearch {
     this.toggle = document.getElementById("search-toggle");
     this.bindEvents();
 
+    this.tocItems = {};
     this.nodeDocuments = [];
     this.nodeElements = {};
     this.nodeVisibilities = {};
@@ -36,6 +37,10 @@ class InPageSearch {
 
   initBookkeeping() {
     document.querySelectorAll(this.NODE_TAG).forEach((element) => {
+      this.tocItems[element.id] = document
+        .querySelector(".toc")
+        .querySelector(`a[href="#${element.id}"]`)
+        ?.closest("li");
       this.nodeElements[element.id] = element;
       this.nodeVisibilities[element.id] = true;
       this.nodeDocuments.push({
@@ -162,8 +167,10 @@ class InPageSearch {
 
   applyVisibility(slug) {
     if (this.nodeVisibilities[slug]) {
+      this.tocItems[slug]?.classList?.remove(this.FOLDED_CLASS);
       this.nodeElements[slug].classList.remove(this.FOLDED_CLASS);
     } else {
+      this.tocItems[slug]?.classList?.add(this.FOLDED_CLASS);
       this.nodeElements[slug].classList.add(this.FOLDED_CLASS);
     }
   }
