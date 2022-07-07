@@ -301,6 +301,14 @@ div.bibtex-code { margin-top: 1em; }
 
 header.post-header { margin-bottom: 1em !important; }
 
-header.inline { float: left; display: inline; margin-right: 1ex; }
+header.inline { display: inline; margin-right: .5ex; }
+
+header.inline + p { display: inline; }
+
+header.inline + p + * { margin-top: 10px; }
+
+header.inline .numbering { font-weight: bold; }
+
+section { margin-bottom: 1em; }
 
 /*# sourceMappingURL=style.css.map */

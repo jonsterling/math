@@ -14,17 +14,20 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0009.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-28T14:46:03+01:00" />
+<meta property="article:published_time" content="2022-07-07T14:06:34+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="The Grothendieck construction" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"The Grothendieck construction","dateModified":"2022-01-28T14:46:03+01:00","datePublished":"2022-01-28T14:46:03+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0009.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0009.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"The Grothendieck construction","dateModified":"2022-07-07T14:06:34+02:00","datePublished":"2022-07-07T14:06:34+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0009.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0009.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js" integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
 <script>
   const macros_promise =
@@ -67,12 +70,69 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
+        <div class="trigger">
+          <a class="page-link" id="search-toggle">Search</a><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <style>
+  ul.toc li.ellipsis {
+    height: 0;
+    overflow: hidden;
+  }
+  section.ellipsis > header {
+    opacity: 0.5;
+    border-bottom: 3px dashed black;
+  }
+  section.ellipsis > :not(header) {
+    display: none;
+  }
+  #search-form {
+    margin-bottom: 2rem;
+  }
+  #search-form fieldset {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #search-form input {
+    flex-grow: 1;
+  }
+  #search-form .hint {
+    flex-basis: 100%;
+    margin: 0;
+  }
+  #search-form .hint summary {
+    font-size: small;
+  }
+</style>
+
+<script src="/math/assets/search.js"></script>
+
+<form id="search-form" hidden>
+  <fieldset>
+    <legend>Search</legend>
+    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
+    <button type="submit">Search</button>
+    <button type="reset">Clear</button>
+    <details class="hint">
+      <summary>Click here for help.</summary>
+      <ul>
+        <li>You can type your query in the input box, click "Search" to start the search, and click "Clear" to clear the page.</li>
+        <li>The search happens on the current page. If you want to extend it, navigate the book upwards. A search on the root note will search the whole book.</li>
+        <li>Once the search is completed, matches will be highlighted and nodes with no matches will be folded. You can expand them by clicking.</li>
+        <li>Multiple terms are allowed in the query and the default behaviour is <code>OR</code>ing them. You can <code>AND</code> terms making them mandatory, see <code>+foo</code> below.</li>
+        <li><code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
+        <li><code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
+        <li><code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
+        <li>Note that the URL changes after a search. You can copy and paste it to share your search results. They will be displayed immediately upon visiting the URL.</li>
+      </ul>
+    </details>
+  </fieldset>
+</form>
+
+
+<article class="post">
   <nav>
     <style>
   .breadcrumbs {
@@ -97,18 +157,17 @@
   </nav>
 
   <div class="post-content">
-    <section>
+    <section id="0009">
 
 
-<header id="0009">
+<header>
   <h2>
     
       <span class="numbering">3.</span>
       The Grothendieck construction
       <a class="slug" href="/math/nodes/0009.html">[0009]</a>
     
-  </h2>
-</header>
+  </h2></header>
 
 
   
@@ -118,8 +177,10 @@
       <ul class="toc">
   
   <li>
-    3.1
-    <a href="#000A">The total category and its projection</a>
+    3.1.
+    <a href="#000A">
+      The total category and its projection
+    </a>
     <a class="slug" href="/math/nodes/000A.html">[000A]</a>
     <ul class="toc">
   
@@ -129,14 +190,18 @@
   </li>
   
   <li>
-    3.2
-    <a href="#000B">Displayed categories from functors</a>
+    3.2.
+    <a href="#000B">
+      Displayed categories from functors
+    </a>
     <a class="slug" href="/math/nodes/000B.html">[000B]</a>
     <ul class="toc">
   
   <li>
-    3.2.1
-    <a href="#000C">Relationship to Street's fibrations</a>
+    3.2.1.
+    <a href="#000C">
+      Relationship to Street's fibrations
+    </a>
     <a class="slug" href="/math/nodes/000C.html">[000C]</a>
     <ul class="toc">
   
@@ -151,8 +216,10 @@
   </li>
   
   <li>
-    3.3
-    <a href="#000D">Iteration and pushforward</a>
+    3.3.
+    <a href="#000D">
+      Iteration and pushforward
+    </a>
     <a class="slug" href="/math/nodes/000D.html">[000D]</a>
     <ul class="toc">
   
@@ -169,18 +236,17 @@
 
 
 
-  <section>
+  <section id="000A">
 
 
-<header id="000A">
+<header>
   <h3>
     
       <span class="numbering">3.1.</span>
       The total category and its projection
       <a class="slug" href="/math/nodes/000A.html">[000A]</a>
     
-  </h3>
-</header>
+  </h3></header>
 
 
 
@@ -198,39 +264,32 @@ $f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
 
     <p>The construction of the total category of a displayed category is called the <em>Grothendieck construction.</em></p>
 
-    <section>
+    <section id="001T">
 
 
-<header class="inline" id="001T">
+<header class="inline">
   <a class="slug" href="/math/nodes/001T.html">[001T]</a>
-  <strong>
-    Exercise
-    <span class="numbering">3.1❋a</span>
-  </strong>
-  
-  
-  .
+  <span class='numbering'>Exercise 3.1·a</span>.
 </header>
 
 
-      <p>Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing <a href="/math/nodes/0003.html" role="tooltip" aria-label="The canonical self-indexing" class="slug">[0003]</a> is the arrow category $B^{\to}$, and the projection is the codomain functor.</p>
+      <p>Prove that the total category $\TotCat{\SelfIx{B}}$ of the canonical self-indexing (<a href="/math/nodes/0003.html" role="tooltip" aria-label="Section 2.1. The canonical self-indexing" class="cref"><span class="numbering">Section 2.1</span> <span class="slug">[0003]</span></a>) is the arrow category $B^{\to}$, and the projection is the codomain functor.</p>
 
     </section>
 
   </section>
 
-  <section>
+  <section id="000B">
 
 
-<header id="000B">
+<header>
   <h3>
     
       <span class="numbering">3.2.</span>
       Displayed categories from functors
       <a class="slug" href="/math/nodes/000B.html">[000B]</a>
     
-  </h3>
-</header>
+  </h3></header>
 
 
 
@@ -257,18 +316,12 @@ $\phi\Sub{u},\phi\Sub{v}$ in sense depicted below:
       </li>
     </ol>
 
-    <section>
+    <section id="001U">
 
 
-<header class="inline" id="001U">
+<header class="inline">
   <a class="slug" href="/math/nodes/001U.html">[001U]</a>
-  <strong>
-    Exercise
-    <span class="numbering">3.2❋a</span>
-  </strong>
-  
-  
-  .
+  <span class='numbering'>Exercise 3.2·a</span>.
 </header>
 
 
@@ -282,18 +335,12 @@ collection of objects $u\in E$ such that $Pu = x$.</p>
     <p>We have a functor $\TotCat{P\Sub{\bullet}}\to E$ taking a pair $(x,(u,\phi\Sub{u}))$ to
 $u$.</p>
 
-    <section>
+    <section id="001V">
 
 
-<header class="inline" id="001V">
+<header class="inline">
   <a class="slug" href="/math/nodes/001V.html">[001V]</a>
-  <strong>
-    Exercise
-    <span class="numbering">3.2❋b</span>
-  </strong>
-  
-  
-  .
+  <span class='numbering'>Exercise 3.2·b</span>.
 </header>
 
 
@@ -301,18 +348,12 @@ $u$.</p>
 
     </section>
 
-    <section>
+    <section id="001W">
 
 
-<header class="inline" id="001W">
+<header class="inline">
   <a class="slug" href="/math/nodes/001W.html">[001W]</a>
-  <strong>
-    Exercise
-    <span class="numbering">3.2❋c</span>
-  </strong>
-  
-  
-  .
+  <span class='numbering'>Exercise 3.2·c</span>.
 </header>
 
 
@@ -320,18 +361,17 @@ $u$.</p>
 
     </section>
 
-    <section>
+    <section id="000C">
 
 
-<header id="000C">
+<header>
   <h4>
     
       <span class="numbering">3.2.1.</span>
       Relationship to Street's fibrations
       <a class="slug" href="/math/nodes/000C.html">[000C]</a>
     
-  </h4>
-</header>
+  </h4></header>
 
 
 
@@ -359,18 +399,17 @@ Grothendieck fibrations.</p>
 
   </section>
 
-  <section>
+  <section id="000D">
 
 
-<header id="000D">
+<header>
   <h3>
     
       <span class="numbering">3.3.</span>
       Iteration and pushforward
       <a class="slug" href="/math/nodes/000D.html">[000D]</a>
     
-  </h3>
-</header>
+  </h3></header>
 
 
 
@@ -388,7 +427,7 @@ displayed category $B\Sub{!}F$ over $B$ as follows:</p>
       <li>A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.</li>
     </ol>
 
-    <p>By virtue of <a href="/math/nodes/000B.html" role="tooltip" aria-label="Displayed categories from functors" class="slug">[000B]</a>, we may define the <em>pushforward</em> of a displayed category along a functor. In particular, let $E$
+    <p>By virtue of <a href="/math/nodes/000B.html" role="tooltip" aria-label="Section 3.2. Displayed categories from functors" class="cref"><span class="numbering">Section 3.2</span> <span class="slug">[000B]</span></a>, we may define the <em>pushforward</em> of a displayed category along a functor. In particular, let $E$
 be displayed over $B$ and let $U:B\to C$ be an ordinary functor; then we may
 obtain a displayed category $U\Sub{!}E$ over $C$ as follows:</p>
 
@@ -399,7 +438,7 @@ functor $U:B \to C$.</li>
 $\TotCat{U\Sub{\bullet}}\to B$.</li>
       <li>Because $E$ is displayed over $B$, we may regard it as displayed over the
 equivalent total category $\TotCat{U\Sub{\bullet}}$ by
-change of base <a href="/math/nodes/0007.html" role="tooltip" aria-label="Change of base" class="slug">[0007]</a>.</li>
+change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Section 2.8. Change of base" class="cref"><span class="numbering">Section 2.8</span> <span class="slug">[0007]</span></a>).</li>
       <li>Hence we may define the pushforward $U\Sub{!}E$ to be the displayed category $(U\Sub{\bullet})\Sub{!}E$ as defined above.</li>
     </ol>
 
@@ -408,6 +447,64 @@ change of base <a href="/math/nodes/0007.html" role="tooltip" aria-label="Change
 </section>
 
   </div>
+
+  <style>
+  nav.d-pad {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 3rem 0rem 4rem 0rem;
+    gap: 0.6rem;
+  }
+
+  nav.d-pad i.arrow {
+    display: inline-block;
+    font-style: normal;
+    position: relative;
+    width: 0.6em;
+    height: 0.6em;
+    border: 0.2em solid black;
+    border-bottom: unset;
+    border-left: unset;
+    box-sizing: border-box;
+  }
+  nav.d-pad i.arrow.left {
+    transform: rotate(-135deg);
+  }
+  nav.d-pad i.arrow.right {
+    transform: rotate(45deg);
+  }
+  nav.d-pad a.prev { text-align: right; }
+  nav.d-pad a.next { text-align: left; }
+</style>
+
+<nav class="d-pad">
+
+
+
+
+
+
+
+
+  <a class="prev" href="/math/nodes/0008.html">
+    <i class="arrow left"></i>
+    <span class='numbering'>Section 2</span>. Displayed categories and fibrations
+    <span class="slug">[0008]</span>
+  </a>
+
+
+
+  <a class="next" href="/math/nodes/000E.html">
+    <span class='numbering'>Section 4</span>. Properties of fibrations
+    <span class="slug">[000E]</span>
+    <i class="arrow right"></i>
+  </a>
+
+
+</nav>
+
 
   
 

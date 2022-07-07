@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Set-theoretic intuition for Bénabou’s definability | The Nursery</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Set-theoretic intuition for Bénabou’s definability" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A mathematical web page." />
+<meta property="og:description" content="A mathematical web page." />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/002Q.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/002Q.html" />
+<meta property="og:site_name" content="The Nursery" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-07T14:06:34+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Set-theoretic intuition for Bénabou’s definability" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Set-theoretic intuition for Bénabou’s definability","dateModified":"2022-07-07T14:06:34+02:00","datePublished":"2022-07-07T14:06:34+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/002Q.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/002Q.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js" integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
+
+<script>
+  const macros_promise =
+    
+    fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
+    ;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    macros_promise.then(
+      function (macros) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          macros: macros,
+          throwOnError: false
+        });
+      });
+  });
+
+</script>
+
+<style>
+  .katex { line-height: 1 !important; }
+  .antex.display { display: flex; padding: 1em; }
+  .antex.display > img { margin: 0 auto !important; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/math/">The Nursery</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" id="search-toggle">Search</a><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <style>
+  ul.toc li.ellipsis {
+    height: 0;
+    overflow: hidden;
+  }
+  section.ellipsis > header {
+    opacity: 0.5;
+    border-bottom: 3px dashed black;
+  }
+  section.ellipsis > :not(header) {
+    display: none;
+  }
+  #search-form {
+    margin-bottom: 2rem;
+  }
+  #search-form fieldset {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #search-form input {
+    flex-grow: 1;
+  }
+  #search-form .hint {
+    flex-basis: 100%;
+    margin: 0;
+  }
+  #search-form .hint summary {
+    font-size: small;
+  }
+</style>
+
+<script src="/math/assets/search.js"></script>
+
+<form id="search-form" hidden>
+  <fieldset>
+    <legend>Search</legend>
+    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
+    <button type="submit">Search</button>
+    <button type="reset">Clear</button>
+    <details class="hint">
+      <summary>Click here for help.</summary>
+      <ul>
+        <li>You can type your query in the input box, click "Search" to start the search, and click "Clear" to clear the page.</li>
+        <li>The search happens on the current page. If you want to extend it, navigate the book upwards. A search on the root note will search the whole book.</li>
+        <li>Once the search is completed, matches will be highlighted and nodes with no matches will be folded. You can expand them by clicking.</li>
+        <li>Multiple terms are allowed in the query and the default behaviour is <code>OR</code>ing them. You can <code>AND</code> terms making them mandatory, see <code>+foo</code> below.</li>
+        <li><code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
+        <li><code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
+        <li><code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
+        <li>Note that the URL changes after a search. You can copy and paste it to share your search results. They will be displayed immediately upon visiting the URL.</li>
+      </ul>
+    </details>
+  </fieldset>
+</form>
+
+
+<article class="post">
+  <nav>
+    <style>
+  .breadcrumbs {
+    font-size: small;
+    margin-bottom: 1.5em;
+  }
+</style>
+
+
+<nav class="breadcrumbs">
+  
+    <a href="/math/lectures/categorical-foundations.html">
+      
+      Foundations of Relative Category Theory
+      
+    </a>
+    /
+  
+    <a href="/math/nodes/000E.html">
+      
+      <span class="numbering">4.</span>
+      
+      Properties of fibrations
+      
+      <span class="slug">[000E]</span>
+      
+    </a>
+    /
+  
+    <a href="/math/nodes/002L.html">
+      
+      <span class="numbering">4.4.</span>
+      
+      Definable classes à la Bénabou
+      
+      <span class="slug">[002L]</span>
+      
+    </a>
+    /
+  
+</nav>
+
+
+  </nav>
+
+  <div class="post-content">
+    <section id="002Q">
+
+
+<header>
+  <h4>
+    
+      <span class="numbering">4.4.1.</span>
+      Set-theoretic intuition for Bénabou's definability
+      <a class="slug" href="/math/nodes/002Q.html">[002Q]</a>
+    
+  </h4></header>
+
+
+  
+  
+
+
+
+  <p>To motivate Bénabou’s general notion of definability, we will first develop an alternative
+perspective on definability for classes of sets in terms of <em>families</em> of
+sets.</p>
+
+  <section id="002M">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/002M.html">[002M]</a>
+  <span class='numbering'>Construction 4.4.1·a</span> (Closure of a class of sets under base change).
+</header>
+
+
+    <p>Let $\mathfrak{C}\subseteq\mathscr{M}$ be a class of sets; there exists a class $\bar{\mathfrak{C}}$ of <em>families</em>
+of sets that contains $\prn{S\Sub{i}}\Sub{i\in I}$ exactly when each
+$S\Sub{i}$ lies in $\mathfrak{C}$. We will refer to $\bar{\mathfrak{C}}$ as the <em>closure under base change</em> of $\mathfrak{C}$, a name motivated by the fact that when $\prn{S\Sub{i}}\Sub{i\in I}$ lies in $\bar{\mathfrak{C}}$,
+then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies in $\bar{\mathfrak{C}}$.</p>
+
+  </section>
+
+  <section id="002N">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/002N.html">[002N]</a>
+  <span class='numbering'>Construction 4.4.1·b</span> (From classes of families to classes of sets).
+</header>
+
+
+    <p>Conversely to <a href="/math/nodes/002M.html" role="tooltip" aria-label="Construction 4.4.1·a. Closure of a class of sets under base change" class="cref"><span class="numbering">Construction 4.4.1·a</span> <span class="slug">[002M]</span></a> we may take a class of families of sets $\mathfrak{F}$ to the the class of sets $\mathfrak{F}\Sub{1}\subseteq{\mathscr{M}}$ spanned by sets $S$ such that the singleton family $\brc{S}$ lies in $\mathfrak{C}$.</p>
+
+  </section>
+
+  <section id="002P">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/002P.html">[002P]</a>
+  <span class='numbering'>Definition 4.4.1·c</span> (Definable class of families of sets).
+</header>
+
+
+    <p>A class of families of sets $\mathfrak{F}$ is said to be <em>definable</em> when it is stable and moreover, for any family of sets $\prn{S\Sub{i}}\Sub{i\in I}$, there exists a subset $J\subseteq I$ such that the base change $\prn{S\Sub{j}}\Sub{j\in J}$ lies in $\mathfrak{F}$, and moreover, such that $u:K\to I$ factors through $J\subseteq I$ whenever the base change $\prn{S\Sub{uk}}\Sub{k\in K}$ lies in $\mathfrak{F}$.</p>
+
+  </section>
+
+  <section id="002R">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/002R.html">[002R]</a>
+  <span class='numbering'>Intuition 4.4.1·d</span>.
+</header>
+
+
+    <p>In other words, a stable class of families of sets is definable when any family of sets can be restricted to a “biggest” subfamily that lies in the class.</p>
+
+  </section>
+
+  <section id="002T">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/002T.html">[002T]</a>
+  <span class='numbering'>Lemma 4.4.1·e</span> (Characterization of definable classes of families).
+</header>
+
+
+    <p>Let $\mathfrak{C}\subseteq\mathscr{M}$ be a class of sets; then $\bar{\mathfrak{C}}$ is a definable class of families of sets if and only if $\mathfrak{C}$ is a definable class of sets.</p>
+
+    <p><strong>Proof.</strong> Suppose that $\mathfrak{C}$ is a definable class of sets. To
+check that $\bar{\mathfrak{C}}$ is a definable class of families of sets,
+we fix a family $\prn{S\Sub{i}}\Sub{i\in I}$ not necessarily lying in $\bar{\mathfrak{C}}$. Because $\mathfrak{C}$ is definable, the intersection $\mathfrak{C}\cap \bigcup\Sub{i\in I}S\Sub{i}$ is represented by a set $U$. We therefore take the subset $J = \brc{i \in I\mid S_i\in U}\subseteq I$, and verify that the base change $\prn{S\Sub{j}}\Sub{j\in J}$ is the largest approximation of $\prn{S\Sub{i}}\Sub{i\in I}$ by a family lying in $\bar{\mathfrak{C}}$.</p>
+
+    <p>Conversely suppose that $\bar{\mathfrak{C}}$ is a definable class of families of sets. To see that $\mathfrak{C}$ is definable, we fix a class $\mathfrak{U}$ represented by a set $U\in\mathscr{M}$ to check that $\mathfrak{C}\cap\mathfrak{U}$ is representable. We consider the family of sets $\prn{u}\Sub{u\in U}$; because $\bar{\mathfrak{C}}$ is definable, there is a largest subset $V\subseteq U$ such that the change of base $\prn{v}\Sub{v\in V}$ lies in $\bar{\mathfrak{C}}$, i.e. such that each $v\in V$ lies in $\mathfrak{C}$. Therefore $\mathfrak{C}\cap\mathfrak{U}$ is represented by the set $V$.
+<span style="float:right">∎</span></p>
+
+  </section>
+
+</section>
+
+  </div>
+
+  <style>
+  nav.d-pad {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 3rem 0rem 4rem 0rem;
+    gap: 0.6rem;
+  }
+
+  nav.d-pad i.arrow {
+    display: inline-block;
+    font-style: normal;
+    position: relative;
+    width: 0.6em;
+    height: 0.6em;
+    border: 0.2em solid black;
+    border-bottom: unset;
+    border-left: unset;
+    box-sizing: border-box;
+  }
+  nav.d-pad i.arrow.left {
+    transform: rotate(-135deg);
+  }
+  nav.d-pad i.arrow.right {
+    transform: rotate(45deg);
+  }
+  nav.d-pad a.prev { text-align: right; }
+  nav.d-pad a.next { text-align: left; }
+</style>
+
+<nav class="d-pad">
+
+
+
+
+
+
+
+
+  <a class="prev" href="/math/nodes/002V.html">
+    <i class="arrow left"></i>
+    <span class='numbering'>Definition 4.4·b</span>. Definable class of sets
+    <span class="slug">[002V]</span>
+  </a>
+
+
+
+  <a class="next" href="/math/nodes/002S.html">
+    <span class='numbering'>Section 4.4.2</span>. Bénabou's notion of definability
+    <span class="slug">[002S]</span>
+    <i class="arrow right"></i>
+  </a>
+
+
+</nav>
+
+
+  
+  <nav>
+    <h4>Referrers</h4>
+    <ul>
+  
+  <li>
+    <a href="/math/nodes/002S.html">
+      <span class='numbering'>Section 4.4.2</span>. Bénabou's notion of definability
+      
+      <span class="slug">[002S]</span>
+      
+    </a>
+  </li>
+  
+</ul>
+
+  </nav>
+  
+
+  
+  
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/math/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">The Nursery</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">The Nursery</li><li><a class="u-email" href="mailto:jon@jonmsterling.com">jon@jonmsterling.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jonsterling"><svg class="svg-icon"><use xlink:href="/math/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jonsterling</span></a></li><li><a href="https://www.twitter.com/jonmsterling"><svg class="svg-icon"><use xlink:href="/math/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jonmsterling</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A mathematical web page.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
