@@ -9,20 +9,20 @@
 
 (define-global (BoldSymbol x)
   (match (target)
-    ['katex @raw{\pmb{@x}}]
-    [_ @raw{\boldsymbol{@x}}]))
+    ['katex @tex{\pmb{@x}}]
+    [_ @tex{\boldsymbol{@x}}]))
 
 (define-local (ShSymbol)
-  (BoldSymbol @raw{\mathcal{S}}))
+  (BoldSymbol @tex{\mathcal{S}}))
 
 (define-local (GlSymbol)
-  (BoldSymbol @raw{\mathcal{G}}))
+  (BoldSymbol @tex{\mathcal{G}}))
 
 (define-local (FamSymbol)
-  (BoldSymbol @raw{\mathcal{F}}))
+  (BoldSymbol @tex{\mathcal{F}}))
 
 (define-global (Con x)
-  @raw{\mathsf{@x}})
+  @tex{\mathsf{@x}})
 
 (define-global (Sh X)
   (ShSymbol)
@@ -37,7 +37,7 @@
   (Sub x))
 
 (define-local (overline x)
-  @raw{\overline{@x}})
+  @tex{\overline{@x}})
 
 (define-global (OpGL x)
   (overline (GlSymbol))
@@ -51,14 +51,14 @@
   C (Sup (Con "o")))
 
 (define-global (TotOpCat C)
-  C (Sup @raw{\tilde{@(Con "o")}}))
+  C (Sup @tex{\tilde{@(Con "o")}}))
 
 (define-global (Cod C)
   (Con "cod")
   (Sub C))
 
 (define-local (bold kwd)
-  @raw{\mathbf{@kwd}})
+  @tex{\mathbf{@kwd}})
 
 (define-global (TOP E)
   (bold "Top")
@@ -68,22 +68,16 @@
   "1" (Sub x))
 
 (define-global (TotCat E)
-  @raw{\widetilde{@E}})
+  @tex{\widetilde{@E}})
 
 (define-global (SelfIx B)
-  @raw{\underline{@B}})
+  @tex{\underline{@B}})
 
 (define-global (Sl E e)
-  E (Sub @raw{/@e}))
-
-(define-global (CoSl e E)
-  E (Sup @raw{\setminus @e}))
-
+  E (Sub @tex{/@e}))
 
 (define-global (InvImg f)
-  f (Sup @raw{*}))
-(define-global (DirImg f)
-  f (Sub @raw{*}))
+  f (Sup @tex{*}))
 
 (define-global (SET)
   (bold "Set"))
@@ -94,25 +88,20 @@
 (define-global (CandHom i u v)
   (bold "H") (Sub i) "(" u "," v ")")
 
+
 (define-global (brc x)
-  @raw{\{ @x \}})
+  @tex{\{ @x \}})
 
 (define-global (gl x)
-  @raw{\langle @x \rangle})
+  @tex{\langle @x \rangle})
 
 (define-global (brk x)
-  @raw{[@x]})
+  @tex{[@x]})
 
 (define-global (prn x)
-  @raw{(@x)})
+  @tex{(@x)})
 
 (define-global (FullSubfib u)
   (bold "Full") (prn u))
-
-(define-global (tick)
-  @raw{'})
-
-(define-global (ObjTerm E)
-  (bold "1") (Sub E))
 
 (publish-macro-library 'topos)

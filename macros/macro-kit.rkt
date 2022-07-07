@@ -2,7 +2,7 @@
 
 (require json)
 
-(provide raw define-global define-local publish-macro-library target)
+(provide tex define-global define-local publish-macro-library target)
 (struct macro-repr (name arity inst) #:transparent)
 
 (define target (make-parameter null))
@@ -87,21 +87,21 @@
    "#"
    (number->string (+ 1 (index arg args)))))
 
-(define (raw . args)
+(define (tex . args)
   (string-append* args))
 
 (define-syntax-rule (define-local (id arg ...) bdy ...)
   (begin
-    (define (id arg ...) (raw bdy ...))))
+    (define (id arg ...) (tex bdy ...))))
  
 (define-syntax-rule (define-global (id arg ...) bdy ...)
   (begin
-    (define (id arg ...) (raw bdy ...))
+    (define (id arg ...) (tex bdy ...))
     (let*
         ([name (id->string id)]
          [args (list (syntax->datum #'arg) ...)]
          [arity (length args)]       
          [inst
           (let ([arg (name-arg (syntax->datum #'arg) args)] ...)
-            (thunk (raw bdy ...)))])
+            (thunk (tex bdy ...)))])
       (set-add! (macro-set) (macro-repr name arity inst)))))
