@@ -10,7 +10,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6  {
-  font-family: "Inria Sans" !important;
+  font-family: "Palatino", "Inria Sans" !important;
   font-weight: bold !important;
 }
 
@@ -91,4 +91,14 @@ header.inline .numbering {
 
 section {
   margin-bottom: 1em;
+}
+
+
+
+
+.wrapper {
+  max-width: calc(780px - (60px * 2));
+}
+
+header.site-header {
 }
