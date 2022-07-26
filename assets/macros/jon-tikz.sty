@@ -1,12 +1,31 @@
 \RequirePackage{xparse}
 \RequirePackage{tikz}
+\RequirePackage{zx-calculus}
+\RequirePackage{tikz-cd}
 \usetikzlibrary{matrix,arrows}
 \usetikzlibrary{fit,positioning,calc,shapes}
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.markings}
 
-\RequirePackage{tikz-cd}
+
+\renewcommand{\zxDefaultRowSep}{5mm}
+\renewcommand{\zxDefaultColumnSep}{2mm}
+
+\tikzset{
+  /zx/styles/rounded style/.append style={
+    zxShort/.append style={
+      font={\fontsize{8}{10}\selectfont},
+    },
+    stylePhaseInLabel/.append style={
+      font={\fontsize{8}{10}\selectfont},
+    },
+  },
+  close/.style = {
+    outer sep = -1.7pt
+  }
+}
+
 
 
 \tikzset{
