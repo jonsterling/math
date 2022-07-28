@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0024.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-07-28T11:35:54+02:00" />
+<meta property="article:published_time" content="2022-07-28T13:42:40+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Topoi in a geometric universe" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Topoi in a geometric universe","dateModified":"2022-07-28T11:35:54+02:00","datePublished":"2022-07-28T11:35:54+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0024.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0024.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Topoi in a geometric universe","dateModified":"2022-07-28T13:42:40+02:00","datePublished":"2022-07-28T13:42:40+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0024.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0024.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -172,6 +172,28 @@
 
   
   
+    <nav>
+      <h4>Table of Contents</h4>
+      <ul class="toc">
+  
+  <li>
+    2.1.
+    <a href="#0035">
+      Explicit computations in the 2-category of topoi
+    </a>
+    <a class="slug" href="/math/nodes/0035.html">[0035]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+</ul>
+
+
+    </nav>
+  
 
 
 
@@ -189,23 +211,23 @@ $E$</em> is defined to be a geometric universe $\Sh{X}$ equipped with a structur
 map $X:E\to\Sh{X}$ whose gluing fibration $\GL{X}$ has a
 small separator (<a href="/math/nodes/002H.html" role="tooltip" aria-label="Definition 4.3·d. Small separator for a fibration" class="cref"><span class="numbering">Definition 4.3·d</span> <span class="slug">[002H]</span></a>). A morphism of $E$-topoi $f:{X}\to{Y}$ is defined by a
 morphism $\Sh{f}:\Sh{Y}\to\Sh{X}$ of geometric universes equipped with
-a 2-isomorphism $\phi_{f}:X \cong Y;\Sh{f}$ in $[E,\Sh{X}]$.
-<span class="antex display"><img style='margin: -0.015ex 0.133ex -13.396ex 0.0ex; height: 15.267ex; width: 24.685ex;' src="/math/antex/f8938b2f737e4f05ac44befd63ac0588.svg" /></span></p>
+a 2-isomorphism $\varphi_{f}:X \cong Y;\Sh{f}$ in $[E,\Sh{X}]$.
+<span class="antex display"><img style='margin: -0.015ex 0.133ex -13.396ex 0.0ex; height: 15.267ex; width: 24.685ex;' src="/math/antex/460bed0703ea508afce8faac18dd0675.svg" /></span></p>
 
     <p>It will often be convenient to display pasting diagrams as <em>string diagrams</em>,
 which we read in diagrammatic order from top left to bottom right. A string
 diagram views 2-cell as a “transformer” through which information passes
 along a wire; the input/output interface of such a transformer is written on
 the wires. Regions of whitespace denote objects of the ambient 2-category.
-<span class="antex display"><img style='margin: 0.0ex 0.0ex -5.997ex 0.0ex; height: 13.155ex; width: 11.222ex;' src="/math/antex/dd9a39fd22cbb5f57aaf2ac298be8870.svg" /></span></p>
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -5.752ex 0.0ex; height: 12.665ex; width: 11.032ex;' src="/math/antex/18e0048f1ac1b42e9635562d9f1b4e82.svg" /></span></p>
 
     <p>A 2-morphism $\alpha:{f}\to{g}$ in $[X,Y]$ is defined to be a
-2-morphism $\alpha:\Sh{f}\to{\Sh{g}}$ compatible with $\phi_{f},\phi_{g}$
+2-morphism $\Sh{\alpha}:\Sh{f}\to{\Sh{g}}$ compatible with $\varphi_{f},\varphi_{g}$
 in the sense that the following pasting diagrams are equal:
-<span class="antex display"><img style='margin: -0.014ex 0.128ex -9.503ex 0.0ex; height: 21.3ex; width: 55.144ex;' src="/math/antex/ad684b134451266a4a433746b3554723.svg" /></span></p>
+<span class="antex display"><img style='margin: -0.014ex 0.128ex -9.503ex 0.0ex; height: 21.3ex; width: 53.461ex;' src="/math/antex/05fd3feffe9b808d32a9328741f7f7ee.svg" /></span></p>
 
     <p>We may likewise represent the equation above in terms of string diagrams.
-<span class="antex display"><img style='margin: 0.0ex 0.0ex -7.277ex 0.0ex; height: 15.716ex; width: 31.298ex;' src="/math/antex/ca70966e42a3acc572e13fdfaa3c5df7.svg" /></span></p>
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -7.631ex 0.0ex; height: 16.423ex; width: 30.583ex;' src="/math/antex/73ebc67d08eb315088a4be7bc06a4bbf.svg" /></span></p>
 
   </section>
 
@@ -219,6 +241,107 @@ in the sense that the following pasting diagrams are equal:
 
 
     <p>We will write $\TOP{E}$ for the meta-bicategory of $E$-topoi.</p>
+
+  </section>
+
+  <section id="0035">
+
+
+<header>
+  <h3>
+    
+      <span class="numbering">2.1.</span>
+      Explicit computations in the 2-category of topoi
+      <a class="slug" href="/math/nodes/0035.html">[0035]</a>
+    
+  </h3></header>
+
+
+
+
+    <p>In what follows, we will give explicit computations of the 2-categorical structure of $\TOP{E}$.</p>
+
+    <section id="0031">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/0031.html">[0031]</a>
+  <span class='numbering'>Computation 2.1·a</span> (The identity morphism of a topos).
+</header>
+
+
+      <p>Let $X$ be a topos over a geometric universe $E$; we will compute the identity morphism $\Idn{X}:X\to X$ in $\TOP{E}$ as a diagram in the meta-2-category of geometric universes. We will let $\Sh{\Idn{X}} : \Sh{X}\to \Sh{X}$ be the identity map $\Idn{\Sh{X}}$. The coherence $\varphi\Sub{\Idn{X}}$ is given by the identity 2-cell, as we have the equation $X; \Sh{\Idn{X}} = X$ in $[E,\Sh{X}]$:
+<span class="antex display"><img style='margin: 0.0ex 0.164ex -5.937ex 0.0ex; height: 13.035ex; width: 25.895ex;' src="/math/antex/43ae0ec905d312fe192a8761d6f33936.svg" /></span>
+<span style="float:right">∎</span></p>
+
+    </section>
+
+    <section id="0032">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/0032.html">[0032]</a>
+  <span class='numbering'>Computation 2.1·b</span> (Composing morphisms of topoi).
+</header>
+
+
+      <p>Let $X,Y,Z$ be topoi over a geometric universe $E$ and let $f:X\to Y$ and $g:Y\to Z$ be morphisms of topoi; we will construct the composite morphism $f;g:X\to Z$.</p>
+
+      <p>First of all, let us unfold assumptions into the language of geometric universes. In particular, we have morphisms $\Sh{f}:\Sh{Y}\to \Sh{X}$ and $\Sh{g} : \Sh{Z}\to \Sh{Y}$, together with invertible 2-cells $\varphi_f,\varphi_g$ as depicted below:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -5.752ex 0.0ex; height: 12.665ex; width: 27.876ex;' src="/math/antex/60cbaea82d72cc20daf81ed74b1c0ad7.svg" /></span></p>
+
+      <p>We define $\Sh{f;g}$ to be the composite $\Sh{g};\Sh{f} : \Sh{Z}\to \Sh{Y}$; then we define the coherence isomorphism $\varphi\Sub{f;g}$ to be the 2-cell depicted below:
+<span class="antex display"><img style='margin: 0.0ex 0.129ex -8.52ex 0.0ex; height: 18.202ex; width: 36.206ex;' src="/math/antex/480368c8366a42c6124721508be9408c.svg" /></span>
+<span style="float:right">∎</span></p>
+
+    </section>
+
+    <section id="0033">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/0033.html">[0033]</a>
+  <span class='numbering'>Computation 2.1·c</span> (The identity 2-cell of a morphism of topoi).
+</header>
+
+
+      <p>Let $X,Y$ be a pair of topoi over a geometric universe $E$, and let $f : X \to Y$ be a morphism of $E$-topoi; we will construct the identity 2-cell $\Idn{f} : f \to f$ in the hom category $[X,Y]$. First of all, we unfold the data that we are given into the language of geometric universes:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -5.752ex 0.0ex; height: 12.665ex; width: 11.032ex;' src="/math/antex/18e0048f1ac1b42e9635562d9f1b4e82.svg" /></span></p>
+
+      <p>We define $\Sh{\Idn{f}}$ to be the identity 2-cell $\Idn{\Sh{f}} : \Sh{f}\to \Sh{f}$; it remains to observe the following equation of 2-cells:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -7.949ex 0.0ex; height: 17.059ex; width: 38.343ex;' src="/math/antex/73d572631ccb8bc395092e607a6b14f2.svg" /></span>
+<span style="float:right">∎</span></p>
+
+    </section>
+
+    <section id="0034">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/0034.html">[0034]</a>
+  <span class='numbering'>Computation 2.1·d</span> (Composition of 2-cells between morphisms of topoi).
+</header>
+
+
+      <p>Let $X,Y$ be a pair of topoi over a geometric morphism $E$ and let $f,g,h : X\to Y$ be morphisms of topoi; given 2-cells $\alpha : f \to g$ and $\beta : g \to h$, we will define the composite 2-cell $\alpha;\beta : f \to h$.</p>
+
+      <p>First we unfold what we are given into the language of geometric universes; the morphisms of topoi unravel to the following morphisms and 2-cells of geometric universes:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -5.752ex 0.0ex; height: 12.665ex; width: 45.005ex;' src="/math/antex/c129ce9698169efa4068f3c5caf1d2b3.svg" /></span></p>
+
+      <p>The given 2-cells of topoi $\alpha:f\to g$ and $\beta : g \to h$ unravel into 2-cells between morphisms of geometric universe $\Sh{\alpha} : \Sh{f}\to \Sh{g}$ and $\Sh{\beta}:\Sh{g}\to\Sh{f}$ satisfying the following equations:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -16.442ex 0.0ex; height: 34.046ex; width: 28.885ex;' src="/math/antex/40a46ab07744c7583601cb916d273b29.svg" /></span></p>
+
+      <p>We choose $\Sh{\alpha;\beta}$ to be the composite 2-cell depicted below:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -7.868ex 0.0ex; height: 16.898ex; width: 18.377ex;' src="/math/antex/f15496ee1d9257ab61a9ab2703f1f5f9.svg" /></span></p>
+
+      <p>We must check the following equation of 2-cells:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -7.814ex 0.0ex; height: 16.789ex; width: 32.459ex;' src="/math/antex/7bc9c06db07ad87c87f298344b04cc46.svg" /></span></p>
+
+      <p>The above follows by unfolding the definition of $\Sh{\alpha;\beta}$ and using the assumed equations concerning $\Sh{\alpha}$ and $\Sh{\beta}$:
+<span class="antex display"><img style='margin: 0.0ex 0.0ex -26.174ex 0.0ex; height: 53.509ex; width: 35.432ex;' src="/math/antex/73485542b679be2fbf572bce26fb91f1.svg" /></span>
+<span style="float:right">∎</span></p>
+
+    </section>
 
   </section>
 
