@@ -140,6 +140,11 @@ sheafy:
       sublayout: sheafy/node/result
       genus: Construction
       clicker: result
+    computation:
+      layout: sheafy/tree/default
+      sublayout: sheafy/node/result
+      genus: Computation
+      clicker: result
     example:
       layout: sheafy/tree/default
       sublayout: sheafy/node/result
