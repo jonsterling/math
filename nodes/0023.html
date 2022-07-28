@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0023.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-07-28T18:14:34+02:00" />
+<meta property="article:published_time" content="2022-07-28T19:07:52+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Geometric universes" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Geometric universes","dateModified":"2022-07-28T18:14:34+02:00","datePublished":"2022-07-28T18:14:34+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0023.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0023.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Geometric universes","dateModified":"2022-07-28T19:07:52+02:00","datePublished":"2022-07-28T19:07:52+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0023.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0023.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -172,6 +172,28 @@
 
   
   
+    <nav>
+      <h4>Table of Contents</h4>
+      <ul class="toc">
+  
+  <li>
+    1.1.
+    <a href="#0039">
+      Fibrations of geometric universes
+    </a>
+    <a class="slug" href="/math/nodes/0039.html">[0039]</a>
+    <ul class="toc">
+  
+</ul>
+
+
+  </li>
+  
+</ul>
+
+
+    </nav>
+  
 
 
 
@@ -242,6 +264,76 @@ closed category with a subobject classifier and a natural numbers object.</p>
 
   </section>
 
+  <section id="0039">
+
+
+<header>
+  <h3>
+    
+      <span class="numbering">1.1.</span>
+      Fibrations of geometric universes
+      <a class="slug" href="/math/nodes/0039.html">[0039]</a>
+    
+  </h3></header>
+
+
+
+
+    <p>Logical morphisms play an important role in the study of geometric universes; in particular, the most important notion of <em>fibered</em> geometric universe involves logical morphisms rather than algebraic morphisms.</p>
+
+    <section id="003A">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/003A.html">[003A]</a>
+  <span class='numbering'>Definition 1.1·a</span> (Logical fibrations of geometric universes).
+</header>
+
+
+      <p>Let $B$ be a geometric universes; a <em>logical fibration of geometric universes</em> over $B$ is given by a fibered category $E$ over $B$ such that each that fiber category $E_u$ is a geometric universe and each restriction map $E_v\to E_u$ is a logical morphism.</p>
+
+    </section>
+
+    <section id="003B">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/003B.html">[003B]</a>
+  <span class='numbering'>Theorem 1.1·b</span>.
+</header>
+
+
+      <p>Streicher has pointed out <a class="citation" href="#streicher:2017:fibered-top">(<i>Observations on Fibered Toposes</i>, 2011)</a> that the following are equivalent for a logical fibration <a href="/math/nodes/003A.html" role="tooltip" aria-label="Definition 1.1·a. Logical fibrations of geometric universes" class="slug">[003A]</a> of geometric universes:</p>
+
+      <ol>
+        <li>The total category $\TotCat{E}$ is a geometric universe and the projection $\TotCat{E}\to B$ is a logical morphism.</li>
+        <li>The fibration $E$ has small sums over $B$, i.e. $E$ is an <em>cocartesian fibration</em> (<a href="/math/nodes/0017.html" role="tooltip" aria-label="Definition 6.1·b. Cocartesian fibration" class="cref"><span class="numbering">Definition 6.1·b</span> <span class="slug">[0017]</span></a>) and a certain Beck-Chevalley condition holds for cocartesian</li>
+      </ol>
+
+    </section>
+
+    <section id="003C">
+
+
+<header class="inline">
+  <a class="slug" href="/math/nodes/003C.html">[003C]</a>
+  <span class='numbering'>Theorem 1.1·c</span> (Moens' Theorem).
+</header>
+
+
+      <p>Let $E$ be a logical fibration of geometric universes over a geometric universe $B$. Then the following are equivalent:</p>
+
+      <ol>
+        <li>$E$ has stable and disjoint sums over $B$.</li>
+        <li>$E$ is the <em>gluing fibration</em> for a cartesian morphism $B\to F$ of geometric universes.</li>
+      </ol>
+
+      <p>Indeed, in the situation described above we may define $F$ to be the fiber $E\Sub{\ObjTerm{B}}$ over the terminal object. The functor $B\to E\Sub{\ObjTerm{B}}$ sends each $b\in B$ to the sum $\coprod_{b}\ObjTerm{E}$</p>
+
+    </section>
+
+  </section>
+
 </section>
 
   </div>
@@ -301,6 +393,15 @@ closed category with a subobject classifier and a natural numbers object.</p>
   
 
   
+  
+    <h4>Bibliography</h4>
+    <ol class="bibliography"><li><!-- _layouts/bib.html -->
+<div class="text-justify">
+    <span id="streicher:2017:fibered-top">Streicher, T. (2011). <i>Observations on Fibered Toposes</i>. https://www2.mathematik.tu-darmstadt.de/ streicher/FIBR/fibtop.pdf</span>
+    
+    
+</div>
+<a class="details" href="/math/bibliography/streicher_2017_fibered-top.html">Details</a></li></ol>
   
 
 </article>

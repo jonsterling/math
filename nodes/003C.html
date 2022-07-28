@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Change of base | The Nursery</title>
+<title>Moens’ Theorem | The Nursery</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Change of base" />
+<meta property="og:title" content="Moens’ Theorem" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A mathematical web page." />
 <meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/0007.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0007.html" />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/003C.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/003C.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-07-28T19:07:52+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Change of base" />
+<meta property="twitter:title" content="Moens’ Theorem" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Change of base","dateModified":"2022-07-28T19:07:52+02:00","datePublished":"2022-07-28T19:07:52+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0007.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0007.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Moens’ Theorem","dateModified":"2022-07-28T19:07:52+02:00","datePublished":"2022-07-28T19:07:52+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/003C.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/003C.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -144,20 +144,31 @@
 
 <nav class="breadcrumbs">
   
-    <a href="/math/lectures/categorical-foundations.html">
+    <a href="/math/lectures/topos.html">
       
-      Foundations of Relative Category Theory
+      Geometric universes and topoi (draft)
       
     </a>
     /
   
-    <a href="/math/nodes/0008.html">
+    <a href="/math/nodes/0023.html">
       
-      <span class="numbering">2.</span>
+      <span class="numbering">1.</span>
       
-      Displayed categories and fibrations
+      Geometric universes
       
-      <span class="slug">[0008]</span>
+      <span class="slug">[0023]</span>
+      
+    </a>
+    /
+  
+    <a href="/math/nodes/0039.html">
+      
+      <span class="numbering">1.1.</span>
+      
+      Fibrations of geometric universes
+      
+      <span class="slug">[0039]</span>
       
     </a>
     /
@@ -168,39 +179,23 @@
   </nav>
 
   <div class="post-content">
-    <section id="0007">
+    <section id="003C">
 
 
-<header>
-  <h3>
-    
-      <span class="numbering">2.8.</span>
-      Change of base
-      <a class="slug" href="/math/nodes/0007.html">[0007]</a>
-    
-  </h3></header>
+<header class="inline">
+  <a class="slug" href="/math/nodes/003C.html">[003C]</a>
+  <span class='numbering'>Theorem 1.1·c</span> (Moens' Theorem).
+</header>
 
 
-  
-  
-
-
-
-  <p>Suppose that $E$ is displayed over $B$ and $F : X\to B$ is a
-functor; then we may define a displayed category $\InvImg{F}E$ as over $X$ follows:</p>
+  <p>Let $E$ be a logical fibration of geometric universes over a geometric universe $B$. Then the following are equivalent:</p>
 
   <ol>
-    <li>
-      <p>An object of $(\InvImg{F}E)\Sub{x}$ is an object of $E\Sub{Fx}$.</p>
-    </li>
-    <li>
-      <p>Given $\bar{x}\in (\InvImg{F}E)\Sub{x}$, $\bar{y}\in (\InvImg{F}E)\Sub{y}$ and $f : x
-\to y$, a morphism $\bar{x}\to\Sub{f}\bar{y}$ in $\InvImg{F}E$ is given by a morphism $\bar{x}\to\Sub{Ff}\bar{y}$ in $E$.</p>
-    </li>
+    <li>$E$ has stable and disjoint sums over $B$.</li>
+    <li>$E$ is the <em>gluing fibration</em> for a cartesian morphism $B\to F$ of geometric universes.</li>
   </ol>
 
-  <p>We visualize the change of base scenario as follows:
-<span class="antex display"><img style='margin: -0.016ex 0.077ex -2.788ex 0.0ex; height: 15.166ex; width: 18.537ex;' src="/math/antex/f1ea9f6cb2f6ed264a583fa012ca80f4.svg" /></span></p>
+  <p>Indeed, in the situation described above we may define $F$ to be the fiber $E\Sub{\ObjTerm{B}}$ over the terminal object. The functor $B\to E\Sub{\ObjTerm{B}}$ sends each $b\in B$ to the sum $\coprod_{b}\ObjTerm{E}$</p>
 
 </section>
 
@@ -246,17 +241,17 @@ functor; then we may define a displayed category $\InvImg{F}E$ as over $X$ follo
 
 
 
-  <a class="prev" href="/math/nodes/0006.html">
+  <a class="prev" href="/math/nodes/003B.html">
     <i class="arrow left"></i>
-    <span class='numbering'>Section 2.7</span>. Example: the family fibration
-    <span class="slug">[0006]</span>
+    <span class='numbering'>Theorem 1.1·b</span>
+    <span class="slug">[003B]</span>
   </a>
 
 
 
-  <a class="next" href="/math/nodes/002J.html">
-    <span class='numbering'>Section 2.9</span>. Full subfibrations and figure shapes
-    <span class="slug">[002J]</span>
+  <a class="next" href="/math/nodes/0024.html">
+    <span class='numbering'>Section 2</span>. Topoi in a geometric universe
+    <span class="slug">[0024]</span>
     <i class="arrow right"></i>
   </a>
 
@@ -264,23 +259,6 @@ functor; then we may define a displayed category $\InvImg{F}E$ as over $X$ follo
 </nav>
 
 
-  
-  <nav>
-    <h4>Referrers</h4>
-    <ul>
-  
-  <li>
-    <a href="/math/nodes/000D.html">
-      <span class='numbering'>Section 3.3</span>. Iteration and pushforward
-      
-      <span class="slug">[000D]</span>
-      
-    </a>
-  </li>
-  
-</ul>
-
-  </nav>
   
 
   
