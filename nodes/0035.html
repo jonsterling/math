@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0035.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-07-28T13:55:21+02:00" />
+<meta property="article:published_time" content="2022-07-28T18:12:05+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Explicit computations in the 2-category of topoi" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Explicit computations in the 2-category of topoi","dateModified":"2022-07-28T13:55:21+02:00","datePublished":"2022-07-28T13:55:21+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0035.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0035.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Explicit computations in the 2-category of topoi","dateModified":"2022-07-28T18:12:05+02:00","datePublished":"2022-07-28T18:12:05+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0035.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0035.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -186,7 +186,7 @@
 
 
 
-  <p>In what follows, we will give explicit computations of the 2-categorical structure of $\TOP{E}$.</p>
+  <p>In what follows, we will give explicit computations of the 2-categorical structure of $\TOP{E}$ in the language of $\AlgGU$.</p>
 
   <section id="0031">
 
@@ -197,7 +197,7 @@
 </header>
 
 
-    <p>Let $X$ be a topos over a geometric universe $E$; we will compute the identity morphism $\Idn{X}:X\to X$ in $\TOP{E}$ as a diagram in the meta-2-category of geometric universes. We will let $\Sh{\Idn{X}} : \Sh{X}\to \Sh{X}$ be the identity map $\Idn{\Sh{X}}$. The coherence $\varphi\Sub{\Idn{X}}$ is given by the identity 2-cell, as we have the equation $X; \Sh{\Idn{X}} = X$ in $[E,\Sh{X}]$:
+    <p>Let $X$ be a topos over a geometric universe $E$; we will compute the identity morphism $\Idn{X}:X\to X$ in $\TOP{E}$ as a diagram in the meta-2-category $\AlgGU$ of geometric universes and algebraic morphisms. We will let $\Sh{\Idn{X}} : \Sh{X}\to \Sh{X}$ be the identity map $\Idn{\Sh{X}}$. The coherence $\varphi\Sub{\Idn{X}}$ is given by the identity 2-cell, as we have the equation $X; \Sh{\Idn{X}} = X$ in $[E,\Sh{X}]$:
 <span class="antex display"><img style='margin: 0.0ex 0.164ex -5.937ex 0.0ex; height: 13.035ex; width: 25.895ex;' src="/math/antex/43ae0ec905d312fe192a8761d6f33936.svg" /></span>
 <span style="float:right">∎</span></p>
 
@@ -214,7 +214,7 @@
 
     <p>Let $X,Y,Z$ be topoi over a geometric universe $E$ and let $f:X\to Y$ and $g:Y\to Z$ be morphisms of topoi; we will construct the composite morphism $f;g:X\to Z$.</p>
 
-    <p>First of all, let us unfold assumptions into the language of geometric universes. In particular, we have morphisms $\Sh{f}:\Sh{Y}\to \Sh{X}$ and $\Sh{g} : \Sh{Z}\to \Sh{Y}$, together with invertible 2-cells $\varphi_f,\varphi_g$ as depicted below:
+    <p>First of all, let us unfold assumptions into the language of $\AlgGU$. In particular, we have morphisms $\Sh{f}:\Sh{Y}\to \Sh{X}$ and $\Sh{g} : \Sh{Z}\to \Sh{Y}$, together with invertible 2-cells $\varphi_f,\varphi_g$ as depicted below:
 <span class="antex display"><img style='margin: 0.0ex 0.0ex -5.752ex 0.0ex; height: 12.665ex; width: 27.876ex;' src="/math/antex/60cbaea82d72cc20daf81ed74b1c0ad7.svg" /></span></p>
 
     <p>We define $\Sh{f;g}$ to be the composite $\Sh{g};\Sh{f} : \Sh{Z}\to \Sh{Y}$; then we define the coherence isomorphism $\varphi\Sub{f;g}$ to be the 2-cell depicted below:
@@ -232,7 +232,7 @@
 </header>
 
 
-    <p>Let $X,Y$ be a pair of topoi over a geometric universe $E$, and let $f : X \to Y$ be a morphism of $E$-topoi; we will construct the identity 2-cell $\Idn{f} : f \to f$ in the hom category $[X,Y]$. First of all, we unfold the data that we are given into the language of geometric universes:
+    <p>Let $X,Y$ be a pair of topoi over a geometric universe $E$, and let $f : X \to Y$ be a morphism of $E$-topoi; we will construct the identity 2-cell $\Idn{f} : f \to f$ in the hom category $[X,Y]$. First of all, we unfold the data that we are given into the language of $\AlgGU$:
 <span class="antex display"><img style='margin: 0.0ex 0.0ex -5.752ex 0.0ex; height: 12.665ex; width: 11.032ex;' src="/math/antex/18e0048f1ac1b42e9635562d9f1b4e82.svg" /></span></p>
 
     <p>We define $\Sh{\Idn{f}}$ to be the identity 2-cell $\Idn{\Sh{f}} : \Sh{f}\to \Sh{f}$; it remains to observe the following equation of 2-cells:
