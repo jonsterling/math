@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Direction of geometric morphisms | The Nursery</title>
+<title>Finite colimits, natural numbers objects, and logical functors | The Nursery</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Direction of geometric morphisms" />
+<meta property="og:title" content="Finite colimits, natural numbers objects, and logical functors" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A mathematical web page." />
 <meta property="og:description" content="A mathematical web page." />
@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/0038.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-07-28T18:12:05+02:00" />
+<meta property="article:published_time" content="2022-07-28T18:14:34+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Direction of geometric morphisms" />
+<meta property="twitter:title" content="Finite colimits, natural numbers objects, and logical functors" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Direction of geometric morphisms","dateModified":"2022-07-28T18:12:05+02:00","datePublished":"2022-07-28T18:12:05+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0038.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0038.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Finite colimits, natural numbers objects, and logical functors","dateModified":"2022-07-28T18:14:34+02:00","datePublished":"2022-07-28T18:14:34+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/0038.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/0038.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 <script>
   const macros_promise =
     
-    Promise.resolve({})
+    fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
     ;
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -142,6 +142,28 @@
 </style>
 
 
+<nav class="breadcrumbs">
+  
+    <a href="/math/lectures/topos.html">
+      
+      Geometric universes and topoi (draft)
+      
+    </a>
+    /
+  
+    <a href="/math/nodes/0023.html">
+      
+      <span class="numbering">1.</span>
+      
+      Geometric universes
+      
+      <span class="slug">[0023]</span>
+      
+    </a>
+    /
+  
+</nav>
+
 
   </nav>
 
@@ -151,18 +173,11 @@
 
 <header class="inline">
   <a class="slug" href="/math/nodes/0038.html">[0038]</a>
-  Direction of geometric morphisms.
+  <span class='numbering'>Remark 1·c</span> (Finite colimits, natural numbers objects, and logical functors).
 </header>
 
 
-  <p>In traditional presentations, geometric morphisms are given in the “direct image” direction; that is, an adjunction $f = (\InvImg{f}\dashv \DirImg{f})$ with $\DirImg{f} : F \to E$ is conventionally referred to as a geometric morphism from $F$ to $E$. The reason for the traditional convention is as follows:</p>
-
-  <ol>
-    <li>given a topological space $X$, one may form the geometric universe $\Sh{X}$ of sheaves on $X$;</li>
-    <li>given a continuous map $f:X\to Y$ between topological spaces, we obtain an adjunction $\InvImg{f}\dashv \DirImg{f}$ with $\InvImg{f} : \Sh{Y}\to \Sh{X}$ extending the restriction of opens from $Y$ to $X$; thus $f : X \to Y$ corresponds to the right adjoint $\DirImg{f} : \Sh{X}\to\Sh{Y}$.</li>
-  </ol>
-
-  <p><strong>We have chosen the opposite convention</strong>: a geometric morphism $\InvImg{f}\dashv \DirImg{f}$ between geometric universes goes in the direction of the inverse image functor.  Our motivation is not to be perverse; rather, a geometric universe is a place to “do geometry” and we identify colimits and finite limits as “geometrical” constructions, and a geometric morphism should be a functor that preserves geometrical constructions.</p>
+  <p>Note that any geometric universe has finite colimits, which can be constructed using the subobject classifier. A logical morphism between geometric universes necessarily preserves finite colimits for this reasons. Using Freyd’s characterization of natural numbers objects in terms of a coequalization property, it follows that logical morphisms also preserve the natural numbers object.</p>
 
 </section>
 
@@ -208,7 +223,19 @@
 
 
 
+  <a class="prev" href="/math/nodes/0036.html">
+    <i class="arrow left"></i>
+    <span class='numbering'>Definition 1·b</span>. Morphisms of geometric universes
+    <span class="slug">[0036]</span>
+  </a>
 
+
+
+  <a class="next" href="/math/nodes/0037.html">
+    <span class='numbering'>Definition 1·d</span>. 2-categories of geometric universes
+    <span class="slug">[0037]</span>
+    <i class="arrow right"></i>
+  </a>
 
 
 </nav>
