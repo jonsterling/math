@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Iteration and pushforward | The Nursery</title>
+<title>Jibladze’s Theorem | The Nursery</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Iteration and pushforward" />
+<meta property="og:title" content="Jibladze’s Theorem" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A mathematical web page." />
 <meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/000D.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/000D.html" />
+<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/003D.html" />
+<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/003D.html" />
 <meta property="og:site_name" content="The Nursery" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-07-29T09:53:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Iteration and pushforward" />
+<meta property="twitter:title" content="Jibladze’s Theorem" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Iteration and pushforward","dateModified":"2022-07-29T09:53:00+02:00","datePublished":"2022-07-29T09:53:00+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/000D.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/000D.html","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Jibladze’s Theorem","dateModified":"2022-07-29T09:53:00+02:00","datePublished":"2022-07-29T09:53:00+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/003D.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/003D.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
@@ -144,20 +144,31 @@
 
 <nav class="breadcrumbs">
   
-    <a href="/math/lectures/categorical-foundations.html">
+    <a href="/math/lectures/topos.html">
       
-      Foundations of Relative Category Theory
+      Geometric universes and topoi (draft)
       
     </a>
     /
   
-    <a href="/math/nodes/0009.html">
+    <a href="/math/nodes/0023.html">
       
-      <span class="numbering">3.</span>
+      <span class="numbering">1.</span>
       
-      The Grothendieck construction
+      Geometric universes
       
-      <span class="slug">[0009]</span>
+      <span class="slug">[0023]</span>
+      
+    </a>
+    /
+  
+    <a href="/math/nodes/0039.html">
+      
+      <span class="numbering">1.1.</span>
+      
+      Fibrations of geometric universes
+      
+      <span class="slug">[0039]</span>
       
     </a>
     /
@@ -168,51 +179,16 @@
   </nav>
 
   <div class="post-content">
-    <section id="000D">
+    <section id="003D">
 
 
-<header>
-  <h3>
-    
-      <span class="numbering">3.3.</span>
-      Iteration and pushforward
-      <a class="slug" href="/math/nodes/000D.html">[000D]</a>
-    
-  </h3></header>
+<header class="inline">
+  <a class="slug" href="/math/nodes/003D.html">[003D]</a>
+  <span class='numbering'>Theorem 1.1·d</span> (Jibladze's Theorem).
+</header>
 
 
-  
-  
-
-
-
-  <p>It also makes sense to speak of categories displayed over other displayed
-categories; one way to formalize this notion is as follows. Let $E$ be
-displayed over $B$; we define a category displayed over $E$ to be simply a
-category displayed over the total category $\TotCat{E}$.</p>
-
-  <p>Now let $F$ be displayed over $E$ over $B$. Then we may regard $F$ as a
-displayed category $B\Sub{!}F$ over $B$ as follows:</p>
-
-  <ol>
-    <li>An object of $(B\Sub{!}F)\Sub{x}$ is a pair $(\bar{x},{\ddot{x}})$ with $\bar{x}\in E\Sub{x}$ and ${\ddot{x}}\in F\Sub{\bar{x}}$.</li>
-    <li>A morphism $(\bar{x},{\ddot{x}})\to\Sub{f}(\bar{y},{\ddot{y}})$ is given by a pair $(\bar{f},{\ddot{f}})$ where $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$ in $E$ and ${\ddot{f}}:{\ddot{x}}\to\Sub{\bar{f}} {\ddot{y}}$ in $F$.</li>
-  </ol>
-
-  <p>By virtue of <a href="/math/nodes/000B.html" role="tooltip" aria-label="Section 3.2. Displayed categories from functors" class="cref"><span class="numbering">Section 3.2</span> <span class="slug">[000B]</span></a>, we may define the <em>pushforward</em> of a displayed category along a functor. In particular, let $E$
-be displayed over $B$ and let $U:B\to C$ be an ordinary functor; then we may
-obtain a displayed category $U\Sub{!}E$ over $C$ as follows:</p>
-
-  <ol>
-    <li>First we construct the displayed category $U\Sub{\bullet}$ corresponding to the
-functor $U:B \to C$.</li>
-    <li>We recall that there is a canonical equivalence of categories
-$\TotCat{U\Sub{\bullet}}\to B$.</li>
-    <li>Because $E$ is displayed over $B$, we may regard it as displayed over the
-equivalent total category $\TotCat{U\Sub{\bullet}}$ by
-change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Section 2.8. Change of base" class="cref"><span class="numbering">Section 2.8</span> <span class="slug">[0007]</span></a>).</li>
-    <li>Hence we may define the pushforward $U\Sub{!}E$ to be the displayed category $(U\Sub{\bullet})\Sub{!}E$ as defined above.</li>
-  </ol>
+  <p>Let $E$ be a logical fibration of geometric universes over $B$; if $E$ has small sums over $B$, then these sums are stable and disjoint.</p>
 
 </section>
 
@@ -258,17 +234,17 @@ change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Secti
 
 
 
-  <a class="prev" href="/math/nodes/000B.html">
+  <a class="prev" href="/math/nodes/003C.html">
     <i class="arrow left"></i>
-    <span class='numbering'>Section 3.2</span>. Displayed categories from functors
-    <span class="slug">[000B]</span>
+    <span class='numbering'>Theorem 1.1·c</span>. Moens' Theorem
+    <span class="slug">[003C]</span>
   </a>
 
 
 
-  <a class="next" href="/math/nodes/000E.html">
-    <span class='numbering'>Section 4</span>. Properties of fibrations
-    <span class="slug">[000E]</span>
+  <a class="next" href="/math/nodes/003E.html">
+    <span class='numbering'>Corollary 1.1·e</span>
+    <span class="slug">[003E]</span>
     <i class="arrow right"></i>
   </a>
 
@@ -276,6 +252,23 @@ change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Secti
 </nav>
 
 
+  
+  <nav>
+    <h4>Referrers</h4>
+    <ul>
+  
+  <li>
+    <a href="/math/nodes/003E.html">
+      <span class='numbering'>Corollary 1.1·e</span>
+      
+      <span class="slug">[003E]</span>
+      
+    </a>
+  </li>
+  
+</ul>
+
+  </nav>
   
 
   
