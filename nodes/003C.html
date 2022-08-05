@@ -1,82 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+
+  <head>
+    <title>Moens' Theorem</title>
+    <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Moens’ Theorem | The Nursery</title>
-<meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Moens’ Theorem" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="A mathematical web page." />
-<meta property="og:description" content="A mathematical web page." />
-<link rel="canonical" href="https://www.jonsmsterling.com//math/nodes/003C.html" />
-<meta property="og:url" content="https://www.jonsmsterling.com//math/nodes/003C.html" />
-<meta property="og:site_name" content="The Nursery" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-07-29T16:39:14+02:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Moens’ Theorem" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Moens’ Theorem","dateModified":"2022-07-29T16:39:14+02:00","datePublished":"2022-07-29T16:39:14+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jonsmsterling.com//math/nodes/003C.html"},"description":"A mathematical web page.","url":"https://www.jonsmsterling.com//math/nodes/003C.html","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/math/assets/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/math/assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+  integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+    integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js" integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css"
+    integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"
+    integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"
+    integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
-<script>
-  const macros_promise =
-    
-    fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-    ;
+  <script>
+    const macros_promise =
+      
+      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
+      ;
 
-  document.addEventListener("DOMContentLoaded", function () {
-    macros_promise.then(
-      function (macros) {
-        renderMathInElement(document.body, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
-            { left: '\\[', right: '\\]', display: true }
-          ],
-          macros: macros,
-          throwOnError: false
+    document.addEventListener("DOMContentLoaded", function () {
+      macros_promise.then(
+        function (macros) {
+          renderMathInElement(document.body, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\[', right: '\\]', display: true }
+            ],
+            macros: macros,
+            throwOnError: false
+          });
         });
-      });
-  });
+    });
 
-</script>
+  </script>
 
-<style>
-  .katex { line-height: 1 !important; }
-  .antex.display { display: flex; padding: 1em; }
-  .antex.display > img { margin: 0 auto !important; }
-</style>
 </head>
-<body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/math/">The Nursery</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+  </head>
 
+  <body>
+    <header><nav class="site-nav">
+        <a class="site-title" rel="author" href="/math/">The Nursery</a>
         <div class="trigger">
-          <a class="page-link" id="search-toggle">Search</a><a class="page-link" href="/math/changelog.html">Recent changes</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <style>
+          <ul><li><a class="page-link" href="/math/changelog.html">Recent changes</a></li><li><a class="page-link" id="search-toggle">Search</a></li>
+          </ul>
+        </div>
+      </nav></header>
+
+    <style>
   ul.toc li.ellipsis {
     height: 0;
     overflow: hidden;
@@ -283,31 +266,6 @@
 
 </article>
 
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/math/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">The Nursery</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">The Nursery</li><li><a class="u-email" href="mailto:jon@jonmsterling.com">jon@jonmsterling.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jonsterling"><svg class="svg-icon"><use xlink:href="/math/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jonsterling</span></a></li><li><a href="https://www.twitter.com/jonmsterling"><svg class="svg-icon"><use xlink:href="/math/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jonmsterling</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>A mathematical web page.</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
+  </body>
 
 </html>
