@@ -7,8 +7,6 @@ url: "https://www.jonmsterling.com/"
 twitter_username: jonmsterling
 github_username: jonsterling
 
-theme: minima
-
 safe: false
 source: .
 destination: ./_site
@@ -66,7 +64,6 @@ antex:
     inline_macro: false
 
 plugins:
-  - jekyll-feed
   - jekyll-scholar
   - jekyll/sheafy
 

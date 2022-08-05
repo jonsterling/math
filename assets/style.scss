@@ -1,12 +1,9 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import "simple.css";
 
 body {
-  font-family: "Inria Sans";
-  font-size: 12pt;
 }
 
 h1,h2,h3,h4,h5,h6  {
@@ -45,11 +42,14 @@ h6 {
   font-style: italic;
 }
 
+.trans-note {
+  color: gray;
+}
 
-.page__subtitle {
-  font-size: 1.5em;
-  font-weight: 500;
-  font-style: italic;
+
+.site-title {
+  color: black;
+  font-weight: bold;
 }
 
 .slug {
@@ -89,16 +89,11 @@ header.inline .numbering {
   font-weight: bold;
 }
 
-section {
-  margin-bottom: 1em;
+.katex { line-height: 1 !important; }
+.antex.display { display: flex; padding: 1em; }
+.antex.display > img { margin: 0 auto !important; }
+
+ul.toc {
+  margin-top: 0;
 }
 
-
-
-
-.wrapper {
-  max-width: calc(780px - (60px * 2));
-}
-
-header.site-header {
-}

@@ -1,5 +1,5 @@
 <ul class="toc">
-  {% assign filtered_resources = include.page.children | where: "taxon", "section" -%}
+  {% assign filtered_resources = include.page.children | where: "clicker", "section" %}
   {% for resource in filtered_resources %}
   <li>
     {{ resource.clicks | to_numbering }}.
@@ -11,4 +11,3 @@
   </li>
   {% endfor %}
 </ul>
-

@@ -32,7 +32,7 @@ class NodeInfo
   end
 
   def display_numbering
-    "<span class='numbering'>#{genus} #{numbering}</span>"
+    @node["genus"].nil? ? "<span class='numbering'>#{numbering}</span>" : "<span class='numbering'>#{genus} #{numbering}</span>"
   end
 
   def has_numbering?
@@ -52,5 +52,3 @@ class NodeInfo
     CGI.escapeHTML label
   end
 end
-
-

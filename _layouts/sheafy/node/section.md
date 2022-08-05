@@ -24,7 +24,7 @@
 </header>
 
 {% if page == page.subroot %}
-  {% assign filtered_resources = page.children | where: "taxon", "section" %}
+  {% assign filtered_resources = page.children | where: "clicker", "section" %}
   {% if filtered_resources.size != 0 %}
     <nav>
       <h4>Table of Contents</h4>
