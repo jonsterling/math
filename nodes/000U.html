@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <title>Cartesian lifts in the opposite category</title>
-    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/math/assets/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
-  integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
-    integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
-    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css"
-    integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"
-    integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/microtip@0.2.2/microtip.min.css" integrity="sha256-RUSUTTyNeNKfP+mJISBiUTVElF6MSDsJcwYZrcSyUII=" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js" integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"
-    integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
     const macros_promise =
@@ -48,13 +40,14 @@
 
 </head>
 
-  </head>
 
   <body>
     <header><nav class="site-nav">
         <a class="site-title" rel="author" href="/math/">The Nursery</a>
         <div class="trigger">
-          <ul><li><a class="page-link" href="/math/changelog.html">Recent changes</a></li><li><a class="page-link" id="search-toggle">Search</a></li>
+          <ul>
+<li><a class="page-link" href="/math/changelog.html">Recent changes</a></li>
+<li><a class="page-link" id="search-toggle">Search</a></li>
           </ul>
         </div>
       </nav></header>
@@ -95,7 +88,7 @@
 <form id="search-form" hidden>
   <fieldset>
     <legend>Search</legend>
-    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search...."/>
+    <input autocomplete="off" type="search" id="search-query" name="q" placeholder="Search....">
     <button type="submit">Search</button>
     <button type="reset">Clear</button>
     <details class="hint">
@@ -105,9 +98,12 @@
         <li>The search happens on the current page. If you want to extend it, navigate the book upwards. A search on the root note will search the whole book.</li>
         <li>Once the search is completed, matches will be highlighted and nodes with no matches will be folded. You can expand them by clicking.</li>
         <li>Multiple terms are allowed in the query and the default behaviour is <code>OR</code>ing them. You can <code>AND</code> terms making them mandatory, see <code>+foo</code> below.</li>
-        <li><code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
-        <li><code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
-        <li><code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
+        <li>
+<code>*foo</code>, <code>f*o</code>, and <code>fo*</code> are all allowed wildcards.</li>
+        <li>
+<code>+foo</code> makes a term mandatory, while <code>-foo</code> makes a term forbidden.</li>
+        <li>
+<code>foo~n</code> fuzzy matches within edit distance <code>n</code> (a positive number) from the term.</li>
         <li>Note that the URL changes after a search. You can copy and paste it to share your search results. They will be displayed immediately upon visiting the URL.</li>
       </ul>
     </details>
@@ -188,7 +184,7 @@ immediately implies that $\OpCat{E}$ is fibered over $B$.</p>
 
 <header class="inline">
   <a class="slug" href="/math/nodes/0021.html">[0021]</a>
-  <span class='numbering'>Corollary 2.6.2·a</span>.
+  <span class="numbering">Corollary 2.6.2·a</span>.
 </header>
 
 
@@ -198,7 +194,63 @@ immediately implies that $\OpCat{E}$ is fibered over $B$.</p>
 Fixing $\bar{y}\in \OpCat{E}\Sub{y}$ and $f:x\to y\in B$, we must
 exhibit a cartesian lift $\bar{f} : \bar{x}\to\Sub{f}\bar{y}\in \OpCat{E}$.
 By the characterization <a href="/math/nodes/000T.html" role="tooltip" aria-label="Section 2.6.1. Characterization of cartesian maps" class="slug">[000T]</a> it suffices to find <em>any</em> map over $f$ whose vertical component is an isomorphism. Writing $\bar{y}\Sub{x}\to\Sub{f}\bar{y}$ for the cartesian lift of $f$ in $E$, consider the map in $\OpCat{E}$ presented by the following span in $E$:
-<span class="antex display"><img style='margin: 0.002ex 0.08ex -13.786ex 0.0ex; height: 15.542ex; width: 31.765ex;' src="/math/antex/c7c976c7b145a470586dcc048f7cd9c7.svg" /></span>
+<span class="antex display"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="81.001687 58.988786 121.075243 59.242251" style="margin: 0.002ex 0.08ex -13.786ex 0.0ex;
+height: 15.542ex;
+width: 31.765ex;">
+<defs>
+<path id="g0-120" d="M3.793773-1.150685C3.668244-1.150685 3.633375-1.08792 3.605479-.99726C3.556663-.850809 3.493898-.718306 3.403238-.599751C3.256787-.404483 3.02665-.188294 2.705853-.188294C2.461768-.188294 2.343213-.341719 2.343213-.578829C2.343213-.606725 2.350187-.648568 2.357161-.704359C2.426899-1.143711 2.57335-1.645828 2.705853-2.154919C2.789539-2.496638 2.998755-2.817435 3.326526-2.817435C3.396264-2.817435 3.486924-2.803487 3.549689-2.782565C3.431133-2.705853 3.333499-2.580324 3.333499-2.399004C3.333499-2.203736 3.486924-2.078207 3.675218-2.078207C3.940224-2.078207 4.128518-2.287422 4.128518-2.566376C4.128518-2.970859 3.737983-3.138232 3.340473-3.138232C2.970859-3.138232 2.719801-2.922042 2.566376-2.705853C2.405978-2.956912 2.092154-3.138232 1.72254-3.138232C1.136737-3.138232 .711333-2.684932 .516065-2.287422C.474222-2.196762 .432379-2.12005 .432379-2.008468S.516065-1.855044 .613699-1.855044C.739228-1.855044 .774097-1.924782 .808966-2.015442C.899626-2.308344 1.066999-2.524533 1.255293-2.657036C1.380822-2.747696 1.520299-2.817435 1.701619-2.817435C1.945704-2.817435 2.057285-2.670984 2.057285-2.419925C2.057285-2.399004 2.057285-2.364134 2.050311-2.322291C2.022416-2.12005 1.959651-1.896887 1.910834-1.708593L1.673724-.753176C1.603985-.509091 1.401743-.188294 1.080946-.188294C1.066999-.188294 .899626-.209215 .850809-.223163C.976339-.299875 1.073973-.432379 1.073973-.606725C1.073973-.801993 .920548-.927522 .732254-.927522C.502117-.927522 .27198-.732254 .27198-.439352C.27198-.041843 .676463 .132503 1.066999 .132503C1.429639 .132503 1.673724-.069738 1.841096-.299875C1.994521-.048817 2.30137 .132503 2.677958 .132503C2.887173 .132503 3.075467 .076712 3.235866-.013948C3.514819-.167372 3.758904-.467248 3.884433-.72528C3.926276-.81594 3.96812-.885679 3.96812-.99726C3.96812-1.101868 3.891407-1.150685 3.793773-1.150685Z"></path>
+<path id="g1-102" d="M1.96264-4.104608C1.96264-3.915318 2.122042-3.895392 2.311333-3.895392H2.879203L2.15193-.069738C2.062267 .428394 1.982565 .936488 1.8132 1.325031C1.723537 1.504359 1.62391 1.733499 1.374844 1.733499C1.354919 1.733499 1.195517 1.713574 1.125778 1.683686C1.364882 1.603985 1.534247 1.39477 1.534247 1.105853C1.534247 .836862 1.334994 .667497 1.075965 .667497C.697385 .667497 .438356 .966376 .438356 1.354919C.438356 1.853051 .876712 2.132005 1.374844 2.132005C1.643836 2.132005 1.882939 2.002491 2.072229 1.833126C2.669988 1.285181 2.998755 .159402 3.148194-.806974L3.726027-3.895392H4.523039C4.762142-3.895392 4.901619-3.945205 4.901619-4.184309C4.901619-4.373599 4.732254-4.383562 4.552927-4.383562H3.825654C3.935243-4.991283 3.995019-5.3599 4.144458-6.03736C4.204234-6.336239 4.273973-6.714819 4.632628-6.714819C4.652553-6.714819 4.83188-6.694894 4.891656-6.665006C4.672478-6.575342 4.493151-6.37609 4.493151-6.087173C4.493151-5.818182 4.692403-5.648817 4.951432-5.648817C5.330012-5.648817 5.589041-5.947696 5.589041-6.336239C5.589041-6.844334 5.140722-7.113325 4.632628-7.113325C3.905355-7.113325 3.476961-6.515567 3.277709-5.88792C3.217933-5.668742 3.188045-5.569116 2.968867-4.383562H2.34122C2.102117-4.383562 1.96264-4.333748 1.96264-4.104608Z"></path>
+<path id="g1-120" d="M4.821918-1.613948C4.692403-1.613948 4.632628-1.544209 4.60274-1.444583C4.463263-.976339 4.254047-.687422 4.044832-.498132C3.875467-.33873 3.626401-.199253 3.367372-.199253C3.048568-.199253 2.909091-.448319 2.909091-.767123C2.909091-1.075965 2.998755-1.305106 3.078456-1.62391L3.417186-2.988792C3.526775-3.437111 3.726027-4.094645 4.313823-4.094645C4.343711-4.094645 4.503113-4.084682 4.572852-4.064757C4.403487-3.955168 4.244085-3.775841 4.244085-3.516812C4.244085-3.247821 4.443337-3.078456 4.712329-3.078456C5.080946-3.078456 5.339975-3.367372 5.339975-3.745953C5.339975-4.273973 4.841843-4.493151 4.323786-4.493151C3.825654-4.493151 3.486924-4.154421 3.287671-3.845579C3.098381-4.214197 2.709838-4.493151 2.201743-4.493151C1.414695-4.493151 .86675-3.805729 .617684-3.247821C.557908-3.118306 .508095-3.01868 .508095-2.86924C.508095-2.749689 .607721-2.67995 .71731-2.67995C.846824-2.67995 .9066-2.749689 .936488-2.859278C1.075965-3.307597 1.285181-3.606476 1.494396-3.795766C1.663761-3.955168 1.92279-4.094645 2.181818-4.094645C2.500623-4.094645 2.630137-3.855542 2.630137-3.516812C2.630137-3.287671 2.580324-3.128269 2.530511-2.879203C2.440847-2.49066 2.30137-1.942715 2.092154-1.165629C2.042341-.946451 1.952677-.757161 1.853051-.597758C1.673724-.328767 1.414695-.109589 .976339-.229141C1.145704-.33873 1.295143-.518057 1.295143-.777086C1.295143-1.05604 1.09589-1.215442 .836862-1.215442C.458281-1.215442 .199253-.896638 .199253-.547945C.199253-.428394 .229141-.328767 .278954-.239103C.438356 .049813 .797011 .199253 1.225405 .199253C1.723537 .199253 2.062267-.14944 2.261519-.448319C2.440847-.089664 2.799502 .199253 3.347447 .199253C4.134496 .199253 4.672478-.498132 4.921544-1.046077C4.98132-1.175592 5.031133-1.275218 5.031133-1.424658C5.031133-1.554172 4.941469-1.613948 4.821918-1.613948Z"></path>
+<path id="g1-121" d="M1.803238-.916563C1.803238-1.105853 1.833126-1.334994 1.902864-1.613948C1.982565-1.952677 2.122042-2.351183 2.30137-2.839352C2.391034-3.068493 2.450809-3.198007 2.480697-3.317559C2.500623-3.39726 2.510585-3.486924 2.510585-3.58655C2.510585-4.104608 2.141968-4.493151 1.603985-4.493151C1.414695-4.493151 1.235367-4.433375 1.085928-4.353674C.71731-4.124533 .458281-3.686177 .308842-3.267746C.249066-3.108344 .199253-3.008717 .199253-2.86924C.199253-2.749689 .298879-2.67995 .408468-2.67995C.587796-2.67995 .607721-2.789539 .657534-2.919054C.797011-3.387298 .936488-3.745953 1.235367-3.975093C1.325031-4.044832 1.43462-4.094645 1.574097-4.094645S1.733499-4.014944 1.733499-3.865504C1.733499-3.616438 1.633873-3.387298 1.574097-3.198007C1.344956-2.610212 1.195517-2.171856 1.09589-1.8132C1.026152-1.534247 .986301-1.295143 .986301-1.075965C.986301-.259029 1.484433 .199253 2.291407 .199253C2.620174 .199253 2.929016 .069738 3.138232-.089664C3.008717 .398506 2.86924 .757161 2.580324 1.145704C2.361146 1.424658 2.042341 1.733499 1.554172 1.733499C1.305106 1.733499 1.075965 1.643836 .956413 1.494396C1.265255 1.464508 1.514321 1.225405 1.514321 .876712C1.514321 .597758 1.325031 .438356 1.05604 .438356C.647572 .438356 .408468 .747198 .408468 1.175592C.408468 1.783313 .936488 2.132005 1.554172 2.132005C2.122042 2.132005 2.560399 1.902864 2.909091 1.633873C3.39726 1.265255 3.805729 .707347 3.975093 .029888L4.931507-3.775841C4.961395-3.88543 4.971357-3.915318 4.971357-4.024907C4.971357-4.024907 4.971357-4.024907 4.971357-4.024907C4.971357-4.244085 4.811955-4.383562 4.592777-4.383562C4.393524-4.383562 4.254047-4.26401 4.164384-4.134496C4.084682-3.995019 4.054795-3.726027 4.014944-3.566625L3.367372-.976339C3.367372-.976339 3.35741-.956413 3.347447-.926526C3.188045-.597758 2.799502-.199253 2.331258-.199253C1.92279-.199253 1.803238-.518057 1.803238-.916563Z"></path>
+<path id="g2-22" d="M4.293898-5.778331C4.343711-5.778331 4.383562-5.818182 4.383562-5.867995V-6.176837C4.383562-6.22665 4.343711-6.266501 4.293898-6.266501H.697385C.647572-6.266501 .607721-6.22665 .607721-6.176837V-5.867995C.607721-5.818182 .647572-5.778331 .697385-5.778331H4.293898Z"></path>
+</defs>
+<g id="page1">
+<g transform="matrix(1 0 0 1 -4.9503 2.4907)">
+<use x="86.635794" y="62.764587" xlink:href="#g2-22"></use>
+<use x="85.951987" y="62.764633" xlink:href="#g1-121"></use>
+<use x="90.836491" y="64.259013" xlink:href="#g0-120"></use>
+</g>
+<g transform="matrix(1 0 0 1 -2.847 45.0114)">
+<use x="85.951987" y="62.764633" xlink:href="#g1-120"></use>
+</g>
+<path d="M85.953122 71.46094V95.832" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M83.46093 71.335907H88.4414" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M85.953122 99.09375L87.82031 95.957033H85.953122H84.08593Z" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M148.3164 76.9375H156.8203V68.43359" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<g transform="matrix(1 0 0 1 51.743 2.4907)">
+<use x="86.635794" y="62.764587" xlink:href="#g2-22"></use>
+<use x="85.951987" y="62.764633" xlink:href="#g1-121"></use>
+<use x="90.836491" y="64.259013" xlink:href="#g0-120"></use>
+</g>
+<g transform="matrix(1 0 0 1 53.847 45.0114)">
+<use x="85.951987" y="62.764633" xlink:href="#g1-120"></use>
+</g>
+<path d="M95.4414 62.765626H133.1562" stroke="#000" fill="none" stroke-width="1.59404" stroke-miterlimit="10"></path>
+<path d="M95.4414 62.765626H133.1562" stroke="#fff" fill="none" stroke-width=".59776" stroke-miterlimit="10"></path>
+<path d="M142.6445 71.46094V95.832" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M140.15662 71.335907H145.13709" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M142.644901 99.09375L144.51209 95.957033H142.644901H140.77771Z" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M93.33593 105.2852H135.2617" stroke="#000" fill="none" stroke-width="1.59404" stroke-miterlimit="10"></path>
+<path d="M93.33593 105.2852H135.2617" stroke="#fff" fill="none" stroke-width=".59776" stroke-miterlimit="10"></path>
+<g transform="matrix(1 0 0 1 110.766 2.4907)">
+<use x="86.635794" y="62.764587" xlink:href="#g2-22"></use>
+<use x="85.951987" y="62.764633" xlink:href="#g1-121"></use>
+</g>
+<g transform="matrix(1 0 0 1 110.766 45.0114)">
+<use x="85.951987" y="62.764633" xlink:href="#g1-121"></use>
+</g>
+<path d="M152.1328 62.765626H191.68" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M189.73868 60.19531C190.14102 61.73438 191.031647 62.464845 191.930084 62.765626C191.031647 63.066407 190.14102 63.79297 189.73868 65.33594" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M199.34 71.46094V95.832" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M196.84739 71.335907H201.82786" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M199.33958 99.09375L201.20677 95.957033H199.33958H197.47239Z" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M150.0312 105.2852H191.68" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10"></path>
+<path d="M189.73868 102.71502C190.14102 104.25799 191.031647 104.984554 191.930084 105.285336C191.031647 105.586117 190.14102 106.31268 189.73868 107.85565" stroke="#000" fill="none" stroke-width=".49814" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+<g transform="matrix(1 0 0 1 82.178 53.3344)">
+<use x="85.951987" y="62.764633" xlink:href="#g1-102"></use>
+</g>
+</g>
+</svg></span>
 <span style="float:right">∎</span></p>
 
   </section>
@@ -249,14 +301,14 @@ By the characterization <a href="/math/nodes/000T.html" role="tooltip" aria-labe
 
   <a class="prev" href="/math/nodes/000T.html">
     <i class="arrow left"></i>
-    <span class='numbering'>Section 2.6.1</span>. Characterization of cartesian maps
+    <span class="numbering">Section 2.6.1</span>. Characterization of cartesian maps
     <span class="slug">[000T]</span>
   </a>
 
 
 
   <a class="next" href="/math/nodes/000S.html">
-    <span class='numbering'>Section 2.6.3</span>. Exegesis of opposite categories
+    <span class="numbering">Section 2.6.3</span>. Exegesis of opposite categories
     <span class="slug">[000S]</span>
     <i class="arrow right"></i>
   </a>
