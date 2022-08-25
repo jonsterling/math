@@ -91,7 +91,7 @@ header.inline .numbering {
 
 .katex { line-height: 1 !important; }
 .antex.display { display: flex; padding: 1em; }
-.antex.display > img { margin: 0 auto !important; }
+.antex.display > svg { margin: 0 auto !important; }
 
 ul.toc {
   margin-top: 0;
