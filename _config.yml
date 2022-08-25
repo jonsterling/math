@@ -50,29 +50,6 @@ antex:
         - "{{ file.dvi }}"
         - "{{ file.yml }}"
 
-    dvisvgm_tfm:
-      command:
-        - "dvisvgm"
-        - "--font-format=woff"
-        - "{{ file.dvi }}"
-        - "--output={{ file.tfm }}"
-      sources:
-        - "{{ file.dvi }}"
-      targets:
-        - "{{ file.tfm }}"
-    dvisvgm_fit:
-      command:
-        - "dvisvgm"
-        - "--font-format=woff"
-        - "--exact"
-        - "{{ file.dvi }}"
-        - "--output={{ file.fit }}"
-      sources:
-        - "{{ file.dvi }}"
-      targets:
-        - "{{ file.fit }}"
-
-
   aliases: # disable most aliases and use server side AnTeX only for complex LaTeX
     display_math:
       priority: 20
