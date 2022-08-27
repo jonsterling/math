@@ -19,17 +19,21 @@
     integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      {% if page.macrolib %}
-      fetch("{{site.baseurl}}/assets/macros/{{page.macrolib}}.katex.json").then(response => response.json());
-      {% else %}
-      Promise.resolve({})
-      {% endif %};
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("{{site.baseurl}}/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -39,8 +43,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>

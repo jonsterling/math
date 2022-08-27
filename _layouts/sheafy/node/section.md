@@ -38,3 +38,5 @@
 {{ content }}
 
 </section>
+
+{% include macro-loader.html page=page %}

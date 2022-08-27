@@ -1,3 +1,4 @@
+
 <section id="{{ page.slug }}">
 
 {::nomarkdown}
@@ -12,3 +13,5 @@
 {{ content }}
 
 </section>
+
+{% include macro-loader.html page=page %}
