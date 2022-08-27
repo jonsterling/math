@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -196,6 +202,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "002M");
+  
+</script>
+
   <section id="002N">
 
 
@@ -208,6 +220,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
     <p>Conversely to <a href="/math/nodes/002M.html" role="tooltip" aria-label="Construction 4.4.1·a. Closure of a class of sets under base change" class="cref"><span class="numbering">Construction 4.4.1·a</span> <span class="slug">[002M]</span></a> we may take a class of families of sets $\mathfrak{F}$ to the the class of sets $\mathfrak{F}\Sub{1}\subseteq{\mathscr{M}}$ spanned by sets $S$ such that the singleton family $\brc{S}$ lies in $\mathfrak{C}$.</p>
 
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "002N");
+  
+</script>
 
   <section id="002P">
 
@@ -222,6 +240,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "002P");
+  
+</script>
+
   <section id="002R">
 
 
@@ -234,6 +258,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
     <p>In other words, a stable class of families of sets is definable when any family of sets can be restricted to a “biggest” subfamily that lies in the class.</p>
 
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "002R");
+  
+</script>
 
   <section id="002T">
 
@@ -255,7 +285,20 @@ we fix a family $\prn{S\Sub{i}}\Sub{i\in I}$ not necessarily lying in $\bar{\mat
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "002T");
+  
+</script>
+
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "002Q");
+  
+</script>
+
 
   </div>
 

@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -180,6 +186,12 @@ what a morphism from $x$ to $y$ is, together with the following operations:</p>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "001F");
+  
+</script>
+
   <p>In our definition above, we have not imposed any restrictions on what kinds of
 things the objects and morphisms are; our definition is pre-mathematical, so we
 do not assume beforehand that there is a such thing as a collection of “all”
@@ -208,6 +220,12 @@ collection.</p>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "001G");
+  
+</script>
+
   <p>Consequently there exists a meta-category $\BoldSymbol{\mathfrak{Cat}}$ of all
 categories. Following <a href="http://rfcwalters.blogspot.com/2010/10/old-post-why-are-we-concerned-fw.html">Lawvere</a> (but deviating from some other authors that
 ground the notion of meta-categories in <em>classes</em>) we notice that
@@ -222,6 +240,13 @@ objectify the notions of “small” and “locally small” category over any c
 $B$, generalizing the role of $\SET$ from classical category theory.</p>
 
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "000R");
+  
+</script>
+
 
   </div>
 

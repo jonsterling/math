@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -236,6 +242,12 @@ closed category with a subobject classifier and a natural numbers object.</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0022");
+  
+</script>
+
     <section id="0036">
 
 
@@ -256,6 +268,12 @@ closed category with a subobject classifier and a natural numbers object.</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0036");
+  
+</script>
+
     <section id="0038">
 
 
@@ -268,6 +286,12 @@ closed category with a subobject classifier and a natural numbers object.</p>
       <p>Note that any geometric universe has finite colimits, which can be constructed using the subobject classifier. A logical morphism between geometric universes necessarily preserves finite colimits for this reasons. Using Freyd’s characterization of natural numbers objects in terms of a coequalization property, it follows that logical morphisms also preserve the natural numbers object.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0038");
+  
+</script>
 
     <section id="0037">
 
@@ -288,6 +312,12 @@ closed category with a subobject classifier and a natural numbers object.</p>
       </ol>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0037");
+  
+</script>
 
     <section id="0039">
 
@@ -319,6 +349,12 @@ closed category with a subobject classifier and a natural numbers object.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "003A");
+  
+</script>
+
       <section id="003C">
 
 
@@ -339,6 +375,12 @@ closed category with a subobject classifier and a natural numbers object.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "003C");
+  
+</script>
+
       <section id="003D">
 
 
@@ -351,6 +393,12 @@ closed category with a subobject classifier and a natural numbers object.</p>
         <p>Let $E$ be a logical fibration of geometric universes over $B$; if $E$ has small sums over $B$, then these sums are stable and disjoint.</p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "003D");
+  
+</script>
 
       <section id="003E">
 
@@ -370,11 +418,29 @@ closed category with a subobject classifier and a natural numbers object.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "003E");
+  
+</script>
+
       <p>It will follow in the scenario of <a href="/math/nodes/003E.html" role="tooltip" aria-label="Corollary 1.1·d." class="cref"><span class="numbering">Corollary 1.1·d</span> <span class="slug">[003E]</span></a>, the total category $\TotCat{E}$ is a geometric universe and the projection $\TotCat{E}\to B$ is both a logical morphism of geometric universes and an algebraic morphism of geometric universes. Moreover, the Artin gluing theory of geometric universes will reveal that there exists a subterminal object $U\rightarrowtail \ObjTerm{\TotCat{E}}$ such that $\TotCat{E}\to B$ factors as  $\TotCat{E}\to \Sl{\TotCat{E}}{U} \simeq B$; indeed, $U$ is the initial object of the fiber category $E\Sub{\ObjTerm{B}}$. Then $F = E\Sub{\ObjTerm{B}}$ will be revealed to be equivalent to the full subcategory of $\TotCat{E}$ spanned by objects $X$ such that the projection $X\times U\to U$ is an isomorphism.</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0039");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "0023");
+  
+</script>
 
   <section id="0024">
 
@@ -666,6 +732,12 @@ width: 30.583ex;">
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0025");
+  
+</script>
+
     <section id="0026">
 
 
@@ -678,6 +750,12 @@ width: 30.583ex;">
       <p>We will write $\TOP{E}$ for the meta-2-category of $E$-topoi.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0026");
+  
+</script>
 
     <section id="0035">
 
@@ -758,6 +836,12 @@ width: 25.895ex;">
 <span style="float:right">∎</span></p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "0031");
+  
+</script>
 
       <section id="0032">
 
@@ -917,6 +1001,12 @@ width: 36.206ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "0032");
+  
+</script>
+
       <section id="0033">
 
 
@@ -1045,6 +1135,12 @@ width: 38.343ex;">
 <span style="float:right">∎</span></p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "0033");
+  
+</script>
 
       <section id="0034">
 
@@ -1576,11 +1672,36 @@ width: 35.432ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "0034");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0035");
+  
+</script>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "0024");
+  
+</script>
+
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "topos");
+  
+</script>
+
 
   </div>
 

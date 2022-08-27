@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -234,6 +240,12 @@ to $\SET$ (i.e. small categories) and their family fibrations over $\SET$.</p>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "001Q");
+  
+</script>
+
   <p>We have already seen in <a href="/math/nodes/000G.html" role="tooltip" aria-label="Section 4.1.1. Warmup: locally small family fibrations" class="cref"><span class="numbering">Section 4.1.1</span> <span class="slug">[000G]</span></a> and <a href="/math/nodes/000L.html" role="tooltip" aria-label="Theorem 4.2.1·b. Globally small categories" class="cref"><span class="numbering">Theorem 4.2.1·b</span> <span class="slug">[000L]</span></a> that smallness in the
 sense of the definition above appropriately generalizes the ordinary notion of
 smallness for categories over $\SET$. Another perspective on smallness is given
@@ -286,7 +298,19 @@ in $E$ is defined by the following data:</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "001A");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "000O");
+  
+</script>
 
   <section id="000V">
 
@@ -395,6 +419,12 @@ width: 18.743ex;">
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "001R");
+  
+</script>
+
     <section id="000W">
 
 
@@ -413,6 +443,12 @@ $\InvImg{f}v\to\Sub{f} v$ by setting $\InvImg{f}v = v\circ f : x \to C\Sub{0}$.
 <span style="float:right">∎</span></p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000W");
+  
+</script>
 
     <section id="000X">
 
@@ -507,6 +543,12 @@ width: 18.647ex;">
 <span style="float:right">∎</span></p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000X");
+  
+</script>
 
     <section id="000Y">
 
@@ -1129,7 +1171,19 @@ $\bar{p}:\InvImg{\brk{u,v}}u\to u$ are cartesian.
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "000Y");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "000V");
+  
+</script>
 
   <section id="0011">
 
@@ -1746,7 +1800,19 @@ width: 33.534ex;">
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "001S");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "0011");
+  
+</script>
 
   <section id="000Z">
 
@@ -1777,7 +1843,20 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "000Z");
+  
+</script>
+
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "000N");
+  
+</script>
+
 
   </div>
 

@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -200,6 +206,12 @@ is given by a displayed morphism $\bar{y}\to\Sub{f} \bar{x}$ in $E$.</p>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "001I");
+  
+</script>
+
   <p><strong>Warning.</strong> Do not confuse this construction with <a href="/math/nodes/001Z.html" role="tooltip" aria-label="Construction 2.6·a." class="cref"><span class="numbering">Construction 2.6·a</span> <span class="slug">[001Z]</span></a>, which produces a
 displayed category over $B$ and not $\OpCat{B}$.</p>
 
@@ -218,6 +230,12 @@ $\OpCat{\prn{p\Sub{E}}} : \OpCat{\TotCat{E}}\to\OpCat{B}$.</p>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "001J");
+  
+</script>
+
   <section id="001K">
 
 
@@ -233,6 +251,12 @@ if $\bar{f}:\bar{y}\to\Sub{f}\bar{x}$ is cocartesian over $f$ in $\TotOpCat{E}$.
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "001K");
+  
+</script>
+
   <section id="001L">
 
 
@@ -247,7 +271,20 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "001L");
+  
+</script>
+
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "0018");
+  
+</script>
+
 
   </div>
 

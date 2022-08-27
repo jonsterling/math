@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -180,6 +186,12 @@
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "003A");
+  
+</script>
+
   <section id="003C">
 
 
@@ -200,6 +212,12 @@
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "003C");
+  
+</script>
+
   <section id="003D">
 
 
@@ -212,6 +230,12 @@
     <p>Let $E$ be a logical fibration of geometric universes over $B$; if $E$ has small sums over $B$, then these sums are stable and disjoint.</p>
 
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "003D");
+  
+</script>
 
   <section id="003E">
 
@@ -231,9 +255,22 @@
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "003E");
+  
+</script>
+
   <p>It will follow in the scenario of <a href="/math/nodes/003E.html" role="tooltip" aria-label="Corollary 1.1·d." class="cref"><span class="numbering">Corollary 1.1·d</span> <span class="slug">[003E]</span></a>, the total category $\TotCat{E}$ is a geometric universe and the projection $\TotCat{E}\to B$ is both a logical morphism of geometric universes and an algebraic morphism of geometric universes. Moreover, the Artin gluing theory of geometric universes will reveal that there exists a subterminal object $U\rightarrowtail \ObjTerm{\TotCat{E}}$ such that $\TotCat{E}\to B$ factors as  $\TotCat{E}\to \Sl{\TotCat{E}}{U} \simeq B$; indeed, $U$ is the initial object of the fiber category $E\Sub{\ObjTerm{B}}$. Then $F = E\Sub{\ObjTerm{B}}$ will be revealed to be equivalent to the full subcategory of $\TotCat{E}$ spanned by objects $X$ such that the projection $X\times U\to U$ is an isomorphism.</p>
 
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "0039");
+  
+</script>
+
 
   </div>
 

@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -338,6 +344,12 @@ width: 26.929ex;">
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0016");
+  
+</script>
+
     <p>We use a “pushout corner” to indicate $\bar{x}\to\bar{y}$ as a cocartesian morphism,
 a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Section 6.1.3. Example: The dual self-indexing" class="cref"><span class="numbering">Section 6.1.3</span> <span class="slug">[0019]</span></a>.</p>
 
@@ -355,6 +367,12 @@ $f : x \to y\in B$ and $\bar{x}\in E\Sub{x}$, there exists a displayed object
 $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\Sub{f} \bar{y}$.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0017");
+  
+</script>
 
     <p><strong>Remark.</strong> These are also known as <em>opfibrations</em>.</p>
 
@@ -397,6 +415,12 @@ is given by a displayed morphism $\bar{y}\to\Sub{f} \bar{x}$ in $E$.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001I");
+  
+</script>
+
       <p><strong>Warning.</strong> Do not confuse this construction with <a href="/math/nodes/001Z.html" role="tooltip" aria-label="Construction 2.6·a." class="cref"><span class="numbering">Construction 2.6·a</span> <span class="slug">[001Z]</span></a>, which produces a
 displayed category over $B$ and not $\OpCat{B}$.</p>
 
@@ -415,6 +439,12 @@ $\OpCat{\prn{p\Sub{E}}} : \OpCat{\TotCat{E}}\to\OpCat{B}$.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001J");
+  
+</script>
+
       <section id="001K">
 
 
@@ -430,6 +460,12 @@ if $\bar{f}:\bar{y}\to\Sub{f}\bar{x}$ is cocartesian over $f$ in $\TotOpCat{E}$.
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001K");
+  
+</script>
+
       <section id="001L">
 
 
@@ -444,7 +480,19 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001L");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0018");
+  
+</script>
 
     <section id="002X">
 
@@ -480,7 +528,19 @@ fibration.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002Y");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "002X");
+  
+</script>
 
     <section id="0019">
 
@@ -574,6 +634,12 @@ width: 21.774ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002Z");
+  
+</script>
+
       <section id="001M">
 
 
@@ -587,6 +653,12 @@ width: 21.774ex;">
 $B$ has pushouts.</p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "001M");
+  
+</script>
 
       <section id="001N">
 
@@ -602,6 +674,12 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001N");
+  
+</script>
+
       <section id="0030">
 
 
@@ -615,9 +693,27 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "0030");
+  
+</script>
+
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0019");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "0015");
+  
+</script>
 
   <section id="0013">
 
@@ -647,6 +743,12 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 when all displayed morphisms in $E$ are cartesian.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "001O");
+  
+</script>
 
     <p>Recall from <a href="/math/nodes/0005.html" role="tooltip" aria-label="Section 2.5. Fiber categories and vertical maps" class="cref"><span class="numbering">Section 2.5</span> <span class="slug">[0005]</span></a> that for every $b\in B$, the collection of displayed
 objects $E\Sub{b}$ and vertical maps $E\Sub{1\Sub{b}}$ forms a category. When $E$ is
@@ -901,9 +1003,28 @@ width: 30.398ex;">
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "001P");
+  
+</script>
+
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "0013");
+  
+</script>
+
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "0012");
+  
+</script>
+
 
   </div>
 

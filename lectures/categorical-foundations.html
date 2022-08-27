@@ -16,15 +16,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha256-DFDZACuFeAqEKv/7Vnu1Tt5ALa58bcWZegGGFNgET8g=" crossorigin="anonymous"></script>
 
   <script>
-    const macros_promise =
-      
-      fetch("/math/assets/macros/topos.katex.json").then(response => response.json());
-      ;
+    const katexMacroLibCache = {};
+    function loadKaTeXMacroLibrary(macrolib) {
+      const cached = katexMacroLibCache[macrolib];
+      if (cached) { return cached; }
+      const promise = fetch("/math/assets/macros/" + macrolib + ".katex.json").then(response => response.json());
+      katexMacroLibCache[macrolib] = promise;
+      return promise;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      macros_promise.then(
-        function (macros) {
-          renderMathInElement(document.body, {
+    function renderMacrosInSection(macrolib, sectionId) {
+      const macros_promise = loadKaTeXMacroLibrary(macrolib);
+      const sectionElement = document.getElementById(sectionId);
+      document.addEventListener("DOMContentLoaded", function () {
+        macros_promise.then(function (macros) {
+          renderMathInElement(sectionElement, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false },
@@ -34,8 +40,8 @@
             throwOnError: false
           });
         });
-    });
-
+      });
+    }
   </script>
 
 </head>
@@ -749,6 +755,12 @@ what a morphism from $x$ to $y$ is, together with the following operations:</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "001F");
+  
+</script>
+
     <p>In our definition above, we have not imposed any restrictions on what kinds of
 things the objects and morphisms are; our definition is pre-mathematical, so we
 do not assume beforehand that there is a such thing as a collection of “all”
@@ -777,6 +789,12 @@ collection.</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "001G");
+  
+</script>
+
     <p>Consequently there exists a meta-category $\BoldSymbol{\mathfrak{Cat}}$ of all
 categories. Following <a href="http://rfcwalters.blogspot.com/2010/10/old-post-why-are-we-concerned-fw.html">Lawvere</a> (but deviating from some other authors that
 ground the notion of meta-categories in <em>classes</em>) we notice that
@@ -791,6 +809,12 @@ objectify the notions of “small” and “locally small” category over any c
 $B$, generalizing the role of $\SET$ from classical category theory.</p>
 
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "000R");
+  
+</script>
 
   <section id="0008">
 
@@ -844,6 +868,12 @@ laws for the base category $B$.</li>
       <p><strong>Notation</strong>. When we have too many subscripts, we will write $E[x]$ instead of $E\Sub{x}$.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0000");
+  
+</script>
 
     <section id="0001">
 
@@ -942,6 +972,12 @@ of a category.</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0001");
+  
+</script>
+
     <section id="0002">
 
 
@@ -962,6 +998,12 @@ unique isomorphism, so being a cartesian fibration is a <em>property</em> of a d
 \cong y$ in the base.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0002");
+  
+</script>
 
     <section id="0003">
 
@@ -1051,6 +1093,12 @@ width: 21.774ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001X");
+  
+</script>
+
       <section id="001Y">
 
 
@@ -1064,7 +1112,19 @@ width: 21.774ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001Y");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0003");
+  
+</script>
 
     <section id="0014">
 
@@ -1378,7 +1438,19 @@ $\bar{h} = i;\bar{f}$, as required.
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001H");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0014");
+  
+</script>
 
     <section id="0029">
 
@@ -1487,6 +1559,12 @@ width: 26.892ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002A");
+  
+</script>
+
       <p>Cartesian morphisms are clearly hypocartesian (setting $u=x$ and $m=\Idn{x}$),
 but the converse does not hold. The problem is that in an arbitrary displayed
 category, hypocartesian morphisms may not be closed under composition.</p>
@@ -1565,6 +1643,12 @@ the fact that $\bar{f}\tick$ is cartesian.
 <span style="float:right">∎</span></p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "002C");
+  
+</script>
 
       <p>Grothendieck <a class="citation" href="#sga:1">(<i>Revêtements Étales Et Groupe Fondamental (SGA 1)</i>, 1971)</a> defines a fibration in terms of (what we refer
 to as) hypocartesian morphisms rather than (what we refer to as) cartesian
@@ -1769,6 +1853,12 @@ being hypocartesian.
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002B");
+  
+</script>
+
       <section id="002D">
 
 
@@ -1790,7 +1880,19 @@ have pointed out in <a href="/math/nodes/001Y.html" role="tooltip" aria-label="E
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002D");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0029");
+  
+</script>
 
     <section id="0004">
 
@@ -1827,6 +1929,12 @@ functors</em>.</p>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0004");
+  
+</script>
+
     <section id="0005">
 
 
@@ -1849,6 +1957,12 @@ structure of a category; in particular, we set $E\Sub{b}(u,v)$ to be the collect
 of vertical maps $u\to\Sub{\Idn{b}}v$.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0005");
+  
+</script>
 
     <section id="000Q">
 
@@ -2043,6 +2157,12 @@ width: 21.527ex;">
         </ol>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "001Z");
+  
+</script>
 
       <section id="000T">
 
@@ -2245,7 +2365,19 @@ width: 45.439ex;">
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "0020");
+  
+</script>
+
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "000T");
+  
+</script>
 
       <section id="000U">
 
@@ -2341,7 +2473,19 @@ width: 31.765ex;">
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "0021");
+  
+</script>
+
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "000U");
+  
+</script>
 
       <section id="000S">
 
@@ -2373,7 +2517,19 @@ different cartesian lifts $v\Sub{x}\to x$. A displayed morphism that is cartesia
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "000S");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000Q");
+  
+</script>
 
     <section id="0006">
 
@@ -2414,6 +2570,12 @@ properties of a family fibration over an arbitrary base $B$, strictly
 generalizing the classical notions.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0006");
+  
+</script>
 
     <section id="0007">
 
@@ -2488,6 +2650,12 @@ width: 18.537ex;">
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "0007");
+  
+</script>
+
     <section id="002J">
 
 
@@ -2541,6 +2709,12 @@ over $B$; then any displayed object $\bar{x} \in E\Sub{x}$ induces a <em>full su
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "0010");
+  
+</script>
+
       <section id="002K">
 
 
@@ -2565,9 +2739,27 @@ whenever $\bar{z}\in\FullSubfib{\bar{s}}$.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002K");
+  
+</script>
+
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "002J");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "0008");
+  
+</script>
 
   <section id="0009">
 
@@ -2625,7 +2817,19 @@ $f:x\to y$ and $\bar{f}:\bar{x}\to\Sub{f}\bar{y}$.</li>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001T");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000A");
+  
+</script>
 
     <section id="000B">
 
@@ -2787,6 +2991,12 @@ collection of objects $u\in E$ such that $Pu = x$.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001U");
+  
+</script>
+
       <p>We have a functor $\TotCat{P\Sub{\bullet}}\to E$ taking a pair $(x,(u,\phi\Sub{u}))$ to
 $u$.</p>
 
@@ -2803,6 +3013,12 @@ $u$.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001V");
+  
+</script>
+
       <section id="001W">
 
 
@@ -2815,6 +3031,12 @@ $u$.</p>
         <p>Verify that $\TotCat{P\Sub{\bullet}}\to E$ is a categorical equivalence.</p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "001W");
+  
+</script>
 
       <section id="000C">
 
@@ -2852,7 +3074,19 @@ Grothendieck fibrations.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "000C");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000B");
+  
+</script>
 
     <section id="000D">
 
@@ -2899,7 +3133,19 @@ change of base (<a href="/math/nodes/0007.html" role="tooltip" aria-label="Secti
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "000D");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "0009");
+  
+</script>
 
   <section id="000E">
 
@@ -3004,6 +3250,12 @@ is a family of sets for any $I\in \SET$, then $C$ is locally small as we may
 consider in particular the case that $I=\mathbf{1}$.</p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "000G");
+  
+</script>
 
       <section id="000H">
 
@@ -3219,6 +3471,12 @@ width: 37.966ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "000H");
+  
+</script>
+
       <section id="000I">
 
 
@@ -3406,6 +3664,12 @@ width: 24.097ex;">
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "001C");
+  
+</script>
+
         <section id="001B">
 
 
@@ -3421,9 +3685,27 @@ has a terminal object.</p>
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "001B");
+  
+</script>
+
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "000I");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000F");
+  
+</script>
 
     <section id="000J">
 
@@ -3460,6 +3742,12 @@ smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001D");
+  
+</script>
+
       <section id="000K">
 
 
@@ -3491,6 +3779,12 @@ smallness</em> by Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical
           <p><strong>Warning.</strong> Our terminology differs from that of Jacobs <a class="citation" href="#jacobs:1999">(<i>Categorical Logic and Type Theory</i>, 1999)</a>; what we refer to as a <em>generic object</em> here is Jacobs’ <em>weak generic object</em>. We prefer the unqualified terminology, as generic objects in the stronger sense are very rare.</p>
 
         </section>
+
+        <script>
+  
+  renderMacrosInSection("topos", "001E");
+  
+</script>
 
         <section id="000L">
 
@@ -3673,7 +3967,19 @@ up to isomorphism, we must include them explicitly in the data.
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "000L");
+  
+</script>
+
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "000K");
+  
+</script>
 
       <section id="000P">
 
@@ -3688,7 +3994,19 @@ up to isomorphism, we must include them explicitly in the data.
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "000P");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000J");
+  
+</script>
 
     <section id="002E">
 
@@ -3728,6 +4046,12 @@ $u;f=u;g$, we then have $f=g$.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002G");
+  
+</script>
+
       <p>The intuition of <a href="/math/nodes/002G.html" role="tooltip" aria-label="Definition 4.3·a. Separating family for a category" class="cref"><span class="numbering">Definition 4.3·a</span> <span class="slug">[002G]</span></a> is that to compare two morphisms $f,g:x\to y\in E$,
 it suffices to check that they behave the same on all $s\Sub{i}$-shaped figures
 when $\prn{s\Sub{i}}\Sub{i\in I}$ is a separating family for $E$.</p>
@@ -3747,6 +4071,12 @@ $\brc{\ObjTerm{\SET}}$ is a separator for $\SET$, a property referred to more ge
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002F");
+  
+</script>
+
       <p>We will now generalize <a href="/math/nodes/002G.html" role="tooltip" aria-label="Definition 4.3·a. Separating family for a category" class="cref"><span class="numbering">Definition 4.3·a</span> <span class="slug">[002G]</span></a> to the case of a cartesian fibration.</p>
 
       <section id="002I">
@@ -3765,6 +4095,12 @@ $h : \bar{z}\to \bar{x}$ in the sense of <a href="/math/nodes/002K.html" role="t
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002I");
+  
+</script>
+
       <section id="002H">
 
 
@@ -3780,7 +4116,19 @@ binary products. A displayed object $\bar{s}\in E\Sub{s}$ is said to be a
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002H");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "002E");
+  
+</script>
 
     <section id="002L">
 
@@ -3824,6 +4172,12 @@ as a class.</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "002U");
+  
+</script>
+
       <section id="002V">
 
 
@@ -3836,6 +4190,12 @@ as a class.</p>
         <p>A class of sets $\mathfrak{C}\subseteq\mathscr{M}$ is called <em>definable</em> when for any representable class $\mathfrak{S}$, the class $\mathfrak{C}\cap\mathfrak{S}$ is representable.</p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "002V");
+  
+</script>
 
       <p>Bénabou then generalizes the definitions above to an arbitrary fibration,
 in such a way that the general fibered notion of definable class is
@@ -3877,6 +4237,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "002M");
+  
+</script>
+
         <section id="002N">
 
 
@@ -3889,6 +4255,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
           <p>Conversely to <a href="/math/nodes/002M.html" role="tooltip" aria-label="Construction 4.4.1·a. Closure of a class of sets under base change" class="cref"><span class="numbering">Construction 4.4.1·a</span> <span class="slug">[002M]</span></a> we may take a class of families of sets $\mathfrak{F}$ to the the class of sets $\mathfrak{F}\Sub{1}\subseteq{\mathscr{M}}$ spanned by sets $S$ such that the singleton family $\brc{S}$ lies in $\mathfrak{C}$.</p>
 
         </section>
+
+        <script>
+  
+  renderMacrosInSection("topos", "002N");
+  
+</script>
 
         <section id="002P">
 
@@ -3903,6 +4275,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "002P");
+  
+</script>
+
         <section id="002R">
 
 
@@ -3915,6 +4293,12 @@ then for any $u:J\to I$, the base change $\prn{S\Sub{uj}}\Sub{j\in J}$ also lies
           <p>In other words, a stable class of families of sets is definable when any family of sets can be restricted to a “biggest” subfamily that lies in the class.</p>
 
         </section>
+
+        <script>
+  
+  renderMacrosInSection("topos", "002R");
+  
+</script>
 
         <section id="002T">
 
@@ -3936,7 +4320,19 @@ we fix a family $\prn{S\Sub{i}}\Sub{i\in I}$ not necessarily lying in $\bar{\mat
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "002T");
+  
+</script>
+
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "002Q");
+  
+</script>
 
       <section id="002S">
 
@@ -4082,6 +4478,12 @@ width: 60.17ex;">
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "002W");
+  
+</script>
+
         <section id="002O">
 
 
@@ -4100,11 +4502,35 @@ definable class of families of sets in the sense of <a href="/math/nodes/002P.ht
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "002O");
+  
+</script>
+
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "002S");
+  
+</script>
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "002L");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "000E");
+  
+</script>
 
   <section id="000N">
 
@@ -4139,6 +4565,12 @@ to $\SET$ (i.e. small categories) and their family fibrations over $\SET$.</p>
 <a href="/math/nodes/000I.html" role="tooltip" aria-label="Section 4.1.3. The definition of local smallness" class="slug">[000I]</a> and globally small <a href="/math/nodes/000J.html" role="tooltip" aria-label="Section 4.2. Globally small fibrations" class="slug">[000J]</a>.</p>
 
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "001Q");
+  
+</script>
 
     <p>We have already seen in <a href="/math/nodes/000G.html" role="tooltip" aria-label="Section 4.1.1. Warmup: locally small family fibrations" class="cref"><span class="numbering">Section 4.1.1</span> <span class="slug">[000G]</span></a> and <a href="/math/nodes/000L.html" role="tooltip" aria-label="Theorem 4.2.1·b. Globally small categories" class="cref"><span class="numbering">Theorem 4.2.1·b</span> <span class="slug">[000L]</span></a> that smallness in the
 sense of the definition above appropriately generalizes the ordinary notion of
@@ -4192,7 +4624,19 @@ in $E$ is defined by the following data:</p>
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001A");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000O");
+  
+</script>
 
     <section id="000V">
 
@@ -4301,6 +4745,12 @@ width: 18.743ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001R");
+  
+</script>
+
       <section id="000W">
 
 
@@ -4319,6 +4769,12 @@ $\InvImg{f}v\to\Sub{f} v$ by setting $\InvImg{f}v = v\circ f : x \to C\Sub{0}$.
 <span style="float:right">∎</span></p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "000W");
+  
+</script>
 
       <section id="000X">
 
@@ -4413,6 +4869,12 @@ width: 18.647ex;">
 <span style="float:right">∎</span></p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "000X");
+  
+</script>
 
       <section id="000Y">
 
@@ -5035,7 +5497,19 @@ $\bar{p}:\InvImg{\brk{u,v}}u\to u$ are cartesian.
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "000Y");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "000V");
+  
+</script>
 
     <section id="0011">
 
@@ -5652,7 +6126,19 @@ width: 33.534ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001S");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0011");
+  
+</script>
 
     <section id="000Z">
 
@@ -5683,7 +6169,19 @@ know that <em>every</em> object of $C$ is classified by $\bar{u}$, so we are don
 
     </section>
 
+    <script>
+  
+  renderMacrosInSection("topos", "000Z");
+  
+</script>
+
   </section>
+
+  <script>
+  
+  renderMacrosInSection("topos", "000N");
+  
+</script>
 
   <section id="0012">
 
@@ -5810,6 +6308,12 @@ width: 26.929ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "0016");
+  
+</script>
+
       <p>We use a “pushout corner” to indicate $\bar{x}\to\bar{y}$ as a cocartesian morphism,
 a notation justified by <a href="/math/nodes/0019.html" role="tooltip" aria-label="Section 6.1.3. Example: The dual self-indexing" class="cref"><span class="numbering">Section 6.1.3</span> <span class="slug">[0019]</span></a>.</p>
 
@@ -5827,6 +6331,12 @@ $f : x \to y\in B$ and $\bar{x}\in E\Sub{x}$, there exists a displayed object
 $\bar{y}\in E\Sub{y}$ and a <em>cocartesian</em> morphism $\bar{f} : \bar{x}\to\Sub{f} \bar{y}$.</p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "0017");
+  
+</script>
 
       <p><strong>Remark.</strong> These are also known as <em>opfibrations</em>.</p>
 
@@ -5869,6 +6379,12 @@ is given by a displayed morphism $\bar{y}\to\Sub{f} \bar{x}$ in $E$.</p>
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "001I");
+  
+</script>
+
         <p><strong>Warning.</strong> Do not confuse this construction with <a href="/math/nodes/001Z.html" role="tooltip" aria-label="Construction 2.6·a." class="cref"><span class="numbering">Construction 2.6·a</span> <span class="slug">[001Z]</span></a>, which produces a
 displayed category over $B$ and not $\OpCat{B}$.</p>
 
@@ -5887,6 +6403,12 @@ $\OpCat{\prn{p\Sub{E}}} : \OpCat{\TotCat{E}}\to\OpCat{B}$.</p>
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "001J");
+  
+</script>
+
         <section id="001K">
 
 
@@ -5902,6 +6424,12 @@ if $\bar{f}:\bar{y}\to\Sub{f}\bar{x}$ is cocartesian over $f$ in $\TotOpCat{E}$.
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "001K");
+  
+</script>
+
         <section id="001L">
 
 
@@ -5916,7 +6444,19 @@ if and only if $\TotOpCat{E}$ is a cocartesian fibration over $\OpCat{B}$.</p>
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "001L");
+  
+</script>
+
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "0018");
+  
+</script>
 
       <section id="002X">
 
@@ -5952,7 +6492,19 @@ fibration.</p>
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "002Y");
+  
+</script>
+
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "002X");
+  
+</script>
 
       <section id="0019">
 
@@ -6046,6 +6598,12 @@ width: 21.774ex;">
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "002Z");
+  
+</script>
+
         <section id="001M">
 
 
@@ -6059,6 +6617,12 @@ width: 21.774ex;">
 $B$ has pushouts.</p>
 
         </section>
+
+        <script>
+  
+  renderMacrosInSection("topos", "001M");
+  
+</script>
 
         <section id="001N">
 
@@ -6074,6 +6638,12 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "001N");
+  
+</script>
+
         <section id="0030">
 
 
@@ -6087,9 +6657,27 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 
         </section>
 
+        <script>
+  
+  renderMacrosInSection("topos", "0030");
+  
+</script>
+
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "0019");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0015");
+  
+</script>
 
     <section id="0013">
 
@@ -6119,6 +6707,12 @@ arrow category $B^{\to}$, and the projection is the <em>domain</em> functor.</p>
 when all displayed morphisms in $E$ are cartesian.</p>
 
       </section>
+
+      <script>
+  
+  renderMacrosInSection("topos", "001O");
+  
+</script>
 
       <p>Recall from <a href="/math/nodes/0005.html" role="tooltip" aria-label="Section 2.5. Fiber categories and vertical maps" class="cref"><span class="numbering">Section 2.5</span> <span class="slug">[0005]</span></a> that for every $b\in B$, the collection of displayed
 objects $E\Sub{b}$ and vertical maps $E\Sub{1\Sub{b}}$ forms a category. When $E$ is
@@ -6373,11 +6967,36 @@ width: 30.398ex;">
 
       </section>
 
+      <script>
+  
+  renderMacrosInSection("topos", "001P");
+  
+</script>
+
     </section>
+
+    <script>
+  
+  renderMacrosInSection("topos", "0013");
+  
+</script>
 
   </section>
 
+  <script>
+  
+  renderMacrosInSection("topos", "0012");
+  
+</script>
+
 </section>
+
+<script>
+  
+  renderMacrosInSection("topos", "categorical-foundations");
+  
+</script>
+
 
   </div>
 
