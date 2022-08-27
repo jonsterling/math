@@ -29,13 +29,29 @@ kramdown:
   parse_block_html: true
 
 antex:
-  inlining: true
+  inlining: false
   url_path_prefix: *baseurl
 
   preamble: >-
     \usepackage{jon-tikz}
     \usepackage{mlmodern,amsfonts,amssymb,amsmath}
-    \usepackage{topos}
+
+  template: |
+    \documentclass{article}
+    \pagestyle{empty}
+    \usepackage{ {{ macrolib }} }
+    {{ preamble }}
+    \newsavebox\snippet
+    \begin{lrbox}{\snippet}{{ prepend }}{{ snippet }}{{ append }}\end{lrbox}
+    \newwrite\file
+    \immediate\openout\file=\jobname.yml
+    \immediate\write\file{em: \the\dimexpr1em}
+    \immediate\write\file{ex: \the\dimexpr1ex}
+    \immediate\write\file{ht: \the\ht\snippet}
+    \immediate\write\file{dp: \the\dp\snippet}
+    \immediate\write\file{wd: \the\wd\snippet}
+    \closeout\file
+    \begin{document}\usebox{\snippet}\end{document}
 
   commands:
     latexmk:
@@ -51,16 +67,17 @@ antex:
         - "{{ file.yml }}"
 
   aliases: # disable most aliases and use server side AnTeX only for complex LaTeX
-    display_math:
+    default:
       priority: 20
       regexp: !ruby/regexp |
-        /«
+        /{%\s*tex\s*(?<markup>.*?)%}
         (?<code>.*?)
-        »/mx
+        {%\s*endtex\s*%}/mx
       options:
+        classes: [antex, display]
         prepend: '$\displaystyle '
         append: $
-        classes: [antex, display]
+    display_math: false
     inline_math: false
     inline_macro: false
 
