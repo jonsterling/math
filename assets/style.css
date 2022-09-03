@@ -1,44 +1,106 @@
-@import url(simple.css);
-h1, h2, h3, h4, h5, h6 { font-family: "Palatino", "Inria Sans" !important; font-weight: bold !important; }
+@import "simple.css";
 
-h1 { font-size: 2em !important; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Palatino", "Inria Sans" !important;
+  font-weight: bold !important;
+}
 
-h2 { font-size: 1.5em !important; margin-block-end: .4em; margin-top: 1.5em; }
+h1 {
+  font-size: 2em !important;
+}
 
-h3 { font-size: 1.2em !important; margin-block-end: .4em; margin-top: .3em; }
+h2 {
+  font-size: 1.5em !important;
+  margin-block-end: .4em;
+  margin-top: 1.5em;
+}
 
-h4 { font-size: 1.1em !important; margin-top: .3em; margin-block-end: .4em; }
+h3 {
+  font-size: 1.2em !important;
+  margin-block-end: .4em;
+  margin-top: .3em;
+}
 
-h5 { font-size: 1em !important; }
+h4 {
+  font-size: 1.1em !important;
+  margin-top: .3em;
+  margin-block-end: .4em;
+}
 
-h6 { font-size: 1em !important; font-style: italic; }
+h5 {
+  font-size: 1em !important;
+}
 
-.trans-note { color: gray; }
+h6 {
+  font-size: 1em !important;
+  font-style: italic;
+}
 
-.site-title { color: black; font-weight: bold; }
+.trans-note {
+  color: gray;
+}
 
-.slug { font-family: "Inria Sans"; font-weight: 200; color: gray !important; }
 
-ul.toc { list-style-type: none; padding: 0; margin-left: 10pt; }
+.site-title {
+  color: black;
+  font-weight: bold;
+}
 
-div.bibtex-code { margin-top: 1em; }
+.slug {
+  font-family: "Inria Sans";
+  font-weight: 200;
+  color: gray !important;
+}
 
-header.post-header { margin-bottom: 1em !important; }
+ul.toc {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10pt;
+}
 
-header.inline { display: inline; margin-right: .5ex; }
+div.bibtex-code {
+  margin-top: 1em;
+}
 
-header.inline + p { display: inline; }
+header.post-header {
+  margin-bottom: 1em !important;
+}
 
-header.inline + p + * { margin-top: 10px; }
+header.inline {
+  display: inline;
+  margin-right: .5ex;
+}
 
-header.inline .numbering { font-weight: bold; }
+header.inline+p {
+  display: inline;
+}
 
-.katex { line-height: 1 !important; }
+header.inline+p+* {
+  margin-top: 10px;
+}
 
-.antex.display { display: flex; padding: 1em; }
+header.inline .numbering {
+  font-weight: bold;
+}
 
-.antex.display > img { margin: 0 auto !important; }
+.katex {
+  line-height: 1 !important;
+}
 
-ul.toc { margin-top: 0; }
+.antex.display {
+  display: flex;
+  padding: 1em;
+}
 
-/*# sourceMappingURL=style.css.map */
+.antex.display>svg {
+  margin: 0 auto !important;
+}
+
+ul.toc {
+  margin-top: 0;
+}
