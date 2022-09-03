@@ -97,7 +97,8 @@ header.inline .numbering {
   padding: 1em;
 }
 
-.antex.display>svg {
+.antex.display>svg,
+.antex.display>img {
   margin: 0 auto !important;
 }
 
