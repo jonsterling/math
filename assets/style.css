@@ -1,12 +1,11 @@
----
----
-
 @import "simple.css";
 
-body {
-}
-
-h1,h2,h3,h4,h5,h6  {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Palatino", "Inria Sans" !important;
   font-weight: bold !important;
 }
@@ -77,11 +76,11 @@ header.inline {
   margin-right: .5ex;
 }
 
-header.inline + p {
+header.inline+p {
   display: inline;
 }
 
-header.inline + p + * {
+header.inline+p+* {
   margin-top: 10px;
 }
 
@@ -89,11 +88,19 @@ header.inline .numbering {
   font-weight: bold;
 }
 
-.katex { line-height: 1 !important; }
-.antex.display { display: flex; padding: 1em; }
-.antex.display > img { margin: 0 auto !important; }
+.katex {
+  line-height: 1 !important;
+}
+
+.antex.display {
+  display: flex;
+  padding: 1em;
+}
+
+.antex.display>svg {
+  margin: 0 auto !important;
+}
 
 ul.toc {
   margin-top: 0;
 }
-
