@@ -7,6 +7,8 @@ author:
 macrolib: topos
 ---
 
+**The current version of these notes is now located on my <a href="https://www.jonmsterling.com/forest/trees/frct-003i/">Forest</a>. Permalinks from the existing website are redirected to the corresponding nodes in the Forest.**
+
 We assume knowledge of basic categorical concepts such as categories, functors,
 and natural transformations. The purpose of this lecture is to develop the
 notion of a category *over* another category.

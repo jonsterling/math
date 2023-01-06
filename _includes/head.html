@@ -1,4 +1,12 @@
 <head>
+
+  <!-- Setting up a redirect to the new version of these notes on my Forest. -->
+  {% if  page.collection == "nodes" %}
+  <meta http-equiv="Refresh" content="0; url=https://www.jonmsterling.com/forest/trees/frct-{{page.slug}}" />
+  {% endif %}
+
+
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
