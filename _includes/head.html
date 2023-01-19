@@ -2,7 +2,7 @@
 
   <!-- Setting up a redirect to the new version of these notes on my Forest. -->
   {% if  page.collection == "nodes" %}
-  <meta http-equiv="Refresh" content="0; url=https://www.jonmsterling.com/forest/trees/frct-{{page.slug}}" />
+  <meta http-equiv="Refresh" content="0; url=https://www.jonmsterling.com/forest/trees/frct-{{page.slug | downcase}}" />
   {% endif %}
 
 
