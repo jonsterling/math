@@ -1,3 +1,7 @@
+***Notice:*** These lecture notes have now been incorporated into my [Forest](https://github.com/jonsterling/forest). This repository will not be updated except in order to fix broken redirects.
+
+-----
+
 This repository is based on [Krater](https://github.com/paolobrasolin/krater),
 a tool for building math-rich websites; the purpose of the present code is to
 support "Stacks Project"-style websites, where you create a bunch of files like
